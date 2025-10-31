@@ -743,20 +743,34 @@
             const nextMarkIndex = (currentMarkIndex + 1) % MARKS.length;
             horseMarks[raceId][horseIndex][slotIndex] = nextMarkIndex;
 
-            // 表示を更新
-            updateMarkDisplay(raceId, horseIndex, slotIndex);
+            // 全ビューを更新（同期）
+            updateAllViews(raceId);
         }
 
-        // 馬印の表示を更新
-        function updateMarkDisplay(raceId, horseIndex, slotIndex) {
-            const markIndex = horseMarks[raceId][horseIndex][slotIndex];
-            const mark = MARKS[markIndex];
-
-            const markElement = document.querySelector(`[data-race="${raceId}"][data-horse="${horseIndex}"][data-slot="${slotIndex}"]`);
-            if (markElement) {
-                markElement.textContent = mark.symbol;
-                markElement.className = 'mark-slot ' + mark.class;
+        // 全ビューの馬印を更新
+        function updateAllViews(raceId) {
+            // 現在表示中のレースを取得
+            if (!selectedRace || getRaceId(selectedRace) !== raceId) {
+                return;
             }
+
+            // 各ビューの馬印要素を更新
+            selectedRace.horses.forEach((horse, horseIndex) => {
+                for (let slotIndex = 0; slotIndex < 3; slotIndex++) {
+                    const markIndex = horseMarks[raceId][horseIndex][slotIndex];
+                    const mark = MARKS[markIndex];
+
+                    // 該当する全ての馬印要素を取得して更新
+                    const markElements = document.querySelectorAll(
+                        `[data-race="${raceId}"][data-horse="${horseIndex}"][data-slot="${slotIndex}"]`
+                    );
+
+                    markElements.forEach(element => {
+                        element.textContent = mark.symbol;
+                        element.className = 'mark-slot ' + mark.class;
+                    });
+                }
+            });
         }
 
         // レースIDを生成
@@ -1129,7 +1143,7 @@
                                     <div class="index-value">${horse.indices.mining_index.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
-                                    <div class="index-label">レース評価値</div>
+                                    <div class="index-label">レース評価</div>
                                     <div class="index-value">${horse.indices.corrected_time_deviation.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
