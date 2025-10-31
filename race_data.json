@@ -22531,10 +22531,10 @@
           "zi_deviation": 43.16,
           "base_score": 44.73,
           "jockey_coefficient": 0.98924,
-          "similarity_coefficient": 0.99914,
+          "similarity_coefficient": 1.00145,
           "stability_coefficient": 0.9952,
-          "total_coefficient_score": -0.004,
-          "final_score": 40.57
+          "total_coefficient_score": -0.003,
+          "final_score": 41.86
         }
       },
       {
