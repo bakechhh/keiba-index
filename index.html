@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>競馬指数予測システム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .update-info {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* フィルター */
+        .filters {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        /* レース一覧 */
+        .race-list {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .race-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .race-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .race-card.active {
+            border: 3px solid #667eea;
+        }
+
+        .race-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .race-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .race-info {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .race-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .race-details {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 馬一覧 */
+        .horses-container {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .horses-container.active {
+            display: block;
+        }
+
+        .horses-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .horses-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .close-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .horse-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .horse-card:nth-child(1) .horse-rank {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .horse-card:nth-child(2) .horse-rank {
+            background: #c0c0c0;
+            color: #333;
+        }
+
+        .horse-card:nth-child(3) .horse-rank {
+            background: #cd7f32;
+            color: white;
+        }
+
+        .horse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .horse-basic {
+            flex: 1;
+        }
+
+        .horse-rank {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .horse-name-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .horse-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .horse-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .horse-jockey {
+            font-size: 14px;
+            color: #666;
+            margin-left: 40px;
+        }
+
+        .horse-score {
+            text-align: right;
+        }
+
+        .final-score {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .horse-indices {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .index-item {
+            text-align: center;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .index-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+
+        .index-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .horse-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* 過去走履歴 */
+        .past-races {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .past-races-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .past-race {
+            font-size: 12px;
+            padding: 6px;
+            background: white;
+            border-radius: 6px;
+            margin-bottom: 5px;
+        }
+
+        /* ローディング */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* エラー表示 */
+        .error {
+            background: #ff6b6b;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* レスポンシブ対応 */
+        @media (min-width: 768px) {
+            .horse-indices {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .horse-details {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <div class="header">
+            <h1>🏇 競馬指数予測システム</h1>
+            <div class="update-info" id="updateInfo">読み込み中...</div>
+        </div>
+
+        <!-- フィルター -->
+        <div class="filters">
+            <div class="filter-group">
+                <label for="dateFilter">📅 開催日</label>
+                <select id="dateFilter">
+                    <option value="">日付を選択...</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="placeFilter">📍 競馬場</label>
+                <select id="placeFilter">
+                    <option value="">すべての競馬場</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ローディング -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            データを読み込んでいます...
+        </div>
+
+        <!-- エラー表示 -->
+        <div class="error" id="error" style="display: none;"></div>
+
+        <!-- レース一覧 -->
+        <div class="race-list" id="raceList"></div>
+
+        <!-- 馬一覧 -->
+        <div class="horses-container" id="horsesContainer">
+            <div class="horses-header">
+                <div class="horses-title" id="horsesTitle"></div>
+                <button class="close-btn" onclick="closeHorseList()">✕ 閉じる</button>
+            </div>
+            <div id="horsesList"></div>
+        </div>
+    </div>
+
+    <script>
+        let allRaces = [];
+        let filteredRaces = [];
+        let selectedRace = null;
+
+        // データを読み込み
+        async function loadData() {
+            try {
+                const response = await fetch('./race_data.json');
+                if (!response.ok) throw new Error('データの読み込みに失敗しました');
+                
+                allRaces = await response.json();
+                
+                // フィルター初期化
+                initializeFilters();
+                
+                // レース一覧を表示
+                filteredRaces = allRaces;
+                displayRaces();
+                
+                // ローディング非表示
+                document.getElementById('loading').style.display = 'none';
+                
+                // 更新情報を表示
+                const now = new Date();
+                document.getElementById('updateInfo').textContent = 
+                    `最終更新: ${now.toLocaleString('ja-JP')} | レース数: ${allRaces.length}`;
+                
+            } catch (error) {
+                console.error('エラー:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = 
+                    `データの読み込みに失敗しました: ${error.message}`;
+            }
+        }
+
+        // フィルター初期化
+        function initializeFilters() {
+            // 日付フィルター
+            const dates = [...new Set(allRaces.map(r => r.date))].sort().reverse();
+            const dateFilter = document.getElementById('dateFilter');
+            dates.forEach(date => {
+                const option = document.createElement('option');
+                option.value = date;
+                option.textContent = date;
+                dateFilter.appendChild(option);
+            });
+
+            // 競馬場フィルター
+            const places = [...new Set(allRaces.map(r => r.place))].sort();
+            const placeFilter = document.getElementById('placeFilter');
+            places.forEach(place => {
+                const option = document.createElement('option');
+                option.value = place;
+                option.textContent = place;
+                placeFilter.appendChild(option);
+            });
+
+            // イベントリスナー
+            dateFilter.addEventListener('change', applyFilters);
+            placeFilter.addEventListener('change', applyFilters);
+        }
+
+        // フィルター適用
+        function applyFilters() {
+            const dateFilter = document.getElementById('dateFilter').value;
+            const placeFilter = document.getElementById('placeFilter').value;
+
+            filteredRaces = allRaces.filter(race => {
+                const matchDate = !dateFilter || race.date === dateFilter;
+                const matchPlace = !placeFilter || race.place === placeFilter;
+                return matchDate && matchPlace;
+            });
+
+            displayRaces();
+            closeHorseList();
+        }
+
+        // レース一覧を表示
+        function displayRaces() {
+            const raceList = document.getElementById('raceList');
+            raceList.innerHTML = '';
+
+            if (filteredRaces.length === 0) {
+                raceList.innerHTML = '<div class="error">該当するレースが見つかりませんでした</div>';
+                return;
+            }
+
+            filteredRaces.forEach((race, index) => {
+                const card = document.createElement('div');
+                card.className = 'race-card';
+                card.onclick = () => showHorses(race, card);
+
+                card.innerHTML = `
+                    <div class="race-header">
+                        <div class="race-number">${race.place}${race.round}R</div>
+                        <div class="race-info">
+                            ${race.date}<br>
+                            ${race.surface} ${race.distance}m
+                        </div>
+                    </div>
+                    <div class="race-name">${race.race_name}</div>
+                    <div class="race-details">
+                        ${race.race_class} | ${race.num_horses}頭立て
+                    </div>
+                `;
+
+                raceList.appendChild(card);
+            });
+        }
+
+        // 馬一覧を表示
+        function showHorses(race, cardElement) {
+            selectedRace = race;
+
+            // すべてのレースカードの選択状態をリセット
+            document.querySelectorAll('.race-card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // クリックされたカードを選択状態に
+            cardElement.classList.add('active');
+
+            // タイトル設定
+            document.getElementById('horsesTitle').textContent = 
+                `${race.place}${race.round}R ${race.race_name}`;
+
+            // 馬一覧を作成
+            const horsesList = document.getElementById('horsesList');
+            horsesList.innerHTML = '';
+
+            race.horses.forEach((horse, index) => {
+                const card = document.createElement('div');
+                card.className = 'horse-card';
+
+                // 過去走履歴
+                let pastRacesHTML = '';
+                if (horse.past_races && horse.past_races.length > 0) {
+                    pastRacesHTML = `
+                        <div class="past-races">
+                            <div class="past-races-title">📊 直近の成績</div>
+                            ${horse.past_races.slice(0, 3).map(pr => `
+                                <div class="past-race">
+                                    ${pr.date} ${pr.place} ${pr.surface}${pr.distance}m 
+                                    ${pr.rank}着 (${pr.margin}秒差)
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="horse-header">
+                        <div class="horse-rank">${index + 1}</div>
+                        <div class="horse-basic">
+                            <div class="horse-name-row">
+                                <div class="horse-number">${horse.horse_number}</div>
+                                <div class="horse-name">${horse.horse_name}</div>
+                            </div>
+                            <div class="horse-jockey">🏇 ${horse.jockey.name} (${horse.jockey.weight}kg)</div>
+                        </div>
+                        <div class="horse-score">
+                            <div class="final-score">${horse.indices.final_score.toFixed(1)}</div>
+                            <div class="score-label">最終スコア</div>
+                        </div>
+                    </div>
+
+                    <div class="horse-indices">
+                        <div class="index-item">
+                            <div class="index-label">マイニング</div>
+                            <div class="index-value">${horse.indices.mining_index.toFixed(1)}</div>
+                        </div>
+                        <div class="index-item">
+                            <div class="index-label">補正タイム</div>
+                            <div class="index-value">${horse.indices.corrected_time_deviation.toFixed(1)}</div>
+                        </div>
+                        <div class="index-item">
+                            <div class="index-label">ZI偏差値</div>
+                            <div class="index-value">${horse.indices.zi_deviation.toFixed(1)}</div>
+                        </div>
+                        <div class="index-item">
+                            <div class="index-label">騎手係数</div>
+                            <div class="index-value">${horse.indices.jockey_coefficient.toFixed(3)}</div>
+                        </div>
+                        <div class="index-item">
+                            <div class="index-label">近似性</div>
+                            <div class="index-value">${horse.indices.similarity_coefficient.toFixed(3)}</div>
+                        </div>
+                        <div class="index-item">
+                            <div class="index-label">安定性</div>
+                            <div class="index-value">${horse.indices.stability_coefficient.toFixed(3)}</div>
+                        </div>
+                    </div>
+
+                    <div class="horse-details">
+                        <div class="detail-item">
+                            <div class="detail-label">調教師</div>
+                            <div class="detail-value">${horse.trainer.name}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">間隔</div>
+                            <div class="detail-value">${horse.interval}週</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">騎手複勝率</div>
+                            <div class="detail-value">${horse.jockey.this_year.show_rate.toFixed(1)}%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">ZI指数</div>
+                            <div class="detail-value">${horse.zi_index.toFixed(1)}</div>
+                        </div>
+                    </div>
+
+                    ${pastRacesHTML}
+                `;
+
+                horsesList.appendChild(card);
+            });
+
+            // 馬一覧を表示
+            document.getElementById('horsesContainer').classList.add('active');
+            
+            // スムーズスクロール
+            document.getElementById('horsesContainer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // 馬一覧を閉じる
+        function closeHorseList() {
+            document.getElementById('horsesContainer').classList.remove('active');
+            document.querySelectorAll('.race-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            selectedRace = null;
+        }
+
+        // 初期化
+        loadData();
+    </script>
+</body>
+</html>
