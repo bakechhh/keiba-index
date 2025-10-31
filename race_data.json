@@ -1429,10 +1429,10 @@
           "zi_deviation": 68.65,
           "base_score": 58.64,
           "jockey_coefficient": 1.00186,
-          "similarity_coefficient": 1.00296,
+          "similarity_coefficient": 1.00635,
           "stability_coefficient": 0.9975,
-          "total_coefficient_score": 0.001,
-          "final_score": 59.93
+          "total_coefficient_score": 0.003,
+          "final_score": 62.42
         }
       },
       {
@@ -19004,10 +19004,10 @@
           "zi_deviation": 33.81,
           "base_score": 46.14,
           "jockey_coefficient": 0.99658,
-          "similarity_coefficient": 0.99933,
+          "similarity_coefficient": 1.00289,
           "stability_coefficient": 0.9995,
-          "total_coefficient_score": -0.001,
-          "final_score": 44.96
+          "total_coefficient_score": 0.001,
+          "final_score": 47.01
         }
       },
       {
@@ -19100,10 +19100,10 @@
           "zi_deviation": 63.56,
           "base_score": 42.53,
           "jockey_coefficient": 1.00487,
-          "similarity_coefficient": 0.99841,
+          "similarity_coefficient": 1.00197,
           "stability_coefficient": 1.0,
-          "total_coefficient_score": -0.0,
-          "final_score": 42.46
+          "total_coefficient_score": 0.002,
+          "final_score": 44.35
         }
       },
       {
@@ -22531,10 +22531,10 @@
           "zi_deviation": 43.16,
           "base_score": 44.73,
           "jockey_coefficient": 0.98924,
-          "similarity_coefficient": 0.99914,
+          "similarity_coefficient": 1.00145,
           "stability_coefficient": 0.9952,
-          "total_coefficient_score": -0.004,
-          "final_score": 40.57
+          "total_coefficient_score": -0.003,
+          "final_score": 41.86
         }
       },
       {
@@ -29907,6 +29907,122 @@
         }
       },
       {
+        "frame": 4,
+        "horse_number": 6,
+        "horse_name": "サクラパステル",
+        "mark": "",
+        "jockey": {
+          "name": "丸山元気",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "this_year": {
+            "wins": 26,
+            "win_rate": 6.3,
+            "place_rate": 17.1,
+            "show_rate": 25.8
+          },
+          "last_year": {
+            "wins": 24,
+            "win_rate": 4.8,
+            "place_rate": 11.4,
+            "show_rate": 18.4
+          }
+        },
+        "trainer": {
+          "affiliation": "(美)",
+          "name": "田島俊明",
+          "this_year": {
+            "wins": 16,
+            "win_rate": 7.0,
+            "place_rate": 13.9,
+            "show_rate": 21.3
+          },
+          "last_year": {
+            "wins": 16,
+            "win_rate": 5.6,
+            "place_rate": 13.3,
+            "show_rate": 21.8
+          }
+        },
+        "interval": 19,
+        "zi_index": 104.0,
+        "time_mining": 85.62,
+        "battle_mining": 45.8,
+        "past_races": [
+          {
+            "date": "2025.6.21",
+            "race_name": "未勝利",
+            "place": "東京",
+            "surface": "ダ",
+            "distance": "1400",
+            "track_condition": "良",
+            "frame": "8",
+            "horse_number": "16",
+            "weight": 55.0,
+            "weight_reduction": "",
+            "rank": "1",
+            "margin": -0.5,
+            "corrected_time": 91.0,
+            "running_style": "逃",
+            "last_3f": 36.0,
+            "ave_3f": 37.2,
+            "pci": 53.3,
+            "position_3f": 0.0
+          },
+          {
+            "date": "2025.6.1",
+            "race_name": "未勝利",
+            "place": "東京",
+            "surface": "ダ",
+            "distance": "1400",
+            "track_condition": "重",
+            "frame": "7",
+            "horse_number": "14",
+            "weight": 55.0,
+            "weight_reduction": "",
+            "rank": "4",
+            "margin": 0.7,
+            "corrected_time": 85.0,
+            "running_style": "先",
+            "last_3f": 36.7,
+            "ave_3f": 36.0,
+            "pci": 48.1,
+            "position_3f": 0.7
+          },
+          {
+            "date": "2025.3.8",
+            "race_name": "未勝利・牝",
+            "place": "中山",
+            "surface": "ダ",
+            "distance": "1200",
+            "track_condition": "重",
+            "frame": "1",
+            "horse_number": "2",
+            "weight": 55.0,
+            "weight_reduction": "",
+            "rank": "13",
+            "margin": 4.0,
+            "corrected_time": 52.0,
+            "running_style": "後",
+            "last_3f": 39.3,
+            "ave_3f": 36.7,
+            "pci": 43.4,
+            "position_3f": 1.9
+          }
+        ],
+        "indices": {
+          "mining_index": 47.64,
+          "corrected_time_deviation": 26.49,
+          "zi_deviation": 49.8,
+          "base_score": 40.56,
+          "jockey_coefficient": 1.00047,
+          "similarity_coefficient": 1.00809,
+          "stability_coefficient": 0.99451,
+          "total_coefficient_score": 0.002,
+          "final_score": 42.79
+        }
+      },
+      {
         "frame": 5,
         "horse_number": 9,
         "horse_name": "ノーブルミステリー",
@@ -30160,122 +30276,6 @@
           "stability_coefficient": 0.9937,
           "total_coefficient_score": -0.003,
           "final_score": 41.65
-        }
-      },
-      {
-        "frame": 4,
-        "horse_number": 6,
-        "horse_name": "サクラパステル",
-        "mark": "",
-        "jockey": {
-          "name": "丸山元気",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "this_year": {
-            "wins": 26,
-            "win_rate": 6.3,
-            "place_rate": 17.1,
-            "show_rate": 25.8
-          },
-          "last_year": {
-            "wins": 24,
-            "win_rate": 4.8,
-            "place_rate": 11.4,
-            "show_rate": 18.4
-          }
-        },
-        "trainer": {
-          "affiliation": "(美)",
-          "name": "田島俊明",
-          "this_year": {
-            "wins": 16,
-            "win_rate": 7.0,
-            "place_rate": 13.9,
-            "show_rate": 21.3
-          },
-          "last_year": {
-            "wins": 16,
-            "win_rate": 5.6,
-            "place_rate": 13.3,
-            "show_rate": 21.8
-          }
-        },
-        "interval": 19,
-        "zi_index": 104.0,
-        "time_mining": 85.62,
-        "battle_mining": 45.8,
-        "past_races": [
-          {
-            "date": "2025.6.21",
-            "race_name": "未勝利",
-            "place": "東京",
-            "surface": "ダ",
-            "distance": "1400",
-            "track_condition": "良",
-            "frame": "8",
-            "horse_number": "16",
-            "weight": 55.0,
-            "weight_reduction": "",
-            "rank": "1",
-            "margin": -0.5,
-            "corrected_time": 91.0,
-            "running_style": "逃",
-            "last_3f": 36.0,
-            "ave_3f": 37.2,
-            "pci": 53.3,
-            "position_3f": 0.0
-          },
-          {
-            "date": "2025.6.1",
-            "race_name": "未勝利",
-            "place": "東京",
-            "surface": "ダ",
-            "distance": "1400",
-            "track_condition": "重",
-            "frame": "7",
-            "horse_number": "14",
-            "weight": 55.0,
-            "weight_reduction": "",
-            "rank": "4",
-            "margin": 0.7,
-            "corrected_time": 85.0,
-            "running_style": "先",
-            "last_3f": 36.7,
-            "ave_3f": 36.0,
-            "pci": 48.1,
-            "position_3f": 0.7
-          },
-          {
-            "date": "2025.3.8",
-            "race_name": "未勝利・牝",
-            "place": "中山",
-            "surface": "ダ",
-            "distance": "1200",
-            "track_condition": "重",
-            "frame": "1",
-            "horse_number": "2",
-            "weight": 55.0,
-            "weight_reduction": "",
-            "rank": "13",
-            "margin": 4.0,
-            "corrected_time": 52.0,
-            "running_style": "後",
-            "last_3f": 39.3,
-            "ave_3f": 36.7,
-            "pci": 43.4,
-            "position_3f": 1.9
-          }
-        ],
-        "indices": {
-          "mining_index": 47.64,
-          "corrected_time_deviation": 26.49,
-          "zi_deviation": 49.8,
-          "base_score": 40.56,
-          "jockey_coefficient": 1.00047,
-          "similarity_coefficient": 1.00483,
-          "stability_coefficient": 0.99451,
-          "total_coefficient_score": 0.001,
-          "final_score": 41.13
         }
       },
       {
@@ -39329,10 +39329,10 @@
           "zi_deviation": 41.21,
           "base_score": 43.74,
           "jockey_coefficient": 1.00435,
-          "similarity_coefficient": 0.99847,
+          "similarity_coefficient": 1.00114,
           "stability_coefficient": 0.99426,
-          "total_coefficient_score": -0.002,
-          "final_score": 41.42
+          "total_coefficient_score": -0.001,
+          "final_score": 42.88
         }
       },
       {
@@ -47918,10 +47918,10 @@
           "zi_deviation": 46.62,
           "base_score": 50.55,
           "jockey_coefficient": 0.99635,
-          "similarity_coefficient": 1.00196,
+          "similarity_coefficient": 1.00426,
           "stability_coefficient": 0.99484,
-          "total_coefficient_score": -0.001,
-          "final_score": 48.81
+          "total_coefficient_score": -0.0,
+          "final_score": 50.27
         }
       },
       {
