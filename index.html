@@ -234,15 +234,22 @@
         .list-table th {
             background: #667eea;
             color: white;
-            padding: 12px;
-            text-align: left;
-            font-size: 14px;
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 13px;
+            white-space: nowrap;
         }
 
         .list-table td {
-            padding: 12px;
+            padding: 8px;
             border-bottom: 1px solid #f0f0f0;
             font-size: 14px;
+            text-align: center;
+        }
+
+        .list-table td:nth-child(6),
+        .list-table td:nth-child(7) {
+            text-align: left;
         }
 
         .list-table tr:hover {
@@ -263,6 +270,13 @@
             background: #cd7f32;
             font-weight: bold;
             color: white;
+        }
+
+        .list-table .mark-slot {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            margin: 0 auto;
         }
 
         /* 簡易表示モード */
@@ -308,6 +322,68 @@
             color: white;
         }
 
+        /* 馬印 */
+        .horse-marks {
+            display: flex;
+            gap: 5px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .mark-slot {
+            width: 35px;
+            height: 35px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            user-select: none;
+        }
+
+        .mark-slot:hover {
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        .mark-slot.empty {
+            color: #d0d0d0;
+            font-size: 24px;
+        }
+
+        .mark-maru {
+            color: #ff4444;
+        }
+
+        .mark-nijumaru {
+            color: #ff0000;
+        }
+
+        .mark-sankaku {
+            color: #0066ff;
+        }
+
+        .mark-shirokankaku {
+            color: #666;
+        }
+
+        .mark-hoshi {
+            color: #ffa500;
+        }
+
+        .mark-check {
+            color: #00aa00;
+        }
+
+        .mark-batsu {
+            color: #999;
+        }
+
         .horse-header {
             display: flex;
             justify-content: space-between;
@@ -322,16 +398,17 @@
         .horse-rank {
             background: #667eea;
             color: white;
-            width: 45px;
+            min-width: 50px;
             height: 45px;
-            border-radius: 50%;
+            border-radius: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
             margin-right: 15px;
             flex-shrink: 0;
+            padding: 0 10px;
         }
 
         .horse-name-row {
@@ -343,16 +420,17 @@
         .horse-number {
             background: #667eea;
             color: white;
-            width: 35px;
+            min-width: 50px;
             height: 35px;
-            border-radius: 50%;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             margin-right: 12px;
-            font-size: 16px;
+            font-size: 15px;
             flex-shrink: 0;
+            padding: 0 10px;
         }
 
         .horse-name {
@@ -634,6 +712,57 @@
         let filteredRaces = [];
         let selectedRace = null;
         let currentViewMode = 'list';
+        let horseMarks = {}; // 馬印データ {raceId: {horseIndex: [mark1, mark2, mark3]}}
+
+        // 馬印の定義（netkeiba風）
+        const MARKS = [
+            { symbol: '—', name: 'empty', class: 'empty' },
+            { symbol: '◎', name: 'nijumaru', class: 'mark-nijumaru' },
+            { symbol: '○', name: 'maru', class: 'mark-maru' },
+            { symbol: '▲', name: 'sankaku', class: 'mark-sankaku' },
+            { symbol: '△', name: 'shirokankaku', class: 'mark-shirokankaku' },
+            { symbol: '☆', name: 'hoshi', class: 'mark-hoshi' },
+            { symbol: '✓', name: 'check', class: 'mark-check' },
+            { symbol: '消', name: 'batsu', class: 'mark-batsu' }
+        ];
+
+        // 馬印の切り替え関数を追加
+        function toggleMark(raceId, horseIndex, slotIndex) {
+            // レースIDごとの馬印データを初期化
+            if (!horseMarks[raceId]) {
+                horseMarks[raceId] = {};
+            }
+            if (!horseMarks[raceId][horseIndex]) {
+                horseMarks[raceId][horseIndex] = [0, 0, 0]; // 初期値は空（インデックス0）
+            }
+
+            // 現在の印のインデックスを取得
+            const currentMarkIndex = horseMarks[raceId][horseIndex][slotIndex];
+
+            // 次の印に切り替え
+            const nextMarkIndex = (currentMarkIndex + 1) % MARKS.length;
+            horseMarks[raceId][horseIndex][slotIndex] = nextMarkIndex;
+
+            // 表示を更新
+            updateMarkDisplay(raceId, horseIndex, slotIndex);
+        }
+
+        // 馬印の表示を更新
+        function updateMarkDisplay(raceId, horseIndex, slotIndex) {
+            const markIndex = horseMarks[raceId][horseIndex][slotIndex];
+            const mark = MARKS[markIndex];
+
+            const markElement = document.querySelector(`[data-race="${raceId}"][data-horse="${horseIndex}"][data-slot="${slotIndex}"]`);
+            if (markElement) {
+                markElement.textContent = mark.symbol;
+                markElement.className = 'mark-slot ' + mark.class;
+            }
+        }
+
+        // レースIDを生成
+        function getRaceId(race) {
+            return `${race.date}_${race.place}_${race.round}`;
+        }
 
         // データを読み込み
         async function loadData() {
@@ -794,29 +923,66 @@
         // 一覧表示を生成
         function generateListView(race) {
             const listView = document.getElementById('listView');
+            const raceId = getRaceId(race);
 
             let html = `
                 <table class="list-table">
                     <thead>
                         <tr>
                             <th>順位</th>
+                            <th colspan="3">印</th>
                             <th>馬番</th>
                             <th>馬名</th>
                             <th>騎手</th>
                             <th>最終スコア</th>
                             <th>マイニング</th>
-                            <th>補正タイム</th>
-                            <th>ZI偏差値</th>
+                            <th>レース評価</th>
+                            <th>前走偏差値</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
 
             race.horses.forEach((horse, index) => {
+                // 馬印の初期化
+                if (!horseMarks[raceId]) {
+                    horseMarks[raceId] = {};
+                }
+                if (!horseMarks[raceId][index]) {
+                    horseMarks[raceId][index] = [0, 0, 0];
+                }
+
                 html += `
                     <tr>
-                        <td>${index + 1}</td>
-                        <td><strong>${horse.horse_number}</strong></td>
+                        <td>${index + 1}位</td>
+                        <td>
+                            <div class="mark-slot ${MARKS[horseMarks[raceId][index][0]].class}"
+                                 data-race="${raceId}"
+                                 data-horse="${index}"
+                                 data-slot="0"
+                                 onclick="toggleMark('${raceId}', ${index}, 0)">
+                                ${MARKS[horseMarks[raceId][index][0]].symbol}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mark-slot ${MARKS[horseMarks[raceId][index][1]].class}"
+                                 data-race="${raceId}"
+                                 data-horse="${index}"
+                                 data-slot="1"
+                                 onclick="toggleMark('${raceId}', ${index}, 1)">
+                                ${MARKS[horseMarks[raceId][index][1]].symbol}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="mark-slot ${MARKS[horseMarks[raceId][index][2]].class}"
+                                 data-race="${raceId}"
+                                 data-horse="${index}"
+                                 data-slot="2"
+                                 onclick="toggleMark('${raceId}', ${index}, 2)">
+                                ${MARKS[horseMarks[raceId][index][2]].symbol}
+                            </div>
+                        </td>
+                        <td><strong>${horse.horse_number}番</strong></td>
                         <td><strong>${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
                         <td><strong style="color: #667eea; font-size: 18px;">${horse.indices.final_score.toFixed(1)}</strong></td>
@@ -838,9 +1004,18 @@
         // 簡易表示を生成
         function generateSimpleView(race) {
             const simpleView = document.getElementById('simpleView');
+            const raceId = getRaceId(race);
             let html = '';
 
             race.horses.forEach((horse, index) => {
+                // 馬印の初期化
+                if (!horseMarks[raceId]) {
+                    horseMarks[raceId] = {};
+                }
+                if (!horseMarks[raceId][index]) {
+                    horseMarks[raceId][index] = [0, 0, 0];
+                }
+
                 let pastRacesHTML = '';
                 if (horse.past_races && horse.past_races.length > 0) {
                     const races = horse.past_races.slice(0, 5);
@@ -862,11 +1037,11 @@
                                         <th>減</th>
                                         <th>着順</th>
                                         <th>着差</th>
-                                        <th>補正時間</th>
+                                        <th>レース評価</th>
                                         <th>脚質</th>
                                         <th>上がり3F</th>
                                         <th>Ave-3F</th>
-                                        <th>PCI</th>
+                                        <th>ペース値</th>
                                         <th>-3F差</th>
                                     </tr>
                                 </thead>
@@ -908,10 +1083,33 @@
                 html += `
                     <div class="horse-card">
                         <div class="horse-header">
-                            <div class="horse-rank">${index + 1}</div>
+                            <div class="horse-marks">
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][0]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="0"
+                                     onclick="toggleMark('${raceId}', ${index}, 0)">
+                                    ${MARKS[horseMarks[raceId][index][0]].symbol}
+                                </div>
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][1]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="1"
+                                     onclick="toggleMark('${raceId}', ${index}, 1)">
+                                    ${MARKS[horseMarks[raceId][index][1]].symbol}
+                                </div>
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][2]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="2"
+                                     onclick="toggleMark('${raceId}', ${index}, 2)">
+                                    ${MARKS[horseMarks[raceId][index][2]].symbol}
+                                </div>
+                            </div>
+                            <div class="horse-rank">${index + 1}位</div>
                             <div class="horse-basic">
                                 <div class="horse-name-row">
-                                    <div class="horse-number">${horse.horse_number}</div>
+                                    <div class="horse-number">${horse.horse_number}番</div>
                                     <div class="horse-name">${horse.horse_name}</div>
                                     ${horse.mark ? `<span class="horse-mark">${horse.mark}</span>` : ''}
                                 </div>
@@ -931,11 +1129,11 @@
                                     <div class="index-value">${horse.indices.mining_index.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
-                                    <div class="index-label">補正タイム</div>
+                                    <div class="index-label">レース評価値</div>
                                     <div class="index-value">${horse.indices.corrected_time_deviation.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
-                                    <div class="index-label">ZI偏差値</div>
+                                    <div class="index-label">前走偏差値</div>
                                     <div class="index-value">${horse.indices.zi_deviation.toFixed(1)}</div>
                                 </div>
                             </div>
@@ -952,9 +1150,18 @@
         // 詳細表示を生成
         function generateDetailView(race) {
             const detailView = document.getElementById('detailView');
+            const raceId = getRaceId(race);
             let html = '';
 
             race.horses.forEach((horse, index) => {
+                // 馬印の初期化
+                if (!horseMarks[raceId]) {
+                    horseMarks[raceId] = {};
+                }
+                if (!horseMarks[raceId][index]) {
+                    horseMarks[raceId][index] = [0, 0, 0];
+                }
+
                 let pastRacesHTML = '';
                 if (horse.past_races && horse.past_races.length > 0) {
                     pastRacesHTML = `
@@ -975,11 +1182,11 @@
                                         <th>減</th>
                                         <th>着順</th>
                                         <th>着差</th>
-                                        <th>補正時間</th>
+                                        <th>レース評価</th>
                                         <th>脚質</th>
                                         <th>上がり3F</th>
                                         <th>Ave-3F</th>
-                                        <th>PCI</th>
+                                        <th>ペース値</th>
                                         <th>-3F差</th>
                                     </tr>
                                 </thead>
@@ -1021,10 +1228,33 @@
                 html += `
                     <div class="horse-card">
                         <div class="horse-header">
-                            <div class="horse-rank">${index + 1}</div>
+                            <div class="horse-marks">
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][0]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="0"
+                                     onclick="toggleMark('${raceId}', ${index}, 0)">
+                                    ${MARKS[horseMarks[raceId][index][0]].symbol}
+                                </div>
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][1]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="1"
+                                     onclick="toggleMark('${raceId}', ${index}, 1)">
+                                    ${MARKS[horseMarks[raceId][index][1]].symbol}
+                                </div>
+                                <div class="mark-slot ${MARKS[horseMarks[raceId][index][2]].class}"
+                                     data-race="${raceId}"
+                                     data-horse="${index}"
+                                     data-slot="2"
+                                     onclick="toggleMark('${raceId}', ${index}, 2)">
+                                    ${MARKS[horseMarks[raceId][index][2]].symbol}
+                                </div>
+                            </div>
+                            <div class="horse-rank">${index + 1}位</div>
                             <div class="horse-basic">
                                 <div class="horse-name-row">
-                                    <div class="horse-number">${horse.horse_number}</div>
+                                    <div class="horse-number">${horse.horse_number}番</div>
                                     <div class="horse-name">${horse.horse_name}</div>
                                     ${horse.mark ? `<span class="horse-mark">${horse.mark}</span>` : ''}
                                 </div>
@@ -1037,6 +1267,36 @@
                         </div>
 
                         <div class="indices-section">
+                            <div class="section-title">📊 基礎データ</div>
+                            <div class="horse-details">
+                                <div class="detail-item">
+                                    <div class="detail-label">枠番</div>
+                                    <div class="detail-value">${horse.frame}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">馬番</div>
+                                    <div class="detail-value">${horse.horse_number}番</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">出走間隔</div>
+                                    <div class="detail-value">${horse.interval}週</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">前走指数</div>
+                                    <div class="detail-value">${horse.zi_index.toFixed(1)}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Time_M</div>
+                                    <div class="detail-value">${horse.time_mining.toFixed(2)}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Fight_M</div>
+                                    <div class="detail-value">${horse.battle_mining.toFixed(1)}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="indices-section">
                             <div class="section-title">📈 全指数データ</div>
                             <div class="horse-indices">
                                 <div class="index-item">
@@ -1044,11 +1304,11 @@
                                     <div class="index-value">${horse.indices.mining_index.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
-                                    <div class="index-label">補正タイム偏差</div>
+                                    <div class="index-label">レース評価偏差</div>
                                     <div class="index-value">${horse.indices.corrected_time_deviation.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
-                                    <div class="index-label">ZI偏差値</div>
+                                    <div class="index-label">前走偏差値</div>
                                     <div class="index-value">${horse.indices.zi_deviation.toFixed(1)}</div>
                                 </div>
                                 <div class="index-item">
@@ -1128,36 +1388,6 @@
                                 <div class="detail-item">
                                     <div class="detail-label">調教師本年複勝率</div>
                                     <div class="detail-value">${horse.trainer.this_year.show_rate.toFixed(1)}%</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="indices-section">
-                            <div class="section-title">📊 その他データ</div>
-                            <div class="horse-details">
-                                <div class="detail-item">
-                                    <div class="detail-label">枠番</div>
-                                    <div class="detail-value">${horse.frame}</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">馬番</div>
-                                    <div class="detail-value">${horse.horse_number}</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">出走間隔</div>
-                                    <div class="detail-value">${horse.interval}週</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">ZI指数</div>
-                                    <div class="detail-value">${horse.zi_index.toFixed(1)}</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">タイムマイニング</div>
-                                    <div class="detail-value">${horse.time_mining.toFixed(2)}</div>
-                                </div>
-                                <div class="detail-item">
-                                    <div class="detail-label">対戦型マイニング</div>
-                                    <div class="detail-value">${horse.battle_mining.toFixed(1)}</div>
                                 </div>
                             </div>
                         </div>
