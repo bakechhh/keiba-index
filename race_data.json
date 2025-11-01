@@ -15672,10 +15672,10 @@
           "zi_deviation": 58.44,
           "base_score": 40.8,
           "jockey_coefficient": 0.99717,
-          "similarity_coefficient": 1.00511,
+          "similarity_coefficient": 1.00447,
           "stability_coefficient": 0.99301,
-          "total_coefficient_score": -0.0,
-          "final_score": 40.48
+          "total_coefficient_score": -0.001,
+          "final_score": 40.15
         }
       },
       {
