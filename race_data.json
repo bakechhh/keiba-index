@@ -2616,10 +2616,10 @@
           "zi_deviation": 54.57,
           "base_score": 55.12,
           "jockey_coefficient": 1.0,
-          "similarity_coefficient": 1.00299,
+          "similarity_coefficient": 1.00461,
           "stability_coefficient": 0.9965,
-          "total_coefficient_score": 0.0,
-          "final_score": 55.49
+          "total_coefficient_score": 0.001,
+          "final_score": 56.61
         }
       },
       {
@@ -20407,10 +20407,10 @@
           "zi_deviation": 56.54,
           "base_score": 55.24,
           "jockey_coefficient": 1.00452,
-          "similarity_coefficient": 1.0057,
+          "similarity_coefficient": 1.00339,
           "stability_coefficient": 0.99501,
-          "total_coefficient_score": 0.002,
-          "final_score": 57.69
+          "total_coefficient_score": 0.001,
+          "final_score": 56.1
         }
       },
       {
@@ -22961,6 +22961,82 @@
         }
       },
       {
+        "frame": 8,
+        "horse_number": 15,
+        "horse_name": "アオイミズホ",
+        "mark": "*",
+        "jockey": {
+          "name": "戸崎圭太",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "this_year": {
+            "wins": 110,
+            "win_rate": 16.6,
+            "place_rate": 31.9,
+            "show_rate": 42.7
+          },
+          "last_year": {
+            "wins": 133,
+            "win_rate": 17.1,
+            "place_rate": 31.5,
+            "show_rate": 42.4
+          }
+        },
+        "trainer": {
+          "affiliation": "(美)",
+          "name": "古賀慎明",
+          "this_year": {
+            "wins": 9,
+            "win_rate": 4.9,
+            "place_rate": 14.1,
+            "show_rate": 22.2
+          },
+          "last_year": {
+            "wins": 8,
+            "win_rate": 3.8,
+            "place_rate": 11.8,
+            "show_rate": 19.0
+          }
+        },
+        "interval": 3,
+        "zi_index": 116.0,
+        "time_mining": 99.39,
+        "battle_mining": 60.6,
+        "past_races": [
+          {
+            "date": "2025.10.11",
+            "race_name": "新馬",
+            "place": "東京",
+            "surface": "ダ",
+            "distance": "1600",
+            "track_condition": "稍",
+            "frame": "3",
+            "horse_number": "6",
+            "weight": 56.0,
+            "weight_reduction": "",
+            "rank": "5",
+            "margin": 1.1,
+            "corrected_time": 89.0,
+            "running_style": "中",
+            "last_3f": 38.9,
+            "ave_3f": 37.26,
+            "pci": 45.8,
+            "position_3f": 0.5
+          }
+        ],
+        "indices": {
+          "mining_index": 51.71,
+          "corrected_time_deviation": 53.78,
+          "zi_deviation": 64.53,
+          "base_score": 54.36,
+          "jockey_coefficient": 1.00803,
+          "similarity_coefficient": 1.00401,
+          "stability_coefficient": 0.9945,
+          "total_coefficient_score": 0.001,
+          "final_score": 56.1
+        }
+      },
+      {
         "frame": 3,
         "horse_number": 6,
         "horse_name": "リアライズタキオン",
@@ -23070,86 +23146,10 @@
           "zi_deviation": 58.47,
           "base_score": 56.15,
           "jockey_coefficient": 1.00024,
-          "similarity_coefficient": 1.00583,
+          "similarity_coefficient": 1.00402,
           "stability_coefficient": 0.99217,
-          "total_coefficient_score": 0.0,
-          "final_score": 56.44
-        }
-      },
-      {
-        "frame": 8,
-        "horse_number": 15,
-        "horse_name": "アオイミズホ",
-        "mark": "*",
-        "jockey": {
-          "name": "戸崎圭太",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "this_year": {
-            "wins": 110,
-            "win_rate": 16.6,
-            "place_rate": 31.9,
-            "show_rate": 42.7
-          },
-          "last_year": {
-            "wins": 133,
-            "win_rate": 17.1,
-            "place_rate": 31.5,
-            "show_rate": 42.4
-          }
-        },
-        "trainer": {
-          "affiliation": "(美)",
-          "name": "古賀慎明",
-          "this_year": {
-            "wins": 9,
-            "win_rate": 4.9,
-            "place_rate": 14.1,
-            "show_rate": 22.2
-          },
-          "last_year": {
-            "wins": 8,
-            "win_rate": 3.8,
-            "place_rate": 11.8,
-            "show_rate": 19.0
-          }
-        },
-        "interval": 3,
-        "zi_index": 116.0,
-        "time_mining": 99.39,
-        "battle_mining": 60.6,
-        "past_races": [
-          {
-            "date": "2025.10.11",
-            "race_name": "新馬",
-            "place": "東京",
-            "surface": "ダ",
-            "distance": "1600",
-            "track_condition": "稍",
-            "frame": "3",
-            "horse_number": "6",
-            "weight": 56.0,
-            "weight_reduction": "",
-            "rank": "5",
-            "margin": 1.1,
-            "corrected_time": 89.0,
-            "running_style": "中",
-            "last_3f": 38.9,
-            "ave_3f": 37.26,
-            "pci": 45.8,
-            "position_3f": 0.5
-          }
-        ],
-        "indices": {
-          "mining_index": 51.71,
-          "corrected_time_deviation": 53.78,
-          "zi_deviation": 64.53,
-          "base_score": 54.36,
-          "jockey_coefficient": 1.00803,
-          "similarity_coefficient": 1.00401,
-          "stability_coefficient": 0.9945,
-          "total_coefficient_score": 0.001,
-          "final_score": 56.1
+          "total_coefficient_score": -0.001,
+          "final_score": 55.17
         }
       },
       {
@@ -25113,10 +25113,10 @@
           "zi_deviation": 47.77,
           "base_score": 33.5,
           "jockey_coefficient": 0.98002,
-          "similarity_coefficient": 1.0016,
+          "similarity_coefficient": 1.00224,
           "stability_coefficient": 0.98225,
           "total_coefficient_score": -0.008,
-          "final_score": 26.46
+          "final_score": 26.73
         }
       }
     ]
@@ -29232,10 +29232,10 @@
           "zi_deviation": 39.73,
           "base_score": 47.93,
           "jockey_coefficient": 1.00024,
-          "similarity_coefficient": 1.00782,
+          "similarity_coefficient": 1.00825,
           "stability_coefficient": 0.9934,
           "total_coefficient_score": 0.002,
-          "final_score": 49.89
+          "final_score": 50.15
         }
       },
       {
@@ -38561,10 +38561,10 @@
           "zi_deviation": 63.68,
           "base_score": 53.04,
           "jockey_coefficient": 1.01158,
-          "similarity_coefficient": 1.00513,
+          "similarity_coefficient": 1.00476,
           "stability_coefficient": 0.99783,
-          "total_coefficient_score": 0.004,
-          "final_score": 57.74
+          "total_coefficient_score": 0.003,
+          "final_score": 57.49
         }
       },
       {
@@ -46115,10 +46115,10 @@
           "zi_deviation": 45.73,
           "base_score": 40.3,
           "jockey_coefficient": 1.00012,
-          "similarity_coefficient": 0.99945,
+          "similarity_coefficient": 1.00345,
           "stability_coefficient": 0.99176,
-          "total_coefficient_score": -0.003,
-          "final_score": 37.14
+          "total_coefficient_score": -0.001,
+          "final_score": 39.16
         }
       },
       {
