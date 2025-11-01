@@ -10162,10 +10162,10 @@
           "zi_deviation": 25.22,
           "base_score": 33.92,
           "jockey_coefficient": 1.00228,
-          "similarity_coefficient": 1.00371,
+          "similarity_coefficient": 1.00381,
           "stability_coefficient": 0.99262,
           "total_coefficient_score": -0.0,
-          "final_score": 33.59
+          "final_score": 33.64
         }
       },
       {
@@ -11261,10 +11261,10 @@
           "zi_deviation": 57.86,
           "base_score": 56.24,
           "jockey_coefficient": 0.99781,
-          "similarity_coefficient": 1.00885,
+          "similarity_coefficient": 1.00814,
           "stability_coefficient": 0.99575,
-          "total_coefficient_score": 0.003,
-          "final_score": 59.91
+          "total_coefficient_score": 0.002,
+          "final_score": 59.41
         }
       },
       {
@@ -34294,10 +34294,10 @@
           "zi_deviation": 42.64,
           "base_score": 40.07,
           "jockey_coefficient": 0.99302,
-          "similarity_coefficient": 1.00281,
+          "similarity_coefficient": 1.00239,
           "stability_coefficient": 0.9916,
           "total_coefficient_score": -0.003,
-          "final_score": 37.48
+          "final_score": 37.27
         }
       },
       {
@@ -44693,10 +44693,10 @@
           "zi_deviation": 59.98,
           "base_score": 48.59,
           "jockey_coefficient": 1.01313,
-          "similarity_coefficient": 1.01109,
+          "similarity_coefficient": 1.01366,
           "stability_coefficient": 0.99733,
-          "total_coefficient_score": 0.007,
-          "final_score": 56.59
+          "total_coefficient_score": 0.008,
+          "final_score": 58.15
         }
       },
       {
@@ -47644,10 +47644,10 @@
           "zi_deviation": 64.21,
           "base_score": 62.94,
           "jockey_coefficient": 1.0,
-          "similarity_coefficient": 1.00579,
+          "similarity_coefficient": 1.00572,
           "stability_coefficient": 0.99883,
           "total_coefficient_score": 0.002,
-          "final_score": 66.86
+          "final_score": 66.8
         }
       },
       {
