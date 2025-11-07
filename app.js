@@ -142,6 +142,14 @@ async function runAIAnalysis() {
     if (!selectedRace) return;
 
     const aiResultDiv = document.getElementById('aiResult');
+    
+    // APIキーの取得
+    const apiKey = document.getElementById('geminiApiKey').value.trim();
+    if (!apiKey) {
+        aiResultDiv.innerHTML = '<div class="error">❌ Gemini APIキーを入力してください。<br><a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>で無料取得できます。</div>';
+        return;
+    }
+
     aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>AIが分析中です...</div>';
 
     // パラメータ取得
