@@ -1,0 +1,899 @@
+{
+  "file_name": "東京4R.csv",
+  "race_number": "東京4R",
+  "race_name": "新馬",
+  "race_class": "新馬",
+  "date": "2025/11/08",
+  "year": 2025,
+  "month": 11,
+  "day": 8,
+  "place": "東京",
+  "round": 4,
+  "surface": "ダート",
+  "distance": 1300,
+  "condition": "２歳・新馬(馬齢)(混)[指定]",
+  "num_horses": 16,
+  "meeting": "5東1",
+  "horses": [
+    {
+      "frame": 8,
+      "horse_number": 16,
+      "horse_name": "プールナバドラ",
+      "mark": "",
+      "jockey": {
+        "name": "菅原明良",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 51,
+          "win_rate": 8.3,
+          "place_rate": 15.4,
+          "show_rate": 25.2
+        },
+        "last_year": {
+          "wins": 60,
+          "win_rate": 7.9,
+          "place_rate": 17.4,
+          "show_rate": 27.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "森秀行",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 8.8,
+          "place_rate": 23.0,
+          "show_rate": 28.8
+        },
+        "last_year": {
+          "wins": 30,
+          "win_rate": 11.4,
+          "place_rate": 18.3,
+          "show_rate": 24.3
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 80.77,
+      "battle_mining": 74.3,
+      "past_races": [],
+      "indices": {
+        "mining_index": 71.48,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 61.81,
+        "jockey_coefficient": 1.00012,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 61.84
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 5,
+      "horse_name": "ガンダ",
+      "mark": "",
+      "jockey": {
+        "name": "横山武史",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 97,
+          "win_rate": 14.9,
+          "place_rate": 26.4,
+          "show_rate": 37.2
+        },
+        "last_year": {
+          "wins": 102,
+          "win_rate": 13.5,
+          "place_rate": 24.9,
+          "show_rate": 36.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "斎藤誠",
+        "this_year": {
+          "wins": 27,
+          "win_rate": 7.7,
+          "place_rate": 16.3,
+          "show_rate": 23.5
+        },
+        "last_year": {
+          "wins": 37,
+          "win_rate": 9.1,
+          "place_rate": 17.4,
+          "show_rate": 23.3
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.2,
+      "battle_mining": 65.9,
+      "past_races": [],
+      "indices": {
+        "mining_index": 60.86,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 55.97,
+        "jockey_coefficient": 1.00596,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.001,
+        "final_score": 57.22
+      }
+    },
+    {
+      "frame": 2,
+      "horse_number": 4,
+      "horse_name": "アヴァランチ",
+      "mark": "",
+      "jockey": {
+        "name": "岩田康誠",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 37,
+          "win_rate": 8.8,
+          "place_rate": 18.3,
+          "show_rate": 26.0
+        },
+        "last_year": {
+          "wins": 41,
+          "win_rate": 10.3,
+          "place_rate": 16.0,
+          "show_rate": 24.3
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "加藤士津",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 8.1,
+          "place_rate": 16.7,
+          "show_rate": 28.1
+        },
+        "last_year": {
+          "wins": 21,
+          "win_rate": 8.2,
+          "place_rate": 18.3,
+          "show_rate": 24.5
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.05,
+      "battle_mining": 64.6,
+      "past_races": [],
+      "indices": {
+        "mining_index": 61.98,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 56.59,
+        "jockey_coefficient": 1.00059,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 56.72
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 7,
+      "horse_name": "ラヴミーモア",
+      "mark": "",
+      "jockey": {
+        "name": "横山和生",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 67,
+          "win_rate": 13.4,
+          "place_rate": 24.2,
+          "show_rate": 33.1
+        },
+        "last_year": {
+          "wins": 56,
+          "win_rate": 9.0,
+          "place_rate": 18.0,
+          "show_rate": 26.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "尾関知人",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 5.6,
+          "place_rate": 8.1,
+          "show_rate": 13.2
+        },
+        "last_year": {
+          "wins": 21,
+          "win_rate": 8.4,
+          "place_rate": 14.5,
+          "show_rate": 23.7
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.18,
+      "battle_mining": 54.3,
+      "past_races": [],
+      "indices": {
+        "mining_index": 54.04,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 52.22,
+        "jockey_coefficient": 1.00421,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.001,
+        "final_score": 53.05
+      }
+    },
+    {
+      "frame": 1,
+      "horse_number": 1,
+      "horse_name": "クロウサギ",
+      "mark": "",
+      "jockey": {
+        "name": "内田博幸",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 3.6,
+          "place_rate": 8.8,
+          "show_rate": 15.4
+        },
+        "last_year": {
+          "wins": 16,
+          "win_rate": 3.3,
+          "place_rate": 8.4,
+          "show_rate": 12.1
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "宮地貴稔",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 7.9,
+          "place_rate": 14.0,
+          "show_rate": 21.9
+        },
+        "last_year": {
+          "wins": 1,
+          "win_rate": 2.6,
+          "place_rate": 13.2,
+          "show_rate": 23.7
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.12,
+      "battle_mining": 58.5,
+      "past_races": [],
+      "indices": {
+        "mining_index": 57.37,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 54.05,
+        "jockey_coefficient": 0.99273,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 52.58
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 8,
+      "horse_name": "グリュック",
+      "mark": "",
+      "jockey": {
+        "name": "佐々木大",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 76,
+          "win_rate": 10.4,
+          "place_rate": 18.8,
+          "show_rate": 26.6
+        },
+        "last_year": {
+          "wins": 77,
+          "win_rate": 10.2,
+          "place_rate": 18.8,
+          "show_rate": 28.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "和田正一",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 6.3,
+          "place_rate": 10.3,
+          "show_rate": 17.8
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 5.9,
+          "place_rate": 16.7,
+          "show_rate": 26.3
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 80.87,
+      "battle_mining": 48.2,
+      "past_races": [],
+      "indices": {
+        "mining_index": 49.2,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 49.56,
+        "jockey_coefficient": 1.00093,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 49.73
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 6,
+      "horse_name": "リナクィーンアスク",
+      "mark": "",
+      "jockey": {
+        "name": "三浦皇成",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 49,
+          "win_rate": 9.8,
+          "place_rate": 23.0,
+          "show_rate": 32.6
+        },
+        "last_year": {
+          "wins": 51,
+          "win_rate": 8.3,
+          "place_rate": 20.8,
+          "show_rate": 30.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "田島俊明",
+        "this_year": {
+          "wins": 16,
+          "win_rate": 6.9,
+          "place_rate": 13.7,
+          "show_rate": 21.0
+        },
+        "last_year": {
+          "wins": 16,
+          "win_rate": 5.6,
+          "place_rate": 13.3,
+          "show_rate": 21.8
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.35,
+      "battle_mining": 46.9,
+      "past_races": [],
+      "indices": {
+        "mining_index": 47.16,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 48.44,
+        "jockey_coefficient": 1.00398,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.001,
+        "final_score": 49.16
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 13,
+      "horse_name": "トモジャオーリー",
+      "mark": "",
+      "jockey": {
+        "name": "津村明秀",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 47,
+          "win_rate": 8.4,
+          "place_rate": 17.6,
+          "show_rate": 25.1
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 7.9,
+          "place_rate": 17.3,
+          "show_rate": 24.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "鈴木伸尋",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 7.4,
+          "place_rate": 15.8,
+          "show_rate": 22.2
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 6.9,
+          "place_rate": 15.5,
+          "show_rate": 22.9
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.33,
+      "battle_mining": 45.8,
+      "past_races": [],
+      "indices": {
+        "mining_index": 46.22,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 47.92,
+        "jockey_coefficient": 1.00006,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 47.93
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 12,
+      "horse_name": "ジュニアスウィート",
+      "mark": "",
+      "jockey": {
+        "name": "原優介",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 19,
+          "win_rate": 3.4,
+          "place_rate": 7.4,
+          "show_rate": 13.0
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 3.7,
+          "place_rate": 8.6,
+          "show_rate": 14.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "小手川準",
+        "this_year": {
+          "wins": 8,
+          "win_rate": 3.6,
+          "place_rate": 8.5,
+          "show_rate": 17.0
+        },
+        "last_year": {
+          "wins": 5,
+          "win_rate": 1.9,
+          "place_rate": 5.2,
+          "show_rate": 11.9
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.32,
+      "battle_mining": 49.7,
+      "past_races": [],
+      "indices": {
+        "mining_index": 49.44,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 49.69,
+        "jockey_coefficient": 0.99019,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 47.87
+      }
+    },
+    {
+      "frame": 2,
+      "horse_number": 3,
+      "horse_name": "クルスデルスール",
+      "mark": "",
+      "jockey": {
+        "name": "丸田恭介",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 3.2,
+          "place_rate": 7.0,
+          "show_rate": 12.5
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 3.7,
+          "place_rate": 7.3,
+          "show_rate": 12.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "松永康利",
+        "this_year": {
+          "wins": 4,
+          "win_rate": 2.2,
+          "place_rate": 6.2,
+          "show_rate": 12.9
+        },
+        "last_year": {
+          "wins": 6,
+          "win_rate": 2.8,
+          "place_rate": 7.5,
+          "show_rate": 13.7
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.5,
+      "battle_mining": 49.6,
+      "past_races": [],
+      "indices": {
+        "mining_index": 47.08,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 48.39,
+        "jockey_coefficient": 0.9896,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.002,
+        "final_score": 46.51
+      }
+    },
+    {
+      "frame": 8,
+      "horse_number": 15,
+      "horse_name": "ジェイエルモーダル",
+      "mark": "",
+      "jockey": {
+        "name": "吉田豊",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 4.1,
+          "place_rate": 9.2,
+          "show_rate": 17.3
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 5.4,
+          "place_rate": 10.0,
+          "show_rate": 18.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "小西一男",
+        "this_year": {
+          "wins": 10,
+          "win_rate": 6.5,
+          "place_rate": 11.7,
+          "show_rate": 15.6
+        },
+        "last_year": {
+          "wins": 6,
+          "win_rate": 3.0,
+          "place_rate": 7.0,
+          "show_rate": 13.4
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.36,
+      "battle_mining": 43.9,
+      "past_races": [],
+      "indices": {
+        "mining_index": 44.47,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 46.96,
+        "jockey_coefficient": 0.99448,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 45.99
+      }
+    },
+    {
+      "frame": 1,
+      "horse_number": 2,
+      "horse_name": "ベアフォースワン",
+      "mark": "",
+      "jockey": {
+        "name": "木幡巧也",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 4.0,
+          "place_rate": 8.2,
+          "show_rate": 15.1
+        },
+        "last_year": {
+          "wins": 24,
+          "win_rate": 4.1,
+          "place_rate": 9.8,
+          "show_rate": 13.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "杉浦宏昭",
+        "this_year": {
+          "wins": 4,
+          "win_rate": 1.8,
+          "place_rate": 4.6,
+          "show_rate": 11.4
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.5,
+          "place_rate": 8.6,
+          "show_rate": 14.8
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.37,
+      "battle_mining": 43.4,
+      "past_races": [],
+      "indices": {
+        "mining_index": 44.01,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 46.71,
+        "jockey_coefficient": 0.99244,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 45.38
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 11,
+      "horse_name": "ドナテアン",
+      "mark": "",
+      "jockey": {
+        "name": "長岡禎仁",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 2.2,
+          "place_rate": 6.9,
+          "show_rate": 13.8
+        },
+        "last_year": {
+          "wins": 14,
+          "win_rate": 5.9,
+          "place_rate": 11.7,
+          "show_rate": 14.6
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "畠山吉宏",
+        "this_year": {
+          "wins": 9,
+          "win_rate": 4.5,
+          "place_rate": 9.1,
+          "show_rate": 19.2
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.6,
+          "place_rate": 7.6,
+          "show_rate": 14.3
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.46,
+      "battle_mining": 43.1,
+      "past_races": [],
+      "indices": {
+        "mining_index": 43.58,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 46.47,
+        "jockey_coefficient": 0.99109,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 44.91
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 10,
+      "horse_name": "シュンポシオン",
+      "mark": "",
+      "jockey": {
+        "name": "石橋脩",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 5.6,
+          "place_rate": 11.5,
+          "show_rate": 18.3
+        },
+        "last_year": {
+          "wins": 22,
+          "win_rate": 4.6,
+          "place_rate": 11.0,
+          "show_rate": 17.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "矢野英一",
+        "this_year": {
+          "wins": 7,
+          "win_rate": 3.6,
+          "place_rate": 11.7,
+          "show_rate": 22.3
+        },
+        "last_year": {
+          "wins": 18,
+          "win_rate": 7.8,
+          "place_rate": 13.4,
+          "show_rate": 18.5
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.29,
+      "battle_mining": 39.3,
+      "past_races": [],
+      "indices": {
+        "mining_index": 40.5,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 44.78,
+        "jockey_coefficient": 0.99532,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 43.99
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 14,
+      "horse_name": "ハタノグランクリュ",
+      "mark": "",
+      "jockey": {
+        "name": "柴田大知",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 7,
+          "win_rate": 2.2,
+          "place_rate": 6.7,
+          "show_rate": 8.7
+        },
+        "last_year": {
+          "wins": 8,
+          "win_rate": 2.1,
+          "place_rate": 4.3,
+          "show_rate": 7.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "畠山吉宏",
+        "this_year": {
+          "wins": 9,
+          "win_rate": 4.5,
+          "place_rate": 9.1,
+          "show_rate": 19.2
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.6,
+          "place_rate": 7.6,
+          "show_rate": 14.3
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 81.43,
+      "battle_mining": 36.4,
+      "past_races": [],
+      "indices": {
+        "mining_index": 37.66,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 43.21,
+        "jockey_coefficient": 0.98417,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.002,
+        "final_score": 40.65
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 9,
+      "horse_name": "ヴェントベローチェ",
+      "mark": "",
+      "jockey": {
+        "name": "北村宏司",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 4.6,
+          "place_rate": 9.6,
+          "show_rate": 18.3
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 4.2,
+          "place_rate": 11.8,
+          "show_rate": 19.3
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "勢司和浩",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 3.2,
+          "place_rate": 7.7,
+          "show_rate": 9.6
+        },
+        "last_year": {
+          "wins": 4,
+          "win_rate": 2.2,
+          "place_rate": 4.9,
+          "show_rate": 13.5
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 82.02,
+      "battle_mining": 35.4,
+      "past_races": [],
+      "indices": {
+        "mining_index": 31.77,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 39.97,
+        "jockey_coefficient": 0.99532,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 39.27
+      }
+    }
+  ]
+}
