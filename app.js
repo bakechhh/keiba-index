@@ -35,37 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('aiAnalyzeBtn').addEventListener('click', runAIAnalysis);
 });
 
-// ====================
-// 表示モード切り替え
-// ====================
-function changeViewMode(mode) {
-    currentViewMode = mode;
-    const viewModes = ['list', 'simple', 'detail', 'odds', 'ai'];
-
-    // ボタンのアクティブ状態を更新
-    document.querySelectorAll('.view-mode-btn').forEach(btn => {
-        if (btn.textContent.toLowerCase().includes(mode)) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-
-    // ビューの表示/非表示を切り替え
-    viewModes.forEach(vm => {
-        const viewElement = document.getElementById(`${vm}View`);
-        if (viewElement) {
-            viewElement.style.display = (vm === mode) ? 'block' : 'none';
-        }
-    });
-
-    // オッズまたはAI分析が選択された場合、データを読み込む
-    if (mode === 'odds') {
-        loadOddsData();
-    } else if (mode === 'ai') {
-        // AI分析ビューの準備
-    }
-}
 
 // ====================
 // オッズデータ処理
@@ -217,15 +186,7 @@ async function runAIAnalysis() {
 }
 
 // ====================
-// 既存の関数を上書き
+// グローバルに公開
 // ====================
-
-// 既存のchangeViewModeを上書きして、新しいビューに対応
-const originalChangeViewMode = window.changeViewMode;
-window.changeViewMode = function(mode) {
-    if (['odds', 'ai'].includes(mode)) {
-        changeViewMode(mode);
-    } else {
-        originalChangeViewMode(mode);
-    }
-};
+window.loadOddsData = loadOddsData;
+window.runAIAnalysis = runAIAnalysis;
