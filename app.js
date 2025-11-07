@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====================
 // オッズデータ処理
 // ====================
-async function loadOddsData() {
+async function loadAndRenderOdds() {
     if (!selectedRace) return;
 
     const raceId = selectedRace.race_number; // 例: 東京1R
@@ -188,5 +188,5 @@ async function runAIAnalysis() {
 // ====================
 // グローバルに公開
 // ====================
-window.loadOddsData = loadOddsData;
+window.loadAndRenderOdds = loadAndRenderOdds;
 window.runAIAnalysis = runAIAnalysis;

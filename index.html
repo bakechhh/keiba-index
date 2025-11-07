@@ -774,10 +774,10 @@
     <script src="app.js"></script>
     <script>
         var allRaces = [];
-        let filteredRaces = [];
-        var selectedRace = null;  // グローバル変数
-        let currentViewMode = 'list';
-        let horseMarks = {}; // 馬印データ {raceId: {horseIndex: [mark1, mark2, mark3]}}
+        var filteredRaces = [];
+        var selectedRace = null;
+        var currentViewMode = 'list';
+        var horseMarks = {}; // 馬印データ {raceId: {horseIndex: [mark1, mark2, mark3]}}
 
         // 馬印の定義（netkeiba風）
         const MARKS = [
@@ -973,7 +973,7 @@
                 document.getElementById('oddsView').classList.add('active');
                 // オッズデータを読み込む
                 if (selectedRace) {
-                    window.loadOddsData();
+                    window.loadAndRenderOdds();
                 }
             } else if (mode === 'ai') {
                 document.getElementById('aiView').classList.add('active');
