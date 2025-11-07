@@ -105,10 +105,10 @@
         "zi_deviation": 65.7,
         "base_score": 63.76,
         "jockey_coefficient": 1.00337,
-        "similarity_coefficient": 1.00463,
+        "similarity_coefficient": 1.00577,
         "stability_coefficient": 0.9965,
         "total_coefficient_score": 0.002,
-        "final_score": 66.31
+        "final_score": 67.22
       }
     },
     {
@@ -393,10 +393,10 @@
         "zi_deviation": 52.7,
         "base_score": 57.24,
         "jockey_coefficient": 0.99162,
-        "similarity_coefficient": 1.00298,
+        "similarity_coefficient": 1.00681,
         "stability_coefficient": 0.99351,
-        "total_coefficient_score": -0.002,
-        "final_score": 54.32
+        "total_coefficient_score": -0.0,
+        "final_score": 57.06
       }
     },
     {
@@ -737,10 +737,10 @@
         "zi_deviation": 40.89,
         "base_score": 46.84,
         "jockey_coefficient": 1.0,
-        "similarity_coefficient": 0.99789,
+        "similarity_coefficient": 1.00379,
         "stability_coefficient": 0.99101,
-        "total_coefficient_score": -0.004,
-        "final_score": 41.92
+        "total_coefficient_score": -0.001,
+        "final_score": 45.38
       }
     },
     {
