@@ -11,9 +11,6 @@ let currentOddsData = null;
 let currentOddsType = 'tfw';
 let currentOddsSort = 'combination';
 
-// Gemini API Key
-const GEMINI_API_KEY = 'AIzaSyDMEpCoDE8BHQlUxWI8xqJlDhXHKkSQdqo';
-
 // ====================
 // イベントリスナー
 // ====================
