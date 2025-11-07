@@ -800,6 +800,122 @@
       }
     },
     {
+      "frame": 6,
+      "horse_number": 12,
+      "horse_name": "チェンドル",
+      "mark": "*",
+      "jockey": {
+        "name": "永島まな",
+        "weight": 53.0,
+        "weight_reduction": "◇",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 4.4,
+          "place_rate": 7.1,
+          "show_rate": 11.8
+        },
+        "last_year": {
+          "wins": 32,
+          "win_rate": 4.5,
+          "place_rate": 9.5,
+          "show_rate": 13.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "小手川準",
+        "this_year": {
+          "wins": 8,
+          "win_rate": 3.6,
+          "place_rate": 8.5,
+          "show_rate": 17.0
+        },
+        "last_year": {
+          "wins": 5,
+          "win_rate": 1.9,
+          "place_rate": 5.2,
+          "show_rate": 11.9
+        }
+      },
+      "interval": 14,
+      "zi_index": 106.0,
+      "time_mining": 110.34,
+      "battle_mining": 53.8,
+      "past_races": [
+        {
+          "date": "2025.8.2",
+          "race_name": "未勝利*",
+          "place": "札幌",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "8",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "4",
+          "margin": 0.8,
+          "corrected_time": 93.0,
+          "running_style": "逃",
+          "last_3f": 36.6,
+          "ave_3f": 37.2,
+          "pci": 51.6,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.7.19",
+          "race_name": "未勝利*",
+          "place": "函館",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "3",
+          "weight": 51.0,
+          "weight_reduction": "★",
+          "rank": "3",
+          "margin": 0.7,
+          "corrected_time": 96.0,
+          "running_style": "逃",
+          "last_3f": 36.0,
+          "ave_3f": 36.85,
+          "pci": 52.4,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.6.28",
+          "race_name": "新馬",
+          "place": "函館",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "稍",
+          "frame": "1",
+          "horse_number": "2",
+          "weight": 51.0,
+          "weight_reduction": "★",
+          "rank": "7",
+          "margin": 0.9,
+          "corrected_time": 91.0,
+          "running_style": "後",
+          "last_3f": 35.5,
+          "ave_3f": 35.5,
+          "pci": 50.0,
+          "position_3f": 1.1
+        }
+      ],
+      "indices": {
+        "mining_index": 50.12,
+        "corrected_time_deviation": 56.73,
+        "zi_deviation": 53.97,
+        "base_score": 52.68,
+        "jockey_coefficient": 0.98874,
+        "similarity_coefficient": 1.00236,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": -0.002,
+        "final_score": 50.17
+      }
+    },
+    {
       "frame": 5,
       "horse_number": 10,
       "horse_name": "マルモリラピダス",
@@ -949,126 +1065,10 @@
         "zi_deviation": 46.8,
         "base_score": 51.35,
         "jockey_coefficient": 0.99448,
-        "similarity_coefficient": 1.00358,
+        "similarity_coefficient": 1.00108,
         "stability_coefficient": 0.9976,
-        "total_coefficient_score": 0.0,
-        "final_score": 51.5
-      }
-    },
-    {
-      "frame": 6,
-      "horse_number": 12,
-      "horse_name": "チェンドル",
-      "mark": "*",
-      "jockey": {
-        "name": "永島まな",
-        "weight": 53.0,
-        "weight_reduction": "◇",
-        "this_year": {
-          "wins": 18,
-          "win_rate": 4.4,
-          "place_rate": 7.1,
-          "show_rate": 11.8
-        },
-        "last_year": {
-          "wins": 32,
-          "win_rate": 4.5,
-          "place_rate": 9.5,
-          "show_rate": 13.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "小手川準",
-        "this_year": {
-          "wins": 8,
-          "win_rate": 3.6,
-          "place_rate": 8.5,
-          "show_rate": 17.0
-        },
-        "last_year": {
-          "wins": 5,
-          "win_rate": 1.9,
-          "place_rate": 5.2,
-          "show_rate": 11.9
-        }
-      },
-      "interval": 14,
-      "zi_index": 106.0,
-      "time_mining": 110.34,
-      "battle_mining": 53.8,
-      "past_races": [
-        {
-          "date": "2025.8.2",
-          "race_name": "未勝利*",
-          "place": "札幌",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "8",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "4",
-          "margin": 0.8,
-          "corrected_time": 93.0,
-          "running_style": "逃",
-          "last_3f": 36.6,
-          "ave_3f": 37.2,
-          "pci": 51.6,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.7.19",
-          "race_name": "未勝利*",
-          "place": "函館",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "3",
-          "weight": 51.0,
-          "weight_reduction": "★",
-          "rank": "3",
-          "margin": 0.7,
-          "corrected_time": 96.0,
-          "running_style": "逃",
-          "last_3f": 36.0,
-          "ave_3f": 36.85,
-          "pci": 52.4,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.6.28",
-          "race_name": "新馬",
-          "place": "函館",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "稍",
-          "frame": "1",
-          "horse_number": "2",
-          "weight": 51.0,
-          "weight_reduction": "★",
-          "rank": "7",
-          "margin": 0.9,
-          "corrected_time": 91.0,
-          "running_style": "後",
-          "last_3f": 35.5,
-          "ave_3f": 35.5,
-          "pci": 50.0,
-          "position_3f": 1.1
-        }
-      ],
-      "indices": {
-        "mining_index": 50.12,
-        "corrected_time_deviation": 56.73,
-        "zi_deviation": 53.97,
-        "base_score": 52.68,
-        "jockey_coefficient": 0.98874,
-        "similarity_coefficient": 1.00236,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": -0.002,
-        "final_score": 50.17
+        "total_coefficient_score": -0.001,
+        "final_score": 49.9
       }
     },
     {
@@ -1353,10 +1353,10 @@
         "zi_deviation": 35.53,
         "base_score": 36.26,
         "jockey_coefficient": 0.99358,
-        "similarity_coefficient": 1.00679,
+        "similarity_coefficient": 1.0043,
         "stability_coefficient": 0.99101,
-        "total_coefficient_score": -0.001,
-        "final_score": 35.61
+        "total_coefficient_score": -0.002,
+        "final_score": 34.48
       }
     },
     {
