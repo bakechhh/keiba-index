@@ -645,7 +645,6 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="new_styles.css">
 </head>
 <body>
     <div class="container">
@@ -844,10 +843,8 @@
         // データを読み込み
         async function loadData() {
             try {
-                const response = await fetch('./race_data.json');
-                if (!response.ok) throw new Error('データの読み込みに失敗しました');
-
-                allRaces = await response.json();
+                // racedataフォルダから個別JSONファイルを読み込む
+                allRaces = await loadAllRaceData();
 
                 // フィルター初期化
                 initializeFilters();
@@ -1490,6 +1487,9 @@
         loadData();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="data-loader.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
+
+<link rel="stylesheet" href="new_styles.css">
