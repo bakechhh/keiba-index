@@ -190,12 +190,17 @@ async function runAIAnalysis() {
 
         const response = await fetch('/.netlify/functions/gemini', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 raceData: selectedRace,
                 oddsData: currentOddsData,
                 userParams: { budget, minReturn, targetReturn, betTypes }
             })
         });
+        
+        console.log('[runAIAnalysis] Response status:', response.status);
 
         if (!response.ok) {
             throw new Error('AI分析の実行に失敗しました');
