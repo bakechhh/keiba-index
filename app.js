@@ -164,7 +164,7 @@ async function runAIAnalysis() {
         console.log('[AI Analysis] Prompt length:', prompt.length);
 
         // Gemini APIを直接呼び出し（gemini-2.5-flashを使用）
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
