@@ -736,6 +736,11 @@
                 <div class="ai-form">
                     <h3>🤖 AI馬券分析</h3>
                     <div class="form-group">
+                        <label for="geminiApiKey">Gemini APIキー</label>
+                        <input type="password" id="geminiApiKey" placeholder="AIzaSy...">
+                        <small style="color: #666; font-size: 12px;">※ <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>で無料取得できます。LocalStorageに保存されます。</small>
+                    </div>
+                    <div class="form-group">
                         <label for="aiBudget">予算</label>
                         <input type="number" id="aiBudget" value="2000" step="100">
                     </div>
@@ -1497,7 +1502,7 @@
                 card.classList.remove('active');
             });
             selectedRace = null;
-            window.selectedRace = null;  // グローバルに公開2
+            window.selectedRace = null;  // グローバルに公開
         }
 
         // 初期化
