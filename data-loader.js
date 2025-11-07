@@ -124,3 +124,8 @@ async function loadSingleRaceData(raceId) {
         throw error;
     }
 }
+
+// 関数をグローバルに公開
+window.loadAllRaceData = loadAllRaceData;
+window.loadOddsData = loadOddsData;
+window.loadSingleRaceData = loadSingleRaceData;
