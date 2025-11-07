@@ -52,13 +52,13 @@ async function loadAllRaceData() {
 }
 
 /**
- * raceid.csvをパースしてレースID一覧を取得
+ * raceid.csvをパースしてレース名一覧を取得
  * @param {string} csvText - CSVテキスト
- * @returns {Array<string>} レースID一覧
+ * @returns {Array<string>} レース名一覧（例: 福島1R、東京1R）
  */
 function parseRaceIdCSV(csvText) {
     const lines = csvText.trim().split('\n');
-    const raceIds = [];
+    const raceNames = [];
     
     // ヘッダー行をスキップ（1行目）
     for (let i = 1; i < lines.length; i++) {
@@ -66,15 +66,15 @@ function parseRaceIdCSV(csvText) {
         if (!line) continue;
         
         const columns = line.split(',');
-        if (columns.length >= 2) {
-            const raceId = columns[1].trim(); // 2列目がレースID（例: 東京1R）
-            if (raceId) {
-                raceIds.push(raceId);
+        if (columns.length >= 1) {
+            const raceName = columns[0].trim(); // 1列目がレース名（例: 福島1R、東京1R）
+            if (raceName) {
+                raceNames.push(raceName);
             }
         }
     }
     
-    return raceIds;
+    return raceNames;
 }
 
 /**
