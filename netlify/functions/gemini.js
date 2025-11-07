@@ -195,43 +195,43 @@ function formatOddsData(oddsData) {
         break;
 
       case 'wakuren':
-        // 枠連（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // 枠連（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds}倍`
         ).join('\n') + '\n';
         break;
 
       case 'umaren':
-        // 馬連（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // 馬連（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds}倍`
         ).join('\n') + '\n';
         break;
 
       case 'wide':
-        // ワイド（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // ワイド（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds.min}-${item.odds.max}倍`
         ).join('\n') + '\n';
         break;
 
       case 'umatan':
-        // 馬単（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // 馬単（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds}倍`
         ).join('\n') + '\n';
         break;
 
       case 'sanrenpuku':
-        // 3連複（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // 3連複（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds}倍`
         ).join('\n') + '\n';
         break;
 
       case 'sanrentan':
-        // 3連単（上位10件のみ）
-        formatted += odds.data.combinations.slice(0, 10).map(item => 
+        // 3連単（全件）
+        formatted += odds.data.combinations.map(item => 
           `- ${item.combination}: ${item.odds}倍`
         ).join('\n') + '\n';
         break;
