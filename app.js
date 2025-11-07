@@ -186,7 +186,7 @@ async function runAIAnalysis() {
 }
 
 // ====================
-// グローバルに公開
+// グローバルに公開2
 // ====================
 window.loadAndRenderOdds = loadAndRenderOdds;
 window.runAIAnalysis = runAIAnalysis;
