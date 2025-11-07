@@ -955,17 +955,29 @@
             });
             event.target.classList.add('active');
 
-            // ビューの表示を切り替え
+            // すべてのビューを非表示
             document.getElementById('listView').classList.remove('active');
             document.getElementById('simpleView').classList.remove('active');
             document.getElementById('detailView').classList.remove('active');
+            document.getElementById('oddsView').classList.remove('active');
+            document.getElementById('aiView').classList.remove('active');
 
+            // 選択されたビューを表示
             if (mode === 'list') {
                 document.getElementById('listView').classList.add('active');
             } else if (mode === 'simple') {
                 document.getElementById('simpleView').classList.add('active');
             } else if (mode === 'detail') {
                 document.getElementById('detailView').classList.add('active');
+            } else if (mode === 'odds') {
+                document.getElementById('oddsView').classList.add('active');
+                // オッズデータを読み込む
+                if (selectedRace) {
+                    window.loadOddsData();
+                }
+            } else if (mode === 'ai') {
+                document.getElementById('aiView').classList.add('active');
+                // AI分析パネルを表示（データは「分析開始」ボタンで読み込む）
             }
         }
 
