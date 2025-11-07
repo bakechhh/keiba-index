@@ -3,9 +3,9 @@
  * 競馬データとオッズデータを分析して馬券推奨を返す
  */
 
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import { GoogleGenAI } from "@google/genai";
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   // CORSヘッダー
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -45,17 +45,19 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Gemini API初期化
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    // Gemini AI初期化
+    const ai = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY,
+    });
 
     // プロンプト作成
     const prompt = createPrompt(raceData, oddsData, userParams);
 
-    // Gemini APIを呼び出し
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const analysisText = response.text();
+    // Gemini API呼び出し
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
 
     // 成功レスポンス
     return {
@@ -63,7 +65,7 @@ exports.handler = async (event, context) => {
       headers,
       body: JSON.stringify({
         success: true,
-        analysis: analysisText,
+        analysis: response.text,
         timestamp: new Date().toISOString()
       })
     };

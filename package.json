@@ -1,14 +1,14 @@
 {
   "name": "keiba-analyzer-netlify",
   "version": "1.0.0",
-  "description": "競馬ai分析システム",
-  "main": "index.html",
+  "description": "競馬分析システム ",
+  "type": "module",
   "scripts": {
     "dev": "netlify dev",
     "build": "echo 'No build step required'"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.21.0"
+    "@google/genai": "^0.1.0"
   },
   "devDependencies": {
     "netlify-cli": "^17.0.0"
