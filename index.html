@@ -775,7 +775,7 @@
     <script>
         let allRaces = [];
         let filteredRaces = [];
-        let selectedRace = null;
+        var selectedRace = null;  // グローバル変数
         let currentViewMode = 'list';
         let horseMarks = {}; // 馬印データ {raceId: {horseIndex: [mark1, mark2, mark3]}}
 
@@ -984,6 +984,7 @@
         // 馬一覧を表示
         function showHorses(race, cardElement) {
             selectedRace = race;
+            window.selectedRace = race;  // グローバルに公開
 
             // すべてのレースカードの選択状態をリセット
             document.querySelectorAll('.race-card').forEach(card => {
@@ -1496,6 +1497,7 @@
                 card.classList.remove('active');
             });
             selectedRace = null;
+            window.selectedRace = null;  // グローバルに公開
         }
 
         // 初期化
