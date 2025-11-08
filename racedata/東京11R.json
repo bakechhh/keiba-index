@@ -821,10 +821,10 @@
         "zi_deviation": 53.41,
         "base_score": 50.02,
         "jockey_coefficient": 1.00059,
-        "similarity_coefficient": 1.00507,
+        "similarity_coefficient": 1.00599,
         "stability_coefficient": 0.997,
         "total_coefficient_score": 0.002,
-        "final_score": 51.98
+        "final_score": 52.56
       }
     },
     {
@@ -937,10 +937,10 @@
         "zi_deviation": 32.02,
         "base_score": 47.69,
         "jockey_coefficient": 1.00012,
-        "similarity_coefficient": 1.00722,
+        "similarity_coefficient": 1.00813,
         "stability_coefficient": 0.9955,
-        "total_coefficient_score": 0.002,
-        "final_score": 50.13
+        "total_coefficient_score": 0.003,
+        "final_score": 50.68
       }
     },
     {
@@ -1053,10 +1053,10 @@
         "zi_deviation": 38.66,
         "base_score": 49.19,
         "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 1.00381,
+        "similarity_coefficient": 1.00415,
         "stability_coefficient": 0.99775,
         "total_coefficient_score": 0.0,
-        "final_score": 49.59
+        "final_score": 49.8
       }
     },
     {
@@ -1557,10 +1557,10 @@
         "zi_deviation": 42.35,
         "base_score": 46.63,
         "jockey_coefficient": 0.99244,
-        "similarity_coefficient": 1.00267,
+        "similarity_coefficient": 1.00358,
         "stability_coefficient": 0.99351,
         "total_coefficient_score": -0.002,
-        "final_score": 44.21
+        "final_score": 44.74
       }
     },
     {
@@ -1749,10 +1749,10 @@
         "zi_deviation": 46.03,
         "base_score": 40.29,
         "jockey_coefficient": 0.99019,
-        "similarity_coefficient": 1.00119,
+        "similarity_coefficient": 1.00565,
         "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.002,
-        "final_score": 38.71
+        "total_coefficient_score": 0.001,
+        "final_score": 40.95
       }
     },
     {
@@ -1885,10 +1885,10 @@
         "zi_deviation": 28.33,
         "base_score": 33.86,
         "jockey_coefficient": 0.98417,
-        "similarity_coefficient": 0.99931,
+        "similarity_coefficient": 1.00377,
         "stability_coefficient": 0.98983,
-        "total_coefficient_score": -0.006,
-        "final_score": 28.55
+        "total_coefficient_score": -0.004,
+        "final_score": 30.43
       }
     }
   ]
