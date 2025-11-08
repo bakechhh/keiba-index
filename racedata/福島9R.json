@@ -16,102 +16,6 @@
   "meeting": "3福1",
   "horses": [
     {
-      "frame": 6,
-      "horse_number": 12,
-      "horse_name": "エテルニータ",
-      "mark": "",
-      "jockey": {
-        "name": "荻野極",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 44,
-          "win_rate": 8.5,
-          "place_rate": 17.5,
-          "show_rate": 25.6
-        },
-        "last_year": {
-          "wins": 33,
-          "win_rate": 7.5,
-          "place_rate": 13.1,
-          "show_rate": 20.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "稲垣幸雄",
-        "this_year": {
-          "wins": 13,
-          "win_rate": 7.3,
-          "place_rate": 18.4,
-          "show_rate": 25.1
-        },
-        "last_year": {
-          "wins": 18,
-          "win_rate": 8.6,
-          "place_rate": 18.2,
-          "show_rate": 28.2
-        }
-      },
-      "interval": 4,
-      "zi_index": 122.0,
-      "time_mining": 121.58,
-      "battle_mining": 74.8,
-      "past_races": [
-        {
-          "date": "2025.10.11",
-          "race_name": "１勝ｸﾗｽ",
-          "place": "東京",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "7",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.3,
-          "corrected_time": 98.0,
-          "running_style": "先",
-          "last_3f": 34.3,
-          "ave_3f": 35.83,
-          "pci": 54.5,
-          "position_3f": 0.8
-        },
-        {
-          "date": "2025.7.19",
-          "race_name": "未勝利",
-          "place": "福島",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "10",
-          "weight": 57.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.3,
-          "corrected_time": 90.0,
-          "running_style": "後",
-          "last_3f": 35.6,
-          "ave_3f": 37.33,
-          "pci": 54.9,
-          "position_3f": 1.9
-        }
-      ],
-      "indices": {
-        "mining_index": 60.58,
-        "corrected_time_deviation": 61.41,
-        "zi_deviation": 74.48,
-        "base_score": 62.91,
-        "jockey_coefficient": 1.00036,
-        "similarity_coefficient": 1.00668,
-        "stability_coefficient": 0.9985,
-        "total_coefficient_score": 0.003,
-        "final_score": 67.42
-      }
-    },
-    {
       "frame": 3,
       "horse_number": 5,
       "horse_name": "ジェットブレード",
@@ -365,6 +269,102 @@
         "stability_coefficient": 0.9973,
         "total_coefficient_score": 0.002,
         "final_score": 64.6
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 12,
+      "horse_name": "エテルニータ",
+      "mark": "",
+      "jockey": {
+        "name": "荻野極",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 44,
+          "win_rate": 8.5,
+          "place_rate": 17.5,
+          "show_rate": 25.6
+        },
+        "last_year": {
+          "wins": 33,
+          "win_rate": 7.5,
+          "place_rate": 13.1,
+          "show_rate": 20.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "稲垣幸雄",
+        "this_year": {
+          "wins": 13,
+          "win_rate": 7.3,
+          "place_rate": 18.4,
+          "show_rate": 25.1
+        },
+        "last_year": {
+          "wins": 18,
+          "win_rate": 8.6,
+          "place_rate": 18.2,
+          "show_rate": 28.2
+        }
+      },
+      "interval": 4,
+      "zi_index": 122.0,
+      "time_mining": 121.58,
+      "battle_mining": 74.8,
+      "past_races": [
+        {
+          "date": "2025.10.11",
+          "race_name": "１勝ｸﾗｽ",
+          "place": "東京",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "7",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.3,
+          "corrected_time": 98.0,
+          "running_style": "先",
+          "last_3f": 34.3,
+          "ave_3f": 35.83,
+          "pci": 54.5,
+          "position_3f": 0.8
+        },
+        {
+          "date": "2025.7.19",
+          "race_name": "未勝利",
+          "place": "福島",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "10",
+          "weight": 57.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.3,
+          "corrected_time": 90.0,
+          "running_style": "後",
+          "last_3f": 35.6,
+          "ave_3f": 37.33,
+          "pci": 54.9,
+          "position_3f": 1.9
+        }
+      ],
+      "indices": {
+        "mining_index": 60.58,
+        "corrected_time_deviation": 61.41,
+        "zi_deviation": 74.48,
+        "base_score": 62.91,
+        "jockey_coefficient": 1.00036,
+        "similarity_coefficient": 1.00181,
+        "stability_coefficient": 0.9985,
+        "total_coefficient_score": 0.0,
+        "final_score": 63.6
       }
     },
     {
@@ -1797,10 +1797,10 @@
         "zi_deviation": 46.42,
         "base_score": 50.6,
         "jockey_coefficient": 1.00047,
-        "similarity_coefficient": 0.99849,
+        "similarity_coefficient": 1.00166,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": -0.003,
-        "final_score": 47.19
+        "total_coefficient_score": -0.001,
+        "final_score": 49.2
       }
     },
     {
