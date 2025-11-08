@@ -245,10 +245,10 @@
         "zi_deviation": 70.11,
         "base_score": 60.88,
         "jockey_coefficient": 1.00337,
-        "similarity_coefficient": 1.00774,
+        "similarity_coefficient": 1.00252,
         "stability_coefficient": 0.99662,
-        "total_coefficient_score": 0.003,
-        "final_score": 65.75
+        "total_coefficient_score": 0.001,
+        "final_score": 61.77
       }
     },
     {
