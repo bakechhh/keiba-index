@@ -92,6 +92,102 @@
       }
     },
     {
+      "frame": 8,
+      "horse_number": 15,
+      "horse_name": "ホワイトフレイムス",
+      "mark": "*",
+      "jockey": {
+        "name": "Ｃ．デム",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 2,
+          "win_rate": 11.8,
+          "place_rate": 47.1,
+          "show_rate": 52.9
+        },
+        "last_year": {
+          "wins": 31,
+          "win_rate": 22.0,
+          "place_rate": 38.3,
+          "show_rate": 48.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "吉岡辰弥",
+        "this_year": {
+          "wins": 21,
+          "win_rate": 10.1,
+          "place_rate": 19.8,
+          "show_rate": 31.9
+        },
+        "last_year": {
+          "wins": 32,
+          "win_rate": 13.6,
+          "place_rate": 24.6,
+          "show_rate": 32.6
+        }
+      },
+      "interval": 13,
+      "zi_index": 111.0,
+      "time_mining": 86.97,
+      "battle_mining": 61.0,
+      "past_races": [
+        {
+          "date": "2025.8.10",
+          "race_name": "未勝利*",
+          "place": "中京",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 1.3,
+          "corrected_time": 92.0,
+          "running_style": "逃",
+          "last_3f": 36.1,
+          "ave_3f": 35.04,
+          "pci": 47.1,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.6.7",
+          "race_name": "新馬",
+          "place": "阪神",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "3",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "3",
+          "margin": 0.3,
+          "corrected_time": 97.0,
+          "running_style": "先",
+          "last_3f": 33.1,
+          "ave_3f": 38.04,
+          "pci": 64.9,
+          "position_3f": 0.4
+        }
+      ],
+      "indices": {
+        "mining_index": 55.81,
+        "corrected_time_deviation": 58.28,
+        "zi_deviation": 59.14,
+        "base_score": 57.05,
+        "jockey_coefficient": 1.01124,
+        "similarity_coefficient": 1.00561,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": 0.003,
+        "final_score": 61.46
+      }
+    },
+    {
       "frame": 2,
       "horse_number": 3,
       "horse_name": "ラブインアクション",
@@ -261,102 +357,6 @@
         "stability_coefficient": 0.99201,
         "total_coefficient_score": -0.001,
         "final_score": 59.41
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 15,
-      "horse_name": "ホワイトフレイムス",
-      "mark": "*",
-      "jockey": {
-        "name": "Ｃ．デム",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 2,
-          "win_rate": 11.8,
-          "place_rate": 47.1,
-          "show_rate": 52.9
-        },
-        "last_year": {
-          "wins": 31,
-          "win_rate": 22.0,
-          "place_rate": 38.3,
-          "show_rate": 48.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "吉岡辰弥",
-        "this_year": {
-          "wins": 21,
-          "win_rate": 10.1,
-          "place_rate": 19.8,
-          "show_rate": 31.9
-        },
-        "last_year": {
-          "wins": 32,
-          "win_rate": 13.6,
-          "place_rate": 24.6,
-          "show_rate": 32.6
-        }
-      },
-      "interval": 13,
-      "zi_index": 111.0,
-      "time_mining": 86.97,
-      "battle_mining": 61.0,
-      "past_races": [
-        {
-          "date": "2025.8.10",
-          "race_name": "未勝利*",
-          "place": "中京",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 1.3,
-          "corrected_time": 92.0,
-          "running_style": "逃",
-          "last_3f": 36.1,
-          "ave_3f": 35.04,
-          "pci": 47.1,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.6.7",
-          "race_name": "新馬",
-          "place": "阪神",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "3",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "3",
-          "margin": 0.3,
-          "corrected_time": 97.0,
-          "running_style": "先",
-          "last_3f": 33.1,
-          "ave_3f": 38.04,
-          "pci": 64.9,
-          "position_3f": 0.4
-        }
-      ],
-      "indices": {
-        "mining_index": 55.81,
-        "corrected_time_deviation": 58.28,
-        "zi_deviation": 59.14,
-        "base_score": 57.05,
-        "jockey_coefficient": 1.01124,
-        "similarity_coefficient": 1.00254,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": 0.002,
-        "final_score": 59.27
       }
     },
     {
