@@ -404,102 +404,6 @@
       }
     },
     {
-      "frame": 6,
-      "horse_number": 11,
-      "horse_name": "アパレイユ",
-      "mark": "",
-      "jockey": {
-        "name": "松山弘平",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 110,
-          "win_rate": 15.6,
-          "place_rate": 27.6,
-          "show_rate": 36.1
-        },
-        "last_year": {
-          "wins": 113,
-          "win_rate": 13.6,
-          "place_rate": 27.3,
-          "show_rate": 37.0
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "西園翔太",
-        "this_year": {
-          "wins": 28,
-          "win_rate": 12.3,
-          "place_rate": 21.1,
-          "show_rate": 28.2
-        },
-        "last_year": {
-          "wins": 15,
-          "win_rate": 6.0,
-          "place_rate": 16.1,
-          "show_rate": 23.4
-        }
-      },
-      "interval": 11,
-      "zi_index": 108.0,
-      "time_mining": 82.18,
-      "battle_mining": 63.8,
-      "past_races": [
-        {
-          "date": "2025.8.23",
-          "race_name": "未勝利・牝*",
-          "place": "中京",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "2",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 0.2,
-          "corrected_time": 99.0,
-          "running_style": "後",
-          "last_3f": 33.4,
-          "ave_3f": 36.0,
-          "pci": 57.8,
-          "position_3f": 0.9
-        },
-        {
-          "date": "2025.7.26",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "3",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.4,
-          "corrected_time": 99.0,
-          "running_style": "中",
-          "last_3f": 34.2,
-          "ave_3f": 35.63,
-          "pci": 54.2,
-          "position_3f": 1.1
-        }
-      ],
-      "indices": {
-        "mining_index": 57.18,
-        "corrected_time_deviation": 56.25,
-        "zi_deviation": 51.66,
-        "base_score": 56.07,
-        "jockey_coefficient": 1.00551,
-        "similarity_coefficient": 1.00603,
-        "stability_coefficient": 0.9985,
-        "total_coefficient_score": 0.003,
-        "final_score": 60.72
-      }
-    },
-    {
       "frame": 1,
       "horse_number": 1,
       "horse_name": "メイショウトウコウ",
@@ -652,6 +556,178 @@
       }
     },
     {
+      "frame": 6,
+      "horse_number": 11,
+      "horse_name": "アパレイユ",
+      "mark": "",
+      "jockey": {
+        "name": "松山弘平",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 110,
+          "win_rate": 15.6,
+          "place_rate": 27.6,
+          "show_rate": 36.1
+        },
+        "last_year": {
+          "wins": 113,
+          "win_rate": 13.6,
+          "place_rate": 27.3,
+          "show_rate": 37.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "西園翔太",
+        "this_year": {
+          "wins": 28,
+          "win_rate": 12.3,
+          "place_rate": 21.1,
+          "show_rate": 28.2
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 6.0,
+          "place_rate": 16.1,
+          "show_rate": 23.4
+        }
+      },
+      "interval": 11,
+      "zi_index": 108.0,
+      "time_mining": 82.18,
+      "battle_mining": 63.8,
+      "past_races": [
+        {
+          "date": "2025.8.23",
+          "race_name": "未勝利・牝*",
+          "place": "中京",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "2",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 0.2,
+          "corrected_time": 99.0,
+          "running_style": "後",
+          "last_3f": 33.4,
+          "ave_3f": 36.0,
+          "pci": 57.8,
+          "position_3f": 0.9
+        },
+        {
+          "date": "2025.7.26",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "3",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.4,
+          "corrected_time": 99.0,
+          "running_style": "中",
+          "last_3f": 34.2,
+          "ave_3f": 35.63,
+          "pci": 54.2,
+          "position_3f": 1.1
+        }
+      ],
+      "indices": {
+        "mining_index": 57.18,
+        "corrected_time_deviation": 56.25,
+        "zi_deviation": 51.66,
+        "base_score": 56.07,
+        "jockey_coefficient": 1.00551,
+        "similarity_coefficient": 1.00238,
+        "stability_coefficient": 0.9985,
+        "total_coefficient_score": 0.001,
+        "final_score": 58.16
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 9,
+      "horse_name": "イズントイット",
+      "mark": "*",
+      "jockey": {
+        "name": "幸英明",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 40,
+          "win_rate": 7.2,
+          "place_rate": 13.9,
+          "show_rate": 20.1
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 5.2,
+          "place_rate": 11.8,
+          "show_rate": 19.6
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "岡田稲男",
+        "this_year": {
+          "wins": 10,
+          "win_rate": 5.3,
+          "place_rate": 8.5,
+          "show_rate": 14.8
+        },
+        "last_year": {
+          "wins": 24,
+          "win_rate": 9.8,
+          "place_rate": 17.6,
+          "show_rate": 23.8
+        }
+      },
+      "interval": 3,
+      "zi_index": 108.0,
+      "time_mining": 82.28,
+      "battle_mining": 46.9,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "17",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 0.7,
+          "corrected_time": 94.0,
+          "running_style": "先",
+          "last_3f": 35.5,
+          "ave_3f": 35.55,
+          "pci": 50.1,
+          "position_3f": 0.2
+        }
+      ],
+      "indices": {
+        "mining_index": 48.15,
+        "corrected_time_deviation": 53.67,
+        "zi_deviation": 51.66,
+        "base_score": 50.34,
+        "jockey_coefficient": 0.99673,
+        "similarity_coefficient": 1.00991,
+        "stability_coefficient": 0.9965,
+        "total_coefficient_score": 0.003,
+        "final_score": 54.41
+      }
+    },
+    {
       "frame": 7,
       "horse_number": 13,
       "horse_name": "アイルトン",
@@ -741,86 +817,10 @@
         "zi_deviation": 47.21,
         "base_score": 51.59,
         "jockey_coefficient": 1.00138,
-        "similarity_coefficient": 1.0068,
+        "similarity_coefficient": 1.00276,
         "stability_coefficient": 0.998,
-        "total_coefficient_score": 0.003,
-        "final_score": 55.34
-      }
-    },
-    {
-      "frame": 5,
-      "horse_number": 9,
-      "horse_name": "イズントイット",
-      "mark": "*",
-      "jockey": {
-        "name": "幸英明",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 40,
-          "win_rate": 7.2,
-          "place_rate": 13.9,
-          "show_rate": 20.1
-        },
-        "last_year": {
-          "wins": 44,
-          "win_rate": 5.2,
-          "place_rate": 11.8,
-          "show_rate": 19.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "岡田稲男",
-        "this_year": {
-          "wins": 10,
-          "win_rate": 5.3,
-          "place_rate": 8.5,
-          "show_rate": 14.8
-        },
-        "last_year": {
-          "wins": 24,
-          "win_rate": 9.8,
-          "place_rate": 17.6,
-          "show_rate": 23.8
-        }
-      },
-      "interval": 3,
-      "zi_index": 108.0,
-      "time_mining": 82.28,
-      "battle_mining": 46.9,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "17",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 0.7,
-          "corrected_time": 94.0,
-          "running_style": "先",
-          "last_3f": 35.5,
-          "ave_3f": 35.55,
-          "pci": 50.1,
-          "position_3f": 0.2
-        }
-      ],
-      "indices": {
-        "mining_index": 48.15,
-        "corrected_time_deviation": 53.67,
-        "zi_deviation": 51.66,
-        "base_score": 50.34,
-        "jockey_coefficient": 0.99673,
-        "similarity_coefficient": 1.00991,
-        "stability_coefficient": 0.9965,
-        "total_coefficient_score": 0.003,
-        "final_score": 54.41
+        "total_coefficient_score": 0.001,
+        "final_score": 52.73
       }
     },
     {
@@ -976,6 +976,82 @@
       }
     },
     {
+      "frame": 4,
+      "horse_number": 7,
+      "horse_name": "ラッキーヴォーグ",
+      "mark": "*",
+      "jockey": {
+        "name": "松若風馬",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 21,
+          "win_rate": 4.9,
+          "place_rate": 10.8,
+          "show_rate": 19.0
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 4.2,
+          "place_rate": 9.8,
+          "show_rate": 16.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "牧田和弥",
+        "this_year": {
+          "wins": 17,
+          "win_rate": 7.7,
+          "place_rate": 11.8,
+          "show_rate": 17.7
+        },
+        "last_year": {
+          "wins": 16,
+          "win_rate": 6.1,
+          "place_rate": 17.0,
+          "show_rate": 23.1
+        }
+      },
+      "interval": 3,
+      "zi_index": 98.0,
+      "time_mining": 82.33,
+      "battle_mining": 41.3,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "10",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "10",
+          "margin": 1.2,
+          "corrected_time": 89.0,
+          "running_style": "中",
+          "last_3f": 35.1,
+          "ave_3f": 36.23,
+          "pci": 53.2,
+          "position_3f": 1.1
+        }
+      ],
+      "indices": {
+        "mining_index": 44.64,
+        "corrected_time_deviation": 51.09,
+        "zi_deviation": 42.75,
+        "base_score": 46.29,
+        "jockey_coefficient": 0.99588,
+        "similarity_coefficient": 1.00237,
+        "stability_coefficient": 0.994,
+        "total_coefficient_score": -0.002,
+        "final_score": 44.52
+      }
+    },
+    {
       "frame": 2,
       "horse_number": 3,
       "horse_name": "セイントホース",
@@ -1065,86 +1141,10 @@
         "zi_deviation": 37.39,
         "base_score": 47.47,
         "jockey_coefficient": 0.99368,
-        "similarity_coefficient": 1.00147,
+        "similarity_coefficient": 0.99781,
         "stability_coefficient": 0.9965,
-        "total_coefficient_score": -0.001,
-        "final_score": 45.76
-      }
-    },
-    {
-      "frame": 4,
-      "horse_number": 7,
-      "horse_name": "ラッキーヴォーグ",
-      "mark": "*",
-      "jockey": {
-        "name": "松若風馬",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 21,
-          "win_rate": 4.9,
-          "place_rate": 10.8,
-          "show_rate": 19.0
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 4.2,
-          "place_rate": 9.8,
-          "show_rate": 16.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "牧田和弥",
-        "this_year": {
-          "wins": 17,
-          "win_rate": 7.7,
-          "place_rate": 11.8,
-          "show_rate": 17.7
-        },
-        "last_year": {
-          "wins": 16,
-          "win_rate": 6.1,
-          "place_rate": 17.0,
-          "show_rate": 23.1
-        }
-      },
-      "interval": 3,
-      "zi_index": 98.0,
-      "time_mining": 82.33,
-      "battle_mining": 41.3,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "10",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "10",
-          "margin": 1.2,
-          "corrected_time": 89.0,
-          "running_style": "中",
-          "last_3f": 35.1,
-          "ave_3f": 36.23,
-          "pci": 53.2,
-          "position_3f": 1.1
-        }
-      ],
-      "indices": {
-        "mining_index": 44.64,
-        "corrected_time_deviation": 51.09,
-        "zi_deviation": 42.75,
-        "base_score": 46.29,
-        "jockey_coefficient": 0.99588,
-        "similarity_coefficient": 1.00237,
-        "stability_coefficient": 0.994,
-        "total_coefficient_score": -0.002,
-        "final_score": 44.52
+        "total_coefficient_score": -0.003,
+        "final_score": 43.59
       }
     },
     {
