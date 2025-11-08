@@ -152,6 +152,102 @@
       }
     },
     {
+      "frame": 3,
+      "horse_number": 5,
+      "horse_name": "ドリーマーズ",
+      "mark": "",
+      "jockey": {
+        "name": "杉原誠人",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 4.2,
+          "place_rate": 9.0,
+          "show_rate": 14.1
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 4.3,
+          "place_rate": 8.6,
+          "show_rate": 15.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "伊藤大士",
+        "this_year": {
+          "wins": 13,
+          "win_rate": 5.4,
+          "place_rate": 12.0,
+          "show_rate": 20.3
+        },
+        "last_year": {
+          "wins": 18,
+          "win_rate": 5.9,
+          "place_rate": 15.2,
+          "show_rate": 22.1
+        }
+      },
+      "interval": 3,
+      "zi_index": 111.0,
+      "time_mining": 69.79,
+      "battle_mining": 60.5,
+      "past_races": [
+        {
+          "date": "2025.10.18",
+          "race_name": "未勝利*",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "9",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 0.3,
+          "corrected_time": 101.0,
+          "running_style": "先",
+          "last_3f": 35.3,
+          "ave_3f": 34.5,
+          "pci": 47.7,
+          "position_3f": 0.4
+        },
+        {
+          "date": "2025.8.9",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "2",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 0.7,
+          "corrected_time": 95.0,
+          "running_style": "中",
+          "last_3f": 34.6,
+          "ave_3f": 35.9,
+          "pci": 53.8,
+          "position_3f": 1.3
+        }
+      ],
+      "indices": {
+        "mining_index": 55.22,
+        "corrected_time_deviation": 65.33,
+        "zi_deviation": 58.17,
+        "base_score": 58.69,
+        "jockey_coefficient": 0.99141,
+        "similarity_coefficient": 1.00796,
+        "stability_coefficient": 0.9975,
+        "total_coefficient_score": 0.002,
+        "final_score": 61.36
+      }
+    },
+    {
       "frame": 1,
       "horse_number": 1,
       "horse_name": "ハッピーラッキー",
@@ -285,102 +381,6 @@
         "stability_coefficient": 0.99387,
         "total_coefficient_score": 0.0,
         "final_score": 60.98
-      }
-    },
-    {
-      "frame": 3,
-      "horse_number": 5,
-      "horse_name": "ドリーマーズ",
-      "mark": "",
-      "jockey": {
-        "name": "杉原誠人",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 15,
-          "win_rate": 4.2,
-          "place_rate": 9.0,
-          "show_rate": 14.1
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 4.3,
-          "place_rate": 8.6,
-          "show_rate": 15.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "伊藤大士",
-        "this_year": {
-          "wins": 13,
-          "win_rate": 5.4,
-          "place_rate": 12.0,
-          "show_rate": 20.3
-        },
-        "last_year": {
-          "wins": 18,
-          "win_rate": 5.9,
-          "place_rate": 15.2,
-          "show_rate": 22.1
-        }
-      },
-      "interval": 3,
-      "zi_index": 111.0,
-      "time_mining": 69.79,
-      "battle_mining": 60.5,
-      "past_races": [
-        {
-          "date": "2025.10.18",
-          "race_name": "未勝利*",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "9",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 0.3,
-          "corrected_time": 101.0,
-          "running_style": "先",
-          "last_3f": 35.3,
-          "ave_3f": 34.5,
-          "pci": 47.7,
-          "position_3f": 0.4
-        },
-        {
-          "date": "2025.8.9",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "2",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 0.7,
-          "corrected_time": 95.0,
-          "running_style": "中",
-          "last_3f": 34.6,
-          "ave_3f": 35.9,
-          "pci": 53.8,
-          "position_3f": 1.3
-        }
-      ],
-      "indices": {
-        "mining_index": 55.22,
-        "corrected_time_deviation": 65.33,
-        "zi_deviation": 58.17,
-        "base_score": 58.69,
-        "jockey_coefficient": 0.99141,
-        "similarity_coefficient": 1.0054,
-        "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.001,
-        "final_score": 59.48
       }
     },
     {
@@ -665,10 +665,10 @@
         "zi_deviation": 50.13,
         "base_score": 53.91,
         "jockey_coefficient": 0.99439,
-        "similarity_coefficient": 1.00361,
+        "similarity_coefficient": 1.00617,
         "stability_coefficient": 0.99725,
-        "total_coefficient_score": 0.0,
-        "final_score": 53.91
+        "total_coefficient_score": 0.001,
+        "final_score": 55.64
       }
     },
     {
@@ -1669,10 +1669,10 @@
         "zi_deviation": 40.07,
         "base_score": 33.55,
         "jockey_coefficient": 0.9861,
-        "similarity_coefficient": 1.00372,
+        "similarity_coefficient": 1.00629,
         "stability_coefficient": 0.997,
-        "total_coefficient_score": -0.001,
-        "final_score": 32.49
+        "total_coefficient_score": 0.0,
+        "final_score": 33.56
       }
     },
     {
