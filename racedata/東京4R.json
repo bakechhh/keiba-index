@@ -112,82 +112,6 @@
       }
     },
     {
-      "frame": 3,
-      "horse_number": 3,
-      "horse_name": "スノーエルヴァ",
-      "mark": "*",
-      "jockey": {
-        "name": "菅原明良",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 51,
-          "win_rate": 8.3,
-          "place_rate": 15.4,
-          "show_rate": 25.2
-        },
-        "last_year": {
-          "wins": 60,
-          "win_rate": 7.9,
-          "place_rate": 17.4,
-          "show_rate": 27.8
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "田村康仁",
-        "this_year": {
-          "wins": 19,
-          "win_rate": 8.6,
-          "place_rate": 14.4,
-          "show_rate": 20.7
-        },
-        "last_year": {
-          "wins": 21,
-          "win_rate": 7.0,
-          "place_rate": 14.0,
-          "show_rate": 21.7
-        }
-      },
-      "interval": 3,
-      "zi_index": 113.0,
-      "time_mining": 108.21,
-      "battle_mining": 63.0,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "東京",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "11",
-          "weight": 53.0,
-          "weight_reduction": "△",
-          "rank": "2",
-          "margin": 0.2,
-          "corrected_time": 98.0,
-          "running_style": "先",
-          "last_3f": 34.1,
-          "ave_3f": 38.15,
-          "pci": 61.9,
-          "position_3f": 0.1
-        }
-      ],
-      "indices": {
-        "mining_index": 60.74,
-        "corrected_time_deviation": 62.11,
-        "zi_deviation": 58.65,
-        "base_score": 60.84,
-        "jockey_coefficient": 1.00012,
-        "similarity_coefficient": 1.00099,
-        "stability_coefficient": 0.999,
-        "total_coefficient_score": 0.0,
-        "final_score": 61.09
-      }
-    },
-    {
       "frame": 6,
       "horse_number": 10,
       "horse_name": "ラグアイリータ",
@@ -277,10 +201,86 @@
         "zi_deviation": 60.81,
         "base_score": 58.48,
         "jockey_coefficient": 1.00006,
-        "similarity_coefficient": 1.00324,
+        "similarity_coefficient": 1.00644,
         "stability_coefficient": 0.9985,
-        "total_coefficient_score": 0.001,
-        "final_score": 60.1
+        "total_coefficient_score": 0.003,
+        "final_score": 62.43
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 3,
+      "horse_name": "スノーエルヴァ",
+      "mark": "*",
+      "jockey": {
+        "name": "菅原明良",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 51,
+          "win_rate": 8.3,
+          "place_rate": 15.4,
+          "show_rate": 25.2
+        },
+        "last_year": {
+          "wins": 60,
+          "win_rate": 7.9,
+          "place_rate": 17.4,
+          "show_rate": 27.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "田村康仁",
+        "this_year": {
+          "wins": 19,
+          "win_rate": 8.6,
+          "place_rate": 14.4,
+          "show_rate": 20.7
+        },
+        "last_year": {
+          "wins": 21,
+          "win_rate": 7.0,
+          "place_rate": 14.0,
+          "show_rate": 21.7
+        }
+      },
+      "interval": 3,
+      "zi_index": 113.0,
+      "time_mining": 108.21,
+      "battle_mining": 63.0,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "東京",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "11",
+          "weight": 53.0,
+          "weight_reduction": "△",
+          "rank": "2",
+          "margin": 0.2,
+          "corrected_time": 98.0,
+          "running_style": "先",
+          "last_3f": 34.1,
+          "ave_3f": 38.15,
+          "pci": 61.9,
+          "position_3f": 0.1
+        }
+      ],
+      "indices": {
+        "mining_index": 60.74,
+        "corrected_time_deviation": 62.11,
+        "zi_deviation": 58.65,
+        "base_score": 60.84,
+        "jockey_coefficient": 1.00012,
+        "similarity_coefficient": 1.00099,
+        "stability_coefficient": 0.999,
+        "total_coefficient_score": 0.0,
+        "final_score": 61.09
       }
     },
     {
