@@ -765,6 +765,13 @@
                         <label for="aiTargetReturn">目標回収率 (%)</label>
                         <input type="number" id="aiTargetReturn" value="200" min="100">
                     </div>
+                    <div class="form-group">
+                        <label>🐴 パドック評価（任意）</label>
+                        <div id="paddockEvalContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 8px; margin-top: 8px;">
+                            <!-- レース選択時に馬番チェックボックスが表示されます -->
+                        </div>
+                        <small style="color: #666; font-size: 12px;">※ パドックで調子が良い馬を選択してください。AIが馬券に含めるように考慮します。</small>
+                    </div>
                     <button id="aiAnalyzeBtn" class="analyze-btn">分析開始</button>
                 </div>
                 <div class="ai-result" id="aiResult">
@@ -1007,6 +1014,9 @@
             generateListView(race);
             generateSimpleView(race);
             generateDetailView(race);
+            
+            // パドック評価チェックボックスを生成
+            generatePaddockEvalCheckboxes(race);
 
             // 馬一覧を表示
             document.getElementById('horsesContainer').classList.add('active');
@@ -1493,6 +1503,23 @@
             });
 
             detailView.innerHTML = html;
+        }
+        
+        // パドック評価チェックボックスを生成
+        function generatePaddockEvalCheckboxes(race) {
+            const container = document.getElementById('paddockEvalContainer');
+            if (!container) return;
+            
+            let html = '';
+            race.horses.forEach((horse, index) => {
+                html += `
+                    <label style="display: flex; align-items: center; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; background: white;">
+                        <input type="checkbox" name="paddockEval" value="${horse.horse_number}" style="margin-right: 4px;">
+                        <span style="font-size: 14px;">${horse.horse_number}番</span>
+                    </label>
+                `;
+            });
+            container.innerHTML = html;
         }
 
         // 馬一覧を閉じる

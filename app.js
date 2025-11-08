@@ -157,6 +157,9 @@ async function runAIAnalysis() {
     const minReturn = document.getElementById('aiMinReturn').value;
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
+    
+    // パドック評価の取得（チェックされた馬番）
+    const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
 
     try {
         // オッズデータが読み込まれていない場合は読み込む
@@ -165,8 +168,8 @@ async function runAIAnalysis() {
             currentOddsData = await window.loadOddsData(raceId);
         }
 
-        // プロンプト作成（gemini.jsと同じロジック）
-        const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes });
+        // プロンプト作成（パドック情報を含む）
+        const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes, paddockHorses });
 
         console.log('[AI Analysis] Calling Gemini API directly...');
         console.log('[AI Analysis] Prompt length:', prompt.length);
@@ -217,7 +220,8 @@ function createPrompt(raceData, oddsData, userParams) {
         budget,
         betTypes,
         minReturn,
-        targetReturn
+        targetReturn,
+        paddockHorses
     } = userParams;
 
     return `あなたは競馬予想AIです。以下のデータを分析して、馬券購入の推奨を提供してください。
@@ -240,6 +244,16 @@ ${formatOddsData(oddsData)}
 - **購入方式**: ${betTypes.join(', ')}
 - **下限回収率**: ${minReturn}%
 - **目標回収率**: ${targetReturn}%
+${paddockHorses && paddockHorses.length > 0 ? `
+## 🐴 パドック評価（ユーザーが現地で確認）
+以下の馬はパドックで調子が良いとユーザーが判断しました：
+**${paddockHorses.map(h => `${h}番`).join(', ')}**
+
+**パドック評価の活用方法**:
+- パドックで調子が良い馬は、指数が中位でも穴馬候補として考慮する
+- 指数が高くパドックも良い馬は、本命候補として優先する
+- パドック情報は当日の馬体状態を反映しているため、馬券に重視して含めること（過度な期待は注意）
+` : ''}
 
 ### 回収率の定義
 \`\`\`
@@ -257,7 +271,7 @@ ${formatOddsData(oddsData)}
 - 例: 本線(的中率高・配当低) + 抑え(バランス) + 大穴(的中率低・配当高) の組み合わせで、全体の期待回収率が目標値になるように調整
 
 **資金配分の考え方**:
-- 本線60% + 抑え30% + 大穴10% のように配分
+- 本線50% + 抑え35% + 大穴15% のように配分
 - 各馬券の的中確率 × 配当 × 購入比率 の合計が全体の期待回収率
 - 下限を下回らず、目標に近づけるバランスを見つけること
 
@@ -332,9 +346,9 @@ ${formatOddsData(oddsData)}
 - 回収率が目標値を大きく上回る組み合わせ
 
 #### 資金配分の目安
-- 本線: 60-70%
-- 抑え: 20-30%
-- 大穴: 10-20%
+- 本線: 50-60%
+- 抑え: 30-40%
+- 大穴: 15-20%
 
 ## 出力形式
 以下の形式でMarkdownで出力してください：
@@ -366,12 +380,23 @@ ${formatOddsData(oddsData)}
 - **推奨理由**: （3頭の組み合わせ妙味、指数バランスなど）
 
 ### 💰 資金配分
-| 区分 | 馬券種別 | 組み合わせ | 購入金額 | 想定回収額　| 期待回収率 |
-|------|----------|------------|----------|------------|------------|
-| 本線 | ○○ | ○-○ | ○○円 | ○○円 |○○% |
-| 抑え | ○○ | ○-○-○ | ○○円 | ○○円 |○○% |
-| 大穴 | ○○ | ○-○-○ | ○○円 | ○○円 |○○% |
-| **合計** | - | - | **○○円** | **○○円** | **平均○○%** |
+| 区分 | 馬券種別 | 買い目 | 点数 | 1点あたり | 合計金額 | オッズ | 想定回収額 | 期待回収率 |
+|------|----------|--------|------|----------|----------|--------|------------|------------|
+| 本線 | ○○ | 例: 軸○番→相手△,□,× | ○点 | ○○円 | ○○円 | ○○倍 | ○○円 | ○○% |
+| 抑え | ○○ | 例: ○,△,□ボックス | ○点 | ○○円 | ○○円 | ○○倍 | ○○円 | ○○% |
+| 大穴 | ○○ | 例: ○-△-□ | ○点 | ○○円 | ○○円 | ○○倍 | ○○円 | ○○% |
+| **合計** | - | - | - | - | **○○円** | - | **○○円** | **平均○○%** |
+
+**馬券の買い方の表記ルール**:
+- **単体馬券（単勝・複勝）**: 「○番単体」（1点）
+- **単発の組み合わせ**: 「○-△」（1点）
+- **複数の組み合わせ**: 「○-△,○-□」（2点）、「○-△,△-□,□-×」（3点）など、カンマ区切りで列挙
+- **軸1頭流し**: 「軸○番 → 相手△,□,×」（3点）
+- **ボックス**: 「○,△,□のボックス」（3頭ボックスは3点）
+- **フォーメーション**: 「1着○,△ → 2着□,× → 3着全」（○点）
+- 点数と1点あたりの金額を必ず明記すること
+- 合計金額 = 点数 × 1点あたり金額
+- 想定回収額 = オッズ × 合計金額（的中時の払戻金）
 
 ### ⚠️ 注意事項
 - リスクとリターンのバランス
@@ -382,13 +407,15 @@ ${formatOddsData(oddsData)}
 
 **重要な制約**: 
 - 予算${budget}円を超えないこと
-- このレース全体での推奨馬券の合計期待回収率が下限${minReturn}%を下回らないこと
-- このレース全体での推奨馬券の合計期待回収率が可能な限り目標回収率${targetReturn}%に近づくこと
+- **このレース全体での推奨馬券の合計期待回収率**が下限${minReturn}%を下回らないこと
+- **このレース全体での推奨馬券の合計期待回収率**が可能な限り目標回収率${targetReturn}%に近づくこと
+- 個別の馬券の回収率は参考値であり、**レース全体での回収率を最優先**で考えること
+- **複勝・ワイド以外の馬券は1レースで的中が1点のみ**（複数の組み合わせを推奨する場合、そのうち1点しか的中しないことを考慮すること）
 - 現実的で実行可能な馬券を推奨すること
 - 1馬券あたり最低100円なので、150円など50円単位は必ず出さないこと
-- 予算はすべて使い切ること。
--　想定回収額はオッズ×購入金額
--　資金配分の表の内容は守ること
+- 予算はすべて使い切ること
+- 想定回収額はオッズ×合計金額
+- 資金配分の表の内容は守ること
 - 馬券の組み合わせは、実際のオッズデータに基づいて選定すること
 - 消し馬の判断は慎重に行い、過度に消さないこと
 `;
