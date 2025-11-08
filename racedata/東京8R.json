@@ -55,8 +55,8 @@
       },
       "interval": 9,
       "zi_index": 128.0,
-      "time_mining": 118.28,
-      "battle_mining": 77.6,
+      "time_mining": 118.29,
+      "battle_mining": 77.5,
       "past_races": [
         {
           "date": "2025.9.7",
@@ -240,15 +240,15 @@
         }
       ],
       "indices": {
-        "mining_index": 66.0,
+        "mining_index": 65.86,
         "corrected_time_deviation": 63.73,
         "zi_deviation": 62.41,
-        "base_score": 64.78,
+        "base_score": 64.7,
         "jockey_coefficient": 1.00813,
         "similarity_coefficient": 1.00379,
         "stability_coefficient": 0.998,
         "total_coefficient_score": 0.002,
-        "final_score": 68.69
+        "final_score": 68.61
       }
     },
     {
@@ -291,8 +291,8 @@
       },
       "interval": 3,
       "zi_index": 122.0,
-      "time_mining": 119.11,
-      "battle_mining": 64.9,
+      "time_mining": 119.12,
+      "battle_mining": 64.7,
       "past_races": [
         {
           "date": "2025.10.18",
@@ -436,15 +436,15 @@
         }
       ],
       "indices": {
-        "mining_index": 58.59,
+        "mining_index": 58.47,
         "corrected_time_deviation": 47.2,
         "zi_deviation": 58.71,
-        "base_score": 55.19,
+        "base_score": 55.13,
         "jockey_coefficient": 1.01336,
-        "similarity_coefficient": 1.00438,
+        "similarity_coefficient": 1.00476,
         "stability_coefficient": 0.997,
         "total_coefficient_score": 0.003,
-        "final_score": 59.53
+        "final_score": 59.72
       }
     },
     {
@@ -487,8 +487,8 @@
       },
       "interval": 13,
       "zi_index": 122.0,
-      "time_mining": 119.44,
-      "battle_mining": 57.3,
+      "time_mining": 119.46,
+      "battle_mining": 57.2,
       "past_races": [
         {
           "date": "2025.8.9",
@@ -692,15 +692,15 @@
         }
       ],
       "indices": {
-        "mining_index": 54.29,
+        "mining_index": 54.22,
         "corrected_time_deviation": 58.83,
         "zi_deviation": 58.71,
-        "base_score": 56.32,
+        "base_score": 56.28,
         "jockey_coefficient": 1.00596,
         "similarity_coefficient": 1.00467,
         "stability_coefficient": 0.9971,
         "total_coefficient_score": 0.002,
-        "final_score": 59.43
+        "final_score": 59.39
       }
     },
     {
@@ -744,7 +744,7 @@
       "interval": 8,
       "zi_index": 117.0,
       "time_mining": 119.29,
-      "battle_mining": 63.8,
+      "battle_mining": 64.2,
       "past_races": [
         {
           "date": "2025.9.15",
@@ -908,15 +908,15 @@
         }
       ],
       "indices": {
-        "mining_index": 57.55,
+        "mining_index": 57.71,
         "corrected_time_deviation": 60.14,
         "zi_deviation": 55.63,
-        "base_score": 58.04,
+        "base_score": 58.13,
         "jockey_coefficient": 0.98626,
         "similarity_coefficient": 1.00681,
         "stability_coefficient": 0.99775,
         "total_coefficient_score": 0.001,
-        "final_score": 58.84
+        "final_score": 58.93
       }
     },
     {
@@ -960,7 +960,7 @@
       "interval": 2,
       "zi_index": 97.0,
       "time_mining": 120.76,
-      "battle_mining": 40.6,
+      "battle_mining": 40.7,
       "past_races": [
         {
           "date": "2025.10.26",
@@ -1164,15 +1164,15 @@
         }
       ],
       "indices": {
-        "mining_index": 43.73,
+        "mining_index": 43.86,
         "corrected_time_deviation": 50.68,
         "zi_deviation": 43.29,
-        "base_score": 45.75,
+        "base_score": 45.82,
         "jockey_coefficient": 0.99053,
         "similarity_coefficient": 1.00468,
         "stability_coefficient": 0.99313,
         "total_coefficient_score": -0.001,
-        "final_score": 44.05
+        "final_score": 44.12
       }
     },
     {
@@ -1215,8 +1215,8 @@
       },
       "interval": 2,
       "zi_index": 107.0,
-      "time_mining": 120.64,
-      "battle_mining": 39.2,
+      "time_mining": 120.68,
+      "battle_mining": 40.3,
       "past_races": [
         {
           "date": "2025.10.26",
@@ -1420,15 +1420,15 @@
         }
       ],
       "indices": {
-        "mining_index": 43.62,
+        "mining_index": 43.98,
         "corrected_time_deviation": 46.44,
         "zi_deviation": 49.46,
-        "base_score": 45.34,
+        "base_score": 45.54,
         "jockey_coefficient": 1.00093,
         "similarity_coefficient": 0.99935,
         "stability_coefficient": 0.99434,
         "total_coefficient_score": -0.002,
-        "final_score": 42.89
+        "final_score": 43.08
       }
     },
     {
@@ -1471,8 +1471,8 @@
       },
       "interval": 2,
       "zi_index": 80.0,
-      "time_mining": 120.88,
-      "battle_mining": 25.8,
+      "time_mining": 120.9,
+      "battle_mining": 25.6,
       "past_races": [
         {
           "date": "2025.10.26",
@@ -1676,15 +1676,15 @@
         }
       ],
       "indices": {
-        "mining_index": 36.31,
+        "mining_index": 36.28,
         "corrected_time_deviation": 41.22,
         "zi_deviation": 32.81,
-        "base_score": 37.26,
+        "base_score": 37.24,
         "jockey_coefficient": 0.99474,
         "similarity_coefficient": 1.00283,
         "stability_coefficient": 0.9927,
         "total_coefficient_score": -0.002,
-        "final_score": 35.46
+        "final_score": 35.44
       }
     },
     {
@@ -1727,8 +1727,8 @@
       },
       "interval": 7,
       "zi_index": 90.0,
-      "time_mining": 121.33,
-      "battle_mining": 30.4,
+      "time_mining": 121.35,
+      "battle_mining": 29.3,
       "past_races": [
         {
           "date": "2025.9.21",
@@ -1932,15 +1932,15 @@
         }
       ],
       "indices": {
-        "mining_index": 37.92,
+        "mining_index": 37.56,
         "corrected_time_deviation": 31.76,
         "zi_deviation": 38.97,
-        "base_score": 36.23,
+        "base_score": 36.03,
         "jockey_coefficient": 0.99244,
         "similarity_coefficient": 1.0021,
         "stability_coefficient": 0.989,
         "total_coefficient_score": -0.004,
-        "final_score": 32.67
+        "final_score": 32.49
       }
     }
   ]
