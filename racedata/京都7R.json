@@ -2801,10 +2801,10 @@
         "zi_deviation": 41.77,
         "base_score": 42.98,
         "jockey_coefficient": 0.99162,
-        "similarity_coefficient": 1.00428,
+        "similarity_coefficient": 1.00713,
         "stability_coefficient": 0.99217,
-        "total_coefficient_score": -0.002,
-        "final_score": 40.98
+        "total_coefficient_score": -0.0,
+        "final_score": 42.51
       }
     },
     {
