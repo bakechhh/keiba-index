@@ -55,19 +55,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 108.57,
-      "battle_mining": 64.6,
+      "time_mining": 108.56,
+      "battle_mining": 64.1,
       "past_races": [],
       "indices": {
-        "mining_index": 62.38,
+        "mining_index": 61.95,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 56.81,
+        "base_score": 56.57,
         "jockey_coefficient": 1.01336,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.002,
-        "final_score": 59.66
+        "final_score": 59.4
       }
     },
     {
@@ -111,18 +111,18 @@
       "interval": 0,
       "zi_index": 0.0,
       "time_mining": 109.01,
-      "battle_mining": 69.9,
+      "battle_mining": 70.3,
       "past_races": [],
       "indices": {
-        "mining_index": 62.82,
+        "mining_index": 63.06,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 57.05,
+        "base_score": 57.18,
         "jockey_coefficient": 1.00813,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 58.79
+        "final_score": 58.92
       }
     },
     {
@@ -166,18 +166,18 @@
       "interval": 0,
       "zi_index": 0.0,
       "time_mining": 109.13,
-      "battle_mining": 58.8,
+      "battle_mining": 59.2,
       "past_races": [],
       "indices": {
-        "mining_index": 55.99,
+        "mining_index": 56.3,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 53.3,
+        "base_score": 53.46,
         "jockey_coefficient": 1.00596,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 54.49
+        "final_score": 54.66
       }
     },
     {
@@ -220,74 +220,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 108.82,
-      "battle_mining": 57.3,
+      "time_mining": 108.86,
+      "battle_mining": 53.3,
       "past_races": [],
       "indices": {
-        "mining_index": 56.35,
+        "mining_index": 53.07,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 53.49,
+        "base_score": 51.69,
         "jockey_coefficient": 1.00398,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 54.29
-      }
-    },
-    {
-      "frame": 1,
-      "horse_number": 1,
-      "horse_name": "インテンスゲイズ",
-      "mark": "",
-      "jockey": {
-        "name": "津村明秀",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 47,
-          "win_rate": 8.4,
-          "place_rate": 17.6,
-          "show_rate": 25.1
-        },
-        "last_year": {
-          "wins": 44,
-          "win_rate": 7.9,
-          "place_rate": 17.3,
-          "show_rate": 24.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "矢嶋大樹",
-        "this_year": {
-          "wins": 8,
-          "win_rate": 4.3,
-          "place_rate": 14.1,
-          "show_rate": 20.1
-        },
-        "last_year": {
-          "wins": 6,
-          "win_rate": 3.3,
-          "place_rate": 4.4,
-          "show_rate": 9.4
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 109.15,
-      "battle_mining": 51.3,
-      "past_races": [],
-      "indices": {
-        "mining_index": 51.23,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 50.68,
-        "jockey_coefficient": 1.00006,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.0,
-        "final_score": 50.69
+        "final_score": 52.46
       }
     },
     {
@@ -330,19 +275,74 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 109.59,
-      "battle_mining": 58.4,
+      "time_mining": 109.76,
+      "battle_mining": 61.9,
       "past_races": [],
       "indices": {
-        "mining_index": 53.16,
+        "mining_index": 54.15,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 51.74,
+        "base_score": 52.28,
         "jockey_coefficient": 0.98626,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.002,
-        "final_score": 49.07
+        "final_score": 49.59
+      }
+    },
+    {
+      "frame": 1,
+      "horse_number": 1,
+      "horse_name": "インテンスゲイズ",
+      "mark": "",
+      "jockey": {
+        "name": "津村明秀",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 47,
+          "win_rate": 8.4,
+          "place_rate": 17.6,
+          "show_rate": 25.1
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 7.9,
+          "place_rate": 17.3,
+          "show_rate": 24.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "矢嶋大樹",
+        "this_year": {
+          "wins": 8,
+          "win_rate": 4.3,
+          "place_rate": 14.1,
+          "show_rate": 20.1
+        },
+        "last_year": {
+          "wins": 6,
+          "win_rate": 3.3,
+          "place_rate": 4.4,
+          "show_rate": 9.4
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 109.18,
+      "battle_mining": 48.6,
+      "past_races": [],
+      "indices": {
+        "mining_index": 49.06,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 49.48,
+        "jockey_coefficient": 1.00006,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 49.49
       }
     },
     {
@@ -385,19 +385,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 109.32,
-      "battle_mining": 49.1,
+      "time_mining": 109.34,
+      "battle_mining": 49.7,
       "past_races": [],
       "indices": {
-        "mining_index": 49.31,
+        "mining_index": 49.8,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 49.62,
+        "base_score": 49.89,
         "jockey_coefficient": 0.99532,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 48.75
+        "final_score": 49.02
       }
     },
     {
@@ -440,19 +440,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 108.99,
-      "battle_mining": 46.4,
+      "time_mining": 109.0,
+      "battle_mining": 48.2,
       "past_races": [],
       "indices": {
-        "mining_index": 47.4,
+        "mining_index": 48.88,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 48.57,
+        "base_score": 49.39,
         "jockey_coefficient": 0.99532,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 47.72
+        "final_score": 48.52
       }
     },
     {
@@ -495,19 +495,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 109.1,
-      "battle_mining": 46.0,
+      "time_mining": 109.11,
+      "battle_mining": 47.0,
       "past_races": [],
       "indices": {
-        "mining_index": 46.98,
+        "mining_index": 47.83,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 48.34,
+        "base_score": 48.81,
         "jockey_coefficient": 0.99448,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 47.34
+        "final_score": 47.8
       }
     },
     {
@@ -550,19 +550,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 109.35,
-      "battle_mining": 46.4,
+      "time_mining": 109.36,
+      "battle_mining": 46.2,
       "past_races": [],
       "indices": {
-        "mining_index": 47.11,
+        "mining_index": 46.99,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 48.41,
+        "base_score": 48.34,
         "jockey_coefficient": 0.99273,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 47.09
+        "final_score": 47.03
       }
     },
     {
@@ -606,18 +606,18 @@
       "interval": 0,
       "zi_index": 0.0,
       "time_mining": 109.51,
-      "battle_mining": 39.4,
+      "battle_mining": 37.2,
       "past_races": [],
       "indices": {
-        "mining_index": 41.32,
+        "mining_index": 39.68,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 45.22,
+        "base_score": 44.32,
         "jockey_coefficient": 0.99019,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 43.56
+        "final_score": 42.69
       }
     },
     {
@@ -660,19 +660,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 109.43,
-      "battle_mining": 37.9,
+      "time_mining": 109.5,
+      "battle_mining": 40.2,
       "past_races": [],
       "indices": {
-        "mining_index": 40.17,
+        "mining_index": 42.08,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 44.59,
+        "base_score": 45.65,
         "jockey_coefficient": 0.98069,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.003,
-        "final_score": 41.36
+        "final_score": 42.34
       }
     },
     {
@@ -715,19 +715,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 111.24,
-      "battle_mining": 23.9,
+      "time_mining": 111.18,
+      "battle_mining": 23.5,
       "past_races": [],
       "indices": {
-        "mining_index": 24.71,
+        "mining_index": 24.98,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 36.09,
+        "base_score": 36.24,
         "jockey_coefficient": 0.9896,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.002,
-        "final_score": 34.68
+        "final_score": 34.83
       }
     }
   ]
