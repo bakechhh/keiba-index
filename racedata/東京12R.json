@@ -55,8 +55,8 @@
       },
       "interval": 4,
       "zi_index": 114.0,
-      "time_mining": 93.87,
-      "battle_mining": 73.4,
+      "time_mining": 93.79,
+      "battle_mining": 72.6,
       "past_races": [
         {
           "date": "2025.10.13",
@@ -211,8 +211,8 @@
       },
       "interval": 4,
       "zi_index": 116.0,
-      "time_mining": 94.44,
-      "battle_mining": 68.8,
+      "time_mining": 94.45,
+      "battle_mining": 69.2,
       "past_races": [
         {
           "date": "2025.10.13",
@@ -276,15 +276,15 @@
         }
       ],
       "indices": {
-        "mining_index": 58.1,
+        "mining_index": 58.26,
         "corrected_time_deviation": 55.73,
         "zi_deviation": 62.31,
-        "base_score": 58.02,
+        "base_score": 58.11,
         "jockey_coefficient": 1.00596,
         "similarity_coefficient": 1.00645,
         "stability_coefficient": 0.997,
         "total_coefficient_score": 0.003,
-        "final_score": 62.47
+        "final_score": 62.57
       }
     },
     {
@@ -327,8 +327,8 @@
       },
       "interval": 4,
       "zi_index": 116.0,
-      "time_mining": 94.19,
-      "battle_mining": 60.8,
+      "time_mining": 94.16,
+      "battle_mining": 60.0,
       "past_races": [
         {
           "date": "2025.10.13",
@@ -532,15 +532,15 @@
         }
       ],
       "indices": {
-        "mining_index": 56.6,
+        "mining_index": 56.38,
         "corrected_time_deviation": 62.16,
         "zi_deviation": 62.31,
-        "base_score": 59.12,
+        "base_score": 59.0,
         "jockey_coefficient": 1.00006,
         "similarity_coefficient": 1.00487,
         "stability_coefficient": 0.99875,
         "total_coefficient_score": 0.002,
-        "final_score": 62.09
+        "final_score": 61.96
       }
     },
     {
@@ -584,7 +584,7 @@
       "interval": 11,
       "zi_index": 113.0,
       "time_mining": 94.32,
-      "battle_mining": 51.0,
+      "battle_mining": 51.8,
       "past_races": [
         {
           "date": "2025.8.23",
@@ -668,15 +668,15 @@
         }
       ],
       "indices": {
-        "mining_index": 50.8,
+        "mining_index": 51.3,
         "corrected_time_deviation": 58.32,
         "zi_deviation": 59.39,
-        "base_score": 54.34,
+        "base_score": 54.62,
         "jockey_coefficient": 0.99053,
         "similarity_coefficient": 1.01067,
         "stability_coefficient": 0.99733,
         "total_coefficient_score": 0.003,
-        "final_score": 58.4
+        "final_score": 58.69
       }
     },
     {
@@ -719,8 +719,8 @@
       },
       "interval": 11,
       "zi_index": 109.0,
-      "time_mining": 94.43,
-      "battle_mining": 52.0,
+      "time_mining": 94.44,
+      "battle_mining": 51.0,
       "past_races": [
         {
           "date": "2025.8.23",
@@ -864,15 +864,15 @@
         }
       ],
       "indices": {
-        "mining_index": 51.12,
+        "mining_index": 50.64,
         "corrected_time_deviation": 49.53,
         "zi_deviation": 55.49,
-        "base_score": 51.3,
+        "base_score": 51.03,
         "jockey_coefficient": 0.99273,
         "similarity_coefficient": 1.01024,
         "stability_coefficient": 0.9981,
         "total_coefficient_score": 0.003,
-        "final_score": 55.62
+        "final_score": 55.33
       }
     },
     {
@@ -915,8 +915,8 @@
       },
       "interval": 4,
       "zi_index": 109.0,
-      "time_mining": 94.31,
-      "battle_mining": 68.3,
+      "time_mining": 94.28,
+      "battle_mining": 69.1,
       "past_races": [
         {
           "date": "2025.10.12",
@@ -1120,15 +1120,15 @@
         }
       ],
       "indices": {
-        "mining_index": 58.85,
+        "mining_index": 59.39,
         "corrected_time_deviation": 55.73,
         "zi_deviation": 55.49,
-        "base_score": 57.41,
+        "base_score": 57.71,
         "jockey_coefficient": 0.98626,
         "similarity_coefficient": 1.00133,
         "stability_coefficient": 0.99687,
         "total_coefficient_score": -0.002,
-        "final_score": 53.84
+        "final_score": 54.12
       }
     },
     {
@@ -1172,7 +1172,7 @@
       "interval": 8,
       "zi_index": 108.0,
       "time_mining": 94.56,
-      "battle_mining": 67.4,
+      "battle_mining": 67.1,
       "past_races": [
         {
           "date": "2025.9.14",
@@ -1276,10 +1276,10 @@
         }
       ],
       "indices": {
-        "mining_index": 56.62,
+        "mining_index": 56.61,
         "corrected_time_deviation": 46.09,
         "zi_deviation": 54.52,
-        "base_score": 53.15,
+        "base_score": 53.14,
         "jockey_coefficient": 1.00813,
         "similarity_coefficient": 1.00235,
         "stability_coefficient": 0.99384,
@@ -1327,7 +1327,7 @@
       },
       "interval": 3,
       "zi_index": 99.0,
-      "time_mining": 94.51,
+      "time_mining": 94.52,
       "battle_mining": 46.7,
       "past_races": [
         {
@@ -1532,7 +1532,7 @@
         }
       ],
       "indices": {
-        "mining_index": 47.96,
+        "mining_index": 47.95,
         "corrected_time_deviation": 57.57,
         "zi_deviation": 45.76,
         "base_score": 50.51,
@@ -1584,7 +1584,7 @@
       "interval": 3,
       "zi_index": 100.0,
       "time_mining": 94.2,
-      "battle_mining": 37.6,
+      "battle_mining": 38.5,
       "past_races": [
         {
           "date": "2025.10.18",
@@ -1788,151 +1788,15 @@
         }
       ],
       "indices": {
-        "mining_index": 42.71,
+        "mining_index": 43.2,
         "corrected_time_deviation": 57.8,
         "zi_deviation": 46.73,
-        "base_score": 47.84,
+        "base_score": 48.11,
         "jockey_coefficient": 0.98417,
         "similarity_coefficient": 1.00426,
         "stability_coefficient": 0.99526,
         "total_coefficient_score": -0.002,
-        "final_score": 45.56
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 14,
-      "horse_name": "ヴィルナタール",
-      "mark": "*",
-      "jockey": {
-        "name": "木幡巧也",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 4.0,
-          "place_rate": 8.2,
-          "show_rate": 15.1
-        },
-        "last_year": {
-          "wins": 24,
-          "win_rate": 4.1,
-          "place_rate": 9.8,
-          "show_rate": 13.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "手塚貴久",
-        "this_year": {
-          "wins": 30,
-          "win_rate": 11.4,
-          "place_rate": 20.5,
-          "show_rate": 30.3
-        },
-        "last_year": {
-          "wins": 34,
-          "win_rate": 10.3,
-          "place_rate": 23.3,
-          "show_rate": 31.8
-        }
-      },
-      "interval": 3,
-      "zi_index": 103.0,
-      "time_mining": 94.42,
-      "battle_mining": 45.9,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "松浜特別･1勝",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "稍",
-          "frame": "2",
-          "horse_number": "3",
-          "weight": 54.0,
-          "weight_reduction": "",
-          "rank": "9",
-          "margin": 1.1,
-          "corrected_time": 92.0,
-          "running_style": "先",
-          "last_3f": 35.4,
-          "ave_3f": 36.47,
-          "pci": 53.0,
-          "position_3f": 0.5
-        },
-        {
-          "date": "2025.8.31",
-          "race_name": "未勝利",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "2200",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "18",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.3,
-          "corrected_time": 87.0,
-          "running_style": "後",
-          "last_3f": 35.3,
-          "ave_3f": 36.86,
-          "pci": 54.4,
-          "position_3f": 1.9
-        },
-        {
-          "date": "2025.7.19",
-          "race_name": "未勝利",
-          "place": "福島",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "16",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "6",
-          "margin": 1.2,
-          "corrected_time": 78.0,
-          "running_style": "先",
-          "last_3f": 38.3,
-          "ave_3f": 36.69,
-          "pci": 45.8,
-          "position_3f": 0.4
-        },
-        {
-          "date": "2025.4.13",
-          "race_name": "未勝利・牝",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "2",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "13",
-          "margin": 2.1,
-          "corrected_time": 68.0,
-          "running_style": "後",
-          "last_3f": 35.6,
-          "ave_3f": 37.8,
-          "pci": 56.2,
-          "position_3f": 1.4
-        }
-      ],
-      "indices": {
-        "mining_index": 47.57,
-        "corrected_time_deviation": 44.54,
-        "zi_deviation": 49.65,
-        "base_score": 46.97,
-        "jockey_coefficient": 0.99244,
-        "similarity_coefficient": 1.00331,
-        "stability_coefficient": 0.99368,
-        "total_coefficient_score": -0.002,
-        "final_score": 44.98
+        "final_score": 45.82
       }
     },
     {
@@ -1976,7 +1840,7 @@
       "interval": 8,
       "zi_index": 85.0,
       "time_mining": 94.26,
-      "battle_mining": 42.3,
+      "battle_mining": 42.2,
       "past_races": [
         {
           "date": "2025.9.13",
@@ -2120,15 +1984,151 @@
         }
       ],
       "indices": {
-        "mining_index": 45.53,
+        "mining_index": 45.43,
         "corrected_time_deviation": 48.15,
         "zi_deviation": 32.13,
-        "base_score": 44.31,
+        "base_score": 44.25,
         "jockey_coefficient": 1.00421,
         "similarity_coefficient": 1.00169,
         "stability_coefficient": 0.99713,
         "total_coefficient_score": 0.0,
-        "final_score": 44.83
+        "final_score": 44.77
+      }
+    },
+    {
+      "frame": 8,
+      "horse_number": 14,
+      "horse_name": "ヴィルナタール",
+      "mark": "*",
+      "jockey": {
+        "name": "木幡巧也",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 4.0,
+          "place_rate": 8.2,
+          "show_rate": 15.1
+        },
+        "last_year": {
+          "wins": 24,
+          "win_rate": 4.1,
+          "place_rate": 9.8,
+          "show_rate": 13.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "手塚貴久",
+        "this_year": {
+          "wins": 30,
+          "win_rate": 11.4,
+          "place_rate": 20.5,
+          "show_rate": 30.3
+        },
+        "last_year": {
+          "wins": 34,
+          "win_rate": 10.3,
+          "place_rate": 23.3,
+          "show_rate": 31.8
+        }
+      },
+      "interval": 3,
+      "zi_index": 103.0,
+      "time_mining": 94.41,
+      "battle_mining": 45.7,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "松浜特別･1勝",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "稍",
+          "frame": "2",
+          "horse_number": "3",
+          "weight": 54.0,
+          "weight_reduction": "",
+          "rank": "9",
+          "margin": 1.1,
+          "corrected_time": 92.0,
+          "running_style": "先",
+          "last_3f": 35.4,
+          "ave_3f": 36.47,
+          "pci": 53.0,
+          "position_3f": 0.5
+        },
+        {
+          "date": "2025.8.31",
+          "race_name": "未勝利",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "2200",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "18",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.3,
+          "corrected_time": 87.0,
+          "running_style": "後",
+          "last_3f": 35.3,
+          "ave_3f": 36.86,
+          "pci": 54.4,
+          "position_3f": 1.9
+        },
+        {
+          "date": "2025.7.19",
+          "race_name": "未勝利",
+          "place": "福島",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "16",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "6",
+          "margin": 1.2,
+          "corrected_time": 78.0,
+          "running_style": "先",
+          "last_3f": 38.3,
+          "ave_3f": 36.69,
+          "pci": 45.8,
+          "position_3f": 0.4
+        },
+        {
+          "date": "2025.4.13",
+          "race_name": "未勝利・牝",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "2",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "13",
+          "margin": 2.1,
+          "corrected_time": 68.0,
+          "running_style": "後",
+          "last_3f": 35.6,
+          "ave_3f": 37.8,
+          "pci": 56.2,
+          "position_3f": 1.4
+        }
+      ],
+      "indices": {
+        "mining_index": 47.44,
+        "corrected_time_deviation": 44.54,
+        "zi_deviation": 49.65,
+        "base_score": 46.9,
+        "jockey_coefficient": 0.99244,
+        "similarity_coefficient": 1.00229,
+        "stability_coefficient": 0.99368,
+        "total_coefficient_score": -0.002,
+        "final_score": 44.32
       }
     },
     {
@@ -2171,8 +2171,8 @@
       },
       "interval": 8,
       "zi_index": 90.0,
-      "time_mining": 94.06,
-      "battle_mining": 33.4,
+      "time_mining": 94.1,
+      "battle_mining": 32.9,
       "past_races": [
         {
           "date": "2025.9.13",
@@ -2376,15 +2376,15 @@
         }
       ],
       "indices": {
-        "mining_index": 40.28,
+        "mining_index": 39.84,
         "corrected_time_deviation": 47.7,
         "zi_deviation": 37.0,
-        "base_score": 42.01,
+        "base_score": 41.77,
         "jockey_coefficient": 0.99532,
         "similarity_coefficient": 1.00466,
         "stability_coefficient": 0.9977,
         "total_coefficient_score": 0.001,
-        "final_score": 42.88
+        "final_score": 42.63
       }
     },
     {
@@ -2427,8 +2427,8 @@
       },
       "interval": 75,
       "zi_index": 86.0,
-      "time_mining": 95.08,
-      "battle_mining": 28.8,
+      "time_mining": 95.04,
+      "battle_mining": 29.4,
       "past_races": [
         {
           "date": "2024.6.1",
@@ -2452,15 +2452,15 @@
         }
       ],
       "indices": {
-        "mining_index": 36.38,
+        "mining_index": 36.75,
         "corrected_time_deviation": 44.25,
         "zi_deviation": 33.1,
-        "base_score": 38.25,
+        "base_score": 38.46,
         "jockey_coefficient": 1.00059,
         "similarity_coefficient": 0.99991,
         "stability_coefficient": 0.9965,
         "total_coefficient_score": -0.001,
-        "final_score": 37.12
+        "final_score": 37.32
       }
     },
     {
@@ -2503,7 +2503,7 @@
       },
       "interval": 2,
       "zi_index": 99.0,
-      "time_mining": 95.87,
+      "time_mining": 96.01,
       "battle_mining": 22.9,
       "past_races": [
         {
@@ -2708,15 +2708,15 @@
         }
       ],
       "indices": {
-        "mining_index": 28.24,
+        "mining_index": 27.9,
         "corrected_time_deviation": 19.91,
         "zi_deviation": 45.76,
-        "base_score": 28.37,
+        "base_score": 28.18,
         "jockey_coefficient": 0.97956,
         "similarity_coefficient": 1.00239,
         "stability_coefficient": 0.9803,
         "total_coefficient_score": -0.009,
-        "final_score": 22.15
+        "final_score": 22.01
       }
     }
   ]

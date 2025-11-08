@@ -813,10 +813,10 @@
         "zi_deviation": 56.34,
         "base_score": 54.05,
         "jockey_coefficient": 1.0047,
-        "similarity_coefficient": 1.01069,
+        "similarity_coefficient": 1.00779,
         "stability_coefficient": 0.997,
-        "total_coefficient_score": 0.005,
-        "final_score": 60.8
+        "total_coefficient_score": 0.004,
+        "final_score": 58.84
       }
     },
     {
