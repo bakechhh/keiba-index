@@ -55,19 +55,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.26,
-      "battle_mining": 61.3,
+      "time_mining": 82.28,
+      "battle_mining": 60.9,
       "past_races": [],
       "indices": {
-        "mining_index": 61.4,
+        "mining_index": 60.7,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 56.27,
+        "base_score": 55.88,
         "jockey_coefficient": 1.00813,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 57.99
+        "final_score": 57.59
       }
     },
     {
@@ -111,73 +111,18 @@
       "interval": 0,
       "zi_index": 0.0,
       "time_mining": 82.3,
-      "battle_mining": 60.0,
+      "battle_mining": 61.4,
       "past_races": [],
       "indices": {
-        "mining_index": 59.31,
+        "mining_index": 60.49,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 55.12,
+        "base_score": 55.77,
         "jockey_coefficient": 1.00093,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
-        "final_score": 55.31
-      }
-    },
-    {
-      "frame": 5,
-      "horse_number": 7,
-      "horse_name": "マコトアタキギリ",
-      "mark": "",
-      "jockey": {
-        "name": "横山和生",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 67,
-          "win_rate": 13.4,
-          "place_rate": 24.2,
-          "show_rate": 33.1
-        },
-        "last_year": {
-          "wins": 56,
-          "win_rate": 9.0,
-          "place_rate": 18.0,
-          "show_rate": 26.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "柄崎将寿",
-        "this_year": {
-          "wins": 6,
-          "win_rate": 7.1,
-          "place_rate": 8.2,
-          "show_rate": 10.6
-        },
-        "last_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 0.0,
-          "show_rate": 0.0
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 82.36,
-      "battle_mining": 59.4,
-      "past_races": [],
-      "indices": {
-        "mining_index": 57.23,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 53.98,
-        "jockey_coefficient": 1.00421,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.001,
-        "final_score": 54.83
+        "final_score": 55.97
       }
     },
     {
@@ -221,18 +166,73 @@
       "interval": 0,
       "zi_index": 0.0,
       "time_mining": 82.27,
-      "battle_mining": 54.8,
+      "battle_mining": 56.6,
       "past_races": [],
       "indices": {
-        "mining_index": 55.87,
+        "mining_index": 57.72,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 53.23,
+        "base_score": 54.25,
         "jockey_coefficient": 1.00398,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 54.02
+        "final_score": 55.06
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 7,
+      "horse_name": "マコトアタキギリ",
+      "mark": "",
+      "jockey": {
+        "name": "横山和生",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 67,
+          "win_rate": 13.4,
+          "place_rate": 24.2,
+          "show_rate": 33.1
+        },
+        "last_year": {
+          "wins": 56,
+          "win_rate": 9.0,
+          "place_rate": 18.0,
+          "show_rate": 26.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "柄崎将寿",
+        "this_year": {
+          "wins": 6,
+          "win_rate": 7.1,
+          "place_rate": 8.2,
+          "show_rate": 10.6
+        },
+        "last_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 0.0,
+          "show_rate": 0.0
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 82.37,
+      "battle_mining": 58.9,
+      "past_races": [],
+      "indices": {
+        "mining_index": 56.54,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 53.59,
+        "jockey_coefficient": 1.00421,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.001,
+        "final_score": 54.44
       }
     },
     {
@@ -275,19 +275,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.23,
-      "battle_mining": 54.0,
+      "time_mining": 82.26,
+      "battle_mining": 51.2,
       "past_races": [],
       "indices": {
-        "mining_index": 55.1,
+        "mining_index": 51.81,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 52.81,
+        "base_score": 50.99,
         "jockey_coefficient": 1.00012,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
-        "final_score": 52.83
+        "final_score": 51.02
       }
     },
     {
@@ -330,184 +330,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.46,
-      "battle_mining": 60.0,
+      "time_mining": 82.47,
+      "battle_mining": 61.0,
       "past_races": [],
       "indices": {
-        "mining_index": 55.01,
+        "mining_index": 55.2,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 52.75,
+        "base_score": 52.86,
         "jockey_coefficient": 0.98626,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.002,
-        "final_score": 50.04
-      }
-    },
-    {
-      "frame": 4,
-      "horse_number": 5,
-      "horse_name": "メーレスブリーゼ",
-      "mark": "",
-      "jockey": {
-        "name": "津村明秀",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 47,
-          "win_rate": 8.4,
-          "place_rate": 17.6,
-          "show_rate": 25.1
-        },
-        "last_year": {
-          "wins": 44,
-          "win_rate": 7.9,
-          "place_rate": 17.3,
-          "show_rate": 24.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "水野貴広",
-        "this_year": {
-          "wins": 7,
-          "win_rate": 3.2,
-          "place_rate": 9.9,
-          "show_rate": 14.4
-        },
-        "last_year": {
-          "wins": 12,
-          "win_rate": 4.3,
-          "place_rate": 8.6,
-          "show_rate": 15.7
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 82.22,
-      "battle_mining": 46.5,
-      "past_races": [],
-      "indices": {
-        "mining_index": 46.56,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 48.11,
-        "jockey_coefficient": 1.00006,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.0,
-        "final_score": 48.12
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 12,
-      "horse_name": "トモロウィンアスク",
-      "mark": "",
-      "jockey": {
-        "name": "長岡禎仁",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 5,
-          "win_rate": 2.2,
-          "place_rate": 6.9,
-          "show_rate": 13.8
-        },
-        "last_year": {
-          "wins": 14,
-          "win_rate": 5.9,
-          "place_rate": 11.7,
-          "show_rate": 14.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "蛯名正義",
-        "this_year": {
-          "wins": 16,
-          "win_rate": 8.8,
-          "place_rate": 20.3,
-          "show_rate": 28.0
-        },
-        "last_year": {
-          "wins": 18,
-          "win_rate": 9.3,
-          "place_rate": 21.6,
-          "show_rate": 29.9
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 82.35,
-      "battle_mining": 46.2,
-      "past_races": [],
-      "indices": {
-        "mining_index": 45.72,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 47.65,
-        "jockey_coefficient": 0.99109,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": -0.001,
-        "final_score": 46.05
-      }
-    },
-    {
-      "frame": 5,
-      "horse_number": 6,
-      "horse_name": "レオアジャイル",
-      "mark": "",
-      "jockey": {
-        "name": "岩田康誠",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 37,
-          "win_rate": 8.8,
-          "place_rate": 18.3,
-          "show_rate": 26.0
-        },
-        "last_year": {
-          "wins": 41,
-          "win_rate": 10.3,
-          "place_rate": 16.0,
-          "show_rate": 24.3
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "杉浦宏昭",
-        "this_year": {
-          "wins": 4,
-          "win_rate": 1.8,
-          "place_rate": 4.6,
-          "show_rate": 11.4
-        },
-        "last_year": {
-          "wins": 11,
-          "win_rate": 4.5,
-          "place_rate": 8.6,
-          "show_rate": 14.8
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 82.45,
-      "battle_mining": 42.9,
-      "past_races": [],
-      "indices": {
-        "mining_index": 41.56,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 45.36,
-        "jockey_coefficient": 1.00059,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.0,
-        "final_score": 45.46
+        "final_score": 50.13
       }
     },
     {
@@ -550,19 +385,129 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.21,
-      "battle_mining": 44.3,
+      "time_mining": 82.2,
+      "battle_mining": 47.1,
       "past_races": [],
       "indices": {
-        "mining_index": 44.08,
+        "mining_index": 47.5,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 46.75,
+        "base_score": 48.63,
         "jockey_coefficient": 0.99244,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 45.42
+        "final_score": 47.25
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 5,
+      "horse_name": "メーレスブリーゼ",
+      "mark": "",
+      "jockey": {
+        "name": "津村明秀",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 47,
+          "win_rate": 8.4,
+          "place_rate": 17.6,
+          "show_rate": 25.1
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 7.9,
+          "place_rate": 17.3,
+          "show_rate": 24.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "水野貴広",
+        "this_year": {
+          "wins": 7,
+          "win_rate": 3.2,
+          "place_rate": 9.9,
+          "show_rate": 14.4
+        },
+        "last_year": {
+          "wins": 12,
+          "win_rate": 4.3,
+          "place_rate": 8.6,
+          "show_rate": 15.7
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 82.25,
+      "battle_mining": 45.0,
+      "past_races": [],
+      "indices": {
+        "mining_index": 44.96,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 47.23,
+        "jockey_coefficient": 1.00006,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 47.24
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 6,
+      "horse_name": "レオアジャイル",
+      "mark": "",
+      "jockey": {
+        "name": "岩田康誠",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 37,
+          "win_rate": 8.8,
+          "place_rate": 18.3,
+          "show_rate": 26.0
+        },
+        "last_year": {
+          "wins": 41,
+          "win_rate": 10.3,
+          "place_rate": 16.0,
+          "show_rate": 24.3
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "杉浦宏昭",
+        "this_year": {
+          "wins": 4,
+          "win_rate": 1.8,
+          "place_rate": 4.6,
+          "show_rate": 11.4
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.5,
+          "place_rate": 8.6,
+          "show_rate": 14.8
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 82.44,
+      "battle_mining": 45.7,
+      "past_races": [],
+      "indices": {
+        "mining_index": 44.44,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 46.94,
+        "jockey_coefficient": 1.00059,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.0,
+        "final_score": 47.04
       }
     },
     {
@@ -605,19 +550,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.47,
-      "battle_mining": 43.6,
+      "time_mining": 82.46,
+      "battle_mining": 44.5,
       "past_races": [],
       "indices": {
-        "mining_index": 41.9,
+        "mining_index": 42.94,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 45.55,
+        "base_score": 46.12,
         "jockey_coefficient": 0.99448,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 44.6
+        "final_score": 45.16
       }
     },
     {
@@ -660,19 +605,74 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.33,
-      "battle_mining": 40.7,
+      "time_mining": 82.35,
+      "battle_mining": 41.0,
       "past_races": [],
       "indices": {
-        "mining_index": 39.51,
+        "mining_index": 40.09,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 44.23,
+        "base_score": 44.55,
         "jockey_coefficient": 0.99019,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 42.6
+        "final_score": 42.91
+      }
+    },
+    {
+      "frame": 8,
+      "horse_number": 12,
+      "horse_name": "トモロウィンアスク",
+      "mark": "",
+      "jockey": {
+        "name": "長岡禎仁",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 2.2,
+          "place_rate": 6.9,
+          "show_rate": 13.8
+        },
+        "last_year": {
+          "wins": 14,
+          "win_rate": 5.9,
+          "place_rate": 11.7,
+          "show_rate": 14.6
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "蛯名正義",
+        "this_year": {
+          "wins": 16,
+          "win_rate": 8.8,
+          "place_rate": 20.3,
+          "show_rate": 28.0
+        },
+        "last_year": {
+          "wins": 18,
+          "win_rate": 9.3,
+          "place_rate": 21.6,
+          "show_rate": 29.9
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 82.38,
+      "battle_mining": 39.8,
+      "past_races": [],
+      "indices": {
+        "mining_index": 38.63,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 43.75,
+        "jockey_coefficient": 0.99109,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 42.28
       }
     },
     {
@@ -715,19 +715,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 82.69,
-      "battle_mining": 35.7,
+      "time_mining": 82.66,
+      "battle_mining": 36.3,
       "past_races": [],
       "indices": {
-        "mining_index": 29.81,
+        "mining_index": 30.83,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 38.89,
+        "base_score": 39.46,
         "jockey_coefficient": 0.97956,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.003,
-        "final_score": 35.91
+        "final_score": 36.43
       }
     }
   ]
