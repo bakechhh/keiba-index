@@ -105,10 +105,10 @@
         "zi_deviation": 65.05,
         "base_score": 62.44,
         "jockey_coefficient": 1.00712,
-        "similarity_coefficient": 1.00229,
+        "similarity_coefficient": 1.00602,
         "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.001,
-        "final_score": 64.54
+        "total_coefficient_score": 0.003,
+        "final_score": 67.44
       }
     },
     {
@@ -976,82 +976,6 @@
       }
     },
     {
-      "frame": 8,
-      "horse_number": 12,
-      "horse_name": "ラブペイトー",
-      "mark": "*",
-      "jockey": {
-        "name": "城戸義政",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 1,
-          "win_rate": 1.0,
-          "place_rate": 5.1,
-          "show_rate": 6.1
-        },
-        "last_year": {
-          "wins": 1,
-          "win_rate": 1.0,
-          "place_rate": 3.1,
-          "show_rate": 5.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "羽月友彦",
-        "this_year": {
-          "wins": 9,
-          "win_rate": 4.3,
-          "place_rate": 9.0,
-          "show_rate": 10.5
-        },
-        "last_year": {
-          "wins": 9,
-          "win_rate": 3.5,
-          "place_rate": 8.5,
-          "show_rate": 16.3
-        }
-      },
-      "interval": 3,
-      "zi_index": 86.0,
-      "time_mining": 118.89,
-      "battle_mining": 15.5,
-      "past_races": [
-        {
-          "date": "2025.10.18",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "稍",
-          "frame": "8",
-          "horse_number": "15",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "12",
-          "margin": 3.9,
-          "corrected_time": 67.0,
-          "running_style": "後",
-          "last_3f": 38.9,
-          "ave_3f": 37.5,
-          "pci": 46.4,
-          "position_3f": 1.6
-        }
-      ],
-      "indices": {
-        "mining_index": 31.5,
-        "corrected_time_deviation": 34.74,
-        "zi_deviation": 36.7,
-        "base_score": 33.25,
-        "jockey_coefficient": 0.97884,
-        "similarity_coefficient": 0.99832,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.005,
-        "final_score": 29.33
-      }
-    },
-    {
       "frame": 6,
       "horse_number": 7,
       "horse_name": "シュネードリーム",
@@ -1141,10 +1065,86 @@
         "zi_deviation": 38.8,
         "base_score": 35.59,
         "jockey_coefficient": 1.00175,
-        "similarity_coefficient": 0.99846,
+        "similarity_coefficient": 1.00068,
         "stability_coefficient": 0.9805,
-        "total_coefficient_score": -0.007,
-        "final_score": 29.06
+        "total_coefficient_score": -0.006,
+        "final_score": 30.05
+      }
+    },
+    {
+      "frame": 8,
+      "horse_number": 12,
+      "horse_name": "ラブペイトー",
+      "mark": "*",
+      "jockey": {
+        "name": "城戸義政",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 1,
+          "win_rate": 1.0,
+          "place_rate": 5.1,
+          "show_rate": 6.1
+        },
+        "last_year": {
+          "wins": 1,
+          "win_rate": 1.0,
+          "place_rate": 3.1,
+          "show_rate": 5.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "羽月友彦",
+        "this_year": {
+          "wins": 9,
+          "win_rate": 4.3,
+          "place_rate": 9.0,
+          "show_rate": 10.5
+        },
+        "last_year": {
+          "wins": 9,
+          "win_rate": 3.5,
+          "place_rate": 8.5,
+          "show_rate": 16.3
+        }
+      },
+      "interval": 3,
+      "zi_index": 86.0,
+      "time_mining": 118.89,
+      "battle_mining": 15.5,
+      "past_races": [
+        {
+          "date": "2025.10.18",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "稍",
+          "frame": "8",
+          "horse_number": "15",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "12",
+          "margin": 3.9,
+          "corrected_time": 67.0,
+          "running_style": "後",
+          "last_3f": 38.9,
+          "ave_3f": 37.5,
+          "pci": 46.4,
+          "position_3f": 1.6
+        }
+      ],
+      "indices": {
+        "mining_index": 31.5,
+        "corrected_time_deviation": 34.74,
+        "zi_deviation": 36.7,
+        "base_score": 33.25,
+        "jockey_coefficient": 0.97884,
+        "similarity_coefficient": 0.99832,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.005,
+        "final_score": 29.33
       }
     }
   ]
