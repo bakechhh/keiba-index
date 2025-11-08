@@ -1172,82 +1172,6 @@
       }
     },
     {
-      "frame": 4,
-      "horse_number": 8,
-      "horse_name": "チャチャット",
-      "mark": "",
-      "jockey": {
-        "name": "柴田善臣",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 1,
-          "win_rate": 3.4,
-          "place_rate": 6.9,
-          "show_rate": 6.9
-        },
-        "last_year": {
-          "wins": 9,
-          "win_rate": 4.5,
-          "place_rate": 11.9,
-          "show_rate": 17.8
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "柄崎将寿",
-        "this_year": {
-          "wins": 6,
-          "win_rate": 7.1,
-          "place_rate": 8.2,
-          "show_rate": 10.6
-        },
-        "last_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 0.0,
-          "show_rate": 0.0
-        }
-      },
-      "interval": 7,
-      "zi_index": 87.0,
-      "time_mining": 93.92,
-      "battle_mining": 41.4,
-      "past_races": [
-        {
-          "date": "2025.9.20",
-          "race_name": "新馬",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "15",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "10",
-          "margin": 0.9,
-          "corrected_time": 89.0,
-          "running_style": "後",
-          "last_3f": 34.1,
-          "ave_3f": 36.96,
-          "pci": 58.4,
-          "position_3f": 1.4
-        }
-      ],
-      "indices": {
-        "mining_index": 44.92,
-        "corrected_time_deviation": 50.99,
-        "zi_deviation": 37.12,
-        "base_score": 45.57,
-        "jockey_coefficient": 0.98069,
-        "similarity_coefficient": 1.00394,
-        "stability_coefficient": 0.9955,
-        "total_coefficient_score": -0.003,
-        "final_score": 42.72
-      }
-    },
-    {
       "frame": 6,
       "horse_number": 11,
       "horse_name": "ミュージックレイン",
@@ -1337,10 +1261,86 @@
         "zi_deviation": 56.94,
         "base_score": 48.72,
         "jockey_coefficient": 0.99448,
-        "similarity_coefficient": 0.998,
+        "similarity_coefficient": 1.00081,
         "stability_coefficient": 0.99101,
-        "total_coefficient_score": -0.005,
-        "final_score": 42.67
+        "total_coefficient_score": -0.004,
+        "final_score": 44.38
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 8,
+      "horse_name": "チャチャット",
+      "mark": "",
+      "jockey": {
+        "name": "柴田善臣",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 1,
+          "win_rate": 3.4,
+          "place_rate": 6.9,
+          "show_rate": 6.9
+        },
+        "last_year": {
+          "wins": 9,
+          "win_rate": 4.5,
+          "place_rate": 11.9,
+          "show_rate": 17.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "柄崎将寿",
+        "this_year": {
+          "wins": 6,
+          "win_rate": 7.1,
+          "place_rate": 8.2,
+          "show_rate": 10.6
+        },
+        "last_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 0.0,
+          "show_rate": 0.0
+        }
+      },
+      "interval": 7,
+      "zi_index": 87.0,
+      "time_mining": 93.92,
+      "battle_mining": 41.4,
+      "past_races": [
+        {
+          "date": "2025.9.20",
+          "race_name": "新馬",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "15",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "10",
+          "margin": 0.9,
+          "corrected_time": 89.0,
+          "running_style": "後",
+          "last_3f": 34.1,
+          "ave_3f": 36.96,
+          "pci": 58.4,
+          "position_3f": 1.4
+        }
+      ],
+      "indices": {
+        "mining_index": 44.92,
+        "corrected_time_deviation": 50.99,
+        "zi_deviation": 37.12,
+        "base_score": 45.57,
+        "jockey_coefficient": 0.98069,
+        "similarity_coefficient": 1.00394,
+        "stability_coefficient": 0.9955,
+        "total_coefficient_score": -0.003,
+        "final_score": 42.72
       }
     },
     {
