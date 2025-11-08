@@ -701,10 +701,10 @@
         "zi_deviation": 57.24,
         "base_score": 54.32,
         "jockey_coefficient": 1.00012,
-        "similarity_coefficient": 1.00377,
+        "similarity_coefficient": 1.00009,
         "stability_coefficient": 0.997,
-        "total_coefficient_score": 0.001,
-        "final_score": 55.48
+        "total_coefficient_score": -0.001,
+        "final_score": 52.98
       }
     },
     {
@@ -1409,10 +1409,10 @@
         "zi_deviation": 38.1,
         "base_score": 37.26,
         "jockey_coefficient": 0.99053,
-        "similarity_coefficient": 1.00039,
+        "similarity_coefficient": 1.00246,
         "stability_coefficient": 0.984,
-        "total_coefficient_score": -0.007,
-        "final_score": 30.91
+        "total_coefficient_score": -0.006,
+        "final_score": 31.87
       }
     },
     {
