@@ -1432,6 +1432,162 @@
       }
     },
     {
+      "frame": 2,
+      "horse_number": 3,
+      "horse_name": "ロードフロイデ",
+      "mark": "*",
+      "jockey": {
+        "name": "原優介",
+        "weight": 57.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 19,
+          "win_rate": 3.4,
+          "place_rate": 7.4,
+          "show_rate": 13.0
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 3.7,
+          "place_rate": 8.6,
+          "show_rate": 14.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "小栗実",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 8.7,
+          "place_rate": 16.0,
+          "show_rate": 24.2
+        },
+        "last_year": {
+          "wins": 22,
+          "win_rate": 8.8,
+          "place_rate": 16.3,
+          "show_rate": 23.9
+        }
+      },
+      "interval": 3,
+      "zi_index": 111.0,
+      "time_mining": 79.25,
+      "battle_mining": 55.1,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "１勝ｸﾗｽ",
+          "place": "東京",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "2",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 0.3,
+          "corrected_time": 95.0,
+          "running_style": "逃",
+          "last_3f": 36.9,
+          "ave_3f": 36.98,
+          "pci": 50.2,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.1.5",
+          "race_name": "未勝利",
+          "place": "中京",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "15",
+          "weight": 55.0,
+          "weight_reduction": "△",
+          "rank": "2",
+          "margin": 0.2,
+          "corrected_time": 88.0,
+          "running_style": "後",
+          "last_3f": 36.8,
+          "ave_3f": 37.13,
+          "pci": 50.9,
+          "position_3f": 1.5
+        },
+        {
+          "date": "2024.11.10",
+          "race_name": "未勝利*",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "4",
+          "horse_number": "7",
+          "weight": 55.0,
+          "weight_reduction": "☆",
+          "rank": "3",
+          "margin": 0.3,
+          "corrected_time": 88.0,
+          "running_style": "中",
+          "last_3f": 37.8,
+          "ave_3f": 36.15,
+          "pci": 45.6,
+          "position_3f": 1.2
+        },
+        {
+          "date": "2024.10.27",
+          "race_name": "未勝利*",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 54.0,
+          "weight_reduction": "△",
+          "rank": "5",
+          "margin": 1.6,
+          "corrected_time": 77.0,
+          "running_style": "後",
+          "last_3f": 37.1,
+          "ave_3f": 36.9,
+          "pci": 49.5,
+          "position_3f": 1.8
+        },
+        {
+          "date": "2024.10.6",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "4",
+          "horse_number": "6",
+          "weight": 55.0,
+          "weight_reduction": "☆",
+          "rank": "8",
+          "margin": 2.3,
+          "corrected_time": 75.0,
+          "running_style": "中",
+          "last_3f": 36.9,
+          "ave_3f": 37.2,
+          "pci": 50.8,
+          "position_3f": 1.0
+        }
+      ],
+      "indices": {
+        "mining_index": 52.58,
+        "corrected_time_deviation": 41.07,
+        "zi_deviation": 58.36,
+        "base_score": 49.99,
+        "jockey_coefficient": 0.99019,
+        "similarity_coefficient": 1.00675,
+        "stability_coefficient": 0.9953,
+        "total_coefficient_score": 0.0,
+        "final_score": 50.32
+      }
+    },
+    {
       "frame": 6,
       "horse_number": 11,
       "horse_name": "ナムラペルル",
@@ -1641,10 +1797,10 @@
         "zi_deviation": 51.84,
         "base_score": 51.69,
         "jockey_coefficient": 0.9896,
-        "similarity_coefficient": 1.00581,
+        "similarity_coefficient": 1.00285,
         "stability_coefficient": 0.99562,
-        "total_coefficient_score": -0.0,
-        "final_score": 51.45
+        "total_coefficient_score": -0.002,
+        "final_score": 49.53
       }
     },
     {
@@ -1801,162 +1957,6 @@
         "stability_coefficient": 0.992,
         "total_coefficient_score": 0.0,
         "final_score": 49.19
-      }
-    },
-    {
-      "frame": 2,
-      "horse_number": 3,
-      "horse_name": "ロードフロイデ",
-      "mark": "*",
-      "jockey": {
-        "name": "原優介",
-        "weight": 57.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 19,
-          "win_rate": 3.4,
-          "place_rate": 7.4,
-          "show_rate": 13.0
-        },
-        "last_year": {
-          "wins": 25,
-          "win_rate": 3.7,
-          "place_rate": 8.6,
-          "show_rate": 14.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "小栗実",
-        "this_year": {
-          "wins": 20,
-          "win_rate": 8.7,
-          "place_rate": 16.0,
-          "show_rate": 24.2
-        },
-        "last_year": {
-          "wins": 22,
-          "win_rate": 8.8,
-          "place_rate": 16.3,
-          "show_rate": 23.9
-        }
-      },
-      "interval": 3,
-      "zi_index": 111.0,
-      "time_mining": 79.25,
-      "battle_mining": 55.1,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "１勝ｸﾗｽ",
-          "place": "東京",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "2",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 0.3,
-          "corrected_time": 95.0,
-          "running_style": "逃",
-          "last_3f": 36.9,
-          "ave_3f": 36.98,
-          "pci": 50.2,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.1.5",
-          "race_name": "未勝利",
-          "place": "中京",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "15",
-          "weight": 55.0,
-          "weight_reduction": "△",
-          "rank": "2",
-          "margin": 0.2,
-          "corrected_time": 88.0,
-          "running_style": "後",
-          "last_3f": 36.8,
-          "ave_3f": 37.13,
-          "pci": 50.9,
-          "position_3f": 1.5
-        },
-        {
-          "date": "2024.11.10",
-          "race_name": "未勝利*",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "4",
-          "horse_number": "7",
-          "weight": 55.0,
-          "weight_reduction": "☆",
-          "rank": "3",
-          "margin": 0.3,
-          "corrected_time": 88.0,
-          "running_style": "中",
-          "last_3f": 37.8,
-          "ave_3f": 36.15,
-          "pci": 45.6,
-          "position_3f": 1.2
-        },
-        {
-          "date": "2024.10.27",
-          "race_name": "未勝利*",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 54.0,
-          "weight_reduction": "△",
-          "rank": "5",
-          "margin": 1.6,
-          "corrected_time": 77.0,
-          "running_style": "後",
-          "last_3f": 37.1,
-          "ave_3f": 36.9,
-          "pci": 49.5,
-          "position_3f": 1.8
-        },
-        {
-          "date": "2024.10.6",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "4",
-          "horse_number": "6",
-          "weight": 55.0,
-          "weight_reduction": "☆",
-          "rank": "8",
-          "margin": 2.3,
-          "corrected_time": 75.0,
-          "running_style": "中",
-          "last_3f": 36.9,
-          "ave_3f": 37.2,
-          "pci": 50.8,
-          "position_3f": 1.0
-        }
-      ],
-      "indices": {
-        "mining_index": 52.58,
-        "corrected_time_deviation": 41.07,
-        "zi_deviation": 58.36,
-        "base_score": 49.99,
-        "jockey_coefficient": 0.99019,
-        "similarity_coefficient": 1.00402,
-        "stability_coefficient": 0.9953,
-        "total_coefficient_score": -0.001,
-        "final_score": 48.61
       }
     },
     {
