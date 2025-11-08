@@ -481,82 +481,6 @@
     },
     {
       "frame": 6,
-      "horse_number": 10,
-      "horse_name": "トミーバローズ",
-      "mark": "*",
-      "jockey": {
-        "name": "吉村誠之",
-        "weight": 55.0,
-        "weight_reduction": "☆",
-        "this_year": {
-          "wins": 52,
-          "win_rate": 7.0,
-          "place_rate": 14.4,
-          "show_rate": 21.9
-        },
-        "last_year": {
-          "wins": 33,
-          "win_rate": 5.8,
-          "place_rate": 11.6,
-          "show_rate": 18.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "清水久詞",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 6.2,
-          "place_rate": 16.9,
-          "show_rate": 23.9
-        },
-        "last_year": {
-          "wins": 30,
-          "win_rate": 7.0,
-          "place_rate": 14.7,
-          "show_rate": 23.8
-        }
-      },
-      "interval": 2,
-      "zi_index": 118.0,
-      "time_mining": 82.23,
-      "battle_mining": 65.1,
-      "past_races": [
-        {
-          "date": "2025.10.25",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "2",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.2,
-          "corrected_time": 101.0,
-          "running_style": "先",
-          "last_3f": 34.8,
-          "ave_3f": 36.12,
-          "pci": 53.8,
-          "position_3f": 0.2
-        }
-      ],
-      "indices": {
-        "mining_index": 57.27,
-        "corrected_time_deviation": 57.28,
-        "zi_deviation": 60.58,
-        "base_score": 57.77,
-        "jockey_coefficient": 0.99801,
-        "similarity_coefficient": 1.00325,
-        "stability_coefficient": 0.999,
-        "total_coefficient_score": 0.001,
-        "final_score": 59.18
-      }
-    },
-    {
-      "frame": 6,
       "horse_number": 11,
       "horse_name": "アパレイユ",
       "mark": "",
@@ -645,10 +569,86 @@
         "zi_deviation": 51.66,
         "base_score": 56.23,
         "jockey_coefficient": 1.00551,
-        "similarity_coefficient": 1.00238,
+        "similarity_coefficient": 1.00603,
         "stability_coefficient": 0.9985,
+        "total_coefficient_score": 0.003,
+        "final_score": 60.89
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 10,
+      "horse_name": "トミーバローズ",
+      "mark": "*",
+      "jockey": {
+        "name": "吉村誠之",
+        "weight": 55.0,
+        "weight_reduction": "☆",
+        "this_year": {
+          "wins": 52,
+          "win_rate": 7.0,
+          "place_rate": 14.4,
+          "show_rate": 21.9
+        },
+        "last_year": {
+          "wins": 33,
+          "win_rate": 5.8,
+          "place_rate": 11.6,
+          "show_rate": 18.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "清水久詞",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 6.2,
+          "place_rate": 16.9,
+          "show_rate": 23.9
+        },
+        "last_year": {
+          "wins": 30,
+          "win_rate": 7.0,
+          "place_rate": 14.7,
+          "show_rate": 23.8
+        }
+      },
+      "interval": 2,
+      "zi_index": 118.0,
+      "time_mining": 82.23,
+      "battle_mining": 65.1,
+      "past_races": [
+        {
+          "date": "2025.10.25",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "2",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.2,
+          "corrected_time": 101.0,
+          "running_style": "先",
+          "last_3f": 34.8,
+          "ave_3f": 36.12,
+          "pci": 53.8,
+          "position_3f": 0.2
+        }
+      ],
+      "indices": {
+        "mining_index": 57.27,
+        "corrected_time_deviation": 57.28,
+        "zi_deviation": 60.58,
+        "base_score": 57.77,
+        "jockey_coefficient": 0.99801,
+        "similarity_coefficient": 1.00325,
+        "stability_coefficient": 0.999,
         "total_coefficient_score": 0.001,
-        "final_score": 58.33
+        "final_score": 59.18
       }
     },
     {
@@ -976,82 +976,6 @@
       }
     },
     {
-      "frame": 4,
-      "horse_number": 7,
-      "horse_name": "ラッキーヴォーグ",
-      "mark": "*",
-      "jockey": {
-        "name": "松若風馬",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 21,
-          "win_rate": 4.9,
-          "place_rate": 10.8,
-          "show_rate": 19.0
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 4.2,
-          "place_rate": 9.8,
-          "show_rate": 16.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "牧田和弥",
-        "this_year": {
-          "wins": 17,
-          "win_rate": 7.7,
-          "place_rate": 11.8,
-          "show_rate": 17.7
-        },
-        "last_year": {
-          "wins": 16,
-          "win_rate": 6.1,
-          "place_rate": 17.0,
-          "show_rate": 23.1
-        }
-      },
-      "interval": 3,
-      "zi_index": 98.0,
-      "time_mining": 82.34,
-      "battle_mining": 41.0,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "10",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "10",
-          "margin": 1.2,
-          "corrected_time": 89.0,
-          "running_style": "中",
-          "last_3f": 35.1,
-          "ave_3f": 36.23,
-          "pci": 53.2,
-          "position_3f": 1.1
-        }
-      ],
-      "indices": {
-        "mining_index": 44.46,
-        "corrected_time_deviation": 51.09,
-        "zi_deviation": 42.75,
-        "base_score": 46.19,
-        "jockey_coefficient": 0.99588,
-        "similarity_coefficient": 1.00237,
-        "stability_coefficient": 0.994,
-        "total_coefficient_score": -0.002,
-        "final_score": 44.42
-      }
-    },
-    {
       "frame": 2,
       "horse_number": 3,
       "horse_name": "セイントホース",
@@ -1141,10 +1065,86 @@
         "zi_deviation": 37.39,
         "base_score": 47.33,
         "jockey_coefficient": 0.99368,
-        "similarity_coefficient": 0.99781,
+        "similarity_coefficient": 1.00147,
         "stability_coefficient": 0.9965,
-        "total_coefficient_score": -0.003,
-        "final_score": 43.46
+        "total_coefficient_score": -0.001,
+        "final_score": 45.62
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 7,
+      "horse_name": "ラッキーヴォーグ",
+      "mark": "*",
+      "jockey": {
+        "name": "松若風馬",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 21,
+          "win_rate": 4.9,
+          "place_rate": 10.8,
+          "show_rate": 19.0
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 4.2,
+          "place_rate": 9.8,
+          "show_rate": 16.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "牧田和弥",
+        "this_year": {
+          "wins": 17,
+          "win_rate": 7.7,
+          "place_rate": 11.8,
+          "show_rate": 17.7
+        },
+        "last_year": {
+          "wins": 16,
+          "win_rate": 6.1,
+          "place_rate": 17.0,
+          "show_rate": 23.1
+        }
+      },
+      "interval": 3,
+      "zi_index": 98.0,
+      "time_mining": 82.34,
+      "battle_mining": 41.0,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "10",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "10",
+          "margin": 1.2,
+          "corrected_time": 89.0,
+          "running_style": "中",
+          "last_3f": 35.1,
+          "ave_3f": 36.23,
+          "pci": 53.2,
+          "position_3f": 1.1
+        }
+      ],
+      "indices": {
+        "mining_index": 44.46,
+        "corrected_time_deviation": 51.09,
+        "zi_deviation": 42.75,
+        "base_score": 46.19,
+        "jockey_coefficient": 0.99588,
+        "similarity_coefficient": 1.00237,
+        "stability_coefficient": 0.994,
+        "total_coefficient_score": -0.002,
+        "final_score": 44.42
       }
     },
     {
