@@ -420,6 +420,122 @@
       }
     },
     {
+      "frame": 8,
+      "horse_number": 16,
+      "horse_name": "ドナソレイ",
+      "mark": "*",
+      "jockey": {
+        "name": "石田拓郎",
+        "weight": 52.0,
+        "weight_reduction": "▲",
+        "this_year": {
+          "wins": 10,
+          "win_rate": 3.2,
+          "place_rate": 6.4,
+          "show_rate": 9.9
+        },
+        "last_year": {
+          "wins": 7,
+          "win_rate": 2.9,
+          "place_rate": 6.2,
+          "show_rate": 9.1
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "伊藤圭三",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 7.6,
+          "place_rate": 16.1,
+          "show_rate": 26.3
+        },
+        "last_year": {
+          "wins": 33,
+          "win_rate": 9.2,
+          "place_rate": 17.5,
+          "show_rate": 26.4
+        }
+      },
+      "interval": 14,
+      "zi_index": 101.0,
+      "time_mining": 70.89,
+      "battle_mining": 59.0,
+      "past_races": [
+        {
+          "date": "2025.8.3",
+          "race_name": "未勝利*",
+          "place": "札幌",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "12",
+          "margin": 2.5,
+          "corrected_time": 74.0,
+          "running_style": "中",
+          "last_3f": 39.2,
+          "ave_3f": 35.7,
+          "pci": 41.1,
+          "position_3f": 0.6
+        },
+        {
+          "date": "2025.7.13",
+          "race_name": "未勝利*",
+          "place": "函館",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "10",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "3",
+          "margin": 0.8,
+          "corrected_time": 95.0,
+          "running_style": "先",
+          "last_3f": 37.5,
+          "ave_3f": 35.25,
+          "pci": 44.0,
+          "position_3f": 0.1
+        },
+        {
+          "date": "2025.7.5",
+          "race_name": "新馬",
+          "place": "函館",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "重",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 1.9,
+          "corrected_time": 95.0,
+          "running_style": "逃",
+          "last_3f": 36.8,
+          "ave_3f": 34.5,
+          "pci": 43.8,
+          "position_3f": 0.0
+        }
+      ],
+      "indices": {
+        "mining_index": 52.86,
+        "corrected_time_deviation": 54.66,
+        "zi_deviation": 52.37,
+        "base_score": 53.33,
+        "jockey_coefficient": 0.9861,
+        "similarity_coefficient": 1.00863,
+        "stability_coefficient": 0.99133,
+        "total_coefficient_score": -0.001,
+        "final_score": 52.25
+      }
+    },
+    {
       "frame": 4,
       "horse_number": 8,
       "horse_name": "コスモラパウィラ",
@@ -533,122 +649,6 @@
         "stability_coefficient": 0.99226,
         "total_coefficient_score": -0.001,
         "final_score": 51.38
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 16,
-      "horse_name": "ドナソレイ",
-      "mark": "*",
-      "jockey": {
-        "name": "石田拓郎",
-        "weight": 52.0,
-        "weight_reduction": "▲",
-        "this_year": {
-          "wins": 10,
-          "win_rate": 3.2,
-          "place_rate": 6.4,
-          "show_rate": 9.9
-        },
-        "last_year": {
-          "wins": 7,
-          "win_rate": 2.9,
-          "place_rate": 6.2,
-          "show_rate": 9.1
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "伊藤圭三",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 7.6,
-          "place_rate": 16.1,
-          "show_rate": 26.3
-        },
-        "last_year": {
-          "wins": 33,
-          "win_rate": 9.2,
-          "place_rate": 17.5,
-          "show_rate": 26.4
-        }
-      },
-      "interval": 14,
-      "zi_index": 101.0,
-      "time_mining": 70.89,
-      "battle_mining": 59.0,
-      "past_races": [
-        {
-          "date": "2025.8.3",
-          "race_name": "未勝利*",
-          "place": "札幌",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "12",
-          "margin": 2.5,
-          "corrected_time": 74.0,
-          "running_style": "中",
-          "last_3f": 39.2,
-          "ave_3f": 35.7,
-          "pci": 41.1,
-          "position_3f": 0.6
-        },
-        {
-          "date": "2025.7.13",
-          "race_name": "未勝利*",
-          "place": "函館",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "10",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "3",
-          "margin": 0.8,
-          "corrected_time": 95.0,
-          "running_style": "先",
-          "last_3f": 37.5,
-          "ave_3f": 35.25,
-          "pci": 44.0,
-          "position_3f": 0.1
-        },
-        {
-          "date": "2025.7.5",
-          "race_name": "新馬",
-          "place": "函館",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "重",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 1.9,
-          "corrected_time": 95.0,
-          "running_style": "逃",
-          "last_3f": 36.8,
-          "ave_3f": 34.5,
-          "pci": 43.8,
-          "position_3f": 0.0
-        }
-      ],
-      "indices": {
-        "mining_index": 52.86,
-        "corrected_time_deviation": 54.66,
-        "zi_deviation": 52.37,
-        "base_score": 53.33,
-        "jockey_coefficient": 0.9861,
-        "similarity_coefficient": 1.00695,
-        "stability_coefficient": 0.99133,
-        "total_coefficient_score": -0.002,
-        "final_score": 51.14
       }
     },
     {
