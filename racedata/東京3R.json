@@ -1308,82 +1308,6 @@
       }
     },
     {
-      "frame": 6,
-      "horse_number": 12,
-      "horse_name": "ニシノギャルズ",
-      "mark": "",
-      "jockey": {
-        "name": "武藤雅",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 15,
-          "win_rate": 5.0,
-          "place_rate": 9.7,
-          "show_rate": 14.4
-        },
-        "last_year": {
-          "wins": 12,
-          "win_rate": 4.1,
-          "place_rate": 9.5,
-          "show_rate": 13.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "水野貴広",
-        "this_year": {
-          "wins": 7,
-          "win_rate": 3.2,
-          "place_rate": 9.9,
-          "show_rate": 14.4
-        },
-        "last_year": {
-          "wins": 12,
-          "win_rate": 4.3,
-          "place_rate": 8.6,
-          "show_rate": 15.7
-        }
-      },
-      "interval": 14,
-      "zi_index": 91.0,
-      "time_mining": 82.22,
-      "battle_mining": 33.0,
-      "past_races": [
-        {
-          "date": "2025.8.3",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "11",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "10",
-          "margin": 1.9,
-          "corrected_time": 86.0,
-          "running_style": "中",
-          "last_3f": 35.0,
-          "ave_3f": 37.08,
-          "pci": 55.9,
-          "position_3f": 0.7
-        }
-      ],
-      "indices": {
-        "mining_index": 40.38,
-        "corrected_time_deviation": 49.42,
-        "zi_deviation": 40.77,
-        "base_score": 43.15,
-        "jockey_coefficient": 0.99173,
-        "similarity_coefficient": 1.00295,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.0,
-        "final_score": 42.65
-      }
-    },
-    {
       "frame": 7,
       "horse_number": 13,
       "horse_name": "リーデレクオーレ",
@@ -1493,10 +1417,86 @@
         "zi_deviation": 47.45,
         "base_score": 47.76,
         "jockey_coefficient": 0.98417,
-        "similarity_coefficient": 0.99851,
+        "similarity_coefficient": 1.00077,
         "stability_coefficient": 0.9945,
-        "total_coefficient_score": -0.005,
-        "final_score": 41.73
+        "total_coefficient_score": -0.004,
+        "final_score": 43.08
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 12,
+      "horse_name": "ニシノギャルズ",
+      "mark": "",
+      "jockey": {
+        "name": "武藤雅",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 5.0,
+          "place_rate": 9.7,
+          "show_rate": 14.4
+        },
+        "last_year": {
+          "wins": 12,
+          "win_rate": 4.1,
+          "place_rate": 9.5,
+          "show_rate": 13.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "水野貴広",
+        "this_year": {
+          "wins": 7,
+          "win_rate": 3.2,
+          "place_rate": 9.9,
+          "show_rate": 14.4
+        },
+        "last_year": {
+          "wins": 12,
+          "win_rate": 4.3,
+          "place_rate": 8.6,
+          "show_rate": 15.7
+        }
+      },
+      "interval": 14,
+      "zi_index": 91.0,
+      "time_mining": 82.22,
+      "battle_mining": 33.0,
+      "past_races": [
+        {
+          "date": "2025.8.3",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "11",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "10",
+          "margin": 1.9,
+          "corrected_time": 86.0,
+          "running_style": "中",
+          "last_3f": 35.0,
+          "ave_3f": 37.08,
+          "pci": 55.9,
+          "position_3f": 0.7
+        }
+      ],
+      "indices": {
+        "mining_index": 40.38,
+        "corrected_time_deviation": 49.42,
+        "zi_deviation": 40.77,
+        "base_score": 43.15,
+        "jockey_coefficient": 0.99173,
+        "similarity_coefficient": 1.00295,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.0,
+        "final_score": 42.65
       }
     },
     {
