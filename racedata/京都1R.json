@@ -92,6 +92,82 @@
       }
     },
     {
+      "frame": 2,
+      "horse_number": 3,
+      "horse_name": "ラブインアクション",
+      "mark": "",
+      "jockey": {
+        "name": "坂井瑠星",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 100,
+          "win_rate": 17.2,
+          "place_rate": 29.5,
+          "show_rate": 40.2
+        },
+        "last_year": {
+          "wins": 115,
+          "win_rate": 15.9,
+          "place_rate": 30.7,
+          "show_rate": 42.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "橋口慎介",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 6.7,
+          "place_rate": 15.9,
+          "show_rate": 24.5
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 10.2,
+          "place_rate": 18.0,
+          "show_rate": 25.8
+        }
+      },
+      "interval": 4,
+      "zi_index": 111.0,
+      "time_mining": 86.5,
+      "battle_mining": 71.3,
+      "past_races": [
+        {
+          "date": "2025.10.13",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "9",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 1.0,
+          "corrected_time": 98.0,
+          "running_style": "先",
+          "last_3f": 36.2,
+          "ave_3f": 35.04,
+          "pci": 46.8,
+          "position_3f": 0.2
+        }
+      ],
+      "indices": {
+        "mining_index": 59.09,
+        "corrected_time_deviation": 61.15,
+        "zi_deviation": 59.14,
+        "base_score": 59.71,
+        "jockey_coefficient": 1.00712,
+        "similarity_coefficient": 1.00325,
+        "stability_coefficient": 0.995,
+        "total_coefficient_score": 0.001,
+        "final_score": 61.12
+      }
+    },
+    {
       "frame": 8,
       "horse_number": 15,
       "horse_name": "ホワイトフレイムス",
@@ -181,86 +257,10 @@
         "zi_deviation": 59.14,
         "base_score": 57.99,
         "jockey_coefficient": 1.01124,
-        "similarity_coefficient": 1.00561,
+        "similarity_coefficient": 1.00254,
         "stability_coefficient": 0.996,
-        "total_coefficient_score": 0.003,
-        "final_score": 62.48
-      }
-    },
-    {
-      "frame": 2,
-      "horse_number": 3,
-      "horse_name": "ラブインアクション",
-      "mark": "",
-      "jockey": {
-        "name": "坂井瑠星",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 100,
-          "win_rate": 17.2,
-          "place_rate": 29.5,
-          "show_rate": 40.2
-        },
-        "last_year": {
-          "wins": 115,
-          "win_rate": 15.9,
-          "place_rate": 30.7,
-          "show_rate": 42.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "橋口慎介",
-        "this_year": {
-          "wins": 14,
-          "win_rate": 6.7,
-          "place_rate": 15.9,
-          "show_rate": 24.5
-        },
-        "last_year": {
-          "wins": 25,
-          "win_rate": 10.2,
-          "place_rate": 18.0,
-          "show_rate": 25.8
-        }
-      },
-      "interval": 4,
-      "zi_index": 111.0,
-      "time_mining": 86.5,
-      "battle_mining": 71.3,
-      "past_races": [
-        {
-          "date": "2025.10.13",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "9",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 1.0,
-          "corrected_time": 98.0,
-          "running_style": "先",
-          "last_3f": 36.2,
-          "ave_3f": 35.04,
-          "pci": 46.8,
-          "position_3f": 0.2
-        }
-      ],
-      "indices": {
-        "mining_index": 59.09,
-        "corrected_time_deviation": 61.15,
-        "zi_deviation": 59.14,
-        "base_score": 59.71,
-        "jockey_coefficient": 1.00712,
-        "similarity_coefficient": 1.00325,
-        "stability_coefficient": 0.995,
-        "total_coefficient_score": 0.001,
-        "final_score": 61.12
+        "total_coefficient_score": 0.002,
+        "final_score": 60.25
       }
     },
     {
@@ -353,10 +353,10 @@
         "zi_deviation": 61.1,
         "base_score": 61.11,
         "jockey_coefficient": 1.01174,
-        "similarity_coefficient": 1.00025,
+        "similarity_coefficient": 0.99989,
         "stability_coefficient": 0.99201,
         "total_coefficient_score": -0.001,
-        "final_score": 59.72
+        "final_score": 59.44
       }
     },
     {
