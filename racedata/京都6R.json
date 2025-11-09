@@ -1392,6 +1392,122 @@
       }
     },
     {
+      "frame": 4,
+      "horse_number": 7,
+      "horse_name": "レヴァンテシチー",
+      "mark": "*",
+      "jockey": {
+        "name": "団野大成",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 57,
+          "win_rate": 9.5,
+          "place_rate": 19.1,
+          "show_rate": 27.4
+        },
+        "last_year": {
+          "wins": 62,
+          "win_rate": 8.1,
+          "place_rate": 17.8,
+          "show_rate": 25.7
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "佐々木晶",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 8.7,
+          "place_rate": 14.0,
+          "show_rate": 22.1
+        },
+        "last_year": {
+          "wins": 13,
+          "win_rate": 6.7,
+          "place_rate": 12.4,
+          "show_rate": 17.1
+        }
+      },
+      "interval": 17,
+      "zi_index": 103.0,
+      "time_mining": 112.98,
+      "battle_mining": 46.4,
+      "past_races": [
+        {
+          "date": "2025.7.12",
+          "race_name": "１勝ｸﾗｽ",
+          "place": "小倉",
+          "surface": "ダ",
+          "distance": "1700",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "12",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "5",
+          "margin": 1.1,
+          "corrected_time": 94.0,
+          "running_style": "中",
+          "last_3f": 39.3,
+          "ave_3f": 37.15,
+          "pci": 44.5,
+          "position_3f": 0.8
+        },
+        {
+          "date": "2025.5.18",
+          "race_name": "未勝利",
+          "place": "新潟",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "稍",
+          "frame": "4",
+          "horse_number": "5",
+          "weight": 54.0,
+          "weight_reduction": "▲",
+          "rank": "1",
+          "margin": -0.7,
+          "corrected_time": 92.0,
+          "running_style": "先",
+          "last_3f": 39.5,
+          "ave_3f": 38.2,
+          "pci": 46.7,
+          "position_3f": 0.3
+        },
+        {
+          "date": "2025.4.26",
+          "race_name": "未勝利",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "13",
+          "weight": 54.0,
+          "weight_reduction": "▲",
+          "rank": "5",
+          "margin": 0.5,
+          "corrected_time": 85.0,
+          "running_style": "後",
+          "last_3f": 38.6,
+          "ave_3f": 37.8,
+          "pci": 47.9,
+          "position_3f": 1.0
+        }
+      ],
+      "indices": {
+        "mining_index": 47.18,
+        "corrected_time_deviation": 53.25,
+        "zi_deviation": 46.82,
+        "base_score": 48.95,
+        "jockey_coefficient": 1.00138,
+        "similarity_coefficient": 1.00705,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": 0.002,
+        "final_score": 51.8
+      }
+    },
+    {
       "frame": 2,
       "horse_number": 3,
       "horse_name": "リアルペガサス",
@@ -1645,122 +1761,6 @@
         "stability_coefficient": 0.9939,
         "total_coefficient_score": -0.002,
         "final_score": 50.08
-      }
-    },
-    {
-      "frame": 4,
-      "horse_number": 7,
-      "horse_name": "レヴァンテシチー",
-      "mark": "*",
-      "jockey": {
-        "name": "団野大成",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 57,
-          "win_rate": 9.5,
-          "place_rate": 19.1,
-          "show_rate": 27.4
-        },
-        "last_year": {
-          "wins": 62,
-          "win_rate": 8.1,
-          "place_rate": 17.8,
-          "show_rate": 25.7
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "佐々木晶",
-        "this_year": {
-          "wins": 15,
-          "win_rate": 8.7,
-          "place_rate": 14.0,
-          "show_rate": 22.1
-        },
-        "last_year": {
-          "wins": 13,
-          "win_rate": 6.7,
-          "place_rate": 12.4,
-          "show_rate": 17.1
-        }
-      },
-      "interval": 17,
-      "zi_index": 103.0,
-      "time_mining": 112.98,
-      "battle_mining": 46.4,
-      "past_races": [
-        {
-          "date": "2025.7.12",
-          "race_name": "１勝ｸﾗｽ",
-          "place": "小倉",
-          "surface": "ダ",
-          "distance": "1700",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "12",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "5",
-          "margin": 1.1,
-          "corrected_time": 94.0,
-          "running_style": "中",
-          "last_3f": 39.3,
-          "ave_3f": 37.15,
-          "pci": 44.5,
-          "position_3f": 0.8
-        },
-        {
-          "date": "2025.5.18",
-          "race_name": "未勝利",
-          "place": "新潟",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "稍",
-          "frame": "4",
-          "horse_number": "5",
-          "weight": 54.0,
-          "weight_reduction": "▲",
-          "rank": "1",
-          "margin": -0.7,
-          "corrected_time": 92.0,
-          "running_style": "先",
-          "last_3f": 39.5,
-          "ave_3f": 38.2,
-          "pci": 46.7,
-          "position_3f": 0.3
-        },
-        {
-          "date": "2025.4.26",
-          "race_name": "未勝利",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "13",
-          "weight": 54.0,
-          "weight_reduction": "▲",
-          "rank": "5",
-          "margin": 0.5,
-          "corrected_time": 85.0,
-          "running_style": "後",
-          "last_3f": 38.6,
-          "ave_3f": 37.8,
-          "pci": 47.9,
-          "position_3f": 1.0
-        }
-      ],
-      "indices": {
-        "mining_index": 47.18,
-        "corrected_time_deviation": 53.25,
-        "zi_deviation": 46.82,
-        "base_score": 48.95,
-        "jockey_coefficient": 1.00138,
-        "similarity_coefficient": 1.00179,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": -0.0,
-        "final_score": 48.58
       }
     },
     {
