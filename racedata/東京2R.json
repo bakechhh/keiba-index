@@ -472,6 +472,82 @@
       }
     },
     {
+      "frame": 8,
+      "horse_number": 15,
+      "horse_name": "ダイコクヤタエモン",
+      "mark": "*",
+      "jockey": {
+        "name": "木幡巧也",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 4.0,
+          "place_rate": 8.2,
+          "show_rate": 15.1
+        },
+        "last_year": {
+          "wins": 24,
+          "win_rate": 4.1,
+          "place_rate": 9.8,
+          "show_rate": 13.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "牧光二",
+        "this_year": {
+          "wins": 12,
+          "win_rate": 3.9,
+          "place_rate": 9.8,
+          "show_rate": 14.8
+        },
+        "last_year": {
+          "wins": 28,
+          "win_rate": 8.2,
+          "place_rate": 17.6,
+          "show_rate": 25.2
+        }
+      },
+      "interval": 20,
+      "zi_index": 101.0,
+      "time_mining": 100.39,
+      "battle_mining": 43.2,
+      "past_races": [
+        {
+          "date": "2025.6.22",
+          "race_name": "新馬",
+          "place": "阪神",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "6",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 1.4,
+          "corrected_time": 85.0,
+          "running_style": "後",
+          "last_3f": 38.9,
+          "ave_3f": 36.9,
+          "pci": 44.9,
+          "position_3f": 0.9
+        }
+      ],
+      "indices": {
+        "mining_index": 46.89,
+        "corrected_time_deviation": 51.91,
+        "zi_deviation": 49.65,
+        "base_score": 48.81,
+        "jockey_coefficient": 0.99244,
+        "similarity_coefficient": 1.00398,
+        "stability_coefficient": 0.993,
+        "total_coefficient_score": -0.002,
+        "final_score": 46.86
+      }
+    },
+    {
       "frame": 7,
       "horse_number": 14,
       "horse_name": "ビッキーセカンド",
@@ -561,86 +637,10 @@
         "zi_deviation": 50.59,
         "base_score": 51.5,
         "jockey_coefficient": 1.00104,
-        "similarity_coefficient": 1.00239,
+        "similarity_coefficient": 1.00059,
         "stability_coefficient": 0.987,
-        "total_coefficient_score": -0.003,
-        "final_score": 47.39
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 15,
-      "horse_name": "ダイコクヤタエモン",
-      "mark": "*",
-      "jockey": {
-        "name": "木幡巧也",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 4.0,
-          "place_rate": 8.2,
-          "show_rate": 15.1
-        },
-        "last_year": {
-          "wins": 24,
-          "win_rate": 4.1,
-          "place_rate": 9.8,
-          "show_rate": 13.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "牧光二",
-        "this_year": {
-          "wins": 12,
-          "win_rate": 3.9,
-          "place_rate": 9.8,
-          "show_rate": 14.8
-        },
-        "last_year": {
-          "wins": 28,
-          "win_rate": 8.2,
-          "place_rate": 17.6,
-          "show_rate": 25.2
-        }
-      },
-      "interval": 20,
-      "zi_index": 101.0,
-      "time_mining": 100.39,
-      "battle_mining": 43.2,
-      "past_races": [
-        {
-          "date": "2025.6.22",
-          "race_name": "新馬",
-          "place": "阪神",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "6",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 1.4,
-          "corrected_time": 85.0,
-          "running_style": "後",
-          "last_3f": 38.9,
-          "ave_3f": 36.9,
-          "pci": 44.9,
-          "position_3f": 0.9
-        }
-      ],
-      "indices": {
-        "mining_index": 46.89,
-        "corrected_time_deviation": 51.91,
-        "zi_deviation": 49.65,
-        "base_score": 48.81,
-        "jockey_coefficient": 0.99244,
-        "similarity_coefficient": 1.00398,
-        "stability_coefficient": 0.993,
-        "total_coefficient_score": -0.002,
-        "final_score": 46.86
+        "total_coefficient_score": -0.004,
+        "final_score": 46.22
       }
     },
     {
@@ -733,10 +733,10 @@
         "zi_deviation": 55.27,
         "base_score": 49.23,
         "jockey_coefficient": 0.98069,
-        "similarity_coefficient": 1.00713,
+        "similarity_coefficient": 1.00457,
         "stability_coefficient": 0.991,
-        "total_coefficient_score": -0.002,
-        "final_score": 46.18
+        "total_coefficient_score": -0.004,
+        "final_score": 44.6
       }
     },
     {

@@ -188,6 +188,82 @@
       }
     },
     {
+      "frame": 6,
+      "horse_number": 6,
+      "horse_name": "グランドオーパス",
+      "mark": "*",
+      "jockey": {
+        "name": "坂井瑠星",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 100,
+          "win_rate": 17.2,
+          "place_rate": 29.5,
+          "show_rate": 40.2
+        },
+        "last_year": {
+          "wins": 115,
+          "win_rate": 15.9,
+          "place_rate": 30.7,
+          "show_rate": 42.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "橋口慎介",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 6.7,
+          "place_rate": 15.9,
+          "show_rate": 24.5
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 10.2,
+          "place_rate": 18.0,
+          "show_rate": 25.8
+        }
+      },
+      "interval": 11,
+      "zi_index": 117.0,
+      "time_mining": 94.37,
+      "battle_mining": 52.9,
+      "past_races": [
+        {
+          "date": "2025.8.24",
+          "race_name": "新馬・牝",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "14",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.8,
+          "corrected_time": 94.0,
+          "running_style": "先",
+          "last_3f": 34.0,
+          "ave_3f": 37.02,
+          "pci": 58.9,
+          "position_3f": 0.9
+        }
+      ],
+      "indices": {
+        "mining_index": 51.38,
+        "corrected_time_deviation": 45.18,
+        "zi_deviation": 56.57,
+        "base_score": 50.3,
+        "jockey_coefficient": 1.00712,
+        "similarity_coefficient": 1.00406,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": 0.002,
+        "final_score": 52.44
+      }
+    },
+    {
       "frame": 1,
       "horse_number": 1,
       "horse_name": "ルージュプルーヴ",
@@ -277,86 +353,86 @@
         "zi_deviation": 46.29,
         "base_score": 52.49,
         "jockey_coefficient": 1.0047,
-        "similarity_coefficient": 1.00381,
+        "similarity_coefficient": 0.99972,
         "stability_coefficient": 0.99775,
-        "total_coefficient_score": 0.002,
-        "final_score": 54.89
+        "total_coefficient_score": -0.0,
+        "final_score": 52.2
       }
     },
     {
-      "frame": 6,
-      "horse_number": 6,
-      "horse_name": "グランドオーパス",
+      "frame": 7,
+      "horse_number": 7,
+      "horse_name": "ロサドラーダ",
       "mark": "*",
       "jockey": {
-        "name": "坂井瑠星",
+        "name": "高杉吏麒",
         "weight": 55.0,
         "weight_reduction": "",
         "this_year": {
-          "wins": 100,
-          "win_rate": 17.2,
-          "place_rate": 29.5,
-          "show_rate": 40.2
+          "wins": 59,
+          "win_rate": 8.5,
+          "place_rate": 17.3,
+          "show_rate": 28.1
         },
         "last_year": {
-          "wins": 115,
-          "win_rate": 15.9,
-          "place_rate": 30.7,
-          "show_rate": 42.2
+          "wins": 48,
+          "win_rate": 10.5,
+          "place_rate": 15.8,
+          "show_rate": 20.6
         }
       },
       "trainer": {
         "affiliation": "(栗)",
-        "name": "橋口慎介",
+        "name": "藤岡健一",
         "this_year": {
-          "wins": 14,
-          "win_rate": 6.7,
-          "place_rate": 15.9,
-          "show_rate": 24.5
+          "wins": 16,
+          "win_rate": 6.8,
+          "place_rate": 13.9,
+          "show_rate": 25.3
         },
         "last_year": {
-          "wins": 25,
-          "win_rate": 10.2,
-          "place_rate": 18.0,
-          "show_rate": 25.8
+          "wins": 27,
+          "win_rate": 10.1,
+          "place_rate": 20.2,
+          "show_rate": 27.7
         }
       },
-      "interval": 11,
-      "zi_index": 117.0,
-      "time_mining": 94.37,
-      "battle_mining": 52.9,
+      "interval": 5,
+      "zi_index": 109.0,
+      "time_mining": 94.3,
+      "battle_mining": 41.7,
       "past_races": [
         {
-          "date": "2025.8.24",
-          "race_name": "新馬・牝",
-          "place": "新潟",
+          "date": "2025.10.5",
+          "race_name": "新馬",
+          "place": "京都",
           "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
+          "distance": "1800",
+          "track_condition": "稍",
           "frame": "8",
-          "horse_number": "14",
+          "horse_number": "12",
           "weight": 55.0,
           "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.8,
-          "corrected_time": 94.0,
-          "running_style": "先",
-          "last_3f": 34.0,
-          "ave_3f": 37.02,
-          "pci": 58.9,
-          "position_3f": 0.9
+          "rank": "3",
+          "margin": 0.4,
+          "corrected_time": 96.0,
+          "running_style": "中",
+          "last_3f": 34.7,
+          "ave_3f": 37.25,
+          "pci": 57.3,
+          "position_3f": 0.4
         }
       ],
       "indices": {
-        "mining_index": 51.38,
-        "corrected_time_deviation": 45.18,
-        "zi_deviation": 56.57,
-        "base_score": 50.3,
-        "jockey_coefficient": 1.00712,
-        "similarity_coefficient": 1.00406,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": 0.002,
-        "final_score": 52.44
+        "mining_index": 43.38,
+        "corrected_time_deviation": 50.59,
+        "zi_deviation": 47.43,
+        "base_score": 46.15,
+        "jockey_coefficient": 1.00175,
+        "similarity_coefficient": 1.00053,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.0,
+        "final_score": 45.95
       }
     },
     {
@@ -449,86 +525,10 @@
         "zi_deviation": 44.0,
         "base_score": 45.55,
         "jockey_coefficient": 1.00551,
-        "similarity_coefficient": 1.0021,
+        "similarity_coefficient": 0.99801,
         "stability_coefficient": 0.997,
-        "total_coefficient_score": 0.001,
-        "final_score": 46.49
-      }
-    },
-    {
-      "frame": 7,
-      "horse_number": 7,
-      "horse_name": "ロサドラーダ",
-      "mark": "*",
-      "jockey": {
-        "name": "高杉吏麒",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 59,
-          "win_rate": 8.5,
-          "place_rate": 17.3,
-          "show_rate": 28.1
-        },
-        "last_year": {
-          "wins": 48,
-          "win_rate": 10.5,
-          "place_rate": 15.8,
-          "show_rate": 20.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "藤岡健一",
-        "this_year": {
-          "wins": 16,
-          "win_rate": 6.8,
-          "place_rate": 13.9,
-          "show_rate": 25.3
-        },
-        "last_year": {
-          "wins": 27,
-          "win_rate": 10.1,
-          "place_rate": 20.2,
-          "show_rate": 27.7
-        }
-      },
-      "interval": 5,
-      "zi_index": 109.0,
-      "time_mining": 94.3,
-      "battle_mining": 41.7,
-      "past_races": [
-        {
-          "date": "2025.10.5",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "稍",
-          "frame": "8",
-          "horse_number": "12",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "3",
-          "margin": 0.4,
-          "corrected_time": 96.0,
-          "running_style": "中",
-          "last_3f": 34.7,
-          "ave_3f": 37.25,
-          "pci": 57.3,
-          "position_3f": 0.4
-        }
-      ],
-      "indices": {
-        "mining_index": 43.38,
-        "corrected_time_deviation": 50.59,
-        "zi_deviation": 47.43,
-        "base_score": 46.15,
-        "jockey_coefficient": 1.00175,
-        "similarity_coefficient": 1.00053,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.0,
-        "final_score": 45.95
+        "total_coefficient_score": -0.001,
+        "final_score": 44.16
       }
     },
     {
