@@ -464,7 +464,7 @@ function formatHorsesData(horses) {
         formatted += `${horse.indices.mining_index.toFixed(1)} | `;
         formatted += `**${horse.battle_mining.toFixed(1)}** | `;  // 戦績マイニングを強調
         formatted += `${horse.zi_index.toFixed(1)} | `;
-        formatted += `**${horse.corrected_time_deviation ? horse.corrected_time_deviation.toFixed(1) : '-'}** | `;  // 補正タイム偏差値を強調
+        formatted += `**${horse.indices.corrected_time_deviation ? horse.indices.corrected_time_deviation.toFixed(1) : '-'}** | `;  // 補正タイム偏差値を強調
         formatted += `${horse.indices.similarity_coefficient.toFixed(5)} | `;  // 小数点第5位まで
         formatted += `${horse.indices.stability_coefficient.toFixed(5)} | `;   // 小数点第5位まで
         formatted += `${horse.jockey.name} | `;
@@ -484,7 +484,7 @@ function formatHorsesData(horses) {
         formatted += `- **マイニング指数**: ${horse.indices.mining_index.toFixed(1)}\n`;
         formatted += `- **戦績マイニング**: **${horse.battle_mining.toFixed(1)}**（重視）\n`;
         formatted += `- **ZI指数**: ${horse.zi_index.toFixed(1)}（標準的な指標）\n`;
-        formatted += `- **補正タイム偏差値**: **${horse.corrected_time_deviation ? horse.corrected_time_deviation.toFixed(1) : '-'}**（重要指標）\n`;
+        formatted += `- **補正タイム偏差値**: **${horse.indices.corrected_time_deviation ? horse.indices.corrected_time_deviation.toFixed(1) : '-'}**（重要指標）\n`;
         formatted += `- **類似係数**: ${horse.indices.similarity_coefficient.toFixed(5)}（1.0が標準、${horse.indices.similarity_coefficient >= 1.0 ? '好材料' : '注意'}）\n`;
         formatted += `- **安定係数**: ${horse.indices.stability_coefficient.toFixed(5)}（1.0が標準、${horse.indices.stability_coefficient >= 1.0 ? '安定' : '不安定'}）\n`;
         formatted += `- **騎手**: ${horse.jockey.name} (${horse.jockey.weight}kg) - 勝率${horse.jockey.this_year.win_rate.toFixed(1)}%（参考）\n`;
