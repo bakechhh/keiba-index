@@ -16,102 +16,6 @@
   "meeting": "5東2",
   "horses": [
     {
-      "frame": 7,
-      "horse_number": 14,
-      "horse_name": "サトノボヤージュ",
-      "mark": "*",
-      "jockey": {
-        "name": "岩田望来",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 79,
-          "win_rate": 14.5,
-          "place_rate": 24.0,
-          "show_rate": 34.3
-        },
-        "last_year": {
-          "wins": 89,
-          "win_rate": 11.4,
-          "place_rate": 20.6,
-          "show_rate": 32.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "田中博康",
-        "this_year": {
-          "wins": 29,
-          "win_rate": 17.1,
-          "place_rate": 33.5,
-          "show_rate": 42.4
-        },
-        "last_year": {
-          "wins": 44,
-          "win_rate": 22.3,
-          "place_rate": 36.5,
-          "show_rate": 44.2
-        }
-      },
-      "interval": 13,
-      "zi_index": 118.0,
-      "time_mining": 84.61,
-      "battle_mining": 57.0,
-      "past_races": [
-        {
-          "date": "2025.8.9",
-          "race_name": "未勝利*",
-          "place": "新潟",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -2.0,
-          "corrected_time": 109.0,
-          "running_style": "逃",
-          "last_3f": 36.6,
-          "ave_3f": 34.2,
-          "pci": 43.4,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.6.14",
-          "race_name": "新馬",
-          "place": "阪神",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "稍",
-          "frame": "4",
-          "horse_number": "4",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.2,
-          "corrected_time": 89.0,
-          "running_style": "先",
-          "last_3f": 35.2,
-          "ave_3f": 35.5,
-          "pci": 50.9,
-          "position_3f": 0.3
-        }
-      ],
-      "indices": {
-        "mining_index": 59.37,
-        "corrected_time_deviation": 63.18,
-        "zi_deviation": 75.26,
-        "base_score": 62.9,
-        "jockey_coefficient": 1.00474,
-        "similarity_coefficient": 1.00716,
-        "stability_coefficient": 0.999,
-        "total_coefficient_score": 0.004,
-        "final_score": 69.1
-      }
-    },
-    {
       "frame": 5,
       "horse_number": 9,
       "horse_name": "ドンエレクトス",
@@ -205,6 +109,102 @@
         "stability_coefficient": 0.9995,
         "total_coefficient_score": 0.004,
         "final_score": 69.07
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 14,
+      "horse_name": "サトノボヤージュ",
+      "mark": "*",
+      "jockey": {
+        "name": "岩田望来",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 79,
+          "win_rate": 14.5,
+          "place_rate": 24.0,
+          "show_rate": 34.3
+        },
+        "last_year": {
+          "wins": 89,
+          "win_rate": 11.4,
+          "place_rate": 20.6,
+          "show_rate": 32.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "田中博康",
+        "this_year": {
+          "wins": 29,
+          "win_rate": 17.1,
+          "place_rate": 33.5,
+          "show_rate": 42.4
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 22.3,
+          "place_rate": 36.5,
+          "show_rate": 44.2
+        }
+      },
+      "interval": 13,
+      "zi_index": 118.0,
+      "time_mining": 84.61,
+      "battle_mining": 57.0,
+      "past_races": [
+        {
+          "date": "2025.8.9",
+          "race_name": "未勝利*",
+          "place": "新潟",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -2.0,
+          "corrected_time": 109.0,
+          "running_style": "逃",
+          "last_3f": 36.6,
+          "ave_3f": 34.2,
+          "pci": 43.4,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.6.14",
+          "race_name": "新馬",
+          "place": "阪神",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "稍",
+          "frame": "4",
+          "horse_number": "4",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.2,
+          "corrected_time": 89.0,
+          "running_style": "先",
+          "last_3f": 35.2,
+          "ave_3f": 35.5,
+          "pci": 50.9,
+          "position_3f": 0.3
+        }
+      ],
+      "indices": {
+        "mining_index": 59.37,
+        "corrected_time_deviation": 63.18,
+        "zi_deviation": 75.26,
+        "base_score": 62.9,
+        "jockey_coefficient": 1.00474,
+        "similarity_coefficient": 1.00276,
+        "stability_coefficient": 0.999,
+        "total_coefficient_score": 0.002,
+        "final_score": 65.63
       }
     },
     {
