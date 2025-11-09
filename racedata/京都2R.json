@@ -181,10 +181,10 @@
         "zi_deviation": 63.42,
         "base_score": 60.56,
         "jockey_coefficient": 1.01174,
-        "similarity_coefficient": 1.00541,
+        "similarity_coefficient": 1.00383,
         "stability_coefficient": 0.9985,
-        "total_coefficient_score": 0.004,
-        "final_score": 66.53
+        "total_coefficient_score": 0.003,
+        "final_score": 65.34
       }
     },
     {
@@ -360,82 +360,6 @@
       }
     },
     {
-      "frame": 7,
-      "horse_number": 7,
-      "horse_name": "ロサドラーダ",
-      "mark": "*",
-      "jockey": {
-        "name": "高杉吏麒",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 59,
-          "win_rate": 8.5,
-          "place_rate": 17.3,
-          "show_rate": 28.1
-        },
-        "last_year": {
-          "wins": 48,
-          "win_rate": 10.5,
-          "place_rate": 15.8,
-          "show_rate": 20.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "藤岡健一",
-        "this_year": {
-          "wins": 16,
-          "win_rate": 6.8,
-          "place_rate": 13.9,
-          "show_rate": 25.3
-        },
-        "last_year": {
-          "wins": 27,
-          "win_rate": 10.1,
-          "place_rate": 20.2,
-          "show_rate": 27.7
-        }
-      },
-      "interval": 5,
-      "zi_index": 109.0,
-      "time_mining": 94.3,
-      "battle_mining": 41.7,
-      "past_races": [
-        {
-          "date": "2025.10.5",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "稍",
-          "frame": "8",
-          "horse_number": "12",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "3",
-          "margin": 0.4,
-          "corrected_time": 96.0,
-          "running_style": "中",
-          "last_3f": 34.7,
-          "ave_3f": 37.25,
-          "pci": 57.3,
-          "position_3f": 0.4
-        }
-      ],
-      "indices": {
-        "mining_index": 43.38,
-        "corrected_time_deviation": 50.59,
-        "zi_deviation": 47.43,
-        "base_score": 46.15,
-        "jockey_coefficient": 1.00175,
-        "similarity_coefficient": 1.00053,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.0,
-        "final_score": 45.95
-      }
-    },
-    {
       "frame": 5,
       "horse_number": 5,
       "horse_name": "フィラーエ",
@@ -525,10 +449,86 @@
         "zi_deviation": 44.0,
         "base_score": 45.55,
         "jockey_coefficient": 1.00551,
-        "similarity_coefficient": 0.99801,
+        "similarity_coefficient": 1.0021,
         "stability_coefficient": 0.997,
-        "total_coefficient_score": -0.001,
-        "final_score": 44.16
+        "total_coefficient_score": 0.001,
+        "final_score": 46.49
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 7,
+      "horse_name": "ロサドラーダ",
+      "mark": "*",
+      "jockey": {
+        "name": "高杉吏麒",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 59,
+          "win_rate": 8.5,
+          "place_rate": 17.3,
+          "show_rate": 28.1
+        },
+        "last_year": {
+          "wins": 48,
+          "win_rate": 10.5,
+          "place_rate": 15.8,
+          "show_rate": 20.6
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "藤岡健一",
+        "this_year": {
+          "wins": 16,
+          "win_rate": 6.8,
+          "place_rate": 13.9,
+          "show_rate": 25.3
+        },
+        "last_year": {
+          "wins": 27,
+          "win_rate": 10.1,
+          "place_rate": 20.2,
+          "show_rate": 27.7
+        }
+      },
+      "interval": 5,
+      "zi_index": 109.0,
+      "time_mining": 94.3,
+      "battle_mining": 41.7,
+      "past_races": [
+        {
+          "date": "2025.10.5",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "稍",
+          "frame": "8",
+          "horse_number": "12",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "3",
+          "margin": 0.4,
+          "corrected_time": 96.0,
+          "running_style": "中",
+          "last_3f": 34.7,
+          "ave_3f": 37.25,
+          "pci": 57.3,
+          "position_3f": 0.4
+        }
+      ],
+      "indices": {
+        "mining_index": 43.38,
+        "corrected_time_deviation": 50.59,
+        "zi_deviation": 47.43,
+        "base_score": 46.15,
+        "jockey_coefficient": 1.00175,
+        "similarity_coefficient": 1.00053,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.0,
+        "final_score": 45.95
       }
     },
     {

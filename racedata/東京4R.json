@@ -1161,86 +1161,10 @@
         "zi_deviation": 37.03,
         "base_score": 38.16,
         "jockey_coefficient": 0.99019,
-        "similarity_coefficient": 1.00765,
+        "similarity_coefficient": 1.00743,
         "stability_coefficient": 0.99251,
         "total_coefficient_score": -0.0,
-        "final_score": 37.91
-      }
-    },
-    {
-      "frame": 1,
-      "horse_number": 1,
-      "horse_name": "セブンワンダーズ",
-      "mark": "*",
-      "jockey": {
-        "name": "鮫島克駿",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 55,
-          "win_rate": 8.2,
-          "place_rate": 17.6,
-          "show_rate": 26.8
-        },
-        "last_year": {
-          "wins": 99,
-          "win_rate": 11.6,
-          "place_rate": 22.4,
-          "show_rate": 33.3
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "斎藤誠",
-        "this_year": {
-          "wins": 27,
-          "win_rate": 7.7,
-          "place_rate": 16.3,
-          "show_rate": 23.5
-        },
-        "last_year": {
-          "wins": 37,
-          "win_rate": 9.1,
-          "place_rate": 17.4,
-          "show_rate": 23.3
-        }
-      },
-      "interval": 2,
-      "zi_index": 99.0,
-      "time_mining": 108.74,
-      "battle_mining": 33.1,
-      "past_races": [
-        {
-          "date": "2025.10.26",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "稍",
-          "frame": "3",
-          "horse_number": "5",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "11",
-          "margin": 1.7,
-          "corrected_time": 84.0,
-          "running_style": "中",
-          "last_3f": 34.9,
-          "ave_3f": 38.7,
-          "pci": 60.9,
-          "position_3f": 0.7
-        }
-      ],
-      "indices": {
-        "mining_index": 36.72,
-        "corrected_time_deviation": 34.02,
-        "zi_deviation": 43.51,
-        "base_score": 36.93,
-        "jockey_coefficient": 1.00104,
-        "similarity_coefficient": 1.00077,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.0,
-        "final_score": 36.78
+        "final_score": 37.8
       }
     },
     {
@@ -1333,10 +1257,86 @@
         "zi_deviation": 44.59,
         "base_score": 40.14,
         "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 0.99849,
+        "similarity_coefficient": 1.00077,
         "stability_coefficient": 0.99251,
-        "total_coefficient_score": -0.004,
-        "final_score": 35.96
+        "total_coefficient_score": -0.003,
+        "final_score": 37.1
+      }
+    },
+    {
+      "frame": 1,
+      "horse_number": 1,
+      "horse_name": "セブンワンダーズ",
+      "mark": "*",
+      "jockey": {
+        "name": "鮫島克駿",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 55,
+          "win_rate": 8.2,
+          "place_rate": 17.6,
+          "show_rate": 26.8
+        },
+        "last_year": {
+          "wins": 99,
+          "win_rate": 11.6,
+          "place_rate": 22.4,
+          "show_rate": 33.3
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "斎藤誠",
+        "this_year": {
+          "wins": 27,
+          "win_rate": 7.7,
+          "place_rate": 16.3,
+          "show_rate": 23.5
+        },
+        "last_year": {
+          "wins": 37,
+          "win_rate": 9.1,
+          "place_rate": 17.4,
+          "show_rate": 23.3
+        }
+      },
+      "interval": 2,
+      "zi_index": 99.0,
+      "time_mining": 108.74,
+      "battle_mining": 33.1,
+      "past_races": [
+        {
+          "date": "2025.10.26",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "稍",
+          "frame": "3",
+          "horse_number": "5",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "11",
+          "margin": 1.7,
+          "corrected_time": 84.0,
+          "running_style": "中",
+          "last_3f": 34.9,
+          "ave_3f": 38.7,
+          "pci": 60.9,
+          "position_3f": 0.7
+        }
+      ],
+      "indices": {
+        "mining_index": 36.72,
+        "corrected_time_deviation": 34.02,
+        "zi_deviation": 43.51,
+        "base_score": 36.93,
+        "jockey_coefficient": 1.00104,
+        "similarity_coefficient": 1.00077,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.0,
+        "final_score": 36.78
       }
     }
   ]
