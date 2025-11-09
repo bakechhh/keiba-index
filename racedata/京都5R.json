@@ -55,19 +55,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.13,
-      "battle_mining": 66.6,
+      "time_mining": 123.61,
+      "battle_mining": 68.8,
       "past_races": [],
       "indices": {
-        "mining_index": 65.95,
+        "mining_index": 65.46,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 58.77,
+        "base_score": 58.5,
         "jockey_coefficient": 1.00551,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 59.99
+        "final_score": 59.71
       }
     },
     {
@@ -110,74 +110,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.19,
-      "battle_mining": 60.4,
+      "time_mining": 123.55,
+      "battle_mining": 59.7,
       "past_races": [],
       "indices": {
-        "mining_index": 60.45,
+        "mining_index": 60.19,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 55.75,
+        "base_score": 55.61,
         "jockey_coefficient": 1.01124,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.002,
-        "final_score": 58.1
-      }
-    },
-    {
-      "frame": 2,
-      "horse_number": 2,
-      "horse_name": "ゴールドアクセス",
-      "mark": "",
-      "jockey": {
-        "name": "武豊",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 63,
-          "win_rate": 13.5,
-          "place_rate": 27.1,
-          "show_rate": 38.7
-        },
-        "last_year": {
-          "wins": 87,
-          "win_rate": 16.1,
-          "place_rate": 28.9,
-          "show_rate": 38.1
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "寺島良",
-        "this_year": {
-          "wins": 20,
-          "win_rate": 8.0,
-          "place_rate": 16.8,
-          "show_rate": 23.6
-        },
-        "last_year": {
-          "wins": 28,
-          "win_rate": 8.6,
-          "place_rate": 19.0,
-          "show_rate": 24.2
-        }
-      },
-      "interval": 0,
-      "zi_index": 0.0,
-      "time_mining": 123.4,
-      "battle_mining": 49.0,
-      "past_races": [],
-      "indices": {
-        "mining_index": 48.33,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 49.08,
-        "jockey_coefficient": 1.00655,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.001,
-        "final_score": 50.29
+        "final_score": 57.95
       }
     },
     {
@@ -220,19 +165,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.47,
-      "battle_mining": 54.6,
+      "time_mining": 123.84,
+      "battle_mining": 53.6,
       "past_races": [],
       "indices": {
-        "mining_index": 50.81,
+        "mining_index": 50.73,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 50.45,
+        "base_score": 50.4,
         "jockey_coefficient": 0.99801,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.0,
-        "final_score": 50.07
+        "final_score": 50.03
       }
     },
     {
@@ -275,11 +220,11 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.44,
-      "battle_mining": 48.6,
+      "time_mining": 123.89,
+      "battle_mining": 49.9,
       "past_races": [],
       "indices": {
-        "mining_index": 47.25,
+        "mining_index": 47.26,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
         "base_score": 48.49,
@@ -287,7 +232,62 @@
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
-        "final_score": 49.21
+        "final_score": 49.22
+      }
+    },
+    {
+      "frame": 2,
+      "horse_number": 2,
+      "horse_name": "ゴールドアクセス",
+      "mark": "",
+      "jockey": {
+        "name": "武豊",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 63,
+          "win_rate": 13.5,
+          "place_rate": 27.1,
+          "show_rate": 38.7
+        },
+        "last_year": {
+          "wins": 87,
+          "win_rate": 16.1,
+          "place_rate": 28.9,
+          "show_rate": 38.1
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "寺島良",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 8.0,
+          "place_rate": 16.8,
+          "show_rate": 23.6
+        },
+        "last_year": {
+          "wins": 28,
+          "win_rate": 8.6,
+          "place_rate": 19.0,
+          "show_rate": 24.2
+        }
+      },
+      "interval": 0,
+      "zi_index": 0.0,
+      "time_mining": 123.78,
+      "battle_mining": 44.8,
+      "past_races": [],
+      "indices": {
+        "mining_index": 44.84,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 47.16,
+        "jockey_coefficient": 1.00655,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.001,
+        "final_score": 48.32
       }
     },
     {
@@ -330,19 +330,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.09,
-      "battle_mining": 40.8,
+      "time_mining": 123.44,
+      "battle_mining": 40.4,
       "past_races": [],
       "indices": {
-        "mining_index": 41.46,
+        "mining_index": 41.44,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 45.3,
+        "base_score": 45.29,
         "jockey_coefficient": 1.00138,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
-        "final_score": 45.54
+        "final_score": 45.53
       }
     },
     {
@@ -385,19 +385,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.49,
-      "battle_mining": 41.3,
+      "time_mining": 123.96,
+      "battle_mining": 42.6,
       "past_races": [],
       "indices": {
-        "mining_index": 40.82,
+        "mining_index": 40.97,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 44.95,
+        "base_score": 45.03,
         "jockey_coefficient": 1.00175,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
-        "final_score": 45.25
+        "final_score": 45.33
       }
     },
     {
@@ -440,19 +440,19 @@
       },
       "interval": 0,
       "zi_index": 0.0,
-      "time_mining": 123.59,
-      "battle_mining": 38.4,
+      "time_mining": 123.93,
+      "battle_mining": 39.7,
       "past_races": [],
       "indices": {
-        "mining_index": 37.17,
+        "mining_index": 39.39,
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
-        "base_score": 42.94,
+        "base_score": 44.17,
         "jockey_coefficient": 0.99665,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 42.4
+        "final_score": 43.61
       }
     }
   ]
