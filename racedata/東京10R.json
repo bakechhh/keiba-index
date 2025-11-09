@@ -2449,10 +2449,10 @@
         "zi_deviation": 63.24,
         "base_score": 45.81,
         "jockey_coefficient": 0.98626,
-        "similarity_coefficient": 1.00351,
+        "similarity_coefficient": 1.00074,
         "stability_coefficient": 0.99368,
-        "total_coefficient_score": -0.003,
-        "final_score": 42.92
+        "total_coefficient_score": -0.004,
+        "final_score": 41.34
       }
     },
     {
