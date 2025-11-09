@@ -989,10 +989,10 @@
         "zi_deviation": 43.72,
         "base_score": 47.26,
         "jockey_coefficient": 0.99141,
-        "similarity_coefficient": 1.00564,
+        "similarity_coefficient": 1.00914,
         "stability_coefficient": 0.98275,
-        "total_coefficient_score": -0.005,
-        "final_score": 41.94
+        "total_coefficient_score": -0.003,
+        "final_score": 44.0
       }
     },
     {
