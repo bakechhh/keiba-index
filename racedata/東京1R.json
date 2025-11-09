@@ -777,10 +777,10 @@
         "zi_deviation": 50.0,
         "base_score": 51.4,
         "jockey_coefficient": 1.00036,
-        "similarity_coefficient": 0.9996,
+        "similarity_coefficient": 1.00241,
         "stability_coefficient": 0.99501,
-        "total_coefficient_score": -0.002,
-        "final_score": 48.96
+        "total_coefficient_score": -0.0,
+        "final_score": 50.77
       }
     },
     {
@@ -933,10 +933,10 @@
         "zi_deviation": 56.94,
         "base_score": 51.22,
         "jockey_coefficient": 0.99532,
-        "similarity_coefficient": 0.999,
+        "similarity_coefficient": 1.00181,
         "stability_coefficient": 0.9914,
-        "total_coefficient_score": -0.004,
-        "final_score": 45.83
+        "total_coefficient_score": -0.003,
+        "final_score": 47.63
       }
     },
     {
@@ -1096,82 +1096,6 @@
       }
     },
     {
-      "frame": 3,
-      "horse_number": 5,
-      "horse_name": "ドナソラーレ",
-      "mark": "*",
-      "jockey": {
-        "name": "木幡巧也",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 4.0,
-          "place_rate": 8.2,
-          "show_rate": 15.1
-        },
-        "last_year": {
-          "wins": 24,
-          "win_rate": 4.1,
-          "place_rate": 9.8,
-          "show_rate": 13.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "池上昌和",
-        "this_year": {
-          "wins": 14,
-          "win_rate": 7.4,
-          "place_rate": 11.1,
-          "show_rate": 18.0
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 7.8,
-          "place_rate": 16.0,
-          "show_rate": 23.7
-        }
-      },
-      "interval": 10,
-      "zi_index": 100.0,
-      "time_mining": 94.33,
-      "battle_mining": 37.7,
-      "past_races": [
-        {
-          "date": "2025.8.30",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "3",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "11",
-          "margin": 1.5,
-          "corrected_time": 84.0,
-          "running_style": "中",
-          "last_3f": 35.8,
-          "ave_3f": 36.6,
-          "pci": 52.2,
-          "position_3f": 1.4
-        }
-      ],
-      "indices": {
-        "mining_index": 42.49,
-        "corrected_time_deviation": 44.71,
-        "zi_deviation": 50.0,
-        "base_score": 44.28,
-        "jockey_coefficient": 0.99244,
-        "similarity_coefficient": 1.00427,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": 0.0,
-        "final_score": 44.61
-      }
-    },
-    {
       "frame": 6,
       "horse_number": 11,
       "horse_name": "ミュージックレイン",
@@ -1261,10 +1185,86 @@
         "zi_deviation": 56.94,
         "base_score": 49.04,
         "jockey_coefficient": 0.99448,
-        "similarity_coefficient": 0.998,
+        "similarity_coefficient": 1.00081,
         "stability_coefficient": 0.99101,
-        "total_coefficient_score": -0.005,
-        "final_score": 42.94
+        "total_coefficient_score": -0.004,
+        "final_score": 44.66
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 5,
+      "horse_name": "ドナソラーレ",
+      "mark": "*",
+      "jockey": {
+        "name": "木幡巧也",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 4.0,
+          "place_rate": 8.2,
+          "show_rate": 15.1
+        },
+        "last_year": {
+          "wins": 24,
+          "win_rate": 4.1,
+          "place_rate": 9.8,
+          "show_rate": 13.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "池上昌和",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 7.4,
+          "place_rate": 11.1,
+          "show_rate": 18.0
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 7.8,
+          "place_rate": 16.0,
+          "show_rate": 23.7
+        }
+      },
+      "interval": 10,
+      "zi_index": 100.0,
+      "time_mining": 94.33,
+      "battle_mining": 37.7,
+      "past_races": [
+        {
+          "date": "2025.8.30",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "3",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "11",
+          "margin": 1.5,
+          "corrected_time": 84.0,
+          "running_style": "中",
+          "last_3f": 35.8,
+          "ave_3f": 36.6,
+          "pci": 52.2,
+          "position_3f": 1.4
+        }
+      ],
+      "indices": {
+        "mining_index": 42.49,
+        "corrected_time_deviation": 44.71,
+        "zi_deviation": 50.0,
+        "base_score": 44.28,
+        "jockey_coefficient": 0.99244,
+        "similarity_coefficient": 1.00427,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": 0.0,
+        "final_score": 44.61
       }
     },
     {
