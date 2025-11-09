@@ -351,20 +351,20 @@
       "horse_name": "エイシンイグニース",
       "mark": "",
       "jockey": {
-        "name": "高杉吏麒",
+        "name": "佐々木大",
         "weight": 56.0,
         "weight_reduction": "",
         "this_year": {
-          "wins": 59,
-          "win_rate": 8.5,
-          "place_rate": 17.3,
-          "show_rate": 28.1
+          "wins": 76,
+          "win_rate": 10.4,
+          "place_rate": 18.8,
+          "show_rate": 26.6
         },
         "last_year": {
-          "wins": 48,
-          "win_rate": 10.5,
-          "place_rate": 15.8,
-          "show_rate": 20.6
+          "wins": 77,
+          "win_rate": 10.2,
+          "place_rate": 18.8,
+          "show_rate": 28.9
         }
       },
       "trainer": {
@@ -393,11 +393,11 @@
         "corrected_time_deviation": 50.0,
         "zi_deviation": 50.0,
         "base_score": 45.03,
-        "jockey_coefficient": 1.00175,
+        "jockey_coefficient": 1.00093,
         "similarity_coefficient": 1.0,
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
-        "final_score": 45.33
+        "final_score": 45.19
       }
     },
     {
