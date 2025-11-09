@@ -245,10 +245,10 @@
         "zi_deviation": 70.11,
         "base_score": 60.84,
         "jockey_coefficient": 1.00337,
-        "similarity_coefficient": 1.00494,
+        "similarity_coefficient": 1.00774,
         "stability_coefficient": 0.99662,
-        "total_coefficient_score": 0.002,
-        "final_score": 63.57
+        "total_coefficient_score": 0.003,
+        "final_score": 65.7
       }
     },
     {
@@ -2060,182 +2060,6 @@
       }
     },
     {
-      "frame": 7,
-      "horse_number": 14,
-      "horse_name": "ストラニエーロ",
-      "mark": "*",
-      "jockey": {
-        "name": "斎藤新",
-        "weight": 54.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 29,
-          "win_rate": 5.6,
-          "place_rate": 12.6,
-          "show_rate": 17.7
-        },
-        "last_year": {
-          "wins": 28,
-          "win_rate": 6.4,
-          "place_rate": 15.2,
-          "show_rate": 21.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "尾関知人",
-        "this_year": {
-          "wins": 11,
-          "win_rate": 5.6,
-          "place_rate": 8.1,
-          "show_rate": 13.2
-        },
-        "last_year": {
-          "wins": 21,
-          "win_rate": 8.4,
-          "place_rate": 14.5,
-          "show_rate": 23.7
-        }
-      },
-      "interval": 8,
-      "zi_index": 98.0,
-      "time_mining": 160.32,
-      "battle_mining": 52.6,
-      "past_races": [
-        {
-          "date": "2025.9.13",
-          "race_name": "１勝ｸﾗｽ",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "稍",
-          "frame": "7",
-          "horse_number": "14",
-          "weight": 53.0,
-          "weight_reduction": "",
-          "rank": "12",
-          "margin": 1.5,
-          "corrected_time": 85.0,
-          "running_style": "中",
-          "last_3f": 34.6,
-          "ave_3f": 37.41,
-          "pci": 58.1,
-          "position_3f": 0.9
-        },
-        {
-          "date": "2025.7.12",
-          "race_name": "北斗特別･1勝",
-          "place": "函館",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "9",
-          "weight": 53.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 0.3,
-          "corrected_time": 96.0,
-          "running_style": "逃",
-          "last_3f": 35.1,
-          "ave_3f": 36.43,
-          "pci": 53.8,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.6.22",
-          "race_name": "遊楽部特･1勝",
-          "place": "函館",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "重",
-          "frame": "5",
-          "horse_number": "5",
-          "weight": 53.0,
-          "weight_reduction": "",
-          "rank": "3",
-          "margin": 0.3,
-          "corrected_time": 97.0,
-          "running_style": "後",
-          "last_3f": 34.9,
-          "ave_3f": 37.54,
-          "pci": 57.6,
-          "position_3f": 0.9
-        },
-        {
-          "date": "2025.5.25",
-          "race_name": "未勝利・牝",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "稍",
-          "frame": "8",
-          "horse_number": "16",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.2,
-          "corrected_time": 89.0,
-          "running_style": "逃",
-          "last_3f": 36.5,
-          "ave_3f": 38.74,
-          "pci": 56.1,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.3.22",
-          "race_name": "未勝利・牝",
-          "place": "中京",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "11",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "12",
-          "margin": 6.4,
-          "corrected_time": 36.0,
-          "running_style": "中",
-          "last_3f": 43.7,
-          "ave_3f": 38.05,
-          "pci": 37.1,
-          "position_3f": 0.7
-        },
-        {
-          "date": "2025.1.11",
-          "race_name": "新馬",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "5",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "11",
-          "margin": 0.8,
-          "corrected_time": 79.0,
-          "running_style": "中",
-          "last_3f": 36.1,
-          "ave_3f": 38.06,
-          "pci": 55.4,
-          "position_3f": 0.8
-        }
-      ],
-      "indices": {
-        "mining_index": 52.23,
-        "corrected_time_deviation": 37.95,
-        "zi_deviation": 51.52,
-        "base_score": 47.84,
-        "jockey_coefficient": 0.99482,
-        "similarity_coefficient": 1.00436,
-        "stability_coefficient": 0.98938,
-        "total_coefficient_score": -0.002,
-        "final_score": 45.07
-      }
-    },
-    {
       "frame": 5,
       "horse_number": 10,
       "horse_name": "バーケンヘッド",
@@ -2489,6 +2313,182 @@
         "stability_coefficient": 0.99401,
         "total_coefficient_score": -0.002,
         "final_score": 44.1
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 14,
+      "horse_name": "ストラニエーロ",
+      "mark": "*",
+      "jockey": {
+        "name": "斎藤新",
+        "weight": 54.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 29,
+          "win_rate": 5.6,
+          "place_rate": 12.6,
+          "show_rate": 17.7
+        },
+        "last_year": {
+          "wins": 28,
+          "win_rate": 6.4,
+          "place_rate": 15.2,
+          "show_rate": 21.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "尾関知人",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 5.6,
+          "place_rate": 8.1,
+          "show_rate": 13.2
+        },
+        "last_year": {
+          "wins": 21,
+          "win_rate": 8.4,
+          "place_rate": 14.5,
+          "show_rate": 23.7
+        }
+      },
+      "interval": 8,
+      "zi_index": 98.0,
+      "time_mining": 160.32,
+      "battle_mining": 52.6,
+      "past_races": [
+        {
+          "date": "2025.9.13",
+          "race_name": "１勝ｸﾗｽ",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "稍",
+          "frame": "7",
+          "horse_number": "14",
+          "weight": 53.0,
+          "weight_reduction": "",
+          "rank": "12",
+          "margin": 1.5,
+          "corrected_time": 85.0,
+          "running_style": "中",
+          "last_3f": 34.6,
+          "ave_3f": 37.41,
+          "pci": 58.1,
+          "position_3f": 0.9
+        },
+        {
+          "date": "2025.7.12",
+          "race_name": "北斗特別･1勝",
+          "place": "函館",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "9",
+          "weight": 53.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 0.3,
+          "corrected_time": 96.0,
+          "running_style": "逃",
+          "last_3f": 35.1,
+          "ave_3f": 36.43,
+          "pci": 53.8,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.6.22",
+          "race_name": "遊楽部特･1勝",
+          "place": "函館",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "重",
+          "frame": "5",
+          "horse_number": "5",
+          "weight": 53.0,
+          "weight_reduction": "",
+          "rank": "3",
+          "margin": 0.3,
+          "corrected_time": 97.0,
+          "running_style": "後",
+          "last_3f": 34.9,
+          "ave_3f": 37.54,
+          "pci": 57.6,
+          "position_3f": 0.9
+        },
+        {
+          "date": "2025.5.25",
+          "race_name": "未勝利・牝",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "稍",
+          "frame": "8",
+          "horse_number": "16",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.2,
+          "corrected_time": 89.0,
+          "running_style": "逃",
+          "last_3f": 36.5,
+          "ave_3f": 38.74,
+          "pci": 56.1,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.3.22",
+          "race_name": "未勝利・牝",
+          "place": "中京",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "11",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "12",
+          "margin": 6.4,
+          "corrected_time": 36.0,
+          "running_style": "中",
+          "last_3f": 43.7,
+          "ave_3f": 38.05,
+          "pci": 37.1,
+          "position_3f": 0.7
+        },
+        {
+          "date": "2025.1.11",
+          "race_name": "新馬",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "5",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "11",
+          "margin": 0.8,
+          "corrected_time": 79.0,
+          "running_style": "中",
+          "last_3f": 36.1,
+          "ave_3f": 38.06,
+          "pci": 55.4,
+          "position_3f": 0.8
+        }
+      ],
+      "indices": {
+        "mining_index": 52.23,
+        "corrected_time_deviation": 37.95,
+        "zi_deviation": 51.52,
+        "base_score": 47.84,
+        "jockey_coefficient": 0.99482,
+        "similarity_coefficient": 1.00193,
+        "stability_coefficient": 0.98938,
+        "total_coefficient_score": -0.004,
+        "final_score": 43.62
       }
     },
     {
@@ -3605,10 +3605,10 @@
         "zi_deviation": 32.11,
         "base_score": 34.22,
         "jockey_coefficient": 0.98782,
-        "similarity_coefficient": 1.00685,
+        "similarity_coefficient": 1.00092,
         "stability_coefficient": 0.993,
-        "total_coefficient_score": -0.001,
-        "final_score": 33.49
+        "total_coefficient_score": -0.004,
+        "final_score": 30.95
       }
     }
   ]
