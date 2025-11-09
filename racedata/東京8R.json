@@ -2981,10 +2981,10 @@
         "zi_deviation": 43.98,
         "base_score": 43.64,
         "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 1.00498,
+        "similarity_coefficient": 1.00284,
         "stability_coefficient": 0.99488,
-        "total_coefficient_score": -0.0,
-        "final_score": 43.54
+        "total_coefficient_score": -0.001,
+        "final_score": 42.37
       }
     },
     {
