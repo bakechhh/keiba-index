@@ -1721,10 +1721,10 @@
         "zi_deviation": 50.48,
         "base_score": 50.58,
         "jockey_coefficient": 0.99358,
-        "similarity_coefficient": 1.00292,
+        "similarity_coefficient": 1.00857,
         "stability_coefficient": 0.9941,
-        "total_coefficient_score": -0.002,
-        "final_score": 48.6
+        "total_coefficient_score": 0.001,
+        "final_score": 52.17
       }
     },
     {
