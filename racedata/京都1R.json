@@ -353,10 +353,10 @@
         "zi_deviation": 61.1,
         "base_score": 61.11,
         "jockey_coefficient": 1.01174,
-        "similarity_coefficient": 1.00025,
+        "similarity_coefficient": 0.99989,
         "stability_coefficient": 0.99201,
         "total_coefficient_score": -0.001,
-        "final_score": 59.72
+        "final_score": 59.44
       }
     },
     {
@@ -724,82 +724,6 @@
       }
     },
     {
-      "frame": 3,
-      "horse_number": 6,
-      "horse_name": "エコロボルト",
-      "mark": "*",
-      "jockey": {
-        "name": "西村淳也",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 39,
-          "win_rate": 11.4,
-          "place_rate": 21.9,
-          "show_rate": 34.2
-        },
-        "last_year": {
-          "wins": 81,
-          "win_rate": 9.5,
-          "place_rate": 17.4,
-          "show_rate": 28.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "森秀行",
-        "this_year": {
-          "wins": 20,
-          "win_rate": 8.8,
-          "place_rate": 23.0,
-          "show_rate": 28.8
-        },
-        "last_year": {
-          "wins": 30,
-          "win_rate": 11.4,
-          "place_rate": 18.3,
-          "show_rate": 24.3
-        }
-      },
-      "interval": 20,
-      "zi_index": 98.0,
-      "time_mining": 86.43,
-      "battle_mining": 45.2,
-      "past_races": [
-        {
-          "date": "2025.6.22",
-          "race_name": "新馬",
-          "place": "阪神",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "4",
-          "horse_number": "4",
-          "weight": 54.0,
-          "weight_reduction": "☆",
-          "rank": "8",
-          "margin": 1.4,
-          "corrected_time": 85.0,
-          "running_style": "先",
-          "last_3f": 35.9,
-          "ave_3f": 37.62,
-          "pci": 54.8,
-          "position_3f": 0.3
-        }
-      ],
-      "indices": {
-        "mining_index": 48.2,
-        "corrected_time_deviation": 50.5,
-        "zi_deviation": 46.46,
-        "base_score": 48.63,
-        "jockey_coefficient": 1.0047,
-        "similarity_coefficient": 1.003,
-        "stability_coefficient": 0.993,
-        "total_coefficient_score": -0.0,
-        "final_score": 48.33
-      }
-    },
-    {
       "frame": 7,
       "horse_number": 14,
       "horse_name": "ジャカルタバオ",
@@ -889,10 +813,86 @@
         "zi_deviation": 52.32,
         "base_score": 48.94,
         "jockey_coefficient": 0.99588,
-        "similarity_coefficient": 1.00337,
+        "similarity_coefficient": 1.00519,
         "stability_coefficient": 0.99551,
-        "total_coefficient_score": -0.001,
-        "final_score": 48.32
+        "total_coefficient_score": 0.0,
+        "final_score": 49.43
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 6,
+      "horse_name": "エコロボルト",
+      "mark": "*",
+      "jockey": {
+        "name": "西村淳也",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 39,
+          "win_rate": 11.4,
+          "place_rate": 21.9,
+          "show_rate": 34.2
+        },
+        "last_year": {
+          "wins": 81,
+          "win_rate": 9.5,
+          "place_rate": 17.4,
+          "show_rate": 28.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "森秀行",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 8.8,
+          "place_rate": 23.0,
+          "show_rate": 28.8
+        },
+        "last_year": {
+          "wins": 30,
+          "win_rate": 11.4,
+          "place_rate": 18.3,
+          "show_rate": 24.3
+        }
+      },
+      "interval": 20,
+      "zi_index": 98.0,
+      "time_mining": 86.43,
+      "battle_mining": 45.2,
+      "past_races": [
+        {
+          "date": "2025.6.22",
+          "race_name": "新馬",
+          "place": "阪神",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "4",
+          "horse_number": "4",
+          "weight": 54.0,
+          "weight_reduction": "☆",
+          "rank": "8",
+          "margin": 1.4,
+          "corrected_time": 85.0,
+          "running_style": "先",
+          "last_3f": 35.9,
+          "ave_3f": 37.62,
+          "pci": 54.8,
+          "position_3f": 0.3
+        }
+      ],
+      "indices": {
+        "mining_index": 48.2,
+        "corrected_time_deviation": 50.5,
+        "zi_deviation": 46.46,
+        "base_score": 48.63,
+        "jockey_coefficient": 1.0047,
+        "similarity_coefficient": 1.003,
+        "stability_coefficient": 0.993,
+        "total_coefficient_score": -0.0,
+        "final_score": 48.33
       }
     },
     {
