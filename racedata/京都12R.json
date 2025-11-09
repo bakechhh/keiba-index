@@ -2029,10 +2029,10 @@
         "zi_deviation": 51.12,
         "base_score": 48.19,
         "jockey_coefficient": 1.01124,
-        "similarity_coefficient": 1.00652,
+        "similarity_coefficient": 1.00469,
         "stability_coefficient": 0.9939,
-        "total_coefficient_score": 0.003,
-        "final_score": 51.58
+        "total_coefficient_score": 0.002,
+        "final_score": 50.48
       }
     },
     {
