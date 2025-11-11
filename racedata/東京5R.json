@@ -68,6 +68,11 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.002,
         "final_score": 56.3
+      },
+      "predictions": {
+        "win_rate": 0.4045951135042189,
+        "place_rate": 0.7975641137611081,
+        "show_rate": 1.0642114163469956
       }
     },
     {
@@ -123,6 +128,11 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
         "final_score": 52.88
+      },
+      "predictions": {
+        "win_rate": 0.21978775666407802,
+        "place_rate": 0.4260245635955047,
+        "show_rate": 0.6965039815808568
       }
     },
     {
@@ -178,6 +188,11 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.001,
         "final_score": 52.88
+      },
+      "predictions": {
+        "win_rate": 0.28064438566358046,
+        "place_rate": 0.5255724358114394,
+        "show_rate": 0.7947274565512117
       }
     },
     {
@@ -233,6 +248,11 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.002,
         "final_score": 48.64
+      },
+      "predictions": {
+        "win_rate": 0.05272455899897014,
+        "place_rate": 0.2034699009164854,
+        "show_rate": 0.35613323368715544
       }
     },
     {
@@ -288,6 +308,11 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": 0.0,
         "final_score": 43.1
+      },
+      "predictions": {
+        "win_rate": 0.04127825658859841,
+        "place_rate": 0.0457538038951314,
+        "show_rate": 0.0864904166115886
       }
     },
     {
@@ -343,7 +368,17 @@
         "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
         "final_score": 40.9
+      },
+      "predictions": {
+        "win_rate": 0.000969928580554038,
+        "place_rate": 0.0016151820203308537,
+        "show_rate": 0.0019334952221918764
       }
     }
-  ]
+  ],
+  "model_info": {
+    "win_rate_auc": 0.8019285923324555,
+    "place_rate_auc": 0.7864787705667053,
+    "show_rate_auc": 0.7808031701175838
+  }
 }

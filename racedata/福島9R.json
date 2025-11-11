@@ -249,6 +249,11 @@
         "stability_coefficient": 0.9975,
         "total_coefficient_score": 0.002,
         "final_score": 66.48
+      },
+      "predictions": {
+        "win_rate": 0.1451561038576003,
+        "place_rate": 0.2741209499567503,
+        "show_rate": 0.40484463107434665
       }
     },
     {
@@ -345,6 +350,11 @@
         "stability_coefficient": 0.999,
         "total_coefficient_score": 0.003,
         "final_score": 62.89
+      },
+      "predictions": {
+        "win_rate": 0.1295986925592,
+        "place_rate": 0.2469293281786772,
+        "show_rate": 0.37463723820983275
       }
     },
     {
@@ -461,6 +471,11 @@
         "stability_coefficient": 0.99825,
         "total_coefficient_score": 0.001,
         "final_score": 60.6
+      },
+      "predictions": {
+        "win_rate": 0.10027073059205599,
+        "place_rate": 0.20201349284163472,
+        "show_rate": 0.3129282612284141
       }
     },
     {
@@ -717,6 +732,11 @@
         "stability_coefficient": 0.9979,
         "total_coefficient_score": 0.001,
         "final_score": 58.8
+      },
+      "predictions": {
+        "win_rate": 0.09771081728641236,
+        "place_rate": 0.1957725966672736,
+        "show_rate": 0.2970968174499573
       }
     },
     {
@@ -953,6 +973,11 @@
         "stability_coefficient": 0.9976,
         "total_coefficient_score": 0.002,
         "final_score": 58.54
+      },
+      "predictions": {
+        "win_rate": 0.10665969009711743,
+        "place_rate": 0.21267060108462513,
+        "show_rate": 0.3111930034113274
       }
     },
     {
@@ -1209,6 +1234,11 @@
         "stability_coefficient": 0.9964,
         "total_coefficient_score": -0.001,
         "final_score": 55.22
+      },
+      "predictions": {
+        "win_rate": 0.0930517927799184,
+        "place_rate": 0.18170783459584616,
+        "show_rate": 0.27209155183061523
       }
     },
     {
@@ -1465,6 +1495,11 @@
         "stability_coefficient": 0.9962,
         "total_coefficient_score": -0.001,
         "final_score": 53.23
+      },
+      "predictions": {
+        "win_rate": 0.07995754425229405,
+        "place_rate": 0.16311549449187915,
+        "show_rate": 0.24452564763121426
       }
     },
     {
@@ -1721,6 +1756,11 @@
         "stability_coefficient": 0.99351,
         "total_coefficient_score": -0.001,
         "final_score": 50.17
+      },
+      "predictions": {
+        "win_rate": 0.039975885381357684,
+        "place_rate": 0.08692286846526999,
+        "show_rate": 0.16420612610559665
       }
     },
     {
@@ -1977,6 +2017,11 @@
         "stability_coefficient": 0.997,
         "total_coefficient_score": 0.001,
         "final_score": 49.02
+      },
+      "predictions": {
+        "win_rate": 0.029132630907144144,
+        "place_rate": 0.07775807874713331,
+        "show_rate": 0.11053512552155287
       }
     },
     {
@@ -2233,6 +2278,11 @@
         "stability_coefficient": 0.99338,
         "total_coefficient_score": -0.001,
         "final_score": 47.43
+      },
+      "predictions": {
+        "win_rate": 0.03818049158863749,
+        "place_rate": 0.09429509533610346,
+        "show_rate": 0.12681760149515614
       }
     },
     {
@@ -2489,6 +2539,11 @@
         "stability_coefficient": 0.9924,
         "total_coefficient_score": -0.001,
         "final_score": 46.16
+      },
+      "predictions": {
+        "win_rate": 0.06225818082604089,
+        "place_rate": 0.09554670428497027,
+        "show_rate": 0.13541592230577382
       }
     },
     {
@@ -2665,6 +2720,11 @@
         "stability_coefficient": 0.99525,
         "total_coefficient_score": -0.002,
         "final_score": 43.2
+      },
+      "predictions": {
+        "win_rate": 0.03707472104400554,
+        "place_rate": 0.09158278297620707,
+        "show_rate": 0.10424010654838303
       }
     },
     {
@@ -2901,6 +2961,11 @@
         "stability_coefficient": 0.9919,
         "total_coefficient_score": -0.001,
         "final_score": 39.93
+      },
+      "predictions": {
+        "win_rate": 0.03580162663493238,
+        "place_rate": 0.06642361299307847,
+        "show_rate": 0.1195544932508525
       }
     },
     {
@@ -3117,6 +3182,11 @@
         "stability_coefficient": 0.99476,
         "total_coefficient_score": -0.0,
         "final_score": 34.96
+      },
+      "predictions": {
+        "win_rate": 0.001613028960189959,
+        "place_rate": 0.0087244385625607,
+        "show_rate": 0.016411458890161688
       }
     },
     {
@@ -3373,6 +3443,11 @@
         "stability_coefficient": 0.9929,
         "total_coefficient_score": -0.002,
         "final_score": 33.59
+      },
+      "predictions": {
+        "win_rate": 0.003377717889085377,
+        "place_rate": 0.00035404717943485485,
+        "show_rate": 0.004954661034238538
       }
     },
     {
@@ -3549,7 +3624,17 @@
         "stability_coefficient": 0.99413,
         "total_coefficient_score": -0.002,
         "final_score": 33.15
+      },
+      "predictions": {
+        "win_rate": 0.0001803453440080258,
+        "place_rate": 0.0020620736385557692,
+        "show_rate": 0.0005473540125768982
       }
     }
-  ]
+  ],
+  "model_info": {
+    "win_rate_auc": 0.8019285923324555,
+    "place_rate_auc": 0.7864787705667053,
+    "show_rate_auc": 0.7808031701175838
+  }
 }
