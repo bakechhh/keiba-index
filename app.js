@@ -233,7 +233,7 @@ async function runAIAnalysis() {
         // 503エラーの自動リトライ（指数バックオフ）
         let response;
         let retryCount = 0;
-        const maxRetries = 3;
+        const maxRetries = 10;  // 10回リトライ
         
         while (retryCount <= maxRetries) {
             try {
@@ -267,11 +267,17 @@ async function runAIAnalysis() {
                         continue; // ループを続ける
                     }
                     
-                    // 503エラーが続いた場合、GPT-5-nanoにフォールバック
-                    if (response.status === 503 && retryCount >= maxRetries && selectedModel === 'gemini-2.5-flash') {
-                        console.log('[AI Analysis] Switching to GPT-5-nano...');
-                        aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>GPT-5-nanoに切り替え中...</div>';
-                        return runAIAnalysisWithOpenAI('gpt-5-nano');
+                    // 503エラーが10回続いた場合、OpenAI APIキーがあればGPT-5-nanoにフォールバック
+                    if (response.status === 503 && retryCount >= maxRetries) {
+                        if (openaiApiKey) {
+                            console.log('[AI Analysis] Gemini failed after 10 retries. Switching to GPT-5-nano...');
+                            aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。GPT-5-nanoに切り替え中...</div>';
+                            await new Promise(resolve => setTimeout(resolve, 1000));
+                            return runAIAnalysisWithOpenAI('gpt-5-nano');
+                        } else {
+                            console.log('[AI Analysis] Gemini failed after 10 retries. No OpenAI API key available.');
+                            throw new Error('Gemini APIが混雑しています。時間を空けて再試行してください。');
+                        }
                     }
                     
                     throw new Error(`Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
@@ -785,7 +791,7 @@ async function callOpenAI(model, prompt) {
                 content: prompt
             }
         ],
-        max_completion_tokens: 4000
+        max_completion_tokens: model.includes('gpt-5') ? 16000 : 4000  // GPT-5は16000トークン
     };
     
     // GPT-5-nano以外のモデルのみにtemperatureを設定
