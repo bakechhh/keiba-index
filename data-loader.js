@@ -12,8 +12,17 @@ const ODDS_TYPES = ['tansho', 'fukusho', 'wakuren', 'umaren', 'wide', 'umatan', 
 async function loadAllRaceData() {
     try {
         // まずraceid.csvを読み込んでレース一覧を取得
-        const raceidUrl = `${GITHUB_PAGES_BASE}/raceid.csv`;
-        const response = await fetch(raceidUrl);
+        // キャッシュバスティング: タイムスタンプを追加して毎回最新データを取得
+        const timestamp = new Date().getTime();
+        const raceidUrl = `${GITHUB_PAGES_BASE}/raceid.csv?_=${timestamp}`;
+        const response = await fetch(raceidUrl, {
+            cache: 'no-store',  // キャッシュを使用しない
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            }
+        });
         
         if (!response.ok) {
             throw new Error('raceid.csvの読み込みに失敗しました');
@@ -25,8 +34,16 @@ async function loadAllRaceData() {
         // 各レースのJSONを並列で読み込む
         const raceDataPromises = raceIds.map(async (raceId) => {
             try {
-                const raceUrl = `${GITHUB_PAGES_BASE}/racedata/${raceId}.json`;
-                const raceResponse = await fetch(raceUrl);
+                // キャッシュバスティング: タイムスタンプを追加
+                const raceUrl = `${GITHUB_PAGES_BASE}/racedata/${raceId}.json?_=${timestamp}`;
+                const raceResponse = await fetch(raceUrl, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache, no-store, must-revalidate',
+                        'Pragma': 'no-cache',
+                        'Expires': '0'
+                    }
+                });
                 
                 if (!raceResponse.ok) {
                     console.warn(`レースデータの読み込みに失敗: ${raceId}`);
@@ -85,8 +102,17 @@ function parseRaceIdCSV(csvText) {
 async function loadOddsData(raceId) {
     try {
         // レース別の単一ファイルを読み込む（全券種が含まれる）
-        const oddsUrl = `${GITHUB_PAGES_BASE}/odds/${raceId}.json`;
-        const response = await fetch(oddsUrl);
+        // キャッシュバスティング: タイムスタンプを追加
+        const timestamp = new Date().getTime();
+        const oddsUrl = `${GITHUB_PAGES_BASE}/odds/${raceId}.json?_=${timestamp}`;
+        const response = await fetch(oddsUrl, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            }
+        });
         
         if (!response.ok) {
             console.warn(`オッズデータの読み込みに失敗: ${raceId}`);
@@ -111,8 +137,17 @@ async function loadOddsData(raceId) {
  */
 async function loadSingleRaceData(raceId) {
     try {
-        const raceUrl = `${GITHUB_PAGES_BASE}/racedata/${raceId}.json`;
-        const response = await fetch(raceUrl);
+        // キャッシュバスティング: タイムスタンプを追加
+        const timestamp = new Date().getTime();
+        const raceUrl = `${GITHUB_PAGES_BASE}/racedata/${raceId}.json?_=${timestamp}`;
+        const response = await fetch(raceUrl, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            }
+        });
         
         if (!response.ok) {
             throw new Error(`レースデータの読み込みに失敗: ${raceId}`);

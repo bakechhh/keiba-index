@@ -65,7 +65,7 @@ function renderOdds() {
     const oddsForType = currentOddsData.find(o => o.odds_type === currentOddsType);
 
     if (!oddsForType) {
-        oddsContent.innerHTML = '<div>この券種のオッズデータはありません。</div>';
+        oddsContent.innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">この券種のオッズデータはありません。</div>';
         return;
     }
 
@@ -73,57 +73,83 @@ function renderOdds() {
 
     // 単勝・複勝（tfw）の場合は特別処理
     if (currentOddsType === 'tfw') {
+        // 単勝データを取得してソート
+        let tanshoData = [...oddsForType.data.tansho];
+        
+        if (currentOddsSort === 'odds_asc') {
+            tanshoData.sort((a, b) => parseFloat(a.odds) - parseFloat(b.odds));
+        } else if (currentOddsSort === 'odds_desc') {
+            tanshoData.sort((a, b) => parseFloat(b.odds) - parseFloat(a.odds));
+        }
+
         // 単勝テーブル
-        html += '<h3>単勝</h3>';
-        html += '<table class="odds-table"><thead><tr>';
-        html += '<th>枠</th><th>馬番</th><th>馬名</th><th>オッズ</th>';
+        html += '<h3 class="odds-section-title">単勝</h3>';
+        html += '<table class="odds-table-modern"><thead><tr>';
+        html += '<th>馬番</th><th>馬名</th><th>オッズ</th>';
         html += '</tr></thead><tbody>';
 
-        oddsForType.data.tansho.forEach(item => {
+        tanshoData.forEach(item => {
             html += '<tr>';
-            html += `<td>${item.waku}</td>`;
             html += `<td>${item.horse_num}</td>`;
-            html += `<td>${item.horse_name}</td>`;
+            html += `<td style="text-align: left; padding-left: 12px;">${item.horse_name}</td>`;
             html += `<td>${item.odds}</td>`;
             html += '</tr>';
         });
         html += '</tbody></table>';
 
+        // 複勝データを取得してソート
+        let fukushoData = [...oddsForType.data.fukusho];
+        
+        if (currentOddsSort === 'odds_asc') {
+            fukushoData.sort((a, b) => parseFloat(a.odds.min) - parseFloat(b.odds.min));
+        } else if (currentOddsSort === 'odds_desc') {
+            fukushoData.sort((a, b) => parseFloat(b.odds.max) - parseFloat(a.odds.max));
+        }
+
         // 複勝テーブル
-        html += '<h3>複勝</h3>';
-        html += '<table class="odds-table"><thead><tr>';
-        html += '<th>枠</th><th>馬番</th><th>馬名</th><th>オッズ</th>';
+        html += '<h3 class="odds-section-title">複勝</h3>';
+        html += '<table class="odds-table-modern"><thead><tr>';
+        html += '<th>馬番</th><th>馬名</th><th>オッズ</th>';
         html += '</tr></thead><tbody>';
 
-        oddsForType.data.fukusho.forEach(item => {
+        fukushoData.forEach(item => {
             html += '<tr>';
-            html += `<td>${item.waku}</td>`;
             html += `<td>${item.horse_num}</td>`;
-            html += `<td>${item.horse_name}</td>`;
+            html += `<td style="text-align: left; padding-left: 12px;">${item.horse_name}</td>`;
             html += `<td>${item.odds.min} - ${item.odds.max}</td>`;
             html += '</tr>';
         });
         html += '</tbody></table>';
     } else {
         // その他の券種（枠連、馬連、ワイド、馬単、3連複、3連単）
-        let combinations = oddsForType.data.combinations;
+        let combinations = [...oddsForType.data.combinations];
 
         // ソート処理
         if (currentOddsSort === 'odds_asc') {
-            combinations.sort((a, b) => (a.odds.min || a.odds) - (b.odds.min || b.odds));
+            combinations.sort((a, b) => {
+                const aOdds = (typeof a.odds === 'object') ? parseFloat(a.odds.min) : parseFloat(a.odds);
+                const bOdds = (typeof b.odds === 'object') ? parseFloat(b.odds.min) : parseFloat(b.odds);
+                return aOdds - bOdds;
+            });
         } else if (currentOddsSort === 'odds_desc') {
-            combinations.sort((a, b) => (b.odds.min || b.odds) - (a.odds.min || a.odds));
+            combinations.sort((a, b) => {
+                const aOdds = (typeof a.odds === 'object') ? parseFloat(a.odds.max || a.odds.min) : parseFloat(a.odds);
+                const bOdds = (typeof b.odds === 'object') ? parseFloat(b.odds.max || b.odds.min) : parseFloat(b.odds);
+                return bOdds - aOdds;
+            });
         }
 
-        // HTML生成
-        html += '<table class="odds-table"><thead><tr>';
-        const headers = Object.keys(combinations[0]).filter(k => k !== 'odds');
-        headers.forEach(h => { html += `<th>${h}</th>`; });
-        html += '<th>オッズ</th></tr></thead><tbody>';
+        // HTML生成（combinationのみ表示）
+        html += '<table class="odds-table-modern"><thead><tr>';
+        html += '<th>組み合わせ</th>';
+        html += '<th>オッズ</th>';
+        html += '</tr></thead><tbody>';
 
         combinations.forEach(c => {
             html += '<tr>';
-            headers.forEach(h => { html += `<td>${c[h]}</td>`; });
+            // combinationフィールドを表示
+            html += `<td style="font-weight: bold; color: #667eea;">${c.combination}</td>`;
+            // オッズを表示
             const oddsValue = (typeof c.odds === 'object') ? `${c.odds.min} - ${c.odds.max}` : c.odds;
             html += `<td>${oddsValue}</td>`;
             html += '</tr>';
