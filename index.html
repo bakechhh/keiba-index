@@ -1050,8 +1050,28 @@
                         <select id="geminiModel" class="form-input">
                             <option value="gemini-2.5-flash" selected>Gemini 2.5 Flash（高速・無料）</option>
                             <option value="gemini-2.5-pro">Gemini 2.5 Pro（高精度・有料）</option>
+                            <option value="gpt-5-nano">GPT-5-nano（低コスト・高速）</option>
+                            <option value="gpt-4o-mini">GPT-4o-mini（安定・高性能）</option>
                         </select>
-                        <small class="form-hint">※ Flashは無料、Proは有料ですが高精度です。</small>
+                        <small class="form-hint">※ Gemini Flashは無料、GPT-5-nanoは約0.76円/回、GPT-4o-miniは約2.1円/回。</small>
+                    </div>
+
+                    <!-- OpenAI APIキー入力 -->
+                    <div class="form-section" id="openaiApiKeySection" style="display: none;">
+                        <label for="openaiApiKey" class="form-label">
+                            <span class="label-icon">🔑</span>
+                            <span class="label-text">OpenAI APIキー</span>
+                        </label>
+                        <div class="api-key-input-group">
+                            <input type="password" id="openaiApiKey" placeholder="例: sk-proj-xxx..." class="form-input">
+                            <button id="saveOpenAIKey" class="api-key-link" style="background: #667eea; color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer;">
+                                保存
+                            </button>
+                        </div>
+                        <small class="form-hint">
+                            <a href="https://platform.openai.com/api-keys" target="_blank" style="color: #667eea; text-decoration: underline;">
+OpenAIのアカウントを作成</a>してAPIキーを取得してください。新規登録で$5クレジット付与。
+                        </small>
                     </div>
 
                     <!-- 予算設定 -->
@@ -2628,6 +2648,24 @@
                     apiKeySaveStatus.style.color = '#999';
                 }
             });
+        })();
+        
+        // モデル選択時にOpenAI APIキー欄を表示/非表示
+        (function() {
+            const modelSelect = document.getElementById('geminiModel');
+            const openaiApiKeySection = document.getElementById('openaiApiKeySection');
+            
+            function toggleOpenAIKeySection() {
+                const selectedModel = modelSelect.value;
+                if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
+                    openaiApiKeySection.style.display = 'block';
+                } else {
+                    openaiApiKeySection.style.display = 'none';
+                }
+            }
+            
+            modelSelect.addEventListener('change', toggleOpenAIKeySection);
+            toggleOpenAIKeySection(); // 初期表示
         })();
     </script>
     

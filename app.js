@@ -11,6 +11,9 @@ let currentOddsData = null;
 let currentOddsType = 'tfw';
 let currentOddsSort = 'combination';
 
+// OpenAI APIキー（localStorageから取得）
+let openaiApiKey = localStorage.getItem('openai_api_key') || '';
+
 // ====================
 // イベントリスナー
 // ====================
@@ -33,6 +36,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // AI分析ボタンのイベントリスナー
     document.getElementById('aiAnalyzeBtn').addEventListener('click', runAIAnalysis);
+    
+    // OpenAI APIキー保存ボタンのイベントリスナー
+    const saveOpenAIKeyBtn = document.getElementById('saveOpenAIKey');
+    if (saveOpenAIKeyBtn) {
+        saveOpenAIKeyBtn.addEventListener('click', saveOpenAIKey);
+    }
+    
+    // OpenAI APIキーの読み込み
+    const openaiApiKeyInput = document.getElementById('openaiApiKey');
+    if (openaiApiKeyInput && openaiApiKey) {
+        openaiApiKeyInput.value = openaiApiKey;
+    }
 });
 
 
@@ -193,6 +208,11 @@ async function runAIAnalysis() {
     
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
+    
+    // OpenAIモデルの場合は別関数を呼び出す
+    if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
+        return runAIAnalysisWithOpenAI(selectedModel);
+    }
 
     try {
         // オッズデータが読み込まれていない場合は読み込む
@@ -243,6 +263,13 @@ async function runAIAnalysis() {
                         aiResultDiv.innerHTML = `<div class="loading-spinner"></div><div>AIが分析中です... (リトライ ${retryCount}/${maxRetries})</div>`;
                         await new Promise(resolve => setTimeout(resolve, waitTime));
                         continue; // ループを続ける
+                    }
+                    
+                    // 503エラーが続いた場合、GPT-5-nanoにフォールバック
+                    if (response.status === 503 && retryCount >= maxRetries && selectedModel === 'gemini-2.5-flash') {
+                        console.log('[AI Analysis] Switching to GPT-5-nano...');
+                        aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>GPT-5-nanoに切り替え中...</div>';
+                        return runAIAnalysisWithOpenAI('gpt-5-nano');
                     }
                     
                     throw new Error(`Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
@@ -480,7 +507,7 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 
 **○番 馬名（AI単勝○位/人気○番人気）**
 - **評価**: ◎本命 / ○対抗 / ▲単穴 / △連下 / ☆穴 / 注注意 / ×消し
-- **総評**: AI順位と人気の関係、最終スコア、特徴量の特徴を踏まえた簡潔な評価
+- **総評**: AI順位と人気の関係、final_score、特徴量の特徴を踏まえた簡潔な評価
 - **推奨**: 軸候補 / 相手候補 / ヒモ候補 / 消し / 様子見
 
 #### 評価基準
@@ -495,17 +522,17 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 #### 記載例
 **1番 ジェネチェン（AI単勝1位/人気3番人気）**
 - **評価**: ▲単穴
-- **総評**: 最終スコア 65.2と高く、AI単勝1位だが人気は3番人気と妙味あり。ZI指数 58.3と前走内容も良好。
+- **総評**: final_score 65.2と高く、AI単勝1位だが人気は3番人気と妙味あり。zi_deviation 58.3と前走内容も良好。
 - **推奨**: 軸候補または相手候補
 
 **2番 アーティラリー（AI単勝5位/人気1番人気）**
 - **評価**: 注注意
-- **総評**: 人気先行でAI評価は5位。最終スコア 52.1と標準的。人気ほどの信頼度はない。
+- **総評**: 人気先行でAI評価は5位。final_score 52.1と標準的。人気ほどの信頼度はない。
 - **推奨**: 相手候補（本命視は危険）
 
 **3番 サクライズ（AI単勝8位/人気10番人気）**
 - **評価**: ×消し
-- **総評**: 最終スコア 42.3と低く、AI順位も8位。全ての指数が下位で馬券妙味なし。
+- **総評**: final_score 42.3と低く、AI順位も8位。全ての指数が下位で馬券妙味なし。
 - **推奨**: 消し
 
 #### 重要な注意事項
@@ -554,9 +581,9 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 3. ○番馬：AI複勝○位だが○番人気（乖離○）
 
 #### 特徴量による隠れた実力馬
-- 最終スコアが高い割に人気がない：○番、○番
-- 戦績マイニングが優秀：○番、○番
-- 補正タイム偏差値が高い：○番、○番
+- final_scoreが高い割に人気がない：○番、○番
+- base_scoreが優秀：○番、○番
+- zi_deviationが高い：○番、○番
 
 #### 危険な人気馬
 - AI順位は低いが人気先行：○番、○番
@@ -703,4 +730,134 @@ function formatOddsData(oddsData) {
     });
 
     return formatted;
+}
+
+// ====================
+// OpenAI API関連
+// ====================
+
+/**
+ * OpenAI APIキーを保存
+ */
+function saveOpenAIKey() {
+    const apiKeyInput = document.getElementById('openaiApiKey');
+    if (!apiKeyInput) return;
+    
+    const apiKey = apiKeyInput.value.trim();
+    if (!apiKey) {
+        alert('APIキーを入力してください');
+        return;
+    }
+    
+    if (!apiKey.startsWith('sk-')) {
+        alert('OpenAI APIキーは "sk-" で始まる必要があります');
+        return;
+    }
+    
+    localStorage.setItem('openai_api_key', apiKey);
+    openaiApiKey = apiKey;
+    alert('OpenAI APIキーを保存しました');
+}
+
+/**
+ * OpenAI APIを呼び出し
+ */
+async function callOpenAI(model, prompt) {
+    if (!openaiApiKey) {
+        throw new Error('OpenAI APIキーが設定されていません。API設定から設定してください。');
+    }
+    
+    console.log(`[OpenAI] Calling ${model}...`);
+    console.log(`[OpenAI] Prompt length: ${prompt.length}`);
+    
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${openaiApiKey}`
+        },
+        body: JSON.stringify({
+            model: model,
+            messages: [
+                {
+                    role: 'system',
+                    content: 'あなたは競馬予想の専門家です。データを分析して、的確な馬券推奨を行ってください。'
+                },
+                {
+                    role: 'user',
+                    content: prompt
+                }
+            ],
+            temperature: 0.7,
+            max_tokens: 4000
+        })
+    });
+    
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+    }
+    
+    const result = await response.json();
+    console.log('[OpenAI] Success');
+    
+    return result.choices[0].message.content;
+}
+
+/**
+ * AI分析を実行（OpenAI版）
+ */
+async function runAIAnalysisWithOpenAI(model) {
+    const aiResultDiv = document.getElementById('aiResult');
+    aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>AIが分析中です...</div>';
+    
+    // Gemini APIキーの取得
+    const apiKey = document.getElementById('geminiApiKey').value.trim();
+    if (!apiKey) {
+        aiResultDiv.innerHTML = '<div class="error">Gemini APIキーを入力してください。</div>';
+        return;
+    }
+    
+    // 選択されたレースの確認
+    if (!selectedRace) {
+        aiResultDiv.innerHTML = '<div class="error">レースを選択してください。</div>';
+        return;
+    }
+    
+    // ユーザーパラメータの取得
+    const budget = parseInt(document.getElementById('budget').value) || 1000;
+    const minReturn = parseFloat(document.getElementById('minReturn').value) || 1.5;
+    const targetReturn = parseFloat(document.getElementById('targetReturn').value) || 10.0;
+    const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
+    const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
+    
+    try {
+        // オッズデータが読み込まれていない場合は読み込む
+        if (!currentOddsData) {
+            const raceId = selectedRace.race_number;
+            currentOddsData = await window.loadOddsData(raceId);
+        }
+        
+        // プロンプト作成
+        const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes, paddockHorses });
+        
+        // OpenAI APIを呼び出し
+        const analysisText = await callOpenAI(model, prompt);
+        
+        // marked.jsを使ってMarkdownをHTMLに変換
+        aiResultDiv.innerHTML = marked.parse(analysisText);
+        
+        // AI分析完了通知を送信
+        if (typeof window.notifyAIAnalysisComplete === 'function') {
+            const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name || ''}`;
+            window.notifyAIAnalysisComplete({
+                raceName: raceName,
+                raceId: selectedRace.race_number
+            });
+        }
+        
+    } catch (error) {
+        console.error('[OpenAI] Error:', error);
+        aiResultDiv.innerHTML = `<div class="error">AI分析エラー: ${error.message}</div>`;
+    }
 }
