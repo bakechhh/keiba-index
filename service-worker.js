@@ -43,6 +43,13 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   
+  // 外部APIリクエスト（Gemini、将来的にGroqなど）は常にネットワーク経由
+  // Service Workerを経由せず、キャッシュもしない
+  if (url.origin !== location.origin) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+  
   // JSONデータとオッズデータは常に最新を取得（キャッシュしない）
   if (url.pathname.includes('/data/') || url.pathname.includes('/odds/')) {
     event.respondWith(
@@ -55,13 +62,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Gemini APIは常にネットワーク経由
-  if (url.hostname.includes('generativelanguage.googleapis.com')) {
-    event.respondWith(fetch(event.request));
-    return;
-  }
-
-  // その他のリソースはキャッシュファースト
+  // その他のリソース（自分のサイトの静的ファイル）はキャッシュファースト
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
@@ -72,7 +73,8 @@ self.addEventListener('fetch', (event) => {
         
         console.log('[Service Worker] Fetching from network:', event.request.url);
         return fetch(event.request).then((response) => {
-          // 有効なレスポンスのみキャッシュ
+          // 有効なレスポンス（200 OK）のみキャッシュ
+          // エラーレスポンス（4xx, 5xx）はキャッシュしない
           if (!response || response.status !== 200 || response.type === 'error') {
             return response;
           }
