@@ -75,7 +75,7 @@ function renderOdds() {
     if (currentOddsType === 'tfw') {
         // 単勝データを取得してソート
         let tanshoData = [...oddsForType.data.tansho];
-        
+
         if (currentOddsSort === 'odds_asc') {
             tanshoData.sort((a, b) => parseFloat(a.odds) - parseFloat(b.odds));
         } else if (currentOddsSort === 'odds_desc') {
@@ -99,7 +99,7 @@ function renderOdds() {
 
         // 複勝データを取得してソート
         let fukushoData = [...oddsForType.data.fukusho];
-        
+
         if (currentOddsSort === 'odds_asc') {
             fukushoData.sort((a, b) => parseFloat(a.odds.min) - parseFloat(b.odds.min));
         } else if (currentOddsSort === 'odds_desc') {
@@ -174,7 +174,7 @@ async function runAIAnalysis() {
     if (!selectedRace) return;
 
     const aiResultDiv = document.getElementById('aiResult');
-    
+
     // APIキーの取得
     const apiKey = document.getElementById('geminiApiKey').value.trim();
     if (!apiKey) {
@@ -190,7 +190,7 @@ async function runAIAnalysis() {
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
     const selectedModel = document.getElementById('geminiModel').value; // モデル選択
-    
+
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
 
@@ -222,7 +222,7 @@ async function runAIAnalysis() {
                 }]
             })
         });
-        
+
         console.log('[AI Analysis] Response status:', response.status);
 
         if (!response.ok) {
@@ -294,7 +294,7 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 回収率(%) = (的中時の払戻金 ÷ 購入金額) × 100
 \`\`\`
 
-**重要な回収率の考え方**: 
+**重要な回収率の考え方**:
 - **下限回収率${minReturn}%**: このレース全体での推奨馬券の合計期待回収率がこの値を下回らないこと
 - **目標回収率${targetReturn}%**: このレース全体での推奨馬券の合計期待回収率がこの値に近づくように馬券を選定すること
 - 個別の馬券ではなく、**推奨する全馬券の資金配分を考慮した合計期待回収率**で判断する
@@ -346,12 +346,12 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 4. **zi_deviation** - やや重要
 
 #### AIスコアと順位の読み方
-- **AI単勝スコア、AI連対スコア、AI複勝スコア**: 
+- **AI単勝スコア、AI連対スコア、AI複勝スコア**:
   - 機械学習モデルの生の出力値（**確率ではない**）
   - 相対的な強さを示す評価値
   - 値の絶対的な大きさに意味はない
-  
-- **AI単勝順位、AI連対順位、AI複勝順位**: 
+
+- **AI単勝順位、AI連対順位、AI複勝順位**:
   - 各スコアに基づく順位（1位が最有力）
   - **順位の方がスコアより重要**
   - 複数の順位で上位 = 信頼度高い
@@ -424,7 +424,52 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 - ○ ○番 馬名（AI単勝○位/人気○番人気）
 - ▲ ○番 馬名（AI単勝○位/人気○番人気）
 - △ ○番 馬名（AI連対○位/人気○番人気）
-- ☆ ○番 馬名（順位乖離大/人気○番人気）
+- ☆ ○番 馬名（AI複勝○位/人気○番人気）
+- 注 ○番 馬名（AI複勝○位/人気○番人気）
+※△以下は複数馬指定可能（全馬指定するレベルの印は不要）
+
+### 🐴 全馬総評
+
+**出走馬全頭について、以下の形式で簡潔に評価してください**：
+
+#### 評価形式
+各馬について、1～2行で記載：
+
+**○番 馬名（AI単勝○位/人気○番人気）**
+- **評価**: ◎本命 / ○対抗 / ▲単穴 / △連下 / ☆穴 / 注意 / 消し
+- **総評**: AI順位と人気の関係、final_score、特徴量の特徴を踏まえた簡潔な評価
+- **推奨**: 軸候補 / 相手候補 / ヒモ候補 / 消し / 様子見
+
+#### 評価基準
+- **◎本命**: AI順位・人気・指数が全て上位で信頼度が高い
+- **○対抗**: 本命に次ぐ評価、AI順位または指数が優秀
+- **▲単穴**: AI順位は高いが人気がない（妙味あり）
+- **△連下**: 2～3着候補、指数は中位だが安定性あり
+- **☆穴**: AI順位と人気の乖離が大きい、一発の可能性
+- **注意**: 指数は低いが、戦績マイニングが偏差値上位やパドックや特殊条件で注目
+- **消し**: 全ての指数が低く、馬券に含めない
+
+#### 記載例
+**1番 ジェネチェン（AI単勝1位/人気3番人気）**
+- **評価**: ▲単穴
+- **総評**: final_score 65.2と高く、AI単勝1位だが人気は3番人気と妙味あり。zi_deviation 58.3と前走内容も良好。
+- **推奨**: 軸候補または相手候補
+
+**2番 アーティラリー（AI単勝5位/人気1番人気）**
+- **評価**: 注注意
+- **総評**: 人気先行でAI評価は5位。final_score 52.1と標準的。人気ほどの信頼度はない。
+- **推奨**: 相手候補（本命視は危険）
+
+**3番 サクライズ（AI単勝8位/人気10番人気）**
+- **評価**: ×消し
+- **総評**: final_score 42.3と低く、AI順位も8位。全ての指数が下位で馬券妙味なし。
+- **推奨**: 消し
+
+#### 重要な注意事項
+- **全頭について必ず評価すること**（出走頭数分）
+- AI順位と人気の乖離を必ず指摘すること
+- 消し馬も理由を明記すること
+- パドック評価がある馬は必ず言及すること
 
 ### 🎯 推奨馬券
 
@@ -480,7 +525,7 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 
 ---
 
-**制約事項**: 
+**制約事項**:
 - 予算${budget}円を必ず使い切ること
 - 全体の想定回収率が下限${minReturn}%を下回らないこと
 - 目標回収率${targetReturn}%に可能な限り近づけること
@@ -504,7 +549,7 @@ function formatHorsesData(horses) {
 
     horses.forEach((horse, index) => {
         const pastRace = horse.past_races && horse.past_races.length > 0 ? horse.past_races[0] : null;
-        
+
         // AIスコアとランクを取得
         const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
         const winRank = horse.predictions ? horse.predictions.win_rate_rank : '-';
@@ -512,7 +557,7 @@ function formatHorsesData(horses) {
         const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
         const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
         const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
-        
+
         formatted += `| ${index + 1} | ${horse.horse_number} | ${horse.horse_name} | `;
         formatted += `${horse.indices.final_score.toFixed(2)} | `;
         formatted += `**${winScore}** | ${winRank} | `;  // AI単勝スコアとランク
@@ -534,7 +579,7 @@ function formatHorsesData(horses) {
 
     // 詳細情報（上位5頭のみ）
     formatted += '\n### 上位5頭の詳細分析\n\n';
-    
+
     horses.slice(0, 5).forEach((horse, index) => {
         // AIスコアとランクを取得
         const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
@@ -543,7 +588,7 @@ function formatHorsesData(horses) {
         const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
         const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
         const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
-        
+
         formatted += `#### ${index + 1}位: ${horse.horse_number}番 ${horse.horse_name}\n`;
         formatted += `- **最終スコア**: ${horse.indices.final_score.toFixed(2)}\n`;
         formatted += `- **AI単勝スコア**: **${winScore}** (順位: ${winRank})（LightGBM正規化スコア、確率ではない）\n`;
@@ -558,7 +603,7 @@ function formatHorsesData(horses) {
         formatted += `- **騎手**: ${horse.jockey.name} (${horse.jockey.weight}kg) - 勝率${horse.jockey.this_year.win_rate.toFixed(1)}%（参考）\n`;
         formatted += `- **調教師**: ${horse.trainer.name} (${horse.trainer.affiliation}) - 勝率${horse.trainer.this_year.win_rate.toFixed(1)}%（参考）\n`;
         formatted += `- **出走間隔**: ${horse.interval}週（あまり気にしない）\n`;
-        
+
         // 過去3走の成績
         if (horse.past_races && horse.past_races.length > 0) {
             formatted += `- **過去3走**:\n`;
@@ -604,7 +649,7 @@ function formatOddsData(oddsData) {
                 // その他の券種（枠連、馬連、ワイド、馬単、3連複、3連単）
                 formatted += '\n| 組み合わせ | オッズ |\n';
                 formatted += '|------------|--------|\n';
-                
+
                 // 全件表示（Geminiが正確な馬券推奨をできるように）
                 odds.data.combinations.forEach(c => {
                     const oddsValue = (typeof c.odds === 'object') ? `${c.odds.min} - ${c.odds.max}` : c.odds;
