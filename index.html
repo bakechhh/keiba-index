@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測システム</title>
-
+    <title>競馬AI予測ツール-UmaAi-</title>
+    
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
-
+    
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI">
-
+    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
+    
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-
+    
     <!-- iOS Icons (apple-touch-icon) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./icons/icon-152.png">
@@ -668,18 +669,18 @@
                 font-size: 10px;
                 white-space: nowrap;
             }
-
+            
             /* テーブルを横スクロール可能に */
             .list-view {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-
+            
             /* ヘッダーの通知ボタンを小さく */
             .header h1 {
                 font-size: 18px;
             }
-
+            
             .header button {
                 font-size: 12px !important;
                 padding: 6px 12px !important;
@@ -1732,7 +1733,7 @@
 
             // クリックされたカードを選択状態に
             cardElement.classList.add('active');
-
+            
             // レース切替時にAI分析とオッズタブをクリア
             document.getElementById('aiResult').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">「AI分析」ボタンをクリックして分析を開始してください。</div>';
             document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータを読み込み中...</div>';
@@ -1750,7 +1751,10 @@
                     addPopularityToHorses(race, oddsData);
                     // オッズタブを自動更新
                     currentOddsData = oddsData;
-                    displayOdds(oddsData);
+                    // オッズタブに表示（window.loadAndRenderOddsを呼び出す）
+                    if (typeof window.loadAndRenderOdds === 'function') {
+                        window.loadAndRenderOdds();
+                    }
                 } else {
                     document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータが見つかりませんでした。</div>';
                 }
@@ -2595,13 +2599,13 @@
 
         // 初期化
         loadData();
-
+        
         // APIキーのLocalStorage処理
         (function() {
             const apiKeyInput = document.getElementById('geminiApiKey');
             const apiKeySaveStatus = document.getElementById('apiKeySaveStatus');
             const STORAGE_KEY = 'gemini_api_key';
-
+            
             // ページ読み込み時にLocalStorageからAPIキーを取得
             const savedApiKey = localStorage.getItem(STORAGE_KEY);
             if (savedApiKey) {
@@ -2609,11 +2613,11 @@
                 apiKeySaveStatus.innerHTML = '✅ APIキーが保存されています';
                 apiKeySaveStatus.style.color = '#4caf50';
             }
-
+            
             // APIキー入力時にLocalStorageに保存
             apiKeyInput.addEventListener('input', function() {
                 const apiKey = apiKeyInput.value.trim();
-
+                
                 if (apiKey) {
                     localStorage.setItem(STORAGE_KEY, apiKey);
                     apiKeySaveStatus.innerHTML = '✅ 保存されました';
@@ -2626,10 +2630,10 @@
             });
         })();
     </script>
-
+    
     <!-- Notification Manager -->
     <script src="./notification.js"></script>
-
+    
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
@@ -2642,11 +2646,11 @@
                         console.error('[PWA] Service Worker registration failed:', error);
                     });
             });
-
+            
             // Service Workerからのメッセージを受け取る（通知クリック時のAIタブ切り替え）
             navigator.serviceWorker.addEventListener('message', (event) => {
                 console.log('[PWA] Message from Service Worker:', event.data);
-
+                
                 if (event.data.action === 'switch-to-ai-tab') {
                     // AI分析タブに切り替え
                     const aiTab = document.querySelector('.tab-button[data-mode="ai"]');
@@ -2654,7 +2658,7 @@
                         aiTab.click();
                         console.log('[PWA] Switched to AI analysis tab');
                     }
-
+                    
                     // AI分析結果にスクロール
                     setTimeout(() => {
                         const aiResult = document.getElementById('aiResult');

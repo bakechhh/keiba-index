@@ -1,7 +1,7 @@
 {
-  "name": "競馬AI予測システム",
-  "short_name": "競馬AI",
-  "description": "LightGBM機械学習モデルとGemini AIを活用した競馬予測システム",
+  "name": "競馬AI予測ツール-UmaAi-",
+  "short_name": "UmaAi",
+  "description": "LightGBM機械学習モデルとAIを活用した競馬予測システム",
   "start_url": "/keiba-index/",
   "display": "standalone",
   "background_color": "#ffffff",

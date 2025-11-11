@@ -1,10 +1,11 @@
 const CACHE_NAME = 'keiba-ai-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/app.js',
-  '/data-loader.js',
-  '/manifest.json',
+  '/keiba-index/',
+  '/keiba-index/index.html',
+  '/keiba-index/app.js',
+  '/keiba-index/data-loader.js',
+  '/keiba-index/manifest.json',
+  '/keiba-index/notification.js',
   'https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js'
 ];
 
@@ -93,8 +94,8 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: event.data ? event.data.text() : 'レース情報が更新されました',
-    icon: '/icons/icon-192.png',
-    badge: '/icons/icon-192.png',
+    icon: './icons/icon-192.png',
+    badge: './icons/icon-192.png',
     vibrate: [200, 100, 200],
     tag: 'keiba-notification',
     requireInteraction: false
@@ -129,7 +130,7 @@ self.addEventListener('notificationclick', (event) => {
         }
         // 開いているウィンドウがなければ新しく開く
         if (clients.openWindow) {
-          return clients.openWindow('/');
+          return clients.openWindow('./');
         }
       })
   );

@@ -208,8 +208,14 @@ async function runAIAnalysis() {
         console.log('[AI Analysis] Model:', selectedModel);
         console.log('[AI Analysis] Prompt length:', prompt.length);
 
-        // Gemini APIを直接呼び出し（選択されたモデルを使用）
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
+        // 503エラーの自動リトライ（指数バックオフ）
+        let response;
+        let retryCount = 0;
+        const maxRetries = 3;
+        
+        while (retryCount <= maxRetries) {
+            try {
+                response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -223,12 +229,40 @@ async function runAIAnalysis() {
             })
         });
         
-        console.log('[AI Analysis] Response status:', response.status);
+                console.log('[AI Analysis] Response status:', response.status);
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('[AI Analysis] Error response:', errorData);
-            throw new Error(`Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('[AI Analysis] Error response:', errorData);
+                    
+                    // 503エラーの場合はリトライ
+                    if (response.status === 503 && retryCount < maxRetries) {
+                        retryCount++;
+                        const waitTime = Math.pow(2, retryCount) * 1000; // 指数バックオフ: 2s, 4s, 8s
+                        console.log(`[AI Analysis] 503 error. Retrying in ${waitTime/1000}s... (${retryCount}/${maxRetries})`);
+                        aiResultDiv.innerHTML = `<div class="loading-spinner"></div><div>AIが分析中です... (リトライ ${retryCount}/${maxRetries})</div>`;
+                        await new Promise(resolve => setTimeout(resolve, waitTime));
+                        continue; // ループを続ける
+                    }
+                    
+                    throw new Error(`Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+                }
+                
+                // 成功したらループを抜ける
+                break;
+                
+            } catch (fetchError) {
+                // ネットワークエラーなどの場合もリトライ
+                if (retryCount < maxRetries) {
+                    retryCount++;
+                    const waitTime = Math.pow(2, retryCount) * 1000;
+                    console.log(`[AI Analysis] Network error. Retrying in ${waitTime/1000}s... (${retryCount}/${maxRetries})`);
+                    aiResultDiv.innerHTML = `<div class="loading-spinner"></div><div>AIが分析中です... (リトライ ${retryCount}/${maxRetries})</div>`;
+                    await new Promise(resolve => setTimeout(resolve, waitTime));
+                    continue;
+                }
+                throw fetchError;
+            }
         }
 
         const result = await response.json();
