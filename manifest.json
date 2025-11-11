@@ -1,6 +1,6 @@
 {
-  "name": "競馬AI予測システム-umaAi-",
-  "short_name": "umaAi",
+  "name": "競馬AI予測システム",
+  "short_name": "競馬AI",
   "description": "LightGBM機械学習モデルとGemini AIを活用した競馬予測システム",
   "start_url": "/index.html",
   "display": "standalone",

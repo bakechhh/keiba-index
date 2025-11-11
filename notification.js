@@ -131,9 +131,47 @@ async function notifyOddsChange(horseInfo) {
 }
 
 // ====================
+// AI分析完了通知
+// ====================
+async function notifyAIAnalysisComplete(raceInfo) {
+    // 通知許可がない場合は何もしない
+    if (Notification.permission !== 'granted') {
+        console.log('[Notification] Permission not granted, skipping AI analysis notification');
+        return;
+    }
+
+    const raceName = raceInfo.raceName || 'レース';
+    
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.ready.then((registration) => {
+            registration.showNotification('AI分析完了', {
+                body: `${raceName}の分析が完了しました。タップして結果を確認してください。`,
+                icon: '/icons/icon-192.png',
+                badge: '/icons/icon-192.png',
+                vibrate: [200, 100, 200],
+                tag: 'ai-analysis-complete',
+                data: {
+                    action: 'view-ai-result',
+                    raceInfo: raceInfo
+                }
+            });
+            console.log(`[Notification] AI analysis complete notification sent for ${raceName}`);
+        });
+    } else {
+        // Service Workerが利用できない場合は通常の通知
+        new Notification('AI分析完了', {
+            body: `${raceName}の分析が完了しました。`,
+            icon: '/icons/icon-192.png'
+        });
+        console.log(`[Notification] AI analysis complete notification sent (fallback) for ${raceName}`);
+    }
+}
+
+// ====================
 // グローバルに公開
 // ====================
 window.requestNotificationPermission = requestNotificationPermission;
 window.sendTestNotification = sendTestNotification;
 window.scheduleRaceNotification = scheduleRaceNotification;
 window.notifyOddsChange = notifyOddsChange;
+window.notifyAIAnalysisComplete = notifyAIAnalysisComplete;
