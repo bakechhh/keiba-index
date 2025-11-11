@@ -129,12 +129,18 @@ function renderOdds() {
             combinations.sort((a, b) => {
                 const aOdds = (typeof a.odds === 'object') ? parseFloat(a.odds.min) : parseFloat(a.odds);
                 const bOdds = (typeof b.odds === 'object') ? parseFloat(b.odds.min) : parseFloat(b.odds);
+                // NaNやundefinedを除外
+                if (isNaN(aOdds)) return 1;
+                if (isNaN(bOdds)) return -1;
                 return aOdds - bOdds;
             });
         } else if (currentOddsSort === 'odds_desc') {
             combinations.sort((a, b) => {
                 const aOdds = (typeof a.odds === 'object') ? parseFloat(a.odds.max || a.odds.min) : parseFloat(a.odds);
                 const bOdds = (typeof b.odds === 'object') ? parseFloat(b.odds.max || b.odds.min) : parseFloat(b.odds);
+                // NaNやundefinedを除外
+                if (isNaN(aOdds)) return 1;
+                if (isNaN(bOdds)) return -1;
                 return bOdds - aOdds;
             });
         }
