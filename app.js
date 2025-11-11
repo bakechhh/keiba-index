@@ -190,7 +190,15 @@ async function runAIAnalysis() {
 
     const aiResultDiv = document.getElementById('aiResult');
     
-    // APIキーの取得
+    // モデル選択を先に取得
+    const selectedModel = document.getElementById('geminiModel').value;
+    
+    // OpenAIモデルの場合は別関数を呼び出す（Gemini APIキーチェックをスキップ）
+    if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
+        return runAIAnalysisWithOpenAI(selectedModel);
+    }
+    
+    // Geminiモデルの場合のAPIキーチェック
     const apiKey = document.getElementById('geminiApiKey').value.trim();
     if (!apiKey) {
         aiResultDiv.innerHTML = '<div class="error">❌ Gemini APIキーを入力してください。<br><a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>で無料取得できます。</div>';
@@ -204,15 +212,9 @@ async function runAIAnalysis() {
     const minReturn = document.getElementById('aiMinReturn').value;
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
-    const selectedModel = document.getElementById('geminiModel').value; // モデル選択
     
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
-    
-    // OpenAIモデルの場合は別関数を呼び出す
-    if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
-        return runAIAnalysisWithOpenAI(selectedModel);
-    }
 
     try {
         // オッズデータが読み込まれていない場合は読み込む
