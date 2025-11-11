@@ -766,6 +766,11 @@
                 border-radius: 15px;
                 padding: 20px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+
+            .odds-view.active {
+                display: block;
             }
 
             /* タブボタン */
@@ -1086,6 +1091,11 @@
                 border-radius: 15px;
                 padding: 20px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+
+            .ai-view.active {
+                display: block;
             }
 
             /* AIフォーム */
@@ -1694,6 +1704,7 @@
                             <th>最終スコア</th>
                             <th>マイニング</th>
                             <th>レース評価</th>
+                            <th>前走偏差値</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1747,6 +1758,7 @@
                         <td><strong style="color: #667eea; font-size: 16px;">${horse.indices.final_score.toFixed(1)}</strong></td>
                         <td>${horse.indices.mining_index.toFixed(1)}</td>
                         <td>${horse.indices.corrected_time_deviation.toFixed(1)}</td>
+                        <td>${horse.indices.zi_deviation.toFixed(1)}</td>
                     </tr>
                 `;
             });
@@ -2300,6 +2312,7 @@
                             <th>最終スコア</th>
                             <th>マイニング</th>
                             <th>レース評価</th>
+                            <th>前走偏差値</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2353,6 +2366,7 @@
                         <td><strong style="color: #667eea; font-size: 16px;">${horse.indices.final_score.toFixed(1)}</strong></td>
                         <td>${horse.indices.mining_index.toFixed(1)}</td>
                         <td>${horse.indices.corrected_time_deviation.toFixed(1)}</td>
+                        <td>${horse.indices.zi_deviation.toFixed(1)}</td>
                     </tr>
                 `;
             });
