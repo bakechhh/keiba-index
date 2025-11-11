@@ -1004,6 +1004,21 @@
                         <p class="ai-description">Gemini AIがレースデータとオッズを分析して、最適な馬券を推奨します</p>
                     </div>
 
+                    <!-- APIキー取得ガイド -->
+                    <div class="api-key-guide" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                        <h4 style="margin: 0 0 12px 0; font-size: 16px; font-weight: bold;">📌 Gemini APIキーの取得方法（無料）</h4>
+                        <ol style="margin: 0; padding-left: 20px; line-height: 1.8;">
+                            <li><a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #ffd700; text-decoration: underline;">Google AI Studio</a>にアクセス</li>
+                            <li>「Create API key」ボタンをクリック</li>
+                            <li>APIキーをコピー</li>
+                            <li>下の入力欄に貼り付け</li>
+                        </ol>
+                        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.3); font-size: 13px;">
+                            <div>✔️ 無料で使えます（1日1,500回まで）</div>
+                            <div>✔️ APIキーはあなたのブラウザにのみ保存されます</div>
+                        </div>
+                    </div>
+
                     <!-- APIキー入力 -->
                     <div class="form-section">
                         <label for="geminiApiKey" class="form-label">
@@ -1011,12 +1026,12 @@
                             <span class="label-text">Gemini APIキー</span>
                         </label>
                         <div class="api-key-input-group">
-                            <input type="password" id="geminiApiKey" placeholder="AIzaSy..." class="form-input">
+                            <input type="password" id="geminiApiKey" placeholder="例: AIzaSyDxxx..." class="form-input">
                             <a href="https://aistudio.google.com/app/apikey" target="_blank" class="api-key-link">
                                 取得 ↗
                             </a>
                         </div>
-                        <small class="form-hint">※ 無料取得できます。LocalStorageに保存されます。</small>
+                        <small class="form-hint" id="apiKeySaveStatus">※ 無料取得できます。LocalStorageに保存されます。</small>
                     </div>
 
                     <!-- モデル選択 -->
@@ -2574,6 +2589,36 @@
 
         // 初期化
         loadData();
+
+        // APIキーのLocalStorage処理
+        (function() {
+            const apiKeyInput = document.getElementById('geminiApiKey');
+            const apiKeySaveStatus = document.getElementById('apiKeySaveStatus');
+            const STORAGE_KEY = 'gemini_api_key';
+
+            // ページ読み込み時にLocalStorageからAPIキーを取得
+            const savedApiKey = localStorage.getItem(STORAGE_KEY);
+            if (savedApiKey) {
+                apiKeyInput.value = savedApiKey;
+                apiKeySaveStatus.innerHTML = '✅ APIキーが保存されています';
+                apiKeySaveStatus.style.color = '#4caf50';
+            }
+
+            // APIキー入力時にLocalStorageに保存
+            apiKeyInput.addEventListener('input', function() {
+                const apiKey = apiKeyInput.value.trim();
+
+                if (apiKey) {
+                    localStorage.setItem(STORAGE_KEY, apiKey);
+                    apiKeySaveStatus.innerHTML = '✅ 保存されました';
+                    apiKeySaveStatus.style.color = '#4caf50';
+                } else {
+                    localStorage.removeItem(STORAGE_KEY);
+                    apiKeySaveStatus.innerHTML = '※ 無料取得できます。LocalStorageに保存されます。';
+                    apiKeySaveStatus.style.color = '#999';
+                }
+            });
+        })();
     </script>
 
     <!-- Notification Manager -->
@@ -2590,6 +2635,28 @@
                     .catch((error) => {
                         console.error('[PWA] Service Worker registration failed:', error);
                     });
+            });
+
+            // Service Workerからのメッセージを受け取る（通知クリック時のAIタブ切り替え）
+            navigator.serviceWorker.addEventListener('message', (event) => {
+                console.log('[PWA] Message from Service Worker:', event.data);
+
+                if (event.data.action === 'switch-to-ai-tab') {
+                    // AI分析タブに切り替え
+                    const aiTab = document.querySelector('.tab-button[data-mode="ai"]');
+                    if (aiTab) {
+                        aiTab.click();
+                        console.log('[PWA] Switched to AI analysis tab');
+                    }
+
+                    // AI分析結果にスクロール
+                    setTimeout(() => {
+                        const aiResult = document.getElementById('aiResult');
+                        if (aiResult) {
+                            aiResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 300);
+                }
             });
         }
     </script>

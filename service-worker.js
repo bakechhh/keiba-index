@@ -110,7 +110,27 @@ self.addEventListener('notificationclick', (event) => {
   console.log('[Service Worker] Notification clicked');
   event.notification.close();
 
+  const notificationData = event.notification.data;
+  
   event.waitUntil(
-    clients.openWindow('/')
+    clients.matchAll({ type: 'window', includeUncontrolled: true })
+      .then((clientList) => {
+        // 既に開いているウィンドウがあればフォーカス
+        for (let client of clientList) {
+          if (client.url.includes(self.location.origin) && 'focus' in client) {
+            // AI分析タブに切り替えるメッセージを送信
+            if (notificationData && notificationData.action === 'view-ai-result') {
+              client.postMessage({
+                action: 'switch-to-ai-tab'
+              });
+            }
+            return client.focus();
+          }
+        }
+        // 開いているウィンドウがなければ新しく開く
+        if (clients.openWindow) {
+          return clients.openWindow('/');
+        }
+      })
   );
 });
