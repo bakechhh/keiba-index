@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬指数予測システム</title>
+    <title>競馬AI予測システム</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="競馬AI">
+
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/icons/icon-512.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <style>
         * {
             margin: 0;
@@ -636,12 +650,33 @@
 
         @media (max-width: 768px) {
             .list-table {
-                font-size: 12px;
+                font-size: 10px;
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
             .list-table th,
             .list-table td {
-                padding: 8px 4px;
+                padding: 6px 3px;
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            /* テーブルを横スクロール可能に */
+            .list-view {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* ヘッダーの通知ボタンを小さく */
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .header button {
+                font-size: 12px !important;
+                padding: 6px 12px !important;
             }
         }
     </style>
@@ -650,7 +685,12 @@
     <div class="container">
         <!-- ヘッダー -->
         <div class="header">
-            <h1>🏇 競馬指数予測システム</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1>🏇 競馬指数予測システム</h1>
+                <button onclick="sendTestNotification()" style="padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">
+                    🔔 通知テスト
+                </button>
+            </div>
             <div class="update-info" id="updateInfo">読み込み中...</div>
         </div>
 
@@ -1672,6 +1712,11 @@
             // クリックされたカードを選択状態に
             cardElement.classList.add('active');
 
+            // レース切替時にAI分析とオッズタブをクリア
+            document.getElementById('aiResult').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">「AI分析」ボタンをクリックして分析を開始してください。</div>';
+            document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータを読み込み中...</div>';
+            currentOddsData = null;
+
             // タイトル設定
             document.getElementById('horsesTitle').textContent =
                 `${race.place}${race.round}R ${race.race_name}`;
@@ -1682,9 +1727,15 @@
                 const oddsData = await loadOddsData(raceId);
                 if (oddsData && oddsData.length > 0) {
                     addPopularityToHorses(race, oddsData);
+                    // オッズタブを自動更新
+                    currentOddsData = oddsData;
+                    displayOdds(oddsData);
+                } else {
+                    document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータが見つかりませんでした。</div>';
                 }
             } catch (error) {
                 console.warn('オッズデータの読み込みに失敗しました:', error);
+                document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータの読み込みに失敗しました。</div>';
             }
 
             // デフォルトソート（AI単勝スコア順）を適用
@@ -2523,6 +2574,24 @@
 
         // 初期化
         loadData();
+    </script>
+
+    <!-- Notification Manager -->
+    <script src="/notification.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('[PWA] Service Worker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.error('[PWA] Service Worker registration failed:', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
