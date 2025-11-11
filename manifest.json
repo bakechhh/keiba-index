@@ -2,7 +2,7 @@
   "name": "競馬AI予測システム",
   "short_name": "競馬AI",
   "description": "LightGBM機械学習モデルとGemini AIを活用した競馬予測システム",
-  "start_url": "/index.html",
+  "start_url": "/keiba-index/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#667eea",
@@ -48,6 +48,6 @@
   "categories": ["sports", "entertainment"],
   "lang": "ja",
   "dir": "ltr",
-  "scope": "/",
+  "scope": "/keiba-index/",
   "prefer_related_applications": false
 }
