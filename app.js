@@ -811,10 +811,9 @@ async function runAIAnalysisWithOpenAI(model) {
     const aiResultDiv = document.getElementById('aiResult');
     aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>AIが分析中です...</div>';
     
-    // Gemini APIキーの取得
-    const apiKey = document.getElementById('geminiApiKey').value.trim();
-    if (!apiKey) {
-        aiResultDiv.innerHTML = '<div class="error">Gemini APIキーを入力してください。</div>';
+    // OpenAI APIキーの確認
+    if (!openaiApiKey) {
+        aiResultDiv.innerHTML = '<div class="error">OpenAI APIキーを設定してください。<br>AIモデル選択でGPT-5-nanoまたはGPT-4o-miniを選ぶと、APIキー入力欄が表示されます。</div>';
         return;
     }
     
@@ -825,9 +824,9 @@ async function runAIAnalysisWithOpenAI(model) {
     }
     
     // ユーザーパラメータの取得
-    const budget = parseInt(document.getElementById('budget').value) || 1000;
-    const minReturn = parseFloat(document.getElementById('minReturn').value) || 1.5;
-    const targetReturn = parseFloat(document.getElementById('targetReturn').value) || 10.0;
+    const budget = parseInt(document.getElementById('aiBudget').value) || 1000;
+    const minReturn = parseFloat(document.getElementById('aiMinReturn').value) || 1.5;
+    const targetReturn = parseFloat(document.getElementById('aiTargetReturn').value) || 10.0;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
     
