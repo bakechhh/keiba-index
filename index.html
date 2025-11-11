@@ -979,6 +979,19 @@
                         <small class="form-hint">※ 無料取得できます。LocalStorageに保存されます。</small>
                     </div>
 
+                    <!-- モデル選択 -->
+                    <div class="form-section">
+                        <label for="geminiModel" class="form-label">
+                            <span class="label-icon">🤖</span>
+                            <span class="label-text">AIモデル</span>
+                        </label>
+                        <select id="geminiModel" class="form-input">
+                            <option value="gemini-2.5-flash" selected>Gemini 2.5 Flash（高速・無料）</option>
+                            <option value="gemini-2.5-pro">Gemini 2.5 Pro（高精度・有料）</option>
+                        </select>
+                        <small class="form-hint">※ Flashは無料、Proは有料ですが高精度です。</small>
+                    </div>
+
                     <!-- 予算設定 -->
                     <div class="form-section">
                         <label for="aiBudget" class="form-label">

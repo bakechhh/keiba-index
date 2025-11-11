@@ -189,6 +189,7 @@ async function runAIAnalysis() {
     const minReturn = document.getElementById('aiMinReturn').value;
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
+    const selectedModel = document.getElementById('geminiModel').value; // モデル選択
     
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
@@ -204,10 +205,11 @@ async function runAIAnalysis() {
         const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes, paddockHorses });
 
         console.log('[AI Analysis] Calling Gemini API directly...');
+        console.log('[AI Analysis] Model:', selectedModel);
         console.log('[AI Analysis] Prompt length:', prompt.length);
 
-        // Gemini APIを直接呼び出し（gemini-2.5-flashを使用）
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        // Gemini APIを直接呼び出し（選択されたモデルを使用）
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -314,6 +316,11 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 #### 最重要指標（必ず確認）
 - **final_score（最終スコア）**: 総合評価指数。高いほど有力。**そこそこ重視**
   - **50以上の馬は馬券内に積極的に含めること**
+- **AI単勝スコア、AI連対スコア、AI複勝スコア**: LightGBM機械学習モデルによる正規化スコア。**確率ではないことに注意**
+  - **期待値計算**: AI単勝スコア × 単勝オッズ = 期待値（これが1.0を超えると期待値プラス）
+  - **複数のAIスコアを掛け合わせないこと**（例: AI単勝スコア × AI連対スコアは無意味）
+  - AI順位も参考にすること（順位が低いほど有力）
+  - AUCスコア0.78-0.80のモデルなので、参考程度に扱う
 - **battle_mining（戦績マイニング）**: 過去の戦績から算出した実力指数。**重視する（ただし重くしすぎない）**
 - **corrected_time_deviation（補正タイム偏差値）**: 前走の補正タイムを偏差値化した指標。**重要指標**
   - **55以上の馬は馬券内に積極的に含めること**
@@ -484,15 +491,26 @@ ${paddockHorses && paddockHorses.length > 0 ? `
  * 出走馬データをフォーマット（gemini.jsと同じロジック）
  */
 function formatHorsesData(horses) {
-    // 表形式で見やすく整理
-    let formatted = '\n| 順位 | 馬番 | 馬名 | 最終スコア | マイニング指数 | 戦績マイニング | ZI指数 | 補正タイム偏差値 | 類似係数 | 安定係数 | 騎手名 | 騎手勝率 | 調教師名 | 調教師勝率 | 出走間隔 | 前走着順 |\n';
-    formatted += '|------|------|------|------------|----------------|----------------|--------|----------------|----------|----------|--------|----------|----------|------------|----------|----------|\n';
+    // 表形式で見やすく整理（AIスコアとランクを追加）
+    let formatted = '\n| 順位 | 馬番 | 馬名 | 最終スコア | AI単勝スコア | AI単順位 | AI連対スコア | AI連順位 | AI複勝スコア | AI複順位 | マイニング指数 | 戦績マイニング | ZI指数 | 補正タイム偏差値 | 類似係数 | 安定係数 | 騎手名 | 騎手勝率 | 調教師名 | 調教師勝率 | 出走間隔 | 前走着順 |\n';
+    formatted += '|------|------|------|------------|------------|----------|------------|----------|------------|----------|----------------|----------------|--------|----------------|----------|----------|--------|----------|----------|------------|----------|----------|\n';
 
     horses.forEach((horse, index) => {
         const pastRace = horse.past_races && horse.past_races.length > 0 ? horse.past_races[0] : null;
         
+        // AIスコアとランクを取得
+        const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
+        const winRank = horse.predictions ? horse.predictions.win_rate_rank : '-';
+        const placeScore = horse.predictions ? horse.predictions.place_rate.toFixed(4) : '-';
+        const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
+        const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
+        const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
+        
         formatted += `| ${index + 1} | ${horse.horse_number} | ${horse.horse_name} | `;
         formatted += `${horse.indices.final_score.toFixed(2)} | `;
+        formatted += `**${winScore}** | ${winRank} | `;  // AI単勝スコアとランク
+        formatted += `**${placeScore}** | ${placeRank} | `;  // AI連対スコアとランク
+        formatted += `**${showScore}** | ${showRank} | `;  // AI複勝スコアとランク
         formatted += `${horse.indices.mining_index.toFixed(1)} | `;
         formatted += `**${horse.battle_mining.toFixed(1)}** | `;  // 戦績マイニングを強調
         formatted += `${horse.zi_index.toFixed(1)} | `;
@@ -511,8 +529,19 @@ function formatHorsesData(horses) {
     formatted += '\n### 上位5頭の詳細分析\n\n';
     
     horses.slice(0, 5).forEach((horse, index) => {
+        // AIスコアとランクを取得
+        const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
+        const winRank = horse.predictions ? horse.predictions.win_rate_rank : '-';
+        const placeScore = horse.predictions ? horse.predictions.place_rate.toFixed(4) : '-';
+        const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
+        const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
+        const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
+        
         formatted += `#### ${index + 1}位: ${horse.horse_number}番 ${horse.horse_name}\n`;
         formatted += `- **最終スコア**: ${horse.indices.final_score.toFixed(2)}\n`;
+        formatted += `- **AI単勝スコア**: **${winScore}** (順位: ${winRank})（LightGBM正規化スコア、確率ではない）\n`;
+        formatted += `- **AI連対スコア**: **${placeScore}** (順位: ${placeRank})（LightGBM正規化スコア、確率ではない）\n`;
+        formatted += `- **AI複勝スコア**: **${showScore}** (順位: ${showRank})（LightGBM正規化スコア、確率ではない）\n`;
         formatted += `- **マイニング指数**: ${horse.indices.mining_index.toFixed(1)}\n`;
         formatted += `- **戦績マイニング**: **${horse.battle_mining.toFixed(1)}**（重視）\n`;
         formatted += `- **ZI指数**: ${horse.zi_index.toFixed(1)}（標準的な指標）\n`;
