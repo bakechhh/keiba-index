@@ -791,7 +791,7 @@ async function callOpenAI(model, prompt) {
                 }
             ],
             temperature: 0.7,
-            max_tokens: 4000
+            max_completion_tokens: 4000
         })
     });
     
@@ -826,9 +826,19 @@ async function runAIAnalysisWithOpenAI(model) {
     }
     
     // ユーザーパラメータの取得
-    const budget = parseInt(document.getElementById('aiBudget').value) || 1000;
-    const minReturn = parseFloat(document.getElementById('aiMinReturn').value) || 1.5;
-    const targetReturn = parseFloat(document.getElementById('aiTargetReturn').value) || 10.0;
+    const budgetEl = document.getElementById('aiBudget');
+    const minReturnEl = document.getElementById('aiMinReturn');
+    const targetReturnEl = document.getElementById('aiTargetReturn');
+    
+    if (!budgetEl || !minReturnEl || !targetReturnEl) {
+        aiResultDiv.innerHTML = '<div class="error">エラー: AI分析フォームが見つかりません。ページをリロードしてください。</div>';
+        console.error('[OpenAI] Form elements not found:', { budgetEl, minReturnEl, targetReturnEl });
+        return;
+    }
+    
+    const budget = parseInt(budgetEl.value) || 1000;
+    const minReturn = parseFloat(minReturnEl.value) || 1.5;
+    const targetReturn = parseFloat(targetReturnEl.value) || 10.0;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
     
