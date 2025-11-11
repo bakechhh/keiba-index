@@ -772,27 +772,34 @@ async function callOpenAI(model, prompt) {
     console.log(`[OpenAI] Calling ${model}...`);
     console.log(`[OpenAI] Prompt length: ${prompt.length}`);
     
+    // リクエストボディの構築
+    const requestBody = {
+        model: model,
+        messages: [
+            {
+                role: 'system',
+                content: 'あなたは競馬予想の専門家です。データを分析して、的確な馬券推奨を行ってください。'
+            },
+            {
+                role: 'user',
+                content: prompt
+            }
+        ],
+        max_completion_tokens: 4000
+    };
+    
+    // GPT-5-nano以外のモデルのみにtemperatureを設定
+    if (!model.includes('gpt-5')) {
+        requestBody.temperature = 0.7;
+    }
+    
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${openaiApiKey}`
         },
-        body: JSON.stringify({
-            model: model,
-            messages: [
-                {
-                    role: 'system',
-                    content: 'あなたは競馬予想の専門家です。データを分析して、的確な馬券推奨を行ってください。'
-                },
-                {
-                    role: 'user',
-                    content: prompt
-                }
-            ],
-            temperature: 0.7,
-            max_completion_tokens: 4000
-        })
+        body: JSON.stringify(requestBody)
     });
     
     if (!response.ok) {
