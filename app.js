@@ -809,8 +809,22 @@ async function callOpenAI(model, prompt) {
     
     const result = await response.json();
     console.log('[OpenAI] Success');
+    console.log('[OpenAI] Response:', result);
     
-    return result.choices[0].message.content;
+    // レスポンスの構造を確認
+    if (!result.choices || result.choices.length === 0) {
+        console.error('[OpenAI] Invalid response structure:', result);
+        throw new Error('OpenAI APIからのレスポンスが無効です。');
+    }
+    
+    const content = result.choices[0].message?.content;
+    if (!content) {
+        console.error('[OpenAI] No content in response:', result.choices[0]);
+        throw new Error('OpenAI APIからのレスポンスにコンテンツがありません。');
+    }
+    
+    console.log('[OpenAI] Content length:', content.length);
+    return content;
 }
 
 /**
