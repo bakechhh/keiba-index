@@ -267,13 +267,13 @@ async function runAIAnalysis() {
                         continue; // ループを続ける
                     }
                     
-                    // 503エラーが10回続いた場合、OpenAI APIキーがあればGPT-5-nanoにフォールバック
+                    // 503エラーが10回続いた場合、OpenAI APIキーがあればgpt-4o-miniにフォールバック
                     if (response.status === 503 && retryCount >= maxRetries) {
                         if (openaiApiKey) {
-                            console.log('[AI Analysis] Gemini failed after 10 retries. Switching to GPT-5-nano...');
-                            aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。GPT-5-nanoに切り替え中...</div>';
+                            console.log('[AI Analysis] Gemini failed after 10 retries. Switching to gpt-4o-mini...');
+                            aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。gpt-4o-miniに切り替え中...</div>';
                             await new Promise(resolve => setTimeout(resolve, 1000));
-                            return runAIAnalysisWithOpenAI('gpt-5-nano');
+                            return runAIAnalysisWithOpenAI('gpt-4o-mini');
                         } else {
                             console.log('[AI Analysis] Gemini failed after 10 retries. No OpenAI API key available.');
                             throw new Error('Gemini APIが混雑しています。時間を空けて再試行してください。');
