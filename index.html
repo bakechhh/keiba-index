@@ -1403,6 +1403,40 @@
     <script src="data-loader.js"></script>
     <script src="app.js"></script>
     <script>
+        /**
+         * オッズデータから人気を計算して各馬に追加する関数
+         * @param {Object} race - レースデータ
+         * @param {Array} oddsData - オッズデータ（単勝・複勝）
+         */
+        function addPopularityToHorses(race, oddsData) {
+            // オッズデータから単勝オッズを取得
+            const tanshoData = oddsData.find(odds => odds.odds_type === 'tfw');
+            if (!tanshoData || !tanshoData.data || !tanshoData.data.tansho) {
+                console.warn('単勝オッズデータが見つかりません');
+                return;
+            }
+
+            // 単勝オッズを馬番ごとにマッピング
+            const oddsMap = {};
+            tanshoData.data.tansho.forEach(item => {
+                oddsMap[item.horse_num] = parseFloat(item.odds);
+            });
+
+            // オッズでソートして人気順を計算
+            const sortedOdds = Object.entries(oddsMap).sort((a, b) => a[1] - b[1]);
+            const popularityMap = {};
+            sortedOdds.forEach((entry, index) => {
+                popularityMap[entry[0]] = index + 1; // 1人気から始まる
+            });
+
+            // 各馬に人気を追加
+            race.horses.forEach(horse => {
+                const horseNum = String(horse.horse_number);
+                horse.popularity = popularityMap[horseNum] || null;
+            });
+        }
+    </script>
+    <script>
         var allRaces = [];
         var filteredRaces = [];
         var selectedRace = null;
@@ -1613,7 +1647,7 @@
         }
 
         // 馬一覧を表示
-        function showHorses(race, cardElement) {
+        async function showHorses(race, cardElement) {
             selectedRace = race;
             window.selectedRace = race;  // グローバルに公開
 
@@ -1629,8 +1663,19 @@
             document.getElementById('horsesTitle').textContent =
                 `${race.place}${race.round}R ${race.race_name}`;
 
-            // デフォルトソート（勝率順）を適用
-            const raceId = getRaceId(race);
+            // オッズデータを読み込んで人気を計算
+            try {
+                const raceId = `${race.place}${race.round}R`;
+                const oddsData = await loadOddsData(raceId);
+                if (oddsData && oddsData.length > 0) {
+                    addPopularityToHorses(race, oddsData);
+                }
+            } catch (error) {
+                console.warn('オッズデータの読み込みに失敗しました:', error);
+            }
+
+            // デフォルトソート（AI単勝スコア順）を適用
+            const raceIdKey = getRaceId(race);
             const sortedHorses = [...race.horses];
             sortedHorses.sort((a, b) => {
                 const aRate = a.predictions ? a.predictions.win_rate : 0;
@@ -1638,7 +1683,7 @@
                 return bRate - aRate;
             });
             const sortedRace = {...race, horses: sortedHorses};
-            sortedRaces[raceId] = sortedRace;
+            sortedRaces[raceIdKey] = sortedRace;
             currentSortKey = 'win_rate';
 
             // 各ビューを生成（ソート済みデータを使用）
@@ -1681,9 +1726,10 @@
                 <div style="background: white; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     <div style="font-weight: bold; color: #667eea; margin-bottom: 10px;">📊 並び替え</div>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px;">
-                        <button onclick="sortHorses('${raceId}', 'win_rate')" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; cursor: pointer;">勝率順</button>
-                        <button onclick="sortHorses('${raceId}', 'show_rate')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">複勝順</button>
-                        <button onclick="sortHorses('${raceId}', 'final_score')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">スコア順</button>
+                        <button onclick="sortHorses('${raceId}', 'win_rate')" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; cursor: pointer;">AI単勝スコア順</button>
+                        <button onclick="sortHorses('${raceId}', 'show_rate')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">AI複勝スコア順</button>
+                        <button onclick="sortHorses('${raceId}', 'final_score')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">最終スコア順</button>
+                        <button onclick="sortHorses('${raceId}', 'popularity')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">人気順</button>
                         <button onclick="sortHorses('${raceId}', 'horse_number')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">馬番順</button>
                     </div>
                 </div>
@@ -1698,9 +1744,13 @@
                             <th>馬番</th>
                             <th>馬名</th>
                             <th>騎手</th>
-                            <th>勝率</th>
-                            <th>連対率</th>
-                            <th>複勝率</th>
+                            <th>人気</th>
+                            <th>AI単勝スコア</th>
+                            <th>AI単順位</th>
+                            <th>AI連対スコア</th>
+                            <th>AI連順位</th>
+                            <th>AI複勝スコア</th>
+                            <th>AI複順位</th>
                             <th>最終スコア</th>
                             <th>マイニング</th>
                             <th>レース評価</th>
@@ -1752,9 +1802,13 @@
                         <td><strong>${horse.horse_number}番</strong></td>
                         <td><strong>${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
-                        <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
-                        <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
-                        <td><strong style="color: #27ae60; font-size: 16px;">${horse.predictions ? (horse.predictions.show_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
+                        <td><strong style="color: #ff6b6b; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
+                        <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.win_rate_rank : '-'}</td>
+                        <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.place_rate_rank : '-'}</td>
+                        <td><strong style="color: #27ae60; font-size: 16px;">${horse.predictions ? (horse.predictions.show_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.show_rate_rank : '-'}</td>
                         <td><strong style="color: #667eea; font-size: 16px;">${horse.indices.final_score.toFixed(1)}</strong></td>
                         <td>${horse.indices.mining_index.toFixed(1)}</td>
                         <td>${horse.indices.corrected_time_deviation.toFixed(1)}</td>
@@ -2228,6 +2282,13 @@
                 case 'final_score':
                     sortedHorses.sort((a, b) => b.indices.final_score - a.indices.final_score);
                     break;
+                case 'popularity':
+                    sortedHorses.sort((a, b) => {
+                        const aPop = a.popularity || 999;
+                        const bPop = b.popularity || 999;
+                        return aPop - bPop;
+                    });
+                    break;
                 case 'horse_number':
                     sortedHorses.sort((a, b) => a.horse_number - b.horse_number);
                     break;
@@ -2289,9 +2350,10 @@
                 <div style="background: white; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     <div style="font-weight: bold; color: #667eea; margin-bottom: 10px;">📊 並び替え</div>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px;">
-                        <button onclick="sortHorsesInAIView('${raceId}', 'win_rate')" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; cursor: pointer;">勝率順</button>
-                        <button onclick="sortHorsesInAIView('${raceId}', 'show_rate')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">複勝順</button>
-                        <button onclick="sortHorsesInAIView('${raceId}', 'final_score')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">スコア順</button>
+                        <button onclick="sortHorsesInAIView('${raceId}', 'win_rate')" style="padding: 10px; border: 2px solid #667eea; border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: bold; cursor: pointer;">AI単勝スコア順</button>
+                        <button onclick="sortHorsesInAIView('${raceId}', 'show_rate')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">AI複勝スコア順</button>
+                        <button onclick="sortHorsesInAIView('${raceId}', 'final_score')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">最終スコア順</button>
+                        <button onclick="sortHorsesInAIView('${raceId}', 'popularity')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">人気順</button>
                         <button onclick="sortHorsesInAIView('${raceId}', 'horse_number')" style="padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; background: white; color: #667eea; font-weight: bold; cursor: pointer;">馬番順</button>
                     </div>
                 </div>
@@ -2306,9 +2368,13 @@
                             <th>馬番</th>
                             <th>馬名</th>
                             <th>騎手</th>
-                            <th>勝率</th>
-                            <th>連対率</th>
-                            <th>複勝率</th>
+                            <th>人気</th>
+                            <th>AI単勝スコア</th>
+                            <th>AI単順位</th>
+                            <th>AI連対スコア</th>
+                            <th>AI連順位</th>
+                            <th>AI複勝スコア</th>
+                            <th>AI複順位</th>
                             <th>最終スコア</th>
                             <th>マイニング</th>
                             <th>レース評価</th>
@@ -2360,9 +2426,13 @@
                         <td><strong>${horse.horse_number}番</strong></td>
                         <td><strong>${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
-                        <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
-                        <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
-                        <td><strong style="color: #27ae60; font-size: 16px;">${horse.predictions ? (horse.predictions.show_rate * 100).toFixed(1) + '%' : '-'}</strong></td>
+                        <td><strong style="color: #ff6b6b; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
+                        <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.win_rate_rank : '-'}</td>
+                        <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.place_rate_rank : '-'}</td>
+                        <td><strong style="color: #27ae60; font-size: 16px;">${horse.predictions ? (horse.predictions.show_rate * 100).toFixed(1) : '-'}</strong></td>
+                        <td>${horse.predictions ? horse.predictions.show_rate_rank : '-'}</td>
                         <td><strong style="color: #667eea; font-size: 16px;">${horse.indices.final_score.toFixed(1)}</strong></td>
                         <td>${horse.indices.mining_index.toFixed(1)}</td>
                         <td>${horse.indices.corrected_time_deviation.toFixed(1)}</td>
@@ -2400,6 +2470,12 @@
                 });
             } else if (sortBy === 'final_score') {
                 sortedHorses.sort((a, b) => b.indices.final_score - a.indices.final_score);
+            } else if (sortBy === 'popularity') {
+                sortedHorses.sort((a, b) => {
+                    const aPop = a.popularity || 999;
+                    const bPop = b.popularity || 999;
+                    return aPop - bPop;
+                });
             } else if (sortBy === 'horse_number') {
                 sortedHorses.sort((a, b) => a.horse_number - b.horse_number);
             }
