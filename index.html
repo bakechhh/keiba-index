@@ -1378,11 +1378,40 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         <small class="form-hint">※ パドックで調子が良い馬を選択してください。AIが馬券に含めるように考慮します。</small>
                     </div>
 
+                    <!-- プリセット管理 -->
+                    <div class="form-section" style="background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                        <label class="form-label">
+                            <span class="label-icon">💾</span>
+                            <span class="label-text">プリセット</span>
+                        </label>
+                        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                            <select id="presetSelect" onchange="loadPreset()" style="flex: 1; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                                <option value="">プリセットを選択</option>
+                            </select>
+                            <button onclick="savePresetPrompt()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                                💾 保存
+                            </button>
+                            <button onclick="deletePreset()" style="padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                                🗑️ 削除
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- 分析ボタン -->
                     <button id="aiAnalyzeBtn" class="analyze-btn-modern">
                         <span class="btn-icon">🚀</span>
                         <span class="btn-text">分析開始</span>
                     </button>
+                    
+                    <!-- 馬券ツールボタン -->
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button onclick="openFormationModal()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                            🎫 フォーメーション計算機
+                        </button>
+                        <button onclick="openMemoModal()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                            📝 買い目メモ
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 分析結果 -->
@@ -1714,6 +1743,109 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         </div>
     </div>
 
+    <!-- 買い目メモモーダル -->
+    <div id="memoModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="modal-close" onclick="closeMemoModal()">&times;</span>
+            <div id="memoContent">
+                <h2 style="color: #667eea; margin-bottom: 20px;">📝 買い目メモ</h2>
+                
+                <!-- メモ追加フォーム -->
+                <div style="margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">新しい買い目を追加</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">馬券種:</label>
+                        <select id="memoBetType" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                            <option value="単勝">単勝</option>
+                            <option value="複勝">複勝</option>
+                            <option value="枕連">枕連</option>
+                            <option value="馬連">馬連</option>
+                            <option value="ワイド">ワイド</option>
+                            <option value="馬単">馬単</option>
+                            <option value="3連複">3連複</option>
+                            <option value="3連単">3連単</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">買い目 (例: 1-3-5):</label>
+                        <input type="text" id="memoNumbers" placeholder="1-3-5" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">購入金額 (円):</label>
+                        <input type="number" id="memoAmount" value="100" min="100" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">メモ:</label>
+                        <textarea id="memoNote" placeholder="AI推奨、本命、穴など" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0; min-height: 60px;"></textarea>
+                    </div>
+                    
+                    <button onclick="addMemo()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                        追加
+                    </button>
+                </div>
+                
+                <!-- メモ一覧 -->
+                <div id="memoList" style="margin-bottom: 20px;"></div>
+                
+                <!-- IPAT用出力 -->
+                <div style="padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📋 IPAT用購入リスト</h3>
+                    <textarea id="ipatOutput" readonly style="width: 100%; padding: 15px; border-radius: 8px; border: 2px solid #e0e0e0; min-height: 150px; font-family: monospace; background: white;"></textarea>
+                    <button onclick="copyIpatOutput()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 10px;">
+                        📋 コピー
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 馬券フォーメーション計算機モーダル -->
+    <div id="formationModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="modal-close" onclick="closeFormationModal()">&times;</span>
+            <div id="formationContent">
+                <h2 style="color: #667eea; margin-bottom: 20px;">🎫 馬券フォーメーション計算機</h2>
+                
+                <!-- 馬券種選択 -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬券種:</label>
+                    <select id="formationBetType" onchange="updateFormationUI()" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                        <option value="umaren">馬連</option>
+                        <option value="wide">ワイド</option>
+                        <option value="umatan">馬単</option>
+                        <option value="sanrenpuku">3連複</option>
+                        <option value="sanrentan">3連単</option>
+                    </select>
+                </div>
+
+                <!-- 軸馬選択 -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">軸馬:</label>
+                    <div id="axisHorses" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                </div>
+
+                <!-- 相手馬選択 -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">相手馬:</label>
+                    <div id="partnerHorses" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                </div>
+
+                <!-- 購入金額 -->
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">購入金額 (円):</label>
+                    <input type="number" id="formationAmount" value="100" min="100" step="100" onchange="calculateFormation()" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                </div>
+
+                <!-- 計算結果 -->
+                <div id="formationResult" style="padding: 20px; background: #f8f9fa; border-radius: 12px;"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="data-loader.js"></script>
     <script src="app.js"></script>
@@ -1866,6 +1998,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 const now = new Date();
                 document.getElementById('updateInfo').textContent =
                     `最終更新: ${now.toLocaleString('ja-JP')} | レース数: ${allRaces.length}`;
+
+                // プリセット選択を初期化
+                initPresetSelect();
 
             } catch (error) {
                 console.error('エラー:', error);
@@ -3134,6 +3269,346 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 closeHorseDetailModal();
             }
         });
+
+        // AI分析プリセット機能
+        function initPresetSelect() {
+            const presets = getPresets();
+            const select = document.getElementById('presetSelect');
+            
+            select.innerHTML = '<option value="">プリセットを選択</option>';
+            
+            presets.forEach((preset, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = preset.name;
+                select.appendChild(option);
+            });
+        }
+
+        function getPresets() {
+            const presets = localStorage.getItem('ai_presets');
+            return presets ? JSON.parse(presets) : [];
+        }
+
+        function savePresetPrompt() {
+            const name = prompt('プリセット名を入力してください:');
+            if (!name) return;
+
+            // 現在のパラメータを取得
+            const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
+            const minReturn = parseInt(document.getElementById('aiMinReturn').value);
+            const targetReturn = parseInt(document.getElementById('aiTargetReturn').value);
+
+            const preset = {
+                name: name,
+                betTypes: betTypes,
+                minReturn: minReturn,
+                targetReturn: targetReturn,
+                timestamp: new Date().toISOString()
+            };
+
+            let presets = getPresets();
+            presets.push(preset);
+            localStorage.setItem('ai_presets', JSON.stringify(presets));
+
+            initPresetSelect();
+            alert(`プリセット "${name}" を保存しました`);
+        }
+
+        function loadPreset() {
+            const select = document.getElementById('presetSelect');
+            const index = select.value;
+            
+            if (index === '') return;
+
+            const presets = getPresets();
+            const preset = presets[index];
+
+            if (!preset) return;
+
+            // 馬券種を設定
+            document.querySelectorAll('input[name="betType"]').forEach(cb => {
+                cb.checked = preset.betTypes.includes(cb.value);
+            });
+
+            // 回収率を設定
+            document.getElementById('aiMinReturn').value = preset.minReturn;
+            document.getElementById('aiTargetReturn').value = preset.targetReturn;
+
+            alert(`プリセット "${preset.name}" を読み込みました`);
+        }
+
+        function deletePreset() {
+            const select = document.getElementById('presetSelect');
+            const index = select.value;
+            
+            if (index === '') {
+                alert('削除するプリセットを選択してください');
+                return;
+            }
+
+            const presets = getPresets();
+            const preset = presets[index];
+
+            if (!confirm(`プリセット "${preset.name}" を削除しますか？`)) return;
+
+            presets.splice(index, 1);
+            localStorage.setItem('ai_presets', JSON.stringify(presets));
+
+            initPresetSelect();
+            alert('プリセットを削除しました');
+        }
+
+        // 買い目メモ機能
+        function openMemoModal() {
+            if (!selectedRace) {
+                alert('レースを選択してください');
+                return;
+            }
+
+            loadMemoList();
+            document.getElementById('memoModal').style.display = 'flex';
+        }
+
+        function closeMemoModal() {
+            document.getElementById('memoModal').style.display = 'none';
+        }
+
+        function addMemo() {
+            const betType = document.getElementById('memoBetType').value;
+            const numbers = document.getElementById('memoNumbers').value.trim();
+            const amount = parseInt(document.getElementById('memoAmount').value) || 100;
+            const note = document.getElementById('memoNote').value.trim();
+
+            if (!numbers) {
+                alert('買い目を入力してください');
+                return;
+            }
+
+            const raceId = `${selectedRace.place}${selectedRace.round}R`;
+            const memo = {
+                raceId: raceId,
+                raceName: `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name}`,
+                betType: betType,
+                numbers: numbers,
+                amount: amount,
+                note: note,
+                timestamp: new Date().toISOString()
+            };
+
+            // localStorageに保存
+            let memos = getMemos();
+            memos.push(memo);
+            localStorage.setItem('bet_memos', JSON.stringify(memos));
+
+            // フォームをリセット
+            document.getElementById('memoNumbers').value = '';
+            document.getElementById('memoNote').value = '';
+
+            // メモ一覧を更新
+            loadMemoList();
+        }
+
+        function getMemos() {
+            const memos = localStorage.getItem('bet_memos');
+            return memos ? JSON.parse(memos) : [];
+        }
+
+        function loadMemoList() {
+            const memos = getMemos();
+            const memoListDiv = document.getElementById('memoList');
+            const ipatOutput = document.getElementById('ipatOutput');
+
+            if (memos.length === 0) {
+                memoListDiv.innerHTML = '<p style="color: #999; text-align: center;">まだメモがありません</p>';
+                ipatOutput.value = '';
+                return;
+            }
+
+            // メモ一覧を表示
+            let html = '<h3 style="color: #667eea; margin-bottom: 15px;">保存された買い目</h3>';
+            memos.forEach((memo, index) => {
+                html += `
+                    <div style="padding: 15px; background: white; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div>
+                                <strong style="color: #667eea;">${memo.raceName}</strong>
+                                <span style="margin-left: 10px; padding: 4px 8px; background: #667eea; color: white; border-radius: 4px; font-size: 12px;">${memo.betType}</span>
+                            </div>
+                            <button onclick="deleteMemo(${index})" style="background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px;">
+                                削除
+                            </button>
+                        </div>
+                        <div style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">${memo.numbers}</div>
+                        <div style="color: #e74c3c; font-weight: bold; margin-bottom: 5px;">￥${memo.amount.toLocaleString()}</div>
+                        ${memo.note ? `<div style="color: #666; font-size: 14px;">${memo.note}</div>` : ''}
+                    </div>
+                `;
+            });
+            memoListDiv.innerHTML = html;
+
+            // IPAT用出力を生成
+            let ipatText = '';
+            memos.forEach(memo => {
+                ipatText += `${memo.raceName}\n`;
+                ipatText += `${memo.betType} ${memo.numbers} ￥${memo.amount}\n`;
+                if (memo.note) {
+                    ipatText += `メモ: ${memo.note}\n`;
+                }
+                ipatText += '\n';
+            });
+            ipatOutput.value = ipatText;
+        }
+
+        function deleteMemo(index) {
+            if (!confirm('この買い目を削除しますか？')) return;
+
+            let memos = getMemos();
+            memos.splice(index, 1);
+            localStorage.setItem('bet_memos', JSON.stringify(memos));
+            loadMemoList();
+        }
+
+        function copyIpatOutput() {
+            const ipatOutput = document.getElementById('ipatOutput');
+            ipatOutput.select();
+            document.execCommand('copy');
+            alert('コピーしました！');
+        }
+
+        // 馬券フォーメーション計算機
+        let formationAxisHorses = [];
+        let formationPartnerHorses = [];
+
+        function openFormationModal() {
+            if (!selectedRace) {
+                alert('レースを選択してください');
+                return;
+            }
+
+            formationAxisHorses = [];
+            formationPartnerHorses = [];
+
+            // 馬のチェックボックスを生成
+            updateFormationUI();
+
+            document.getElementById('formationModal').style.display = 'flex';
+        }
+
+        function closeFormationModal() {
+            document.getElementById('formationModal').style.display = 'none';
+        }
+
+        function updateFormationUI() {
+            const axisDiv = document.getElementById('axisHorses');
+            const partnerDiv = document.getElementById('partnerHorses');
+
+            axisDiv.innerHTML = '';
+            partnerDiv.innerHTML = '';
+
+            selectedRace.horses.forEach((horse, index) => {
+                // 軸馬チェックボックス
+                const axisCheckbox = document.createElement('label');
+                axisCheckbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px;';
+                axisCheckbox.innerHTML = `
+                    <input type="checkbox" value="${index}" onchange="toggleAxisHorse(${index})" ${formationAxisHorses.includes(index) ? 'checked' : ''}>
+                    ${horse.horse_number}番 ${horse.horse_name}
+                `;
+                axisDiv.appendChild(axisCheckbox);
+
+                // 相手馬チェックボックス
+                const partnerCheckbox = document.createElement('label');
+                partnerCheckbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px;';
+                partnerCheckbox.innerHTML = `
+                    <input type="checkbox" value="${index}" onchange="togglePartnerHorse(${index})" ${formationPartnerHorses.includes(index) ? 'checked' : ''}>
+                    ${horse.horse_number}番 ${horse.horse_name}
+                `;
+                partnerDiv.appendChild(partnerCheckbox);
+            });
+
+            calculateFormation();
+        }
+
+        function toggleAxisHorse(index) {
+            const idx = formationAxisHorses.indexOf(index);
+            if (idx > -1) {
+                formationAxisHorses.splice(idx, 1);
+            } else {
+                formationAxisHorses.push(index);
+            }
+            calculateFormation();
+        }
+
+        function togglePartnerHorse(index) {
+            const idx = formationPartnerHorses.indexOf(index);
+            if (idx > -1) {
+                formationPartnerHorses.splice(idx, 1);
+            } else {
+                formationPartnerHorses.push(index);
+            }
+            calculateFormation();
+        }
+
+        function calculateFormation() {
+            const betType = document.getElementById('formationBetType').value;
+            const amount = parseInt(document.getElementById('formationAmount').value) || 100;
+            const resultDiv = document.getElementById('formationResult');
+
+            if (formationAxisHorses.length === 0 || formationPartnerHorses.length === 0) {
+                resultDiv.innerHTML = '<p style="color: #999;">軸馬と相手馬を選択してください</p>';
+                return;
+            }
+
+            let combinations = 0;
+
+            // 馬券種別の組み合わせ数計算
+            if (betType === 'umaren' || betType === 'wide') {
+                // 馬連・ワイド: 軸馬 × 相手馬
+                combinations = formationAxisHorses.length * formationPartnerHorses.length;
+            } else if (betType === 'umatan') {
+                // 馬単: 軸馬 × 相手馬
+                combinations = formationAxisHorses.length * formationPartnerHorses.length;
+            } else if (betType === 'sanrenpuku') {
+                // 3連複: 軸馬 × 相手馬から2頭選ぶ
+                const partnerCount = formationPartnerHorses.length;
+                if (partnerCount < 2) {
+                    resultDiv.innerHTML = '<p style="color: #e74c3c;">相手馬を2頭以上選択してください</p>';
+                    return;
+                }
+                combinations = formationAxisHorses.length * (partnerCount * (partnerCount - 1)) / 2;
+            } else if (betType === 'sanrentan') {
+                // 3連単: 軸馬 × 相手馬から2頭選ぶ × 2
+                const partnerCount = formationPartnerHorses.length;
+                if (partnerCount < 2) {
+                    resultDiv.innerHTML = '<p style="color: #e74c3c;">相手馬を2頭以上選択してください</p>';
+                    return;
+                }
+                combinations = formationAxisHorses.length * partnerCount * (partnerCount - 1);
+            }
+
+            const totalCost = combinations * amount;
+
+            resultDiv.innerHTML = `
+                <h3 style="color: #667eea; margin-bottom: 15px;">計算結果</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    <div style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 12px; color: #999; margin-bottom: 5px;">組み合わせ数</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">${combinations}点</div>
+                    </div>
+                    <div style="padding: 15px; background: white; border-radius: 8px;">
+                        <div style="font-size: 12px; color: #999; margin-bottom: 5px;">合計金額</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #e74c3c;">￥${totalCost.toLocaleString()}</div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
+                    <div style="font-size: 12px; color: #999; margin-bottom: 5px;">選択した馬</div>
+                    <div style="font-size: 14px;">
+                        <strong>軸馬:</strong> ${formationAxisHorses.map(i => selectedRace.horses[i].horse_number + '番').join(', ')}<br>
+                        <strong>相手馬:</strong> ${formationPartnerHorses.map(i => selectedRace.horses[i].horse_number + '番').join(', ')}
+                    </div>
+                </div>
+            `;
+        }
 
         // お気に入りレース機能
         function getFavoriteRaces() {
