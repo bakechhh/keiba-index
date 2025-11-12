@@ -3329,6 +3329,42 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             });
         })();
         
+        // OpenAI APIキーのLocalStorage処理
+        (function() {
+            const openaiApiKeyInput = document.getElementById('openaiApiKey');
+            const saveOpenAIKeyBtn = document.getElementById('saveOpenAIKey');
+            const OPENAI_STORAGE_KEY = 'openai_api_key';
+            
+            // ページ読み込み時にLocalStorageからAPIキーを取得
+            const savedOpenAIKey = localStorage.getItem(OPENAI_STORAGE_KEY);
+            if (savedOpenAIKey) {
+                openaiApiKeyInput.value = savedOpenAIKey;
+                window.OPENAI_API_KEY = savedOpenAIKey;
+            }
+            
+            // 保存ボタンクリック時の処理
+            saveOpenAIKeyBtn.addEventListener('click', function() {
+                const apiKey = openaiApiKeyInput.value.trim();
+                
+                if (apiKey) {
+                    localStorage.setItem(OPENAI_STORAGE_KEY, apiKey);
+                    window.OPENAI_API_KEY = apiKey;
+                    
+                    // 保存成功のフィードバック
+                    const originalText = saveOpenAIKeyBtn.textContent;
+                    saveOpenAIKeyBtn.textContent = '✅ 保存完了';
+                    saveOpenAIKeyBtn.style.background = '#4caf50';
+                    
+                    setTimeout(() => {
+                        saveOpenAIKeyBtn.textContent = originalText;
+                        saveOpenAIKeyBtn.style.background = '#667eea';
+                    }, 2000);
+                } else {
+                    alert('APIキーを入力してください');
+                }
+            });
+        })();
+        
         // モデル選択時にOpenAI APIキー欄を表示/非表示
         (function() {
             const modelSelect = document.getElementById('geminiModel');
