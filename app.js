@@ -212,6 +212,7 @@ async function runAIAnalysis() {
     const minReturn = document.getElementById('aiMinReturn').value;
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
+    console.log('[runAIAnalysis] betTypes:', betTypes);
     
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
@@ -229,11 +230,15 @@ async function runAIAnalysis() {
         console.log('[AI Analysis] Calling Gemini API directly...');
         console.log('[AI Analysis] Model:', selectedModel);
         console.log('[AI Analysis] Prompt length:', prompt.length);
+        console.log('=' .repeat(80));
+        console.log('[AI Analysis] Full Prompt:');
+        console.log(prompt);
+        console.log('='.repeat(80));
 
         // 503エラーの自動リトライ（指数バックオフ）
         let response;
         let retryCount = 0;
-        const maxRetries = 10;  // 10回リトライ
+        const maxRetries = 3;  // 3回リトライ
         
         while (retryCount <= maxRetries) {
             try {
@@ -267,15 +272,15 @@ async function runAIAnalysis() {
                         continue; // ループを続ける
                     }
                     
-                    // 503エラーが10回続いた場合、OpenAI APIキーがあればGPT-5-nanoにフォールバック
+                    // 503エラーが3回続いた場合、OpenAI APIキーがあればGPT-4o-miniにフォールバック
                     if (response.status === 503 && retryCount >= maxRetries) {
                         if (openaiApiKey) {
-                            console.log('[AI Analysis] Gemini failed after 10 retries. Switching to GPT-5-nano...');
-                            aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。GPT-5-nanoに切り替え中...</div>';
+                            console.log('[AI Analysis] Gemini failed after 3 retries. Switching to GPT-4o-mini...');
+                            aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。GPT-4o-miniに切り替え中...</div>';
                             await new Promise(resolve => setTimeout(resolve, 1000));
-                            return runAIAnalysisWithOpenAI('gpt-5-nano');
+                            return runAIAnalysisWithOpenAI('gpt-4o-mini');
                         } else {
-                            console.log('[AI Analysis] Gemini failed after 10 retries. No OpenAI API key available.');
+                            console.log('[AI Analysis] Gemini failed after 3 retries. No OpenAI API key available.');
                             throw new Error('Gemini APIが混雑しています。時間を空けて再試行してください。');
                         }
                     }
@@ -309,6 +314,14 @@ async function runAIAnalysis() {
         // marked.jsを使ってMarkdownをHTMLに変換
         aiResultDiv.innerHTML = marked.parse(analysisText);
         
+        // localStorageに保存
+        saveAIAnalysisResult(selectedRace.race_number, {
+            timestamp: Date.now(),
+            result: analysisText,
+            model: selectedModel,
+            params: { budget, minReturn, targetReturn, betTypes, paddockHorses }
+        });
+        
         // AI分析完了通知を送信
         if (typeof window.notifyAIAnalysisComplete === 'function') {
             const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name || ''}`;
@@ -336,7 +349,7 @@ function createPrompt(raceData, oddsData, userParams) {
         paddockHorses
     } = userParams;
 
-    return `あなたは競馬予想AIです。以下のデータを分析して、馬券購入の推奨を提供してください。
+    return `あなたは競馬予想AIで馬券構築のプロです。以下のデータを分析して、馬券購入の推奨を提供してください。
 
 ## レース情報
 - **レース名**: ${raceData.race_name}
@@ -610,6 +623,11 @@ ${paddockHorses && paddockHorses.length > 0 ? `
 - 1馬券あたり最低100円（50円単位は不可）
 - 現実的で実行可能な馬券を推奨すること
 
+**馬券注意事項**: 
+-　単勝、馬連、馬単、三連複、3連単は1通りのみ当選
+-　複勝、ワイドは3通りの当選
+-　上記 2項目の性質を理解したうえで組むこと。
+
 **分析の自由度**:
 - AIは提供されたデータから自由に分析・判断してよい
 - 狙うオッズ帯や相手馬は固定せず、データに基づいて決定
@@ -725,6 +743,84 @@ function formatOddsData(oddsData) {
 
             default:
                 // その他の券種（枠連、馬連、ワイド、馬単、3連複、3連単）
+                formatted += '\n| 組み合わせ | オッズ |\n';
+                formatted += '|------------|--------|\n';
+                
+                // 全件表示（Geminiが正確な馬券推奨をできるように）
+                odds.data.combinations.forEach(c => {
+                    const oddsValue = (typeof c.odds === 'object') ? `${c.odds.min} - ${c.odds.max}` : c.odds;
+                    formatted += `| ${c.combination} | ${oddsValue} |\n`;
+                });
+                break;
+        }
+    });
+
+    return formatted;
+}
+
+/**
+ * 選択された馬券種のオッズデータのみをフォーマット（プロンプトサイズ削減）
+ * @param {Array} oddsData - 全オッズデータ
+ * @param {Array} betTypes - 選択された馬券種（例: ['馬単', '馬連', '3連複']）
+ */
+function formatSelectedOddsData(oddsData, betTypes) {
+    let formatted = '';
+
+    // 馬券種名とodds_typeのマッピング（yahoo_odds_scheduler.pyの値と一致）
+    const betTypeMap = {
+        '単勝': 'tfw',
+        '複勝': 'tfw',
+        '枠連': 'wakuren',
+        '馬連': 'umaren',
+        'ワイド': 'wide',
+        '馬単': 'umatan',
+        '3連複': 'sanrenpuku',
+        '3連単': 'sanrentan'
+    };
+
+    // 選択された馬券種のodds_typeを取得
+    const selectedOddsTypes = betTypes.map(bt => betTypeMap[bt]).filter(Boolean);
+
+    // 単勝・複勝は常に含める（基本情報として）
+    if (!selectedOddsTypes.includes('tfw')) {
+        selectedOddsTypes.unshift('tfw');
+    }
+    
+    console.log('[formatSelectedOddsData] betTypes:', betTypes);
+    console.log('[formatSelectedOddsData] selectedOddsTypes:', selectedOddsTypes);
+
+    oddsData.forEach(odds => {
+        console.log('[formatSelectedOddsData] Processing odds_type:', odds.odds_type, 'odds_type_name:', odds.odds_type_name);
+        // 選択された馬券種のみ出力
+        if (!selectedOddsTypes.includes(odds.odds_type)) {
+            console.log('[formatSelectedOddsData] Skipping odds_type:', odds.odds_type);
+            return;
+        }
+        console.log('[formatSelectedOddsData] Including odds_type:', odds.odds_type);
+
+        formatted += `\n### ${odds.odds_type_name}\n`;
+
+        switch (odds.odds_type) {
+            case 'tfw':
+                // 単勝（全頭）
+                formatted += '\n#### 単勝\n';
+                formatted += '| 馬番 | 馬名 | オッズ |\n';
+                formatted += '|------|------|--------|\n';
+                odds.data.tansho.forEach(item => {
+                    formatted += `| ${item.horse_num} | ${item.horse_name} | ${item.odds} |\n`;
+                });
+
+                // 複勝（全頭）
+                formatted += '\n#### 複勝\n';
+                formatted += '| 馬番 | 馬名 | オッズ |\n';
+                formatted += '|------|------|--------|\n';
+                odds.data.fukusho.forEach(item => {
+                    formatted += `| ${item.horse_num} | ${item.horse_name} | ${item.odds.min} - ${item.odds.max} |\n`;
+                });
+                break;
+
+            default:
+                // その他の券種（枚連、馬連、ワイド、馬単、3連複、3連単）
                 formatted += '\n| 組み合わせ | オッズ |\n';
                 formatted += '|------------|--------|\n';
                 
@@ -879,11 +975,27 @@ async function runAIAnalysisWithOpenAI(model) {
         // プロンプト作成
         const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes, paddockHorses });
         
+        console.log('[OpenAI] Calling OpenAI API...');
+        console.log('[OpenAI] Model:', model);
+        console.log('[OpenAI] Prompt length:', prompt.length);
+        console.log('='.repeat(80));
+        console.log('[OpenAI] Full Prompt:');
+        console.log(prompt);
+        console.log('='.repeat(80));
+        
         // OpenAI APIを呼び出し
         const analysisText = await callOpenAI(model, prompt);
         
         // marked.jsを使ってMarkdownをHTMLに変換
         aiResultDiv.innerHTML = marked.parse(analysisText);
+        
+        // localStorageに保存
+        saveAIAnalysisResult(selectedRace.race_number, {
+            timestamp: Date.now(),
+            result: analysisText,
+            model: selectedModel,
+            params: { budget, minReturn, targetReturn, betTypes, paddockHorses }
+        });
         
         // AI分析完了通知を送信
         if (typeof window.notifyAIAnalysisComplete === 'function') {
@@ -899,3 +1011,168 @@ async function runAIAnalysisWithOpenAI(model) {
         aiResultDiv.innerHTML = `<div class="error">AI分析エラー: ${error.message}</div>`;
     }
 }
+
+// ====================
+// localStorage関連
+// ====================
+
+/**
+ * AI分析結果をlocalStorageに保存
+ * @param {string} raceId - レースID
+ * @param {object} data - 保存するデータ { timestamp, result, model, params }
+ */
+function saveAIAnalysisResult(raceId, data) {
+    try {
+        const savedResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
+        savedResults[raceId] = data;
+        localStorage.setItem('ai_analysis_results', JSON.stringify(savedResults));
+        console.log('[localStorage] Saved AI analysis result for race:', raceId);
+    } catch (error) {
+        console.error('[localStorage] Error saving AI analysis result:', error);
+    }
+}
+
+/**
+ * AI分析結果をlocalStorageから読み込み
+ * @param {string} raceId - レースID
+ * @returns {object|null} 保存されたデータ、または null
+ */
+function loadAIAnalysisResult(raceId) {
+    try {
+        const savedResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
+        return savedResults[raceId] || null;
+    } catch (error) {
+        console.error('[localStorage] Error loading AI analysis result:', error);
+        return null;
+    }
+}
+
+/**
+ * レース選択時に保存されたAI分析結果を自動読み込み
+ * @param {string} raceId - レースID
+ */
+function autoLoadAIAnalysisResult(raceId) {
+    console.log('[localStorage] Checking for saved analysis for race:', raceId);
+    const savedData = loadAIAnalysisResult(raceId);
+    if (savedData) {
+        const aiResultDiv = document.getElementById('aiResult');
+        if (aiResultDiv) {
+            // 保存されたMarkdownをHTMLに変換して表示
+            aiResultDiv.innerHTML = marked.parse(savedData.result);
+            
+            // 保存情報を表示
+            const savedDate = new Date(savedData.timestamp);
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'saved-info';
+            infoDiv.style.cssText = 'background: #e3f2fd; border-left: 4px solid #2196f3; padding: 10px; margin-bottom: 15px; font-size: 0.9em;';
+            infoDiv.innerHTML = `
+                <strong>💾 保存された分析結果</strong><br>
+                保存日時: ${savedDate.toLocaleString('ja-JP')}<br>
+                モデル: ${savedData.model}<br>
+                パラメータ: 予算${savedData.params.budget}円、下限${savedData.params.minReturn}%、目標${savedData.params.targetReturn}%
+            `;
+            aiResultDiv.insertBefore(infoDiv, aiResultDiv.firstChild);
+            
+            console.log('[localStorage] Loaded saved AI analysis result for race:', raceId);
+        }
+    } else {
+        console.log('[localStorage] No saved analysis found for race:', raceId);
+    }
+}
+
+// グローバルに公開
+window.autoLoadAIAnalysisResult = autoLoadAIAnalysisResult;
+
+/**
+ * 古いAI分析結果を削除（PWA対応）
+ * - raceid.csvに存在しないレースIDのデータを削除
+ * - 7日以上前のデータも削除
+ */
+async function cleanupOldAnalysisResults() {
+    try {
+        console.log('[Cleanup] Starting cleanup of old AI analysis results...');
+        
+        // raceid.csvから現在のレースIDリストを取得
+        const timestamp = new Date().getTime();
+        const raceidUrl = `https://bakechhh.github.io/keiba-index/raceid.csv?_=${timestamp}`;
+        const response = await fetch(raceidUrl, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+            }
+        });
+        
+        if (!response.ok) {
+            console.warn('[Cleanup] Failed to fetch raceid.csv');
+            return;
+        }
+        
+        const text = await response.text();
+        const lines = text.trim().split('\n');
+        const currentRaceIds = [];
+        
+        // raceid.csvをパース（1行目はヘッダーなのでスキップ）
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
+            const columns = line.split(',');
+            if (columns.length >= 1) {
+                const raceId = columns[0].trim();
+                if (raceId) {
+                    currentRaceIds.push(raceId);
+                }
+            }
+        }
+        
+        console.log('[Cleanup] Current race IDs count:', currentRaceIds.length);
+        
+        // localStorageから保存されているAI分析結果を取得
+        const savedResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
+        
+        // 古いレースIDのデータを削除
+        let deletedCount = 0;
+        const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+        
+        for (const raceId in savedResults) {
+            let shouldDelete = false;
+            
+            // 条件1: raceid.csvに存在しないレースID
+            if (!currentRaceIds.includes(raceId)) {
+                console.log('[Cleanup] Deleting race not in raceid.csv:', raceId);
+                shouldDelete = true;
+            }
+            
+            // 条件2: 7日以上前のデータ
+            if (savedResults[raceId].timestamp < sevenDaysAgo) {
+                console.log('[Cleanup] Deleting old data (>7 days):', raceId);
+                shouldDelete = true;
+            }
+            
+            if (shouldDelete) {
+                delete savedResults[raceId];
+                deletedCount++;
+            }
+        }
+        
+        // 更新されたデータを保存
+        localStorage.setItem('ai_analysis_results', JSON.stringify(savedResults));
+        
+        // 現在のレースIDリストを保存（次回の比較用）
+        localStorage.setItem('current_race_ids', JSON.stringify(currentRaceIds));
+        localStorage.setItem('last_cleanup_timestamp', Date.now().toString());
+        
+        if (deletedCount > 0) {
+            console.log(`[Cleanup] ✅ Deleted ${deletedCount} old analysis results`);
+        } else {
+            console.log('[Cleanup] ✅ No old data to delete');
+        }
+        
+    } catch (error) {
+        console.error('[Cleanup] Error during cleanup:', error);
+    }
+}
+
+// グローバルに公開
+window.cleanupOldAnalysisResults = cleanupOldAnalysisResults;
