@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測システム</title>
+    <title>競馬AI予測ツール-UmaAi-</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI">
+    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -896,7 +896,7 @@
         <!-- ヘッダー -->
         <div class="header">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h1>🏇 競馬指数予測システム</h1>
+                <h1>🏇 競馬AI予測ツール-UmaAi-</h1>
                 <div>
                     <button class="theme-toggle" onclick="toggleDarkMode()">
                         <span id="themeIcon">🌙</span>
@@ -2130,6 +2130,33 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         var currentViewMode = 'list';
         var horseMarks = {}; // 馬印データ {raceId: {horseIndex: [mark1, mark2, mark3]}}
 
+        // localStorageから馬印を読み込む
+        function loadMarksFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem('horseMarks');
+                if (saved) {
+                    horseMarks = JSON.parse(saved);
+                    console.log('[localStorage] 馬印データを読み込みました:', Object.keys(horseMarks).length, 'レース');
+                }
+            } catch (error) {
+                console.error('[localStorage] 馬印データの読み込みに失敗:', error);
+                horseMarks = {};
+            }
+        }
+
+        // localStorageに馬印を保存
+        function saveMarksToLocalStorage() {
+            try {
+                localStorage.setItem('horseMarks', JSON.stringify(horseMarks));
+                console.log('[localStorage] 馬印データを保存しました');
+            } catch (error) {
+                console.error('[localStorage] 馬印データの保存に失敗:', error);
+            }
+        }
+
+        // ページ読み込み時に馬印を復元
+        loadMarksFromLocalStorage();
+
         // 馬印の定義（netkeiba風）
         const MARKS = [
             { symbol: '—', name: 'empty', class: 'empty' },
@@ -2158,6 +2185,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             // 次の印に切り替え
             const nextMarkIndex = (currentMarkIndex + 1) % MARKS.length;
             horseMarks[raceId][horseIndex][slotIndex] = nextMarkIndex;
+
+            // localStorageに保存
+            saveMarksToLocalStorage();
 
             // 全ビューを更新（同期）
             updateAllViews(raceId);
@@ -2414,6 +2444,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             generateListView(sortedRace);
             generateSimpleView(sortedRace);
             generateDetailView(sortedRace);
+            
+            // 馬印を復元（localStorageから読み込み済みのhorseMarksを使用）
+            updateAllViews(raceIdKey);
 
             // パドック評価チェックボックスを生成
             generatePaddockEvalCheckboxes(race);
@@ -4668,8 +4701,15 @@ async function generateCombinations() {
             return;
         }
     } else if (betType === 'sanrenpuku') {
-        if (formationSelectedHorses.pos1.length < 3) {
+        // 3連複はフォーメーション形式なので、各フレームの合計でチェック
+        const totalSelected = formationSelectedHorses.pos1.length + formationSelectedHorses.pos2.length + formationSelectedHorses.pos3.length;
+        if (totalSelected < 3) {
             alert('3頭以上選択してください');
+            return;
+        }
+        // 各フレームに少なくとも1頭は選択されているか確認
+        if (formationSelectedHorses.pos1.length === 0 || formationSelectedHorses.pos2.length === 0 || formationSelectedHorses.pos3.length === 0) {
+            alert('各フレーム（1頭目、2頭目、3頭目）に少なくとも1頭ずつ選択してください');
             return;
         }
     } else if (betType === 'sanrentan') {
@@ -4890,7 +4930,9 @@ function displayCombinations() {
 
     filteredCombinations.forEach((combo, index) => {
         const originalIndex = formationCombinations.indexOf(combo);
-        const payout = Math.floor(betAmount * combo.odds);
+        // 各組み合わせに保存された金額を使用（デフォルト100円）
+        const comboAmount = combo.amount || 100;
+        const payout = Math.floor(comboAmount * combo.odds);
         const isSelected = formationSelectedCombinations.includes(originalIndex);
         
         const div = document.createElement('div');
@@ -4913,8 +4955,11 @@ function displayCombinations() {
                     <div>
                         ${combo.horseNames.join(' - ')}
                     </div>
-                    <div style="font-weight: bold; color: #27ae60;">
-                        期待払戻: ${payout.toLocaleString()}円
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="number" id="amount_${originalIndex}" value="${comboAmount}" min="100" step="100" onchange="updateComboAmount(${originalIndex}, this.value)" style="width: 80px; padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">円
+                        <div style="font-weight: bold; color: #27ae60;">
+                            → <span id="payout_${originalIndex}">${payout.toLocaleString()}</span>円
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4945,9 +4990,25 @@ function toggleCombination(index) {
             formationSelectedCombinations.splice(idx, 1);
         }
     }
-
     updateSelectedCount();
+}
 
+// 組み合わせごとの金額を更新
+function updateComboAmount(index, amount) {
+    const combo = formationCombinations[index];
+    if (!combo) return;
+    
+    // 金額を保存
+    combo.amount = parseInt(amount) || 100;
+    
+    // 払戻金額を再計算
+    const payout = Math.floor(combo.amount * combo.odds);
+    
+    // 表示を更新
+    const payoutSpan = document.getElementById(`payout_${index}`);
+    if (payoutSpan) {
+        payoutSpan.textContent = payout.toLocaleString();
+    }
     // ステップ4の表示を更新
     if (formationSelectedCombinations.length > 0) {
         document.getElementById('step4').style.display = 'block';
@@ -5052,6 +5113,19 @@ function updatePayouts() {
     `;
 }
 
+// 買い目メモに追加（簡易版）
+function addMemoItem(raceId, betType, combination, odds, amount, payout) {
+    console.log('買い目メモに追加:', {
+        raceId,
+        betType,
+        combination,
+        odds,
+        amount,
+        payout
+    });
+    // TODO: 実際のメモ機能を実装する場合は、localStorageやUIに追加
+}
+
 function addToMemoFromFormation() {
     if (formationSelectedCombinations.length === 0) {
         alert('組み合わせを選択してください');
@@ -5059,7 +5133,6 @@ function addToMemoFromFormation() {
     }
 
     const betType = document.getElementById('formationBetType').value;
-    const betAmount = parseInt(document.getElementById('betAmount').value) || 100;
 
     const betTypeNames = {
         'tansho': '単勝',
@@ -5072,12 +5145,17 @@ function addToMemoFromFormation() {
         'sanrentan': '3連単'
     };
 
+    let totalAmount = 0;
+    let addedCount = 0;
+
     formationSelectedCombinations.forEach(index => {
         const combo = formationCombinations[index];
+        // 各組み合わせの金額を取得
+        const betAmount = parseInt(combo.amount) || 100;
         const payout = Math.floor(betAmount * combo.odds);
 
         addMemoItem(
-            selectedRace.race_id,
+            selectedRace.race_number || selectedRace.race_id,
             betTypeNames[betType],
             combo.horses.join('-'),
             combo.odds.toFixed(1),
