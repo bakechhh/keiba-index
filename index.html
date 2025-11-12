@@ -2997,8 +2997,16 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 // レースカードを探してクリック
                 const raceCards = document.querySelectorAll('.race-card');
                 raceCards.forEach(card => {
-                    const cardPlace = card.querySelector('h3').textContent.split('R')[0].trim();
-                    const cardRound = parseInt(card.querySelector('h3').textContent.match(/(\d+)R/)[1]);
+                    const raceNumberDiv = card.querySelector('.race-number');
+                    if (!raceNumberDiv) return;
+                    
+                    const raceNumberText = raceNumberDiv.textContent;
+                    const match = raceNumberText.match(/(.+?)(\d+)R/);
+                    if (!match) return;
+                    
+                    const cardPlace = match[1];
+                    const cardRound = parseInt(match[2]);
+                    
                     if (cardPlace === newPlace && cardRound === currentRound) {
                         card.click();
                     }
