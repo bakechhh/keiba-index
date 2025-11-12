@@ -4512,6 +4512,13 @@ function updateFormationUI() {
         <div style="background: #34495e; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 0 0 8px 8px;">
             組み合わせ <span id="combinationCount" style="font-size: 24px; color: #f39c12;">0</span>点
         </div>
+        
+        <!-- 組み合わせ生成ボタン -->
+        <div style="padding: 20px; text-align: center;">
+            <button onclick="generateCombinations()" style="padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(102, 126, 234, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.3)';">
+                🎯 組み合わせを生成
+            </button>
+        </div>
     `;
 
     tableDiv.innerHTML = html;
