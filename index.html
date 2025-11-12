@@ -4777,18 +4777,42 @@ async function generateCombinations() {
             });
         });
     } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
-        // 枠連・馬連・ワイド
-        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
-                formationCombinations.push({
-                    horses: [horse1.horse_number, horse2.horse_number],
-                    horseNames: [horse1.horse_name, horse2.horse_name],
-                    odds: odds
-                });
+        // 枚連・馬連・ワイド
+        // pos2が空の場合はボックス、選択がある場合はpos1 × pos2のフォーメーション
+        if (formationSelectedHorses.pos2.length === 0) {
+            // ボックス形式：pos1の中から組み合わせ
+            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name],
+                        odds: odds
+                    });
+                }
             }
+        } else {
+            // フォーメーション形式：pos1 × pos2
+            const seen = new Set();
+            formationSelectedHorses.pos1.forEach(idx1 => {
+                formationSelectedHorses.pos2.forEach(idx2 => {
+                    if (idx1 === idx2) return; // 同じ馬は除外
+                    const horse1 = selectedRace.horses[idx1];
+                    const horse2 = selectedRace.horses[idx2];
+                    // 馬連・ワイドは順不同なので、重複を防ぐ
+                    const key = [horse1.horse_number, horse2.horse_number].sort((a, b) => a - b).join('-');
+                    if (seen.has(key)) return;
+                    seen.add(key);
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name],
+                        odds: odds
+                    });
+                });
+            });
         }
     } else if (betType === 'umatan') {
         // 馬単
@@ -4807,20 +4831,48 @@ async function generateCombinations() {
         });
     } else if (betType === 'sanrenpuku') {
         // 3連複
-        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
-                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                    const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
-                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
-                    formationCombinations.push({
-                        horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
-                        horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
-                        odds: odds
-                    });
+        // pos2とpos3が空の場合はボックス、選択がある場合はpos1 × pos2 × pos3のフォーメーション
+        if (formationSelectedHorses.pos2.length === 0 && formationSelectedHorses.pos3.length === 0) {
+            // ボックス形式：pos1の中から組み合わせ
+            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                    for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
+                        const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                        const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                        const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
+                        const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                        formationCombinations.push({
+                            horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                            horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                            odds: odds
+                        });
+                    }
                 }
             }
+        } else {
+            // フォーメーション形式：pos1 × pos2 × pos3
+            const seen = new Set();
+            formationSelectedHorses.pos1.forEach(idx1 => {
+                formationSelectedHorses.pos2.forEach(idx2 => {
+                    formationSelectedHorses.pos3.forEach(idx3 => {
+                        // 同じ馬は除外
+                        if (idx1 === idx2 || idx1 === idx3 || idx2 === idx3) return;
+                        const horse1 = selectedRace.horses[idx1];
+                        const horse2 = selectedRace.horses[idx2];
+                        const horse3 = selectedRace.horses[idx3];
+                        // 3連複は順不同なので、重複を防ぐ
+                        const key = [horse1.horse_number, horse2.horse_number, horse3.horse_number].sort((a, b) => a - b).join('-');
+                        if (seen.has(key)) return;
+                        seen.add(key);
+                        const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                        formationCombinations.push({
+                            horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                            horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                            odds: odds
+                        });
+                    });
+                });
+            });
         }
     } else if (betType === 'sanrentan') {
         // 3連単
