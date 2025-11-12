@@ -3518,8 +3518,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
             // AI順位と人気順位を取得
             const data = horses.map(horse => {
-                // AI順位：ai_rankフィールドを使用
-                const aiRank = horse.ai_rank || 0;
+                // AI順位：predictions.win_rate_rankを使用
+                const aiRank = horse.predictions?.win_rate_rank || 0;
                 // 人気順位：popularity
                 const popularity = horse.popularity || 0;
 
@@ -4383,10 +4383,30 @@ function updateFormationUI() {
         frameLabels = ['1頭目', '2頭目', '3頭目'];
     }
 
+    // 馬券種類名を取得
+    let betTypeName = '';
+    if (betType === 'tansho') {
+        betTypeName = '単勝';
+    } else if (betType === 'fukusho') {
+        betTypeName = '複勝';
+    } else if (betType === 'wakuren') {
+        betTypeName = '枠連';
+    } else if (betType === 'umaren') {
+        betTypeName = '馬連';
+    } else if (betType === 'wide') {
+        betTypeName = 'ワイド';
+    } else if (betType === 'umatan') {
+        betTypeName = '馬単';
+    } else if (betType === 'sanrenpuku') {
+        betTypeName = '3連複';
+    } else if (betType === 'sanrentan') {
+        betTypeName = '3連単';
+    }
+    
     // テーブルHTMLを生成
     let html = `
         <div style="background: #5b8fb9; color: white; padding: 12px; font-weight: bold; font-size: 16px; border-radius: 8px 8px 0 0;">
-            ${framesCount}連複
+            ${betTypeName}
         </div>
         
         <!-- コントロールボタン -->
@@ -4432,28 +4452,48 @@ function updateFormationUI() {
             <tbody>
     `;
 
+    // 馬を馬番号順にソート
+    const sortedHorses = [...selectedRace.horses].sort((a, b) => a.horse_number - b.horse_number);
+    
     // 各馬の行を生成
-    selectedRace.horses.forEach((horse, index) => {
+    sortedHorses.forEach((horse, sortedIndex) => {
+        // 元のindexを取得（formationSelectedHorsesで使用）
+        const originalIndex = selectedRace.horses.findIndex(h => h.horse_number === horse.horse_number);
+        
         const frameColor = getFrameColor(horse.frame_number);
+        const raceId = getRaceId(selectedRace);
+        
+        // 印を取得（最初のスロットのみ表示）
+        const markIndex = horseMarks[raceId]?.[originalIndex]?.[0] || 0;
+        const markSymbol = MARKS[markIndex].symbol;
+        const markClass = MARKS[markIndex].class;
+        
+        // AI順位を取得
+        const aiRank = horse.predictions?.win_rate_rank || '--';
+        
         html += `
             <tr style="border-bottom: 1px solid #ddd;">
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
                     ${horse.horse_number}
                 </td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">--</td>
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                    <div class="mark-slot ${markClass}" data-race="${raceId}" data-horse="${originalIndex}" data-slot="0" onclick="toggleMark('${raceId}', ${originalIndex}, 0)" style="cursor: pointer; font-size: 18px; font-weight: bold;">
+                        ${markSymbol}
+                    </div>
+                </td>
                 <td style="padding: 10px; border: 1px solid #ddd;">
                     <div style="font-weight: bold;">${horse.horse_name}</div>
-                    <div style="font-size: 12px; color: #666;">${horse.win_odds || '--'} (${horse.popularity || '--'}人気)</div>
+                    <div style="font-size: 12px; color: #666;">AI${aiRank}位 (${horse.popularity || '--'}人気)</div>
                 </td>
         `;
         
         // 各フレームのチェックボタン
         for (let i = 0; i < framesCount; i++) {
-            const isSelected = formationSelectedHorses[`pos${i + 1}`].includes(index);
+            const isSelected = formationSelectedHorses[`pos${i + 1}`].includes(originalIndex);
             html += `
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
                     <button 
-                        onclick="toggleHorseFrame(${index}, ${i})" 
+                        onclick="toggleHorseFrame(${originalIndex}, ${i})" 
                         style="width: 50px; height: 50px; border: none; border-radius: 8px; cursor: pointer; font-size: 20px; font-weight: bold; transition: all 0.2s; background: ${isSelected ? '#e74c3c' : '#ecf0f1'}; color: ${isSelected ? 'white' : '#95a5a6'};">
                         ${isSelected ? '✓' : ''}
                     </button>
@@ -4483,11 +4523,11 @@ function getFrameColor(frameNumber) {
         1: '#FFFFFF', // 白
         2: '#000000', // 黒
         3: '#FF0000', // 赤
-        4: '#0000FF', // 青
+        4: '#0066CC', // 青
         5: '#FFFF00', // 黄
-        6: '#00FF00', // 緑
-        7: '#FFA500', // オレンジ
-        8: '#FFC0CB'  // ピンク
+        6: '#00CC00', // 緑
+        7: '#FF6600', // オレンジ
+        8: '#FF99CC'  // ピンク
     };
     return colors[frameNumber] || '#CCCCCC';
 }
@@ -4510,8 +4550,17 @@ function toggleHorseFrame(horseIndex, frameIndex) {
 // 印の馬を選択
 function selectMarkedHorses(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
+    const raceId = getRaceId(selectedRace);
+    
+    // 印がついている馬（空以外）を選択
     formationSelectedHorses[pos] = [];
-    // TODO: 印機能が実装されたら、印がついている馬を選択
+    selectedRace.horses.forEach((horse, index) => {
+        const markIndex = horseMarks[raceId]?.[index]?.[0] || 0;
+        if (markIndex > 0) { // 0は空（—）
+            formationSelectedHorses[pos].push(index);
+        }
+    });
+    
     updateFormationUI();
     updateCombinationCount();
 }
@@ -4624,9 +4673,18 @@ async function generateCombinations() {
     }
 
     // オッズデータを取得
-    const oddsData = await loadOddsData(selectedRace.race_id);
-    if (!oddsData) {
-        alert('オッズデータを取得できませんでした');
+    // race_idが存在しない場合は、place + round から生成
+    let raceId = selectedRace.race_id;
+    if (!raceId) {
+        raceId = `${selectedRace.place}${selectedRace.round}R`;
+    }
+    
+    console.log('Loading odds data for:', raceId);
+    const oddsData = await loadOddsData(raceId);
+    console.log('Odds data loaded:', oddsData);
+    
+    if (!oddsData || oddsData.length === 0) {
+        alert(`オッズデータを取得できませんでした (race_id: ${raceId})`);
         return;
     }
 
