@@ -2010,11 +2010,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
                 <!-- ステップ2: 馬選択 -->
                 <div id="step2" style="margin-bottom: 20px;">
-                    <h3 style="color: #333; margin-bottom: 15px;">ステップ2: 馬を選択</h3>
-                    <div id="horseSelection"></div>
-                    <button onclick="generateCombinations()" style="margin-top: 15px; padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
-                        組み合わせを生成
-                    </button>
+                    <h3 style="color: #333; margin-bottom: 15px;">組み合わせ選択</h3>
+                    <div id="horseSelectionTable" style="overflow-x: auto;"></div>
                 </div>
 
                 <!-- ステップ3: 組み合わせ選択 -->
@@ -3521,8 +3518,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
             // AI順位と人気順位を取得
             const data = horses.map(horse => {
-                // AI順位：final_scoreでソート
-                const aiRank = horses.sort((a, b) => b.final_score - a.final_score).findIndex(h => h.horse_number === horse.horse_number) + 1;
+                // AI順位：ai_rankフィールドを使用
+                const aiRank = horse.ai_rank || 0;
                 // 人気順位：popularity
                 const popularity = horse.popularity || 0;
 
@@ -4372,99 +4369,228 @@ function clearOddsFilter() {
 
 function updateFormationUI() {
     const betType = document.getElementById('formationBetType').value;
-    const selectionDiv = document.getElementById('horseSelection');
+    const tableDiv = document.getElementById('horseSelectionTable');
 
-    selectionDiv.innerHTML = '';
-
-    // 馬券種に応じて選択UIを生成
-    if (betType === 'tansho' || betType === 'fukusho') {
-        // 単勝・複勝: 1頭のみ選択
-        selectionDiv.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択:</label>
-                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-        `;
-    } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
-        // 枠連・馬連・ワイド: 2頭選択（順序なし）
-        selectionDiv.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択 (2頭以上):</label>
-                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-        `;
-    } else if (betType === 'umatan') {
-        // 馬単: 1着・2着で2頭選択
-        selectionDiv.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">1着候補:</label>
-                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">2着候補:</label>
-                <div id="pos2Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-        `;
-    } else if (betType === 'sanrenpuku') {
-        // 3連複: 3頭選択（順序なし）
-        selectionDiv.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択 (3頭以上):</label>
-                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-        `;
-    } else if (betType === 'sanrentan') {
-        // 3連単: 1着・2着・3着で3頭選択
-        selectionDiv.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">1着候補:</label>
-                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">2着候補:</label>
-                <div id="pos2Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-            <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: bold; margin-bottom: 10px;">3着候補:</label>
-                <div id="pos3Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
-            </div>
-        `;
+    // 馬券種に応じたフレーム数を決定
+    let framesCount = 1;
+    let frameLabels = ['1頭目'];
+    
+    if (betType === 'umaren' || betType === 'wide' || betType === 'umatan' || betType === 'wakuren') {
+        framesCount = 2;
+        frameLabels = ['1頭目', '2頭目'];
+    } else if (betType === 'sanrenpuku' || betType === 'sanrentan') {
+        framesCount = 3;
+        frameLabels = ['1頭目', '2頭目', '3頭目'];
     }
 
-    // 馬のチェックボックスを生成
-    generateHorseCheckboxes();
-}
+    // テーブルHTMLを生成
+    let html = `
+        <div style="background: #5b8fb9; color: white; padding: 12px; font-weight: bold; font-size: 16px; border-radius: 8px 8px 0 0;">
+            ${framesCount}連複
+        </div>
+        
+        <!-- コントロールボタン -->
+        <div style="background: #f5f5f5; padding: 10px; border: 1px solid #ddd; border-top: none;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold; width: 200px;">印の馬を選択</td>
+                    ${frameLabels.map((label, i) => `
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd; text-align: center; width: 80px;">
+                            <button onclick="selectMarkedHorses(${i})" style="width: 40px; height: 40px; border: 2px solid #ccc; border-radius: 4px; background: white; cursor: pointer; font-weight: bold;">印</button>
+                        </td>
+                    `).join('')}
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border-bottom: 1px solid #ddd; font-weight: bold;">すべてを選択</td>
+                    ${frameLabels.map((label, i) => `
+                        <td style="padding: 8px; border-bottom: 1px solid #ddd; text-align: center;">
+                            <button onclick="selectAllHorses(${i})" style="width: 40px; height: 40px; border: 2px solid #ccc; border-radius: 4px; background: white; cursor: pointer; font-size: 18px;">↑</button>
+                        </td>
+                    `).join('')}
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">すべてをクリア</td>
+                    ${frameLabels.map((label, i) => `
+                        <td style="padding: 8px; text-align: center;">
+                            <button onclick="clearSelection(${i})" style="width: 40px; height: 40px; border: 2px solid #ccc; border-radius: 4px; background: white; cursor: pointer; font-size: 18px;">×</button>
+                        </td>
+                    `).join('')}
+                </tr>
+            </table>
+        </div>
+        
+        <!-- 馬テーブル -->
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+            <thead>
+                <tr style="background: #f5f5f5;">
+                    <th style="padding: 10px; border: 1px solid #ddd; width: 60px;">馬番</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; width: 50px;">印</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">馬名</th>
+                    ${frameLabels.map(label => `<th style="padding: 10px; border: 1px solid #ddd; width: 80px;">${label}</th>`).join('')}
+                </tr>
+            </thead>
+            <tbody>
+    `;
 
-function generateHorseCheckboxes() {
-    const betType = document.getElementById('formationBetType').value;
-
-    ['pos1', 'pos2', 'pos3'].forEach(pos => {
-        const div = document.getElementById(`${pos}Horses`);
-        if (!div) return;
-
-        div.innerHTML = '';
-
-        selectedRace.horses.forEach((horse, index) => {
-            const checkbox = document.createElement('label');
-            checkbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.3s;';
-            checkbox.innerHTML = `
-                <input type="checkbox" value="${index}" onchange="toggleHorse('${pos}', ${index})" ${formationSelectedHorses[pos].includes(index) ? 'checked' : ''} style="cursor: pointer;">
-                <span style="font-weight: bold;">${horse.horse_number}</span>
-                <span style="font-size: 13px;">${horse.horse_name}</span>
+    // 各馬の行を生成
+    selectedRace.horses.forEach((horse, index) => {
+        const frameColor = getFrameColor(horse.frame_number);
+        html += `
+            <tr style="border-bottom: 1px solid #ddd;">
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                    ${horse.horse_number}
+                </td>
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">--</td>
+                <td style="padding: 10px; border: 1px solid #ddd;">
+                    <div style="font-weight: bold;">${horse.horse_name}</div>
+                    <div style="font-size: 12px; color: #666;">${horse.win_odds || '--'} (${horse.popularity || '--'}人気)</div>
+                </td>
+        `;
+        
+        // 各フレームのチェックボタン
+        for (let i = 0; i < framesCount; i++) {
+            const isSelected = formationSelectedHorses[`pos${i + 1}`].includes(index);
+            html += `
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                    <button 
+                        onclick="toggleHorseFrame(${index}, ${i})" 
+                        style="width: 50px; height: 50px; border: none; border-radius: 8px; cursor: pointer; font-size: 20px; font-weight: bold; transition: all 0.2s; background: ${isSelected ? '#e74c3c' : '#ecf0f1'}; color: ${isSelected ? 'white' : '#95a5a6'};">
+                        ${isSelected ? '✓' : ''}
+                    </button>
+                </td>
             `;
-            div.appendChild(checkbox);
-        });
+        }
+        
+        html += '</tr>';
     });
+
+    html += `
+            </tbody>
+        </table>
+        
+        <!-- 組み合わせ点数表示 -->
+        <div style="background: #34495e; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 0 0 8px 8px;">
+            組み合わせ <span id="combinationCount" style="font-size: 24px; color: #f39c12;">0</span>点
+        </div>
+    `;
+
+    tableDiv.innerHTML = html;
 }
 
-function toggleHorse(pos, index) {
-    const idx = formationSelectedHorses[pos].indexOf(index);
+// 枠色を取得
+function getFrameColor(frameNumber) {
+    const colors = {
+        1: '#FFFFFF', // 白
+        2: '#000000', // 黒
+        3: '#FF0000', // 赤
+        4: '#0000FF', // 青
+        5: '#FFFF00', // 黄
+        6: '#00FF00', // 緑
+        7: '#FFA500', // オレンジ
+        8: '#FFC0CB'  // ピンク
+    };
+    return colors[frameNumber] || '#CCCCCC';
+}
+
+// 馬のフレーム選択をトグル
+function toggleHorseFrame(horseIndex, frameIndex) {
+    const pos = `pos${frameIndex + 1}`;
+    const idx = formationSelectedHorses[pos].indexOf(horseIndex);
+    
     if (idx > -1) {
         formationSelectedHorses[pos].splice(idx, 1);
     } else {
-        formationSelectedHorses[pos].push(index);
+        formationSelectedHorses[pos].push(horseIndex);
+    }
+    
+    updateFormationUI();
+    updateCombinationCount();
+}
+
+// 印の馬を選択
+function selectMarkedHorses(frameIndex) {
+    const pos = `pos${frameIndex + 1}`;
+    formationSelectedHorses[pos] = [];
+    // TODO: 印機能が実装されたら、印がついている馬を選択
+    updateFormationUI();
+    updateCombinationCount();
+}
+
+// すべての馬を選択
+function selectAllHorses(frameIndex) {
+    const pos = `pos${frameIndex + 1}`;
+    formationSelectedHorses[pos] = selectedRace.horses.map((h, i) => i);
+    updateFormationUI();
+    updateCombinationCount();
+}
+
+// 選択をクリア
+function clearSelection(frameIndex) {
+    const pos = `pos${frameIndex + 1}`;
+    formationSelectedHorses[pos] = [];
+    updateFormationUI();
+    updateCombinationCount();
+}
+
+// 組み合わせ点数を更新
+function updateCombinationCount() {
+    const betType = document.getElementById('formationBetType').value;
+    let count = 0;
+    
+    const pos1 = formationSelectedHorses.pos1;
+    const pos2 = formationSelectedHorses.pos2;
+    const pos3 = formationSelectedHorses.pos3;
+    
+    if (betType === 'tansho' || betType === 'fukusho') {
+        count = pos1.length;
+    } else if (betType === 'umaren' || betType === 'wide' || betType === 'wakuren') {
+        // 組み合わせ数を計算（重複を除く）
+        const combinations = new Set();
+        pos1.forEach(h1 => {
+            pos2.forEach(h2 => {
+                if (h1 !== h2) {
+                    const pair = [h1, h2].sort((a, b) => a - b).join('-');
+                    combinations.add(pair);
+                }
+            });
+        });
+        count = combinations.size;
+    } else if (betType === 'umatan') {
+        pos1.forEach(h1 => {
+            pos2.forEach(h2 => {
+                if (h1 !== h2) count++;
+            });
+        });
+    } else if (betType === 'sanrenpuku') {
+        const combinations = new Set();
+        pos1.forEach(h1 => {
+            pos2.forEach(h2 => {
+                pos3.forEach(h3 => {
+                    if (h1 !== h2 && h2 !== h3 && h1 !== h3) {
+                        const trio = [h1, h2, h3].sort((a, b) => a - b).join('-');
+                        combinations.add(trio);
+                    }
+                });
+            });
+        });
+        count = combinations.size;
+    } else if (betType === 'sanrentan') {
+        pos1.forEach(h1 => {
+            pos2.forEach(h2 => {
+                pos3.forEach(h3 => {
+                    if (h1 !== h2 && h2 !== h3 && h1 !== h3) count++;
+                });
+            });
+        });
+    }
+    
+    const countEl = document.getElementById('combinationCount');
+    if (countEl) {
+        countEl.textContent = count;
     }
 }
+
+// 削除: 古いgenerateHorseCheckboxesとtoggleHorse関数は上記のupdateFormationUIに統合
 
 async function generateCombinations() {
     const betType = document.getElementById('formationBetType').value;
