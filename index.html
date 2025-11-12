@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>競馬AI予測システム</title>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
-    
+
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="競馬AI">
-    
+
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
-    
+
     <!-- iOS Icons (apple-touch-icon) -->
     <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png">
     <link rel="apple-touch-icon" sizes="152x152" href="./icons/icon-152.png">
@@ -697,18 +697,18 @@
                 font-size: 10px;
                 white-space: nowrap;
             }
-            
+
             /* テーブルを横スクロール可能に */
             .list-view {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            
+
             /* ヘッダーの通知ボタンを小さく */
             .header h1 {
                 font-size: 18px;
             }
-            
+
             .header button {
                 font-size: 12px !important;
                 padding: 6px 12px !important;
@@ -1430,7 +1430,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         <span class="btn-icon">🚀</span>
                         <span class="btn-text">分析開始</span>
                     </button>
-                    
+
                     <!-- 馬券ツールボタン -->
                     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px;">
                         <button onclick="openFormationModal()" style="padding: 12px; background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: white; border: none; border-radius: 10px; font-size: 13px; font-weight: bold; cursor: pointer;">
@@ -1780,7 +1780,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             <span class="modal-close" onclick="closeScatterModal()">&times;</span>
             <div id="scatterContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">📊 AI順位 vs 人気順位 散布図</h2>
-                
+
                 <!-- 説明セクション -->
                 <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
                     <h3 style="color: #667eea; font-size: 16px; margin-bottom: 10px;">👁️ 散布図の見方</h3>
@@ -1821,7 +1821,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         </div>
                     </div>
                 </div>
-                
+
                 <canvas id="scatterChart" style="max-height: 500px;"></canvas>
             </div>
         </div>
@@ -1833,7 +1833,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             <span class="modal-close" onclick="closePurchaseModal()">&times;</span>
             <div id="purchaseContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">📊 購入履歴・収支管理</h2>
-                
+
                 <!-- タブ切り替え -->
                 <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e0e0e0;">
                     <button id="purchaseTab" onclick="switchPurchaseTab('purchase')" style="flex: 1; padding: 12px; background: #667eea; color: white; border: none; border-radius: 10px 10px 0 0; cursor: pointer;">
@@ -1843,13 +1843,13 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         💰 収支管理
                     </button>
                 </div>
-                
+
                 <!-- 購入履歴タブ -->
                 <div id="purchaseTabContent" style="display: block;">
                     <!-- 購入追加フォーム -->
                     <div style="margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                         <h3 style="color: #667eea; margin-bottom: 15px;">購入を記録</h3>
-                        
+
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
                             <div>
                                 <label style="display: block; font-weight: bold; margin-bottom: 5px;">馬券種:</label>
@@ -1864,17 +1864,17 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                                     <option value="3連単">3連単</option>
                                 </select>
                             </div>
-                            
+
                             <div>
                                 <label style="display: block; font-weight: bold; margin-bottom: 5px;">買い目:</label>
                                 <input type="text" id="purchaseNumbers" placeholder="1-3-5" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
                             </div>
-                            
+
                             <div>
                                 <label style="display: block; font-weight: bold; margin-bottom: 5px;">購入金額 (円):</label>
                                 <input type="number" id="purchaseAmount" value="100" min="100" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
                             </div>
-                            
+
                             <div>
                                 <label style="display: block; font-weight: bold; margin-bottom: 5px;">的中状況:</label>
                                 <select id="purchaseResult" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
@@ -1883,33 +1883,33 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                                     <option value="miss">不的中</option>
                                 </select>
                             </div>
-                            
+
                             <div>
                                 <label style="display: block; font-weight: bold; margin-bottom: 5px;">配当金 (円):</label>
                                 <input type="number" id="purchasePayout" value="0" min="0" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
                             </div>
                         </div>
-                        
+
                         <button onclick="addPurchase()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 15px;">
                             記録
                         </button>
                     </div>
-                    
+
                     <!-- 購入履歴一覧 -->
                     <div id="purchaseList"></div>
                 </div>
-                
+
                 <!-- 収支管理タブ -->
                 <div id="balanceTabContent" style="display: none;">
                     <!-- 収支サマリー -->
                     <div id="balanceSummary" style="margin-bottom: 20px;"></div>
-                    
+
                     <!-- 収支グラフ -->
                     <div style="padding: 20px; background: #f8f9fa; border-radius: 12px;">
                         <h3 style="color: #667eea; margin-bottom: 15px;">収支推移</h3>
                         <canvas id="balanceChart" style="max-height: 300px;"></canvas>
                     </div>
-                    
+
                     <!-- 回収率シミュレーター -->
                     <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                         <h3 style="color: #667eea; margin-bottom: 15px;">📈 回収率シミュレーター</h3>
@@ -1944,11 +1944,11 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             <span class="modal-close" onclick="closeMemoModal()">&times;</span>
             <div id="memoContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">📝 買い目メモ</h2>
-                
+
                 <!-- メモ追加フォーム -->
                 <div style="margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
                     <h3 style="color: #667eea; margin-bottom: 15px;">新しい買い目を追加</h3>
-                    
+
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-weight: bold; margin-bottom: 5px;">馬券種:</label>
                         <select id="memoBetType" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
@@ -1962,30 +1962,30 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             <option value="3連単">3連単</option>
                         </select>
                     </div>
-                    
+
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-weight: bold; margin-bottom: 5px;">買い目 (例: 1-3-5):</label>
                         <input type="text" id="memoNumbers" placeholder="1-3-5" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
                     </div>
-                    
+
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-weight: bold; margin-bottom: 5px;">購入金額 (円):</label>
                         <input type="number" id="memoAmount" value="100" min="100" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
                     </div>
-                    
+
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-weight: bold; margin-bottom: 5px;">メモ:</label>
                         <textarea id="memoNote" placeholder="AI推奨、本命、穴など" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0; min-height: 60px;"></textarea>
                     </div>
-                    
+
                     <button onclick="addMemo()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
                         追加
                     </button>
                 </div>
-                
+
                 <!-- メモ一覧 -->
                 <div id="memoList" style="margin-bottom: 20px;"></div>
-                
+
                 <!-- IPAT用出力 -->
                 <div style="padding: 20px; background: #f8f9fa; border-radius: 12px;">
                     <h3 style="color: #667eea; margin-bottom: 15px;">📋 IPAT用購入リスト</h3>
@@ -2004,7 +2004,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             <span class="modal-close" onclick="closeFormationModal()">&times;</span>
             <div id="formationContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">🎫 馬券フォーメーション計算機</h2>
-                
+
                 <!-- ステップ1: 馬券種選択 -->
                 <div id="step1" style="margin-bottom: 20px;">
                     <h3 style="color: #333; margin-bottom: 15px;">ステップ1: 馬券種を選択</h3>
@@ -2029,7 +2029,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 <!-- ステップ3: 組み合わせ選択 -->
                 <div id="step3" style="display: none; margin-bottom: 20px;">
                     <h3 style="color: #333; margin-bottom: 15px;">ステップ3: 買いたい組み合わせを選択</h3>
-                    
+
                     <!-- ソート・フィルターコントロール -->
                     <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
                         <label style="font-weight: bold; font-size: 14px;">ソート:</label>
@@ -2038,7 +2038,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             <option value="odds_asc">オッズ順 (低→高)</option>
                             <option value="number_asc">馬番順</option>
                         </select>
-                        
+
                         <label style="font-weight: bold; font-size: 14px; margin-left: 15px;">オッズフィルター:</label>
                         <input type="number" id="minOdds" placeholder="最小" min="0" step="0.1" style="width: 80px; padding: 6px; border-radius: 6px; border: 2px solid #e0e0e0; font-size: 14px;">
                         <span>～</span>
@@ -2046,7 +2046,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         <button onclick="applyOddsFilter()" style="padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">適用</button>
                         <button onclick="clearOddsFilter()" style="padding: 6px 12px; background: #95a5a6; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">クリア</button>
                     </div>
-                    
+
                     <div style="margin-bottom: 15px;">
                         <button onclick="selectAllCombinations()" style="padding: 8px 16px; background: #3498db; color: white; border: none; border-radius: 8px; margin-right: 10px; cursor: pointer;">すべて選択</button>
                         <button onclick="clearAllCombinations()" style="padding: 8px 16px; background: #95a5a6; color: white; border: none; border-radius: 8px; cursor: pointer;">すべてクリア</button>
@@ -2231,55 +2231,19 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             });
         }
 
-        // レースIDマップ（レース名→数字ID）
-        let raceIdMap = {};
-
-        // raceid.csvを読み込んでレースIDマップを作成
-        async function loadRaceIdMap() {
-            try {
-                const response = await fetch('./raceid.csv');
-                const text = await response.text();
-                const lines = text.split('\n');
-                
-                // 1行目はヘッダーなのでスキップ
-                for (let i = 1; i < lines.length; i++) {
-                    const line = lines[i].trim();
-                    if (!line) continue;
-                    
-                    const parts = line.split(',');
-                    if (parts.length >= 2) {
-                        const raceName = parts[0].trim(); // 例：福坠1R
-                        const raceId = parts[1].trim();   // 例：2503030201
-                        raceIdMap[raceName] = raceId;
-                    }
-                }
-                
-                console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
-            } catch (error) {
-                console.error('[RaceID] Failed to load raceid.csv:', error);
-            }
-        }
-
-        // レースIDを生成（数字IDを返す）
+        // レースIDを生成
         function getRaceId(race) {
-            const raceName = `${race.place}${race.round}R`;
-            return raceIdMap[raceName] || raceName; // マップになければフォールバック
+            return `${race.date}_${race.place}_${race.round}`;
         }
 
         // データを読み込み
         async function loadData() {
             try {
-                // raceid.csvを最初に読み込む
-                await loadRaceIdMap();
-                
                 // 古いAI分析結果を削除（PWA対応）
                 if (typeof window.cleanupOldAnalysisResults === 'function') {
                     await window.cleanupOldAnalysisResults();
                 }
-                
-                // 古いレースのデータを削除
-                cleanupOldRaceData();
-                
+
                 // racedataフォルダから個別JSONファイルを読み込む
                 allRaces = await loadAllRaceData();
 
@@ -2332,7 +2296,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
             dateFilter.addEventListener('change', applyFilters);
             placeFilter.addEventListener('change', applyFilters);
-            
+
             // お気に入りフィルターのイベントリスナー
             const favoriteFilter = document.getElementById('favoriteFilter');
             favoriteFilter.addEventListener('change', applyFilters);
@@ -2347,7 +2311,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             filteredRaces = allRaces.filter(race => {
                 const matchDate = !dateFilter || race.date === dateFilter;
                 const matchPlace = !placeFilter || race.place === placeFilter;
-                
+
                 // お気に入りフィルター
                 if (favoriteFilter) {
                     const raceId = `${race.date}_${race.place}_${race.round}`;
@@ -2355,7 +2319,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         return false;
                     }
                 }
-                
+
                 return matchDate && matchPlace;
             });
 
@@ -2455,12 +2419,12 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
             // クリックされたカードを選択状態に
             cardElement.classList.add('active');
-            
+
             // レース切替時にAI分析とオッズタブをクリア
             document.getElementById('aiResult').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">「AI分析」ボタンをクリックして分析を開始してください。</div>';
             document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータを読み込み中...</div>';
             currentOddsData = null;
-            
+
             // localStorageからAI分析結果を自動読み込み
             const raceId = `${race.place}${race.round}R`;
             if (typeof window.autoLoadAIAnalysisResult === 'function') {
@@ -2507,7 +2471,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             generateListView(sortedRace);
             generateSimpleView(sortedRace);
             generateDetailView(sortedRace);
-            
+
             // 馬印を復元（localStorageから読み込み済みのhorseMarksを使用）
             updateAllViews(raceIdKey);
 
@@ -3334,13 +3298,13 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
         // 初期化
         loadData();
-        
+
         // APIキーのLocalStorage処理
         (function() {
             const apiKeyInput = document.getElementById('geminiApiKey');
             const apiKeySaveStatus = document.getElementById('apiKeySaveStatus');
             const STORAGE_KEY = 'gemini_api_key';
-            
+
             // ページ読み込み時にLocalStorageからAPIキーを取得
             const savedApiKey = localStorage.getItem(STORAGE_KEY);
             if (savedApiKey) {
@@ -3348,11 +3312,11 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 apiKeySaveStatus.innerHTML = '✅ APIキーが保存されています';
                 apiKeySaveStatus.style.color = '#4caf50';
             }
-            
+
             // APIキー入力時にLocalStorageに保存
             apiKeyInput.addEventListener('input', function() {
                 const apiKey = apiKeyInput.value.trim();
-                
+
                 if (apiKey) {
                     localStorage.setItem(STORAGE_KEY, apiKey);
                     apiKeySaveStatus.innerHTML = '✅ 保存されました';
@@ -3364,12 +3328,12 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 }
             });
         })();
-        
+
         // モデル選択時にOpenAI APIキー欄を表示/非表示
         (function() {
             const modelSelect = document.getElementById('geminiModel');
             const openaiApiKeySection = document.getElementById('openaiApiKeySection');
-            
+
             function toggleOpenAIKeySection() {
                 const selectedModel = modelSelect.value;
                 if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
@@ -3378,15 +3342,15 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     openaiApiKeySection.style.display = 'none';
                 }
             }
-            
+
             modelSelect.addEventListener('change', toggleOpenAIKeySection);
             toggleOpenAIKeySection(); // 初期表示
         })();
     </script>
-    
+
     <!-- Notification Manager -->
     <script src="./notification.js"></script>
-    
+
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
@@ -3399,11 +3363,11 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         console.error('[PWA] Service Worker registration failed:', error);
                     });
             });
-            
+
             // Service Workerからのメッセージを受け取る（通知クリック時のAIタブ切り替え）
             navigator.serviceWorker.addEventListener('message', (event) => {
                 console.log('[PWA] Message from Service Worker:', event.data);
-                
+
                 if (event.data.action === 'switch-to-ai-tab') {
                     // AI分析タブに切り替え
                     const aiTab = document.querySelector('.tab-button[data-mode="ai"]');
@@ -3411,7 +3375,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         aiTab.click();
                         console.log('[PWA] Switched to AI analysis tab');
                     }
-                    
+
                     // AI分析結果にスクロール
                     setTimeout(() => {
                         const aiResult = document.getElementById('aiResult');
@@ -3455,14 +3419,14 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 raceCards.forEach(card => {
                     const raceNumberDiv = card.querySelector('.race-number');
                     if (!raceNumberDiv) return;
-                    
+
                     const raceNumberText = raceNumberDiv.textContent;
                     const match = raceNumberText.match(/(.+?)(\d+)R/);
                     if (!match) return;
-                    
+
                     const cardPlace = match[1];
                     const cardRound = parseInt(match[2]);
-                    
+
                     if (cardPlace === newPlace && cardRound === currentRound) {
                         card.click();
                     }
@@ -4040,7 +4004,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         // 回収率シミュレーター
         function runRecoverySimulation() {
             const simulatorDiv = document.getElementById('recoverySimulator');
-            
+
             // AI分析結果をlocalStorageから取得
             const analysisResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
             const resultKeys = Object.keys(analysisResults);
@@ -4065,7 +4029,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
                 // AI推奨馬券を抽出（簡略化：テキストから馬番を抽出）
                 const text = result.result;
-                
+
                 // 「本命」セクションから馬券を抽出
                 const honmeiMatch = text.match(/本命[\s\S]*?：([\s\S]*?)(?=\n\n|押え|大穴|$)/i);
                 if (honmeiMatch) {
@@ -4075,7 +4039,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     if (numberMatches && numberMatches.length > 0) {
                         totalBets++;
                         totalInvested += betAmount;
-                        
+
                         // 的中判定（簡略化：実際の結果データが必要）
                         // ここではダミーデータとしてランダムに的中判定
                         const isHit = Math.random() < 0.3; // 30%の的中率
@@ -4139,9 +4103,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         function initPresetSelect() {
             const presets = getPresets();
             const select = document.getElementById('presetSelect');
-            
+
             select.innerHTML = '<option value="">プリセットを選択</option>';
-            
+
             presets.forEach((preset, index) => {
                 const option = document.createElement('option');
                 option.value = index;
@@ -4183,7 +4147,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         function loadPreset() {
             const select = document.getElementById('presetSelect');
             const index = select.value;
-            
+
             if (index === '') return;
 
             const presets = getPresets();
@@ -4206,7 +4170,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         function deletePreset() {
             const select = document.getElementById('presetSelect');
             const index = select.value;
-            
+
             if (index === '') {
                 alert('削除するプリセットを選択してください');
                 return;
@@ -4383,7 +4347,7 @@ function closeFormationModal() {
 // ソート機能
 function sortCombinations() {
     const sortOrder = document.getElementById('sortOrder').value;
-    
+
     if (sortOrder === 'odds_desc') {
         formationCombinations.sort((a, b) => b.odds - a.odds);
     } else if (sortOrder === 'odds_asc') {
@@ -4395,7 +4359,7 @@ function sortCombinations() {
             return aNum - bNum;
         });
     }
-    
+
     displayCombinations();
 }
 
@@ -4403,32 +4367,32 @@ function sortCombinations() {
 function applyOddsFilter() {
     const minOdds = parseFloat(document.getElementById('minOdds').value) || 0;
     const maxOdds = parseFloat(document.getElementById('maxOdds').value) || Infinity;
-    
+
     const listDiv = document.getElementById('combinationList');
     listDiv.innerHTML = '';
-    
+
     filteredCombinations = formationCombinations.filter(combo => {
         return combo.odds >= minOdds && combo.odds <= maxOdds;
     });
-    
+
     if (filteredCombinations.length === 0) {
         listDiv.innerHTML = '<p style="color: #999;">条件に一致する組み合わせがありません</p>';
         updateDisplayCount();
         return;
     }
-    
+
     const betAmount = parseInt(document.getElementById('betAmount')?.value) || 100;
-    
+
     filteredCombinations.forEach((combo) => {
         const originalIndex = formationCombinations.indexOf(combo);
         const payout = Math.floor(betAmount * combo.odds);
         const isSelected = formationSelectedCombinations.includes(originalIndex);
-        
+
         const div = document.createElement('div');
         div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; transition: all 0.2s;';
         div.onmouseenter = function() { this.style.background = '#e8f4f8'; };
         div.onmouseleave = function() { this.style.background = '#f8f9fa'; };
-        
+
         div.innerHTML = `
             <input type="checkbox" id="combo_${originalIndex}" onchange="toggleCombination(${originalIndex})" ${isSelected ? 'checked' : ''} style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
             <div style="flex: 1;">
@@ -4452,7 +4416,7 @@ function applyOddsFilter() {
         `;
         listDiv.appendChild(div);
     });
-    
+
     updateDisplayCount();
 }
 
@@ -4467,24 +4431,10 @@ function updateFormationUI() {
     const betType = document.getElementById('formationBetType').value;
     const tableDiv = document.getElementById('horseSelectionTable');
 
-    // 券種切り替え時に選択をリセット
-    formationSelectedHorses = {
-        pos1: [],
-        pos2: [],
-        pos3: []
-    };
-    
-    // 組み合わせもクリア
-    formationCombinations = [];
-    
-    // ステップ3を非表示
-    document.getElementById('step3').style.display = 'none';
-    document.getElementById('step4').style.display = 'none';
-
     // 馬券種に応じたフレーム数を決定
     let framesCount = 1;
     let frameLabels = ['1頭目'];
-    
+
     if (betType === 'umaren' || betType === 'wide' || betType === 'umatan' || betType === 'wakuren') {
         framesCount = 2;
         frameLabels = ['1頭目', '2頭目'];
@@ -4512,13 +4462,13 @@ function updateFormationUI() {
     } else if (betType === 'sanrentan') {
         betTypeName = '3連単';
     }
-    
+
     // テーブルHTMLを生成
     let html = `
         <div style="background: #5b8fb9; color: white; padding: 12px; font-weight: bold; font-size: 16px; border-radius: 8px 8px 0 0;">
             ${betTypeName}
         </div>
-        
+
         <!-- コントロールボタン -->
         <div style="background: #f5f5f5; padding: 10px; border: 1px solid #ddd; border-top: none;">
             <table style="width: 100%; border-collapse: collapse;">
@@ -4548,7 +4498,7 @@ function updateFormationUI() {
                 </tr>
             </table>
         </div>
-        
+
         <!-- 馬テーブル -->
         <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
@@ -4564,33 +4514,26 @@ function updateFormationUI() {
 
     // 馬を馬番号順にソート
     const sortedHorses = [...selectedRace.horses].sort((a, b) => a.horse_number - b.horse_number);
-    
+
     // 各馬の行を生成
     sortedHorses.forEach((horse, sortedIndex) => {
         // 元のindexを取得（formationSelectedHorsesで使用）
         const originalIndex = selectedRace.horses.findIndex(h => h.horse_number === horse.horse_number);
-        
-        // 馬番と頭数から枚番を計算
-        const totalHorses = selectedRace.horses.length;
-        const frameNumber = getFrameNumber(horse.horse_number, totalHorses);
-        const frameColor = getFrameColor(frameNumber);
+
+        const frameColor = getFrameColor(horse.frame_number);
         const raceId = getRaceId(selectedRace);
-        
-        // 枚色に応じて文字色を変更（白・黄色は黒文字）
-        const textColor = (frameNumber === 1 || frameNumber === 5) ? '#000000' : '#FFFFFF';
-        const textShadow = (frameNumber === 1 || frameNumber === 5) ? 'none' : '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
-        
+
         // 印を取得（最初のスロットのみ表示）
         const markIndex = horseMarks[raceId]?.[originalIndex]?.[0] || 0;
         const markSymbol = MARKS[markIndex].symbol;
         const markClass = MARKS[markIndex].class;
-        
+
         // AI順位を取得
         const aiRank = horse.predictions?.win_rate_rank || '--';
-        
+
         html += `
             <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: ${textColor}; text-shadow: ${textShadow};">
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
                     ${horse.horse_number}
                 </td>
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
@@ -4603,33 +4546,33 @@ function updateFormationUI() {
                     <div style="font-size: 12px; color: #666;">AI${aiRank}位 (${horse.popularity || '--'}人気)</div>
                 </td>
         `;
-        
+
         // 各フレームのチェックボタン
         for (let i = 0; i < framesCount; i++) {
             const isSelected = formationSelectedHorses[`pos${i + 1}`].includes(originalIndex);
             html += `
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
-                    <button 
-                        onclick="toggleHorseFrame(${originalIndex}, ${i})" 
+                    <button
+                        onclick="toggleHorseFrame(${originalIndex}, ${i})"
                         style="width: 50px; height: 50px; border: none; border-radius: 8px; cursor: pointer; font-size: 20px; font-weight: bold; transition: all 0.2s; background: ${isSelected ? '#e74c3c' : '#ecf0f1'}; color: ${isSelected ? 'white' : '#95a5a6'};">
                         ${isSelected ? '✓' : ''}
                     </button>
                 </td>
             `;
         }
-        
+
         html += '</tr>';
     });
 
     html += `
             </tbody>
         </table>
-        
+
         <!-- 組み合わせ点数表示 -->
         <div style="background: #34495e; color: white; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; border-radius: 0 0 8px 8px;">
             組み合わせ <span id="combinationCount" style="font-size: 24px; color: #f39c12;">0</span>点
         </div>
-        
+
         <!-- 組み合わせ生成ボタン -->
         <div style="padding: 20px; text-align: center;">
             <button onclick="generateCombinations()" style="padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(102, 126, 234, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(102, 126, 234, 0.3)';">
@@ -4641,44 +4584,7 @@ function updateFormationUI() {
     tableDiv.innerHTML = html;
 }
 
-// 馬番と頭数から枚番を計算
-function getFrameNumber(horseNumber, totalHorses) {
-    // 8頭以下は馬番 = 枚番
-    if (totalHorses <= 8) {
-        return horseNumber;
-    }
-    
-    // 9頭以上は頭数別のルールを適用
-    const rules = {
-        9: [[1], [2], [3], [4], [5], [6], [7,8], [9]],
-        10: [[1], [2], [3], [4], [5], [6], [7,8], [9,10]],
-        11: [[1], [2], [3], [4], [5], [6,7], [8,9], [10,11]],
-        12: [[1], [2], [3], [4], [5,6], [7,8], [9,10], [11,12]],
-        13: [[1], [2], [3], [4], [5,6], [7,8], [9,10], [11,12,13]],
-        14: [[1], [2], [3], [4], [5,6], [7,8], [9,10,11], [12,13,14]],
-        15: [[1], [2], [3], [4,5], [6,7], [8,9], [10,11,12], [13,14,15]],
-        16: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14], [15,16]],
-        17: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14], [15,16,17]],
-        18: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14,15], [16,17,18]]
-    };
-    
-    const frameMap = rules[totalHorses];
-    if (!frameMap) {
-        // ルールがない場合はデフォルト
-        return Math.min(Math.ceil(horseNumber / 2), 8);
-    }
-    
-    // 馬番がどの枚に属するか検索
-    for (let i = 0; i < frameMap.length; i++) {
-        if (frameMap[i].includes(horseNumber)) {
-            return i + 1; // 枚番は1から始まる
-        }
-    }
-    
-    return 1; // フォールバック
-}
-
-// 枚色を取得
+// 枠色を取得
 function getFrameColor(frameNumber) {
     const colors = {
         1: '#FFFFFF', // 白
@@ -4697,13 +4603,13 @@ function getFrameColor(frameNumber) {
 function toggleHorseFrame(horseIndex, frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const idx = formationSelectedHorses[pos].indexOf(horseIndex);
-    
+
     if (idx > -1) {
         formationSelectedHorses[pos].splice(idx, 1);
     } else {
         formationSelectedHorses[pos].push(horseIndex);
     }
-    
+
     updateFormationUI();
     updateCombinationCount();
 }
@@ -4712,7 +4618,7 @@ function toggleHorseFrame(horseIndex, frameIndex) {
 function selectMarkedHorses(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const raceId = getRaceId(selectedRace);
-    
+
     // 印がついている馬（空以外）を選択
     formationSelectedHorses[pos] = [];
     selectedRace.horses.forEach((horse, index) => {
@@ -4721,7 +4627,7 @@ function selectMarkedHorses(frameIndex) {
             formationSelectedHorses[pos].push(index);
         }
     });
-    
+
     updateFormationUI();
     updateCombinationCount();
 }
@@ -4746,11 +4652,11 @@ function clearSelection(frameIndex) {
 function updateCombinationCount() {
     const betType = document.getElementById('formationBetType').value;
     let count = 0;
-    
+
     const pos1 = formationSelectedHorses.pos1;
     const pos2 = formationSelectedHorses.pos2;
     const pos3 = formationSelectedHorses.pos3;
-    
+
     if (betType === 'tansho' || betType === 'fukusho') {
         count = pos1.length;
     } else if (betType === 'umaren' || betType === 'wide' || betType === 'wakuren') {
@@ -4793,7 +4699,7 @@ function updateCombinationCount() {
             });
         });
     }
-    
+
     const countEl = document.getElementById('combinationCount');
     if (countEl) {
         countEl.textContent = count;
@@ -4846,11 +4752,11 @@ async function generateCombinations() {
     if (!raceId) {
         raceId = `${selectedRace.place}${selectedRace.round}R`;
     }
-    
+
     console.log('Loading odds data for:', raceId);
     const oddsData = await loadOddsData(raceId);
     console.log('Odds data loaded:', oddsData);
-    
+
     if (!oddsData || oddsData.length === 0) {
         alert(`オッズデータを取得できませんでした (race_id: ${raceId})`);
         return;
@@ -4871,43 +4777,18 @@ async function generateCombinations() {
             });
         });
     } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
-        // 枚連・馬連・ワイド（フォーメーション形式）
-        // pos2が空の場合はボックス形式
-        if (formationSelectedHorses.pos2.length === 0) {
-            // ボックス形式：pos1の中から組み合わせ
-            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
-                    formationCombinations.push({
-                        horses: [horse1.horse_number, horse2.horse_number],
-                        horseNames: [horse1.horse_name, horse2.horse_name],
-                        odds: odds
-                    });
-                }
-            }
-        } else {
-            // フォーメーション形式：pos1 × pos2
-            formationSelectedHorses.pos1.forEach(idx1 => {
-                formationSelectedHorses.pos2.forEach(idx2 => {
-                    if (idx1 === idx2) return; // 同じ馬は除外
-                    const horse1 = selectedRace.horses[idx1];
-                    const horse2 = selectedRace.horses[idx2];
-                    // 馬連・ワイドは順不同なので、重複を防ぐ
-                    const sortedHorses = [horse1.horse_number, horse2.horse_number].sort((a, b) => a - b);
-                    const key = sortedHorses.join('-');
-                    // 既に追加済みかチェック
-                    if (!formationCombinations.find(c => c.horses.sort((a, b) => a - b).join('-') === key)) {
-                        const odds = getOdds(oddsData, betType, sortedHorses);
-                        formationCombinations.push({
-                            horses: sortedHorses,
-                            horseNames: [horse1.horse_name, horse2.horse_name],
-                            odds: odds
-                        });
-                    }
+        // 枠連・馬連・ワイド
+        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                formationCombinations.push({
+                    horses: [horse1.horse_number, horse2.horse_number],
+                    horseNames: [horse1.horse_name, horse2.horse_name],
+                    odds: odds
                 });
-            });
+            }
         }
     } else if (betType === 'umatan') {
         // 馬単
@@ -4925,49 +4806,21 @@ async function generateCombinations() {
             });
         });
     } else if (betType === 'sanrenpuku') {
-        // 3連複（フォーメーション形式）
-        // pos2とpos3が空の場合はボックス形式
-        if (formationSelectedHorses.pos2.length === 0 && formationSelectedHorses.pos3.length === 0) {
-            // ボックス形式：pos1の中から3頭を選ぶ
-            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                    for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
-                        const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                        const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                        const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
-                        const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
-                        formationCombinations.push({
-                            horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
-                            horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
-                            odds: odds
-                        });
-                    }
+        // 3連複
+        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
+                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                    const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                        odds: odds
+                    });
                 }
             }
-        } else {
-            // フォーメーション形式：pos1 × pos2 × pos3
-            formationSelectedHorses.pos1.forEach(idx1 => {
-                formationSelectedHorses.pos2.forEach(idx2 => {
-                    if (idx1 === idx2) return;
-                    formationSelectedHorses.pos3.forEach(idx3 => {
-                        if (idx1 === idx3 || idx2 === idx3) return;
-                        const horse1 = selectedRace.horses[idx1];
-                        const horse2 = selectedRace.horses[idx2];
-                        const horse3 = selectedRace.horses[idx3];
-                        // 3連複は順不同なので、重複を防ぐ
-                        const sortedHorses = [horse1.horse_number, horse2.horse_number, horse3.horse_number].sort((a, b) => a - b);
-                        const key = sortedHorses.join('-');
-                        if (!formationCombinations.find(c => c.horses.sort((a, b) => a - b).join('-') === key)) {
-                            const odds = getOdds(oddsData, betType, sortedHorses);
-                            formationCombinations.push({
-                                horses: sortedHorses,
-                                horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
-                                odds: odds
-                            });
-                        }
-                    });
-                });
-            });
         }
     } else if (betType === 'sanrentan') {
         // 3連単
@@ -5099,7 +4952,7 @@ function displayCombinations() {
 
     // フィルター済み組み合わせを初期化
     filteredCombinations = [...formationCombinations];
-    
+
     const betAmount = parseInt(document.getElementById('betAmount')?.value) || 100;
 
     filteredCombinations.forEach((combo, index) => {
@@ -5108,12 +4961,12 @@ function displayCombinations() {
         const comboAmount = combo.amount || 100;
         const payout = Math.floor(comboAmount * combo.odds);
         const isSelected = formationSelectedCombinations.includes(originalIndex);
-        
+
         const div = document.createElement('div');
         div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; transition: all 0.2s;';
         div.onmouseenter = function() { this.style.background = '#e8f4f8'; };
         div.onmouseleave = function() { this.style.background = '#f8f9fa'; };
-        
+
         div.innerHTML = `
             <input type="checkbox" id="combo_${originalIndex}" onchange="toggleCombination(${originalIndex})" ${isSelected ? 'checked' : ''} style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
             <div style="flex: 1;">
@@ -5171,13 +5024,13 @@ function toggleCombination(index) {
 function updateComboAmount(index, amount) {
     const combo = formationCombinations[index];
     if (!combo) return;
-    
+
     // 金額を保存
     combo.amount = parseInt(amount) || 100;
-    
+
     // 払戻金額を再計算
     const payout = Math.floor(combo.amount * combo.odds);
-    
+
     // 表示を更新
     const payoutSpan = document.getElementById(`payout_${index}`);
     if (payoutSpan) {
@@ -5290,26 +5143,7 @@ function addMemoItem(raceId, betType, combination, odds, amount, payout) {
         amount,
         payout
     });
-    
-    // レース名を生成
-    const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name}`;
-    
-    const memo = {
-        raceId: raceId,
-        raceName: raceName,
-        betType: betType,
-        numbers: combination,
-        amount: amount,
-        note: `オッズ: ${odds}倍 期待配当: ￥${payout.toLocaleString()}`,
-        timestamp: new Date().toISOString()
-    };
-    
-    // localStorageに保存
-    let memos = getMemos();
-    memos.push(memo);
-    localStorage.setItem('bet_memos', JSON.stringify(memos));
-    
-    console.log('✅ メモに追加しました:', memo);
+    // TODO: 実際のメモ機能を実装する場合は、localStorageやUIに追加
 }
 
 function addToMemoFromFormation() {
@@ -5386,85 +5220,11 @@ function addToMemoFromFormation() {
             saveFavoriteRaces(favorites);
         }
 
-        // 古いレースのデータを削除
-        function cleanupOldRaceData() {
-            try {
-                console.log('[Cleanup] Starting cleanup of old race data...');
-                
-                // 現在のレースIDリストを取得
-                const currentRaceIds = Object.values(raceIdMap);
-                console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
-                
-                // localStorageから削除するキーのプレフィックス
-                const prefixesToClean = [
-                    'ai_analysis_',     // AI分析結果
-                    'horseMarks'        // 馬印
-                ];
-                
-                let deletedCount = 0;
-                
-                // localStorageをスキャン
-                for (let i = localStorage.length - 1; i >= 0; i--) {
-                    const key = localStorage.key(i);
-                    if (!key) continue;
-                    
-                    // 削除対象のプレフィックスかチェック
-                    for (const prefix of prefixesToClean) {
-                        if (key.startsWith(prefix)) {
-                            // ai_analysis_2503030201 のようなキーからレースIDを抽出
-                            const raceId = key.replace(prefix, '');
-                            
-                            // horseMarksの場合はJSONをパースして中身をチェック
-                            if (prefix === 'horseMarks') {
-                                try {
-                                    const marks = JSON.parse(localStorage.getItem(key));
-                                    const marksRaceIds = Object.keys(marks);
-                                    let updated = false;
-                                    
-                                    // 古いレースIDを削除
-                                    for (const markRaceId of marksRaceIds) {
-                                        if (!currentRaceIds.includes(markRaceId)) {
-                                            delete marks[markRaceId];
-                                            updated = true;
-                                            deletedCount++;
-                                        }
-                                    }
-                                    
-                                    if (updated) {
-                                        localStorage.setItem(key, JSON.stringify(marks));
-                                        console.log(`[Cleanup] Updated ${key}, removed old race marks`);
-                                    }
-                                } catch (e) {
-                                    console.error(`[Cleanup] Error parsing ${key}:`, e);
-                                }
-                            } else {
-                                // 現在のレースIDリストにない場合は削除
-                                if (!currentRaceIds.includes(raceId)) {
-                                    localStorage.removeItem(key);
-                                    deletedCount++;
-                                    console.log(`[Cleanup] Deleted: ${key}`);
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                if (deletedCount > 0) {
-                    console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
-                } else {
-                    console.log('[Cleanup] ✅ No old race data to delete');
-                }
-                
-            } catch (error) {
-                console.error('[Cleanup] Error during race data cleanup:', error);
-            }
-        }
-
         // すべてのレースを選択
         function selectAllRacesForAI() {
             const checkboxes = document.querySelectorAll('.race-select-checkbox');
             const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-            
+
             checkboxes.forEach(cb => {
                 cb.checked = !allChecked;
             });
@@ -5473,7 +5233,7 @@ function addToMemoFromFormation() {
         // AI一括分析を実行
         async function runBulkAIAnalysis() {
             const checkboxes = document.querySelectorAll('.race-select-checkbox:checked');
-            
+
             if (checkboxes.length === 0) {
                 alert('分析するレースを選択してください。');
                 return;
@@ -5485,7 +5245,7 @@ function addToMemoFromFormation() {
             });
 
             const confirmed = confirm(`${selectedRaces.length}件のレースをAI分析します。\n\n※ 各レースの分析に数秒かかります。\n※ API利用制限に注意してください。\n\n続けますか？`);
-            
+
             if (!confirmed) return;
 
             // プログレス表示用のダイアログを作成
@@ -5512,41 +5272,41 @@ function addToMemoFromFormation() {
             for (let i = 0; i < selectedRaces.length; i++) {
                 const race = selectedRaces[i];
                 const raceName = `${race.place}${race.round}R ${race.race_name || ''}`;
-                
+
                 statusDiv.textContent = `${i + 1} / ${selectedRaces.length}: ${raceName}`;
                 progressBar.style.width = `${((i + 1) / selectedRaces.length) * 100}%`;
 
                 try {
                     // レースを選択してAI分析を実行
                     selectedRace = race;
-                    
+
                     // オッズデータを読み込む
                     const raceId = race.race_number;
                     currentOddsData = await window.loadOddsData(raceId);
-                    
+
                     // AI分析を実行（app.jsのrunAIAnalysisを呼び出す）
                     await window.runAIAnalysis();
-                    
+
                     successCount++;
                     logDiv.innerHTML += `<div style="color: green;">✅ ${raceName} - 完了</div>`;
-                    
+
                     // APIレート制限対策：各レースの間に2秒待つ
                     if (i < selectedRaces.length - 1) {
                         await new Promise(resolve => setTimeout(resolve, 2000));
                     }
-                    
+
                 } catch (error) {
                     failCount++;
                     logDiv.innerHTML += `<div style="color: red;">❌ ${raceName} - エラー: ${error.message}</div>`;
                     console.error(`[Bulk AI Analysis] Error for ${raceName}:`, error);
                 }
-                
+
                 logDiv.scrollTop = logDiv.scrollHeight;
             }
 
             // 完了メッセージ
             statusDiv.innerHTML = `<strong>完了！</strong><br>成功: ${successCount}件 | 失敗: ${failCount}件`;
-            
+
             // 5秒後にダイアログを閉じる
             setTimeout(() => {
                 document.body.removeChild(progressDiv);
