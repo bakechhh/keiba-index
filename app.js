@@ -11,8 +11,13 @@ let currentOddsData = null;
 let currentOddsType = 'tfw';
 let currentOddsSort = 'combination';
 
-// OpenAI APIキー（localStorageから取得）
-let openaiApiKey = localStorage.getItem('openai_api_key') || '';
+// OpenAI APIキー（window.OPENAI_API_KEYを優先、なければlocalStorageから取得）
+let openaiApiKey = '';
+
+// APIキーを取得する関数
+function getOpenAIApiKey() {
+    return window.OPENAI_API_KEY || localStorage.getItem('openai_api_key') || '';
+}
 
 // ====================
 // イベントリスナー
@@ -36,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // AI分析ボタンのイベントリスナー
     document.getElementById('aiAnalyzeBtn').addEventListener('click', runAIAnalysis);
-
+    
     // OpenAI APIキー保存ボタンのイベントリスナー
     const saveOpenAIKeyBtn = document.getElementById('saveOpenAIKey');
     if (saveOpenAIKeyBtn) {
         saveOpenAIKeyBtn.addEventListener('click', saveOpenAIKey);
     }
-
+    
     // OpenAI APIキーの読み込み
     const openaiApiKeyInput = document.getElementById('openaiApiKey');
     if (openaiApiKeyInput && openaiApiKey) {
@@ -90,7 +95,7 @@ function renderOdds() {
     if (currentOddsType === 'tfw') {
         // 単勝データを取得してソート
         let tanshoData = [...oddsForType.data.tansho];
-
+        
         if (currentOddsSort === 'odds_asc') {
             tanshoData.sort((a, b) => parseFloat(a.odds) - parseFloat(b.odds));
         } else if (currentOddsSort === 'odds_desc') {
@@ -114,7 +119,7 @@ function renderOdds() {
 
         // 複勝データを取得してソート
         let fukushoData = [...oddsForType.data.fukusho];
-
+        
         if (currentOddsSort === 'odds_asc') {
             fukushoData.sort((a, b) => parseFloat(a.odds.min) - parseFloat(b.odds.min));
         } else if (currentOddsSort === 'odds_desc') {
@@ -189,15 +194,15 @@ async function runAIAnalysis() {
     if (!selectedRace) return;
 
     const aiResultDiv = document.getElementById('aiResult');
-
+    
     // モデル選択を先に取得
     const selectedModel = document.getElementById('geminiModel').value;
-
+    
     // OpenAIモデルの場合は別関数を呼び出す（Gemini APIキーチェックをスキップ）
     if (selectedModel === 'gpt-5-nano' || selectedModel === 'gpt-4o-mini') {
         return runAIAnalysisWithOpenAI(selectedModel);
     }
-
+    
     // Geminiモデルの場合のAPIキーチェック
     const apiKey = document.getElementById('geminiApiKey').value.trim();
     if (!apiKey) {
@@ -213,7 +218,7 @@ async function runAIAnalysis() {
     const targetReturn = document.getElementById('aiTargetReturn').value;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
     console.log('[runAIAnalysis] betTypes:', betTypes);
-
+    
     // パドック評価の取得（チェックされた馬番）
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
 
@@ -244,13 +249,13 @@ async function runAIAnalysis() {
         let response;
         let retryCount = 0;
         const maxRetries = 3;  // 3回リトライ
-
+        
         while (retryCount <= maxRetries) {
             try {
                 // AbortControllerでタイムアウト制御（30秒）
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 30000);
-
+                
                 try {
                     response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
                         method: 'POST',
@@ -270,13 +275,13 @@ async function runAIAnalysis() {
                 } finally {
                     clearTimeout(timeoutId);
                 }
-
+        
                 console.log('[AI Analysis] Response status:', response.status);
 
                 if (!response.ok) {
                     const errorData = await response.json();
                     console.error('[AI Analysis] Error response:', errorData);
-
+                    
                     // 429エラー（レート制限）の場合はリトライ
                     if (response.status === 429 && retryCount < maxRetries) {
                         retryCount++;
@@ -286,7 +291,7 @@ async function runAIAnalysis() {
                         await new Promise(resolve => setTimeout(resolve, waitTime));
                         continue; // ループを続ける
                     }
-
+                    
                     // 503エラーの場合はリトライ
                     if (response.status === 503 && retryCount < maxRetries) {
                         retryCount++;
@@ -296,7 +301,7 @@ async function runAIAnalysis() {
                         await new Promise(resolve => setTimeout(resolve, waitTime));
                         continue; // ループを続ける
                     }
-
+                    
                     // 503エラーが3回続いた場合、OpenAI APIキーがあればGPT-4o-miniにフォールバック
                     if (response.status === 503 && retryCount >= maxRetries) {
                         if (openaiApiKey) {
@@ -309,13 +314,13 @@ async function runAIAnalysis() {
                             throw new Error('Gemini APIが混雑しています。時間を空けて再試行してください。');
                         }
                     }
-
+                    
                     throw new Error(`Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
                 }
-
+                
                 // 成功したらループを抜ける
                 break;
-
+                
             } catch (fetchError) {
                 // タイムアウトエラーの場合
                 if (fetchError.name === 'AbortError') {
@@ -329,7 +334,7 @@ async function runAIAnalysis() {
                     }
                     throw new Error('リクエストがタイムアウトしました。再試行してください。');
                 }
-
+                
                 // ネットワークエラーなどの場合もリトライ
                 if (retryCount < maxRetries) {
                     retryCount++;
@@ -351,15 +356,15 @@ async function runAIAnalysis() {
 
         // marked.jsを使ってMarkdownをHTMLに変換
         aiResultDiv.innerHTML = marked.parse(analysisText);
-
+        
         // localStorageに保存
         saveAIAnalysisResult(selectedRace.race_number, {
             timestamp: Date.now(),
             result: analysisText,
-            model: selectedModel,
+            model: model,
             params: { budget, minReturn, targetReturn, betTypes, paddockHorses }
         });
-
+        
         // AI分析完了通知を送信
         if (typeof window.notifyAIAnalysisComplete === 'function') {
             const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name || ''}`;
@@ -733,7 +738,7 @@ function formatHorsesData(horses) {
 
     horses.forEach((horse, index) => {
         const pastRace = horse.past_races && horse.past_races.length > 0 ? horse.past_races[0] : null;
-
+        
         // AIスコアとランクを取得
         const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
         const winRank = horse.predictions ? horse.predictions.win_rate_rank : '-';
@@ -741,7 +746,7 @@ function formatHorsesData(horses) {
         const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
         const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
         const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
-
+        
         formatted += `| ${index + 1} | ${horse.horse_number} | ${horse.horse_name} | `;
         formatted += `${horse.indices.final_score.toFixed(2)} | `;
         formatted += `**${winScore}** | ${winRank} | `;  // AI単勝スコアとランク
@@ -763,7 +768,7 @@ function formatHorsesData(horses) {
 
     // 詳細情報（上位5頭のみ）
     formatted += '\n### 上位5頭の詳細分析\n\n';
-
+    
     horses.slice(0, 5).forEach((horse, index) => {
         // AIスコアとランクを取得
         const winScore = horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-';
@@ -772,7 +777,7 @@ function formatHorsesData(horses) {
         const placeRank = horse.predictions ? horse.predictions.place_rate_rank : '-';
         const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
         const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
-
+        
         formatted += `#### ${index + 1}位: ${horse.horse_number}番 ${horse.horse_name}\n`;
         formatted += `- **最終スコア**: ${horse.indices.final_score.toFixed(2)}\n`;
         formatted += `- **AI単勝スコア**: **${winScore}** (順位: ${winRank})（LightGBM正規化スコア、確率ではない）\n`;
@@ -787,7 +792,7 @@ function formatHorsesData(horses) {
         formatted += `- **騎手**: ${horse.jockey.name} (${horse.jockey.weight}kg) - 勝率${horse.jockey.this_year.win_rate.toFixed(1)}%（参考）\n`;
         formatted += `- **調教師**: ${horse.trainer.name} (${horse.trainer.affiliation}) - 勝率${horse.trainer.this_year.win_rate.toFixed(1)}%（参考）\n`;
         formatted += `- **出走間隔**: ${horse.interval}週（あまり気にしない）\n`;
-
+        
         // 過去3走の成績
         if (horse.past_races && horse.past_races.length > 0) {
             formatted += `- **過去3走**:\n`;
@@ -833,7 +838,7 @@ function formatOddsData(oddsData) {
                 // その他の券種（枠連、馬連、ワイド、馬単、3連複、3連単）
                 formatted += '\n| 組み合わせ | オッズ |\n';
                 formatted += '|------------|--------|\n';
-
+                
                 // 全件表示（Geminiが正確な馬券推奨をできるように）
                 odds.data.combinations.forEach(c => {
                     const oddsValue = (typeof c.odds === 'object') ? `${c.odds.min} - ${c.odds.max}` : c.odds;
@@ -873,7 +878,7 @@ function formatSelectedOddsData(oddsData, betTypes) {
     if (!selectedOddsTypes.includes('tfw')) {
         selectedOddsTypes.unshift('tfw');
     }
-
+    
     console.log('[formatSelectedOddsData] betTypes:', betTypes);
     console.log('[formatSelectedOddsData] selectedOddsTypes:', selectedOddsTypes);
 
@@ -911,7 +916,7 @@ function formatSelectedOddsData(oddsData, betTypes) {
                 // その他の券種（枚連、馬連、ワイド、馬単、3連複、3連単）
                 formatted += '\n| 組み合わせ | オッズ |\n';
                 formatted += '|------------|--------|\n';
-
+                
                 // 全件表示（Geminiが正確な馬券推奨をできるように）
                 odds.data.combinations.forEach(c => {
                     const oddsValue = (typeof c.odds === 'object') ? `${c.odds.min} - ${c.odds.max}` : c.odds;
@@ -934,18 +939,18 @@ function formatSelectedOddsData(oddsData, betTypes) {
 function saveOpenAIKey() {
     const apiKeyInput = document.getElementById('openaiApiKey');
     if (!apiKeyInput) return;
-
+    
     const apiKey = apiKeyInput.value.trim();
     if (!apiKey) {
         alert('APIキーを入力してください');
         return;
     }
-
+    
     if (!apiKey.startsWith('sk-')) {
         alert('OpenAI APIキーは "sk-" で始まる必要があります');
         return;
     }
-
+    
     localStorage.setItem('openai_api_key', apiKey);
     openaiApiKey = apiKey;
     alert('OpenAI APIキーを保存しました');
@@ -955,13 +960,18 @@ function saveOpenAIKey() {
  * OpenAI APIを呼び出し
  */
 async function callOpenAI(model, prompt) {
-    if (!openaiApiKey) {
+    // APIキーを最新の状態で取得
+    const apiKey = getOpenAIApiKey();
+    
+    if (!apiKey) {
         throw new Error('OpenAI APIキーが設定されていません。API設定から設定してください。');
     }
-
+    
+    console.log(`[OpenAI] API Key found: ${apiKey.substring(0, 10)}...`);
+    
     console.log(`[OpenAI] Calling ${model}...`);
     console.log(`[OpenAI] Prompt length: ${prompt.length}`);
-
+    
     // リクエストボディの構築
     const requestBody = {
         model: model,
@@ -977,42 +987,42 @@ async function callOpenAI(model, prompt) {
         ],
         max_completion_tokens: model.includes('gpt-5') ? 16000 : 4000  // GPT-5は16000トークン
     };
-
+    
     // GPT-5-nano以外のモデルのみにtemperatureを設定
     if (!model.includes('gpt-5')) {
         requestBody.temperature = 0.7;
     }
-
+    
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${openaiApiKey}`
+            'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify(requestBody)
     });
-
+    
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
     }
-
+    
     const result = await response.json();
     console.log('[OpenAI] Success');
     console.log('[OpenAI] Response:', result);
-
+    
     // レスポンスの構造を確認
     if (!result.choices || result.choices.length === 0) {
         console.error('[OpenAI] Invalid response structure:', result);
         throw new Error('OpenAI APIからのレスポンスが無効です。');
     }
-
+    
     const content = result.choices[0].message?.content;
     if (!content) {
         console.error('[OpenAI] No content in response:', result.choices[0]);
         throw new Error('OpenAI APIからのレスポンスにコンテンツがありません。');
     }
-
+    
     console.log('[OpenAI] Content length:', content.length);
     return content;
 }
@@ -1023,46 +1033,46 @@ async function callOpenAI(model, prompt) {
 async function runAIAnalysisWithOpenAI(model) {
     const aiResultDiv = document.getElementById('aiResult');
     aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>AIが分析中です...</div>';
-
+    
     // OpenAI APIキーの確認
     if (!openaiApiKey) {
         aiResultDiv.innerHTML = '<div class="error">OpenAI APIキーを設定してください。<br>AIモデル選択でGPT-5-nanoまたはGPT-4o-miniを選ぶと、APIキー入力欄が表示されます。</div>';
         return;
     }
-
+    
     // 選択されたレースの確認
     if (!selectedRace) {
         aiResultDiv.innerHTML = '<div class="error">レースを選択してください。</div>';
         return;
     }
-
+    
     // ユーザーパラメータの取得
     const budgetEl = document.getElementById('aiBudget');
     const minReturnEl = document.getElementById('aiMinReturn');
     const targetReturnEl = document.getElementById('aiTargetReturn');
-
+    
     if (!budgetEl || !minReturnEl || !targetReturnEl) {
         aiResultDiv.innerHTML = '<div class="error">エラー: AI分析フォームが見つかりません。ページをリロードしてください。</div>';
         console.error('[OpenAI] Form elements not found:', { budgetEl, minReturnEl, targetReturnEl });
         return;
     }
-
+    
     const budget = parseInt(budgetEl.value) || 1000;
     const minReturn = parseFloat(minReturnEl.value) || 1.5;
     const targetReturn = parseFloat(targetReturnEl.value) || 10.0;
     const betTypes = Array.from(document.querySelectorAll('input[name="betType"]:checked')).map(cb => cb.value);
     const paddockHorses = Array.from(document.querySelectorAll('input[name="paddockEval"]:checked')).map(cb => parseInt(cb.value));
-
+    
     try {
         // オッズデータが読み込まれていない場合は読み込む
         if (!currentOddsData) {
             const raceId = selectedRace.race_number;
             currentOddsData = await window.loadOddsData(raceId);
         }
-
+        
         // プロンプト作成
         const prompt = createPrompt(selectedRace, currentOddsData, { budget, minReturn, targetReturn, betTypes, paddockHorses });
-
+        
         console.log('[OpenAI] Calling OpenAI API...');
         console.log('[OpenAI] Model:', model);
         console.log('[OpenAI] Prompt length:', prompt.length);
@@ -1070,21 +1080,21 @@ async function runAIAnalysisWithOpenAI(model) {
         console.log('[OpenAI] Full Prompt:');
         console.log(prompt);
         console.log('='.repeat(80));
-
+        
         // OpenAI APIを呼び出し
         const analysisText = await callOpenAI(model, prompt);
-
+        
         // marked.jsを使ってMarkdownをHTMLに変換
         aiResultDiv.innerHTML = marked.parse(analysisText);
-
+        
         // localStorageに保存
         saveAIAnalysisResult(selectedRace.race_number, {
             timestamp: Date.now(),
             result: analysisText,
-            model: selectedModel,
+            model: model,
             params: { budget, minReturn, targetReturn, betTypes, paddockHorses }
         });
-
+        
         // AI分析完了通知を送信
         if (typeof window.notifyAIAnalysisComplete === 'function') {
             const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name || ''}`;
@@ -1093,7 +1103,7 @@ async function runAIAnalysisWithOpenAI(model) {
                 raceId: selectedRace.race_number
             });
         }
-
+        
     } catch (error) {
         console.error('[OpenAI] Error:', error);
         aiResultDiv.innerHTML = `<div class="error">AI分析エラー: ${error.message}</div>`;
@@ -1147,7 +1157,7 @@ function autoLoadAIAnalysisResult(raceId) {
         if (aiResultDiv) {
             // 保存されたMarkdownをHTMLに変換して表示
             aiResultDiv.innerHTML = marked.parse(savedData.result);
-
+            
             // 保存情報を表示
             const savedDate = new Date(savedData.timestamp);
             const infoDiv = document.createElement('div');
@@ -1160,7 +1170,7 @@ function autoLoadAIAnalysisResult(raceId) {
                 パラメータ: 予算${savedData.params.budget}円、下限${savedData.params.minReturn}%、目標${savedData.params.targetReturn}%
             `;
             aiResultDiv.insertBefore(infoDiv, aiResultDiv.firstChild);
-
+            
             console.log('[localStorage] Loaded saved AI analysis result for race:', raceId);
         }
     } else {
@@ -1179,7 +1189,7 @@ window.autoLoadAIAnalysisResult = autoLoadAIAnalysisResult;
 async function cleanupOldAnalysisResults() {
     try {
         console.log('[Cleanup] Starting cleanup of old AI analysis results...');
-
+        
         // raceid.csvから現在のレースIDリストを取得
         const timestamp = new Date().getTime();
         const raceidUrl = `https://bakechhh.github.io/keiba-index/raceid.csv?_=${timestamp}`;
@@ -1191,16 +1201,16 @@ async function cleanupOldAnalysisResults() {
                 'Expires': '0'
             }
         });
-
+        
         if (!response.ok) {
             console.warn('[Cleanup] Failed to fetch raceid.csv');
             return;
         }
-
+        
         const text = await response.text();
         const lines = text.trim().split('\n');
         const currentRaceIds = [];
-
+        
         // raceid.csvをパース（1行目はヘッダーなのでスキップ）
         for (let i = 1; i < lines.length; i++) {
             const line = lines[i].trim();
@@ -1213,50 +1223,50 @@ async function cleanupOldAnalysisResults() {
                 }
             }
         }
-
+        
         console.log('[Cleanup] Current race IDs count:', currentRaceIds.length);
-
+        
         // localStorageから保存されているAI分析結果を取得
         const savedResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
-
+        
         // 古いレースIDのデータを削除
         let deletedCount = 0;
         const sevenDaysAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
-
+        
         for (const raceId in savedResults) {
             let shouldDelete = false;
-
+            
             // 条件1: raceid.csvに存在しないレースID
             if (!currentRaceIds.includes(raceId)) {
                 console.log('[Cleanup] Deleting race not in raceid.csv:', raceId);
                 shouldDelete = true;
             }
-
+            
             // 条件2: 7日以上前のデータ
             if (savedResults[raceId].timestamp < sevenDaysAgo) {
                 console.log('[Cleanup] Deleting old data (>7 days):', raceId);
                 shouldDelete = true;
             }
-
+            
             if (shouldDelete) {
                 delete savedResults[raceId];
                 deletedCount++;
             }
         }
-
+        
         // 更新されたデータを保存
         localStorage.setItem('ai_analysis_results', JSON.stringify(savedResults));
-
+        
         // 現在のレースIDリストを保存（次回の比較用）
         localStorage.setItem('current_race_ids', JSON.stringify(currentRaceIds));
         localStorage.setItem('last_cleanup_timestamp', Date.now().toString());
-
+        
         if (deletedCount > 0) {
             console.log(`[Cleanup] ✅ Deleted ${deletedCount} old analysis results`);
         } else {
             console.log('[Cleanup] ✅ No old data to delete');
         }
-
+        
     } catch (error) {
         console.error('[Cleanup] Error during cleanup:', error);
     }
@@ -1269,23 +1279,23 @@ function getErrorMessage(error) {
     if (!navigator.onLine) {
         return 'インターネット接続がありません。接続を確認してください。';
     }
-
+    
     if (error.message.includes('AbortError') || error.message.includes('タイムアウト')) {
         return 'リクエストがタイムアウトしました。もう一度お試しください。';
     }
-
+    
     if (error.message.includes('429')) {
         return 'APIの利用制限に達しました。しばらく待ってからお試しください。';
     }
-
+    
     if (error.message.includes('403')) {
         return 'APIキーが無効です。設定を確認してください。';
     }
-
+    
     if (error.message.includes('Failed to fetch')) {
         return 'ネットワークエラーが発生しました。接続を確認してください。';
     }
-
+    
     return `エラーが発生しました: ${error.message}`;
 }
 
