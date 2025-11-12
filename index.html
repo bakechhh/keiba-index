@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測システム</title>
+    <title>競馬AI予測ツール-UmaAi-</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI">
+    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -941,6 +941,7 @@
                     <select id="placeSwitch" onchange="switchPlace(this.value)" style="padding: 8px; border-radius: 8px; border: 2px solid #e0e0e0;">
                         <option value="">開催場所切り替え</option>
                     </select>
+                    <button class="nav-btn" onclick="openScatterModal()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">📊 散布図</button>
                 </div>
                 <div class="header-controls">
                     <div class="view-mode-buttons">
@@ -1397,6 +1398,15 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         </div>
                     </div>
 
+                    <!-- 一括分析モード -->
+                    <div style="padding: 15px; background: #fff3cd; border-radius: 10px; margin-bottom: 15px;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" id="batchAnalysisMode" style="margin-right: 10px; width: 18px; height: 18px; cursor: pointer;">
+                            <span style="font-weight: bold; color: #856404;">🚀 一括分析モード</span>
+                        </label>
+                        <p style="font-size: 12px; color: #856404; margin: 10px 0 0 28px;">現在のフィルター条件に一致するすべてのレースを一括分析します。<br>⚠️ APIリクエスト数に注意してください。</p>
+                    </div>
+
                     <!-- 分析ボタン -->
                     <button id="aiAnalyzeBtn" class="analyze-btn-modern">
                         <span class="btn-icon">🚀</span>
@@ -1404,12 +1414,15 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     </button>
                     
                     <!-- 馬券ツールボタン -->
-                    <div style="display: flex; gap: 10px; margin-top: 15px;">
-                        <button onclick="openFormationModal()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
-                            🎫 フォーメーション計算機
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px;">
+                        <button onclick="openFormationModal()" style="padding: 12px; background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); color: white; border: none; border-radius: 10px; font-size: 13px; font-weight: bold; cursor: pointer;">
+                            🎫 フォーメーション
                         </button>
-                        <button onclick="openMemoModal()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                        <button onclick="openMemoModal()" style="padding: 12px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; border: none; border-radius: 10px; font-size: 13px; font-weight: bold; cursor: pointer;">
                             📝 買い目メモ
+                        </button>
+                        <button onclick="openPurchaseModal()" style="padding: 12px; background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; border: none; border-radius: 10px; font-size: 13px; font-weight: bold; cursor: pointer;">
+                            📊 購入履歴
                         </button>
                     </div>
                 </div>
@@ -1743,6 +1756,129 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         </div>
     </div>
 
+    <!-- 散布図モーダル -->
+    <div id="scatterModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 900px;">
+            <span class="modal-close" onclick="closeScatterModal()">&times;</span>
+            <div id="scatterContent">
+                <h2 style="color: #667eea; margin-bottom: 20px;">📊 AI順位 vs 人気順位 散布図</h2>
+                <p style="color: #666; margin-bottom: 20px;">左下（AI順位高・人気低）が狙い目です</p>
+                <canvas id="scatterChart" style="max-height: 500px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- 購入履歴・収支管理モーダル -->
+    <div id="purchaseModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 1000px;">
+            <span class="modal-close" onclick="closePurchaseModal()">&times;</span>
+            <div id="purchaseContent">
+                <h2 style="color: #667eea; margin-bottom: 20px;">📊 購入履歴・収支管理</h2>
+                
+                <!-- タブ切り替え -->
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #e0e0e0;">
+                    <button id="purchaseTab" onclick="switchPurchaseTab('purchase')" style="flex: 1; padding: 12px; background: #667eea; color: white; border: none; border-radius: 10px 10px 0 0; cursor: pointer;">
+                        📝 購入履歴
+                    </button>
+                    <button id="balanceTab" onclick="switchPurchaseTab('balance')" style="flex: 1; padding: 12px; background: #e0e0e0; color: #666; border: none; border-radius: 10px 10px 0 0; cursor: pointer;">
+                        💰 収支管理
+                    </button>
+                </div>
+                
+                <!-- 購入履歴タブ -->
+                <div id="purchaseTabContent" style="display: block;">
+                    <!-- 購入追加フォーム -->
+                    <div style="margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">購入を記録</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                            <div>
+                                <label style="display: block; font-weight: bold; margin-bottom: 5px;">馬券種:</label>
+                                <select id="purchaseBetType" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                                    <option value="単勝">単勝</option>
+                                    <option value="複勝">複勝</option>
+                                    <option value="枕連">枕連</option>
+                                    <option value="馬連">馬連</option>
+                                    <option value="ワイド">ワイド</option>
+                                    <option value="馬単">馬単</option>
+                                    <option value="3連複">3連複</option>
+                                    <option value="3連単">3連単</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; font-weight: bold; margin-bottom: 5px;">買い目:</label>
+                                <input type="text" id="purchaseNumbers" placeholder="1-3-5" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; font-weight: bold; margin-bottom: 5px;">購入金額 (円):</label>
+                                <input type="number" id="purchaseAmount" value="100" min="100" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; font-weight: bold; margin-bottom: 5px;">的中状況:</label>
+                                <select id="purchaseResult" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                                    <option value="pending">未確定</option>
+                                    <option value="hit">的中</option>
+                                    <option value="miss">不的中</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label style="display: block; font-weight: bold; margin-bottom: 5px;">配当金 (円):</label>
+                                <input type="number" id="purchasePayout" value="0" min="0" step="100" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                            </div>
+                        </div>
+                        
+                        <button onclick="addPurchase()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 15px;">
+                            記録
+                        </button>
+                    </div>
+                    
+                    <!-- 購入履歴一覧 -->
+                    <div id="purchaseList"></div>
+                </div>
+                
+                <!-- 収支管理タブ -->
+                <div id="balanceTabContent" style="display: none;">
+                    <!-- 収支サマリー -->
+                    <div id="balanceSummary" style="margin-bottom: 20px;"></div>
+                    
+                    <!-- 収支グラフ -->
+                    <div style="padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">収支推移</h3>
+                        <canvas id="balanceChart" style="max-height: 300px;"></canvas>
+                    </div>
+                    
+                    <!-- 回収率シミュレーター -->
+                    <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">📈 回収率シミュレーター</h3>
+                        <p style="color: #666; margin-bottom: 15px;">過去のAI分析結果から、実際に購入していた場合の回収率をシミュレーションします。</p>
+                        <div id="recoverySimulator"></div>
+                        <button onclick="runRecoverySimulation()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 15px;">
+                            🚀 シミュレーション実行
+                        </button>
+                    </div>
+
+                    <!-- バックアップ/インポート -->
+                    <div style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 12px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;">💾 データ管理</h3>
+                        <div style="display: flex; gap: 10px;">
+                            <button onclick="exportData()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                                📥 エクスポート
+                            </button>
+                            <button onclick="document.getElementById('importFile').click()" style="flex: 1; padding: 12px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: bold; cursor: pointer;">
+                                📤 インポート
+                            </button>
+                            <input type="file" id="importFile" accept=".json" style="display: none;" onchange="importData(event)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 買い目メモモーダル -->
     <div id="memoModal" class="modal" style="display: none;">
         <div class="modal-content" style="max-width: 900px;">
@@ -1847,6 +1983,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="data-loader.js"></script>
     <script src="app.js"></script>
     <script>
@@ -3269,6 +3406,512 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 closeHorseDetailModal();
             }
         });
+
+        // 散布図機能
+        let scatterChart = null;
+
+        function openScatterModal() {
+            if (!selectedRace || !selectedRace.horses) {
+                alert('レースを選択してください');
+                return;
+            }
+
+            updateScatterChart();
+            document.getElementById('scatterModal').style.display = 'flex';
+        }
+
+        function closeScatterModal() {
+            document.getElementById('scatterModal').style.display = 'none';
+        }
+
+        function updateScatterChart() {
+            const horses = selectedRace.horses;
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+
+            // AI順位と人気順位を取得
+            const data = horses.map(horse => {
+                // AI順位：final_scoreでソート
+                const aiRank = horses.sort((a, b) => b.final_score - a.final_score).findIndex(h => h.horse_number === horse.horse_number) + 1;
+                // 人気順位：popularity
+                const popularity = horse.popularity || 0;
+
+                return {
+                    x: aiRank,
+                    y: popularity,
+                    label: `${horse.horse_number}. ${horse.horse_name}`
+                };
+            });
+
+            if (scatterChart) {
+                scatterChart.destroy();
+            }
+
+            scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: '馬',
+                        data: data,
+                        backgroundColor: 'rgba(102, 126, 234, 0.6)',
+                        borderColor: '#667eea',
+                        borderWidth: 2,
+                        pointRadius: 8,
+                        pointHoverRadius: 12
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw.label + ' (AI:' + context.raw.x + '位, 人気:' + context.raw.y + '位)';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'AI順位'
+                            },
+                            reverse: false,
+                            min: 0,
+                            max: horses.length + 1
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '人気順位'
+                            },
+                            reverse: false,
+                            min: 0,
+                            max: horses.length + 1
+                        }
+                    }
+                }
+            });
+        }
+
+        // 購入履歴・収支管理機能
+        let balanceChart = null;
+
+        function openPurchaseModal() {
+            if (!selectedRace) {
+                alert('レースを選択してください');
+                return;
+            }
+
+            loadPurchaseList();
+            document.getElementById('purchaseModal').style.display = 'flex';
+        }
+
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+        }
+
+        function switchPurchaseTab(tab) {
+            const purchaseTab = document.getElementById('purchaseTab');
+            const balanceTab = document.getElementById('balanceTab');
+            const purchaseContent = document.getElementById('purchaseTabContent');
+            const balanceContent = document.getElementById('balanceTabContent');
+
+            if (tab === 'purchase') {
+                purchaseTab.style.background = '#667eea';
+                purchaseTab.style.color = 'white';
+                balanceTab.style.background = '#e0e0e0';
+                balanceTab.style.color = '#666';
+                purchaseContent.style.display = 'block';
+                balanceContent.style.display = 'none';
+            } else {
+                purchaseTab.style.background = '#e0e0e0';
+                purchaseTab.style.color = '#666';
+                balanceTab.style.background = '#667eea';
+                balanceTab.style.color = 'white';
+                purchaseContent.style.display = 'none';
+                balanceContent.style.display = 'block';
+                updateBalanceSummary();
+                updateBalanceChart();
+            }
+        }
+
+        function addPurchase() {
+            const betType = document.getElementById('purchaseBetType').value;
+            const numbers = document.getElementById('purchaseNumbers').value.trim();
+            const amount = parseInt(document.getElementById('purchaseAmount').value) || 100;
+            const result = document.getElementById('purchaseResult').value;
+            const payout = parseInt(document.getElementById('purchasePayout').value) || 0;
+
+            if (!numbers) {
+                alert('買い目を入力してください');
+                return;
+            }
+
+            const raceId = `${selectedRace.place}${selectedRace.round}R`;
+            const purchase = {
+                raceId: raceId,
+                raceName: `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name}`,
+                betType: betType,
+                numbers: numbers,
+                amount: amount,
+                result: result,
+                payout: payout,
+                profit: payout - amount,
+                timestamp: new Date().toISOString()
+            };
+
+            // localStorageに保存
+            let purchases = getPurchases();
+            purchases.push(purchase);
+            localStorage.setItem('purchases', JSON.stringify(purchases));
+
+            // フォームをリセット
+            document.getElementById('purchaseNumbers').value = '';
+            document.getElementById('purchaseResult').value = 'pending';
+            document.getElementById('purchasePayout').value = '0';
+
+            // 購入履歴一覧を更新
+            loadPurchaseList();
+        }
+
+        function getPurchases() {
+            const purchases = localStorage.getItem('purchases');
+            return purchases ? JSON.parse(purchases) : [];
+        }
+
+        function loadPurchaseList() {
+            const purchases = getPurchases();
+            const purchaseListDiv = document.getElementById('purchaseList');
+
+            if (purchases.length === 0) {
+                purchaseListDiv.innerHTML = '<p style="color: #999; text-align: center;">まだ購入履歴がありません</p>';
+                return;
+            }
+
+            let html = '<h3 style="color: #667eea; margin-bottom: 15px;">購入履歴</h3>';
+            purchases.forEach((purchase, index) => {
+                const resultBadge = purchase.result === 'hit' ? '<span style="padding: 4px 8px; background: #27ae60; color: white; border-radius: 4px; font-size: 12px;">的中</span>' :
+                                    purchase.result === 'miss' ? '<span style="padding: 4px 8px; background: #e74c3c; color: white; border-radius: 4px; font-size: 12px;">不的中</span>' :
+                                    '<span style="padding: 4px 8px; background: #95a5a6; color: white; border-radius: 4px; font-size: 12px;">未確定</span>';
+
+                const profitColor = purchase.profit > 0 ? '#27ae60' : purchase.profit < 0 ? '#e74c3c' : '#666';
+
+                html += `
+                    <div style="padding: 15px; background: white; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #667eea;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <div>
+                                <strong style="color: #667eea;">${purchase.raceName}</strong>
+                                <span style="margin-left: 10px; padding: 4px 8px; background: #667eea; color: white; border-radius: 4px; font-size: 12px;">${purchase.betType}</span>
+                                ${resultBadge}
+                            </div>
+                            <button onclick="deletePurchase(${index})" style="background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px;">
+                                削除
+                            </button>
+                        </div>
+                        <div style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">${purchase.numbers}</div>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+                            <div>
+                                <div style="font-size: 12px; color: #999;">購入金額</div>
+                                <div style="font-weight: bold;">￥${purchase.amount.toLocaleString()}</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 12px; color: #999;">配当金</div>
+                                <div style="font-weight: bold;">￥${purchase.payout.toLocaleString()}</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 12px; color: #999;">収支</div>
+                                <div style="font-weight: bold; color: ${profitColor};">${purchase.profit > 0 ? '+' : ''}￥${purchase.profit.toLocaleString()}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            purchaseListDiv.innerHTML = html;
+        }
+
+        function deletePurchase(index) {
+            if (!confirm('この購入履歴を削除しますか？')) return;
+
+            let purchases = getPurchases();
+            purchases.splice(index, 1);
+            localStorage.setItem('purchases', JSON.stringify(purchases));
+            loadPurchaseList();
+        }
+
+        function updateBalanceSummary() {
+            const purchases = getPurchases();
+            const summaryDiv = document.getElementById('balanceSummary');
+
+            let totalAmount = 0;
+            let totalPayout = 0;
+            let hitCount = 0;
+            let missCount = 0;
+            let pendingCount = 0;
+
+            purchases.forEach(purchase => {
+                totalAmount += purchase.amount;
+                totalPayout += purchase.payout;
+                if (purchase.result === 'hit') hitCount++;
+                else if (purchase.result === 'miss') missCount++;
+                else pendingCount++;
+            });
+
+            const totalProfit = totalPayout - totalAmount;
+            const recoveryRate = totalAmount > 0 ? (totalPayout / totalAmount * 100).toFixed(1) : 0;
+            const hitRate = (hitCount + missCount) > 0 ? (hitCount / (hitCount + missCount) * 100).toFixed(1) : 0;
+
+            const profitColor = totalProfit > 0 ? '#27ae60' : totalProfit < 0 ? '#e74c3c' : '#666';
+
+            summaryDiv.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                    <div style="padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white;">
+                        <div style="font-size: 14px; margin-bottom: 5px;">総購入金額</div>
+                        <div style="font-size: 28px; font-weight: bold;">￥${totalAmount.toLocaleString()}</div>
+                    </div>
+                    <div style="padding: 20px; background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%); border-radius: 12px; color: white;">
+                        <div style="font-size: 14px; margin-bottom: 5px;">総配当金</div>
+                        <div style="font-size: 28px; font-weight: bold;">￥${totalPayout.toLocaleString()}</div>
+                    </div>
+                    <div style="padding: 20px; background: linear-gradient(135deg, ${totalProfit >= 0 ? '#27ae60, #229954' : '#e74c3c, #c0392b'}); border-radius: 12px; color: white;">
+                        <div style="font-size: 14px; margin-bottom: 5px;">総収支</div>
+                        <div style="font-size: 28px; font-weight: bold;">${totalProfit > 0 ? '+' : ''}￥${totalProfit.toLocaleString()}</div>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">回収率</div>
+                        <div style="font-size: 24px; font-weight: bold; color: ${recoveryRate >= 100 ? '#27ae60' : '#e74c3c'};">${recoveryRate}%</div>
+                    </div>
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">的中率</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">${hitRate}%</div>
+                    </div>
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">的中 / 不的中 / 未確定</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">${hitCount} / ${missCount} / ${pendingCount}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateBalanceChart() {
+            const purchases = getPurchases();
+            const ctx = document.getElementById('balanceChart').getContext('2d');
+
+            // 日付ごとに集計
+            const dateMap = {};
+            purchases.forEach(purchase => {
+                const date = new Date(purchase.timestamp).toLocaleDateString('ja-JP');
+                if (!dateMap[date]) {
+                    dateMap[date] = { amount: 0, payout: 0 };
+                }
+                dateMap[date].amount += purchase.amount;
+                dateMap[date].payout += purchase.payout;
+            });
+
+            const dates = Object.keys(dateMap).sort();
+            let cumulativeProfit = 0;
+            const profits = dates.map(date => {
+                cumulativeProfit += dateMap[date].payout - dateMap[date].amount;
+                return cumulativeProfit;
+            });
+
+            if (balanceChart) {
+                balanceChart.destroy();
+            }
+
+            balanceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: '累計収支',
+                        data: profits,
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '￥' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function exportData() {
+            const purchases = getPurchases();
+            const memos = getMemos();
+            const presets = getPresets();
+
+            const data = {
+                purchases: purchases,
+                memos: memos,
+                presets: presets,
+                exportDate: new Date().toISOString()
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `keiba-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            alert('データをエクスポートしました');
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+
+                    if (data.purchases) {
+                        localStorage.setItem('purchases', JSON.stringify(data.purchases));
+                    }
+                    if (data.memos) {
+                        localStorage.setItem('bet_memos', JSON.stringify(data.memos));
+                    }
+                    if (data.presets) {
+                        localStorage.setItem('ai_presets', JSON.stringify(data.presets));
+                    }
+
+                    alert('データをインポートしました');
+                    loadPurchaseList();
+                    updateBalanceSummary();
+                    updateBalanceChart();
+                    initPresetSelect();
+                } catch (error) {
+                    alert('インポートに失敗しました: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // 回収率シミュレーター
+        function runRecoverySimulation() {
+            const simulatorDiv = document.getElementById('recoverySimulator');
+            
+            // AI分析結果をlocalStorageから取得
+            const analysisResults = JSON.parse(localStorage.getItem('ai_analysis_results') || '{}');
+            const resultKeys = Object.keys(analysisResults);
+
+            if (resultKeys.length === 0) {
+                simulatorDiv.innerHTML = '<p style="color: #999; text-align: center;">まだAI分析結果がありません</p>';
+                return;
+            }
+
+            // シミュレーション設定
+            const betAmount = 100; // 1点100円
+            let totalInvested = 0;
+            let totalPayout = 0;
+            let hitCount = 0;
+            let totalBets = 0;
+
+            const results = [];
+
+            resultKeys.forEach(raceId => {
+                const result = analysisResults[raceId];
+                if (!result || !result.result) return;
+
+                // AI推奨馬券を抽出（簡略化：テキストから馬番を抽出）
+                const text = result.result;
+                
+                // 「本命」セクションから馬券を抽出
+                const honmeiMatch = text.match(/本命[\s\S]*?：([\s\S]*?)(?=\n\n|押え|大穴|$)/i);
+                if (honmeiMatch) {
+                    const honmeiText = honmeiMatch[1];
+                    // 馬番を抽出（例：1-3-5、または「1番」など）
+                    const numberMatches = honmeiText.match(/\d+/g);
+                    if (numberMatches && numberMatches.length > 0) {
+                        totalBets++;
+                        totalInvested += betAmount;
+                        
+                        // 的中判定（簡略化：実際の結果データが必要）
+                        // ここではダミーデータとしてランダムに的中判定
+                        const isHit = Math.random() < 0.3; // 30%の的中率
+                        if (isHit) {
+                            hitCount++;
+                            const payout = betAmount * (Math.random() * 20 + 5); // 5倍～25倍
+                            totalPayout += payout;
+                            results.push({
+                                raceId: raceId,
+                                invested: betAmount,
+                                payout: payout,
+                                profit: payout - betAmount
+                            });
+                        } else {
+                            results.push({
+                                raceId: raceId,
+                                invested: betAmount,
+                                payout: 0,
+                                profit: -betAmount
+                            });
+                        }
+                    }
+                }
+            });
+
+            const recoveryRate = totalInvested > 0 ? (totalPayout / totalInvested * 100).toFixed(1) : 0;
+            const hitRate = totalBets > 0 ? (hitCount / totalBets * 100).toFixed(1) : 0;
+            const totalProfit = totalPayout - totalInvested;
+
+            // 結果を表示
+            let html = `
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">総購入金額</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">￥${totalInvested.toLocaleString()}</div>
+                    </div>
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">総配当金</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #f39c12;">￥${totalPayout.toLocaleString()}</div>
+                    </div>
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">回収率</div>
+                        <div style="font-size: 24px; font-weight: bold; color: ${recoveryRate >= 100 ? '#27ae60' : '#e74c3c'};">${recoveryRate}%</div>
+                    </div>
+                    <div style="padding: 20px; background: white; border-radius: 12px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 14px; color: #999; margin-bottom: 5px;">的中率</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">${hitRate}%</div>
+                    </div>
+                </div>
+                <div style="padding: 20px; background: linear-gradient(135deg, ${totalProfit >= 0 ? '#27ae60, #229954' : '#e74c3c, #c0392b'}); border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 14px; margin-bottom: 5px;">総収支</div>
+                    <div style="font-size: 32px; font-weight: bold;">${totalProfit > 0 ? '+' : ''}￥${totalProfit.toLocaleString()}</div>
+                </div>
+                <p style="color: #999; font-size: 12px; margin-top: 15px; text-align: center;">※ これはシミュレーション結果です。実際の結果とは異なる場合があります。</p>
+            `;
+
+            simulatorDiv.innerHTML = html;
+        }
 
         // AI分析プリセット機能
         function initPresetSelect() {
