@@ -2254,7 +2254,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     }
                 }
                 
-                console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
+                // console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
             } catch (error) {
                 console.error('[RaceID] Failed to load raceid.csv:', error);
             }
@@ -4556,8 +4556,8 @@ function updateFormationUI() {
                     <th style="padding: 10px; border: 1px solid #ddd; width: 60px;">馬番</th>
                     <th style="padding: 10px; border: 1px solid #ddd; width: 50px;">印</th>
                     <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">馬名</th>
-                    <th style="padding: 10px; border: 1px solid #ddd; width: 100px;">単勝オッズ</th>
-                    <th style="padding: 10px; border: 1px solid #ddd; width: 60px;">人気</th>
+                    ${betType === 'tansho' ? '<th style="padding: 10px; border: 1px solid #ddd; width: 100px;">単勝オッズ</th>' : ''}
+                    ${betType === 'tansho' ? '<th style="padding: 10px; border: 1px solid #ddd; width: 60px;">人気</th>' : ''}
                     ${frameLabels.map(label => `<th style="padding: 10px; border: 1px solid #ddd; width: 80px;">${label}</th>`).join('')}
                 </tr>
             </thead>
@@ -4604,6 +4604,7 @@ function updateFormationUI() {
                     <div style="font-weight: bold;">${horse.horse_name}</div>
                     <div style="font-size: 12px; color: #666;">AI${aiRank}位</div>
                 </td>
+                ${betType === 'tansho' ? `
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
                     <input 
                         type="number" 
@@ -4618,6 +4619,7 @@ function updateFormationUI() {
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;" id="popularity_${originalIndex}">
                     ${horse.popularity || '--'}
                 </td>
+                ` : ''}
         `;
         
         // 各フレームのチェックボタン
@@ -4680,7 +4682,7 @@ function saveManualOdds(horseIndex) {
     manualOdds[raceId][horseIndex] = odds;
     localStorage.setItem('manual_odds', JSON.stringify(manualOdds));
     
-    console.log(`[手動オッズ] ${selectedRace.horses[horseIndex].horse_name}: ${odds}個`);
+    // console.log(`[手動オッズ] ${selectedRace.horses[horseIndex].horse_name}: ${odds}個`);
     
     // 人気を再計算
     recalculatePopularity();
@@ -4746,7 +4748,7 @@ function recalculatePopularity() {
         horse.manual_odds = raceOdds[index];
     });
     
-    console.log('[人気再計算] 完了', popularityMap);
+    // console.log('[人気再計算] 完了', popularityMap);
 }
 
 // 馬番と頭数から枚番を計算
@@ -5497,11 +5499,11 @@ function addToMemoFromFormation() {
         // 古いレースのデータを削除
         function cleanupOldRaceData() {
             try {
-                console.log('[Cleanup] Starting cleanup of old race data...');
+                // console.log('[Cleanup] Starting cleanup of old race data...');
                 
                 // 現在のレースIDリストを取得
                 const currentRaceIds = Object.values(raceIdMap);
-                console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
+                // console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
                 
                 // localStorageから削除するキーのプレフィックス
                 const prefixesToClean = [
@@ -5540,7 +5542,7 @@ function addToMemoFromFormation() {
                                     
                                     if (updated) {
                                         localStorage.setItem(key, JSON.stringify(marks));
-                                        console.log(`[Cleanup] Updated ${key}, removed old race marks`);
+                                        // console.log(`[Cleanup] Updated ${key}, removed old race marks`);
                                     }
                                 } catch (e) {
                                     console.error(`[Cleanup] Error parsing ${key}:`, e);
@@ -5550,7 +5552,7 @@ function addToMemoFromFormation() {
                                 if (!currentRaceIds.includes(raceId)) {
                                     localStorage.removeItem(key);
                                     deletedCount++;
-                                    console.log(`[Cleanup] Deleted: ${key}`);
+                                    // console.log(`[Cleanup] Deleted: ${key}`);
                                 }
                             }
                         }
@@ -5558,9 +5560,9 @@ function addToMemoFromFormation() {
                 }
                 
                 if (deletedCount > 0) {
-                    console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
+                    // console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
                 } else {
-                    console.log('[Cleanup] ✅ No old race data to delete');
+                    // console.log('[Cleanup] ✅ No old race data to delete');
                 }
                 
             } catch (error) {
