@@ -600,6 +600,12 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
+        .past-race-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .past-race-table th {
             background: #f0f0f0;
             padding: 8px;
@@ -1762,7 +1768,48 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             <span class="modal-close" onclick="closeScatterModal()">&times;</span>
             <div id="scatterContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">📊 AI順位 vs 人気順位 散布図</h2>
-                <p style="color: #666; margin-bottom: 20px;">左下（AI順位高・人気低）が狙い目です</p>
+                
+                <!-- 説明セクション -->
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <h3 style="color: #667eea; font-size: 16px; margin-bottom: 10px;">👁️ 散布図の見方</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #4caf50;">
+                            <div style="font-weight: bold; color: #4caf50; margin-bottom: 5px;">✅ 左下エリア（狙い目）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                AI順位が高いのに人気が低い馬。<br>
+                                オッズが高く、的中時の配当が期待できる。
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ff9800;">
+                            <div style="font-weight: bold; color: #ff9800; margin-bottom: 5px;">⚠️ 右上エリア（注意）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                人気が高いのにAI順位が低い馬。<br>
+                                過大評価の可能性があり、軸にするのはリスク。
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
+                            <div style="font-weight: bold; color: #2196f3; margin-bottom: 5px;">👍 左上エリア（本命）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                AI順位も人気も高い馬。<br>
+                                本命馬として軸にするのが無難。
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #9e9e9e;">
+                            <div style="font-weight: bold; color: #9e9e9e; margin-bottom: 5px;">❌ 右下エリア（消し）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                AI順位も人気も低い馬。<br>
+                                馬券に絡める可能性は低い。
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background: #fff3cd; padding: 10px; border-radius: 8px; border-left: 4px solid #ffc107;">
+                        <div style="font-weight: bold; color: #856404; margin-bottom: 5px;">💡 活用ポイント</div>
+                        <div style="font-size: 13px; color: #856404;">
+                            左下エリアの馬を軸に、左上エリアの馬を相手にすると、高配当を狙える馬券が組めます。
+                        </div>
+                    </div>
+                </div>
+                
                 <canvas id="scatterChart" style="max-height: 500px;"></canvas>
             </div>
         </div>
@@ -2507,6 +2554,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     pastRacesHTML = `
                         <div class="past-races">
                             <div class="past-races-title">📊 過去5走（全データ）</div>
+                            <div class="past-race-table-wrapper">
                             <table class="past-race-table">
                                 <thead>
                                     <tr>
@@ -2561,6 +2609,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     pastRacesHTML += `
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     `;
                 }
@@ -2652,6 +2701,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     pastRacesHTML = `
                         <div class="past-races">
                             <div class="past-races-title">📊 全過去走データ</div>
+                            <div class="past-race-table-wrapper">
                             <table class="past-race-table">
                                 <thead>
                                     <tr>
@@ -2706,6 +2756,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     pastRacesHTML += `
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     `;
                 }
