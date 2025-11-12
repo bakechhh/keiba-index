@@ -2254,7 +2254,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     }
                 }
                 
-                // console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
+                console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
             } catch (error) {
                 console.error('[RaceID] Failed to load raceid.csv:', error);
             }
@@ -2622,7 +2622,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         <td><strong>${horse.horse_number}番</strong></td>
                         <td><strong style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
-                        <td><strong style="color: #333; font-size: 16px;">${horse.manual_popularity || horse.popularity || '-'}人気</strong></td>
+                        <td><strong style="color: #333; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
                         <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
                         <td>${horse.predictions ? horse.predictions.win_rate_rank : '-'}</td>
                         <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) : '-'}</strong></td>
@@ -3108,8 +3108,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     break;
                 case 'popularity':
                     sortedHorses.sort((a, b) => {
-                        const aPop = a.manual_popularity || a.popularity || 999;
-                        const bPop = b.manual_popularity || b.popularity || 999;
+                        const aPop = a.popularity || 999;
+                        const bPop = b.popularity || 999;
                         return aPop - bPop;
                     });
                     break;
@@ -3250,7 +3250,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                         <td><strong>${horse.horse_number}番</strong></td>
                         <td><strong style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
-                        <td><strong style="color: #333; font-size: 16px;">${horse.manual_popularity || horse.popularity || '-'}人気</strong></td>
+                        <td><strong style="color: #333; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
                         <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
                         <td>${horse.predictions ? horse.predictions.win_rate_rank : '-'}</td>
                         <td><strong style="color: #f39c12; font-size: 16px;">${horse.predictions ? (horse.predictions.place_rate * 100).toFixed(1) : '-'}</strong></td>
@@ -3296,8 +3296,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 sortedHorses.sort((a, b) => b.indices.final_score - a.indices.final_score);
             } else if (sortBy === 'popularity') {
                 sortedHorses.sort((a, b) => {
-                    const aPop = a.manual_popularity || a.popularity || 999;
-                    const bPop = b.manual_popularity || b.popularity || 999;
+                    const aPop = a.popularity || 999;
+                    const bPop = b.popularity || 999;
                     return aPop - bPop;
                 });
             } else if (sortBy === 'horse_number') {
@@ -3616,8 +3616,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             const data = horses.map(horse => {
                 // AI順位：predictions.win_rate_rankを使用
                 const aiRank = horse.predictions?.win_rate_rank || 0;
-                // 人気順位：手動優先、なければJSON
-                const popularity = horse.manual_popularity || horse.popularity || 0;
+                // 人気順位：popularity
+                const popularity = horse.popularity || 0;
 
                 return {
                     x: aiRank,
@@ -4400,7 +4400,7 @@ function sortCombinations() {
 }
 
 // オッズフィルター適用
-window.applyOddsFilter = function() {
+function applyOddsFilter() {
     const minOdds = parseFloat(document.getElementById('minOdds').value) || 0;
     const maxOdds = parseFloat(document.getElementById('maxOdds').value) || Infinity;
     
@@ -4457,7 +4457,7 @@ window.applyOddsFilter = function() {
 }
 
 // オッズフィルタークリア
-window.clearOddsFilter = function() {
+function clearOddsFilter() {
     document.getElementById('minOdds').value = '';
     document.getElementById('maxOdds').value = '';
     displayCombinations();
@@ -4556,7 +4556,6 @@ function updateFormationUI() {
                     <th style="padding: 10px; border: 1px solid #ddd; width: 60px;">馬番</th>
                     <th style="padding: 10px; border: 1px solid #ddd; width: 50px;">印</th>
                     <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">馬名</th>
-
                     ${frameLabels.map(label => `<th style="padding: 10px; border: 1px solid #ddd; width: 80px;">${label}</th>`).join('')}
                 </tr>
             </thead>
@@ -4601,9 +4600,8 @@ function updateFormationUI() {
                 </td>
                 <td style="padding: 10px; border: 1px solid #ddd;">
                     <div style="font-weight: bold;">${horse.horse_name}</div>
-                    <div style="font-size: 12px; color: #666;">AI${aiRank}位</div>
+                    <div style="font-size: 12px; color: #666;">AI${aiRank}位 (${horse.popularity || '--'}人気)</div>
                 </td>
-
         `;
         
         // 各フレームのチェックボタン
@@ -4641,98 +4639,6 @@ function updateFormationUI() {
     `;
 
     tableDiv.innerHTML = html;
-    
-    // 保存された手動オッズを読み込む
-    loadManualOdds();
-}
-
-// 手動オッズを保存
-function saveManualOdds(horseIndex) {
-    const raceId = getRaceId(selectedRace);
-    const input = document.getElementById(`manual_odds_${horseIndex}`);
-    const odds = parseFloat(input.value);
-    
-    if (!odds || odds < 1.0) {
-        // 空欄または無効な値の場合は削除
-        removeManualOdds(raceId, horseIndex);
-        return;
-    }
-    
-    // localStorageに保存
-    let manualOdds = JSON.parse(localStorage.getItem('manual_odds') || '{}');
-    if (!manualOdds[raceId]) {
-        manualOdds[raceId] = {};
-    }
-    manualOdds[raceId][horseIndex] = odds;
-    localStorage.setItem('manual_odds', JSON.stringify(manualOdds));
-    
-    // console.log(`[手動オッズ] ${selectedRace.horses[horseIndex].horse_name}: ${odds}個`);
-    
-    // 人気を再計算
-    recalculatePopularity();
-}
-
-// 手動オッズを削除
-function removeManualOdds(raceId, horseIndex) {
-    let manualOdds = JSON.parse(localStorage.getItem('manual_odds') || '{}');
-    if (manualOdds[raceId] && manualOdds[raceId][horseIndex]) {
-        delete manualOdds[raceId][horseIndex];
-        localStorage.setItem('manual_odds', JSON.stringify(manualOdds));
-        recalculatePopularity();
-    }
-}
-
-// 手動オッズを読み込む
-function loadManualOdds() {
-    const raceId = getRaceId(selectedRace);
-    const manualOdds = JSON.parse(localStorage.getItem('manual_odds') || '{}');
-    const raceOdds = manualOdds[raceId] || {};
-    
-    selectedRace.horses.forEach((horse, index) => {
-        const input = document.getElementById(`manual_odds_${index}`);
-        if (input && raceOdds[index]) {
-            input.value = raceOdds[index];
-        }
-    });
-    
-    // 人気を再計算
-    recalculatePopularity();
-}
-
-// 手動オッズから人気順位を再計算
-function recalculatePopularity() {
-    const raceId = getRaceId(selectedRace);
-    const manualOdds = JSON.parse(localStorage.getItem('manual_odds') || '{}');
-    const raceOdds = manualOdds[raceId] || {};
-    
-    // 各馬のオッズを取得（手動優先、なければJSON）
-    const oddsArray = selectedRace.horses.map((horse, index) => ({
-        index: index,
-        odds: raceOdds[index] || horse.odds || 999,
-        horseName: horse.horse_name
-    }));
-    
-    // オッズでソート（低い順 = 人気順）
-    oddsArray.sort((a, b) => a.odds - b.odds);
-    
-    // 人気順位を割り当て
-    const popularityMap = {};
-    oddsArray.forEach((item, rank) => {
-        popularityMap[item.index] = rank + 1;
-    });
-    
-    // UIを更新
-    selectedRace.horses.forEach((horse, index) => {
-        const cell = document.getElementById(`popularity_${index}`);
-        if (cell) {
-            cell.textContent = popularityMap[index];
-        }
-        // 馬データにも反映（AI分析や散布図用）
-        horse.manual_popularity = popularityMap[index];
-        horse.manual_odds = raceOdds[index];
-    });
-    
-    // console.log('[人気再計算] 完了', popularityMap);
 }
 
 // 馬番と頭数から枚番を計算
@@ -4788,7 +4694,7 @@ function getFrameColor(frameNumber) {
 }
 
 // 馬のフレーム選択をトグル
-window.toggleHorseFrame = function(horseIndex, frameIndex) {
+function toggleHorseFrame(horseIndex, frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const idx = formationSelectedHorses[pos].indexOf(horseIndex);
     
@@ -4803,7 +4709,7 @@ window.toggleHorseFrame = function(horseIndex, frameIndex) {
 }
 
 // 印の馬を選択
-window.selectMarkedHorses = function(frameIndex) {
+function selectMarkedHorses(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const raceId = getRaceId(selectedRace);
     
@@ -4821,7 +4727,7 @@ window.selectMarkedHorses = function(frameIndex) {
 }
 
 // すべての馬を選択
-window.selectAllHorses = function(frameIndex) {
+function selectAllHorses(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     formationSelectedHorses[pos] = selectedRace.horses.map((h, i) => i);
     updateFormationUI();
@@ -4829,7 +4735,7 @@ window.selectAllHorses = function(frameIndex) {
 }
 
 // 選択をクリア
-window.clearSelection = function(frameIndex) {
+function clearSelection(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     formationSelectedHorses[pos] = [];
     updateFormationUI();
@@ -4896,7 +4802,7 @@ function updateCombinationCount() {
 
 // 削除: 古いgenerateHorseCheckboxesとtoggleHorse関数は上記のupdateFormationUIに統合
 
-window.generateCombinations = async function() {
+async function generateCombinations() {
     const betType = document.getElementById('formationBetType').value;
 
     // 選択された馬を確認
@@ -5279,7 +5185,7 @@ function updateComboAmount(index, amount) {
     }
 }
 
-window.selectAllCombinations = function() {
+function selectAllCombinations() {
     // 現在表示されている組み合わせをすべて選択
     filteredCombinations.forEach(combo => {
         const originalIndex = formationCombinations.indexOf(combo);
@@ -5294,7 +5200,7 @@ window.selectAllCombinations = function() {
     updatePayouts();
 }
 
-window.clearAllCombinations = function() {
+function clearAllCombinations() {
     // 現在表示されている組み合わせをすべてクリア
     filteredCombinations.forEach(combo => {
         const originalIndex = formationCombinations.indexOf(combo);
@@ -5406,7 +5312,7 @@ function addMemoItem(raceId, betType, combination, odds, amount, payout) {
     console.log('✅ メモに追加しました:', memo);
 }
 
-window.addToMemoFromFormation = function() {
+function addToMemoFromFormation() {
     if (formationSelectedCombinations.length === 0) {
         alert('組み合わせを選択してください');
         return;
@@ -5483,11 +5389,11 @@ window.addToMemoFromFormation = function() {
         // 古いレースのデータを削除
         function cleanupOldRaceData() {
             try {
-                // console.log('[Cleanup] Starting cleanup of old race data...');
+                console.log('[Cleanup] Starting cleanup of old race data...');
                 
                 // 現在のレースIDリストを取得
                 const currentRaceIds = Object.values(raceIdMap);
-                // console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
+                console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
                 
                 // localStorageから削除するキーのプレフィックス
                 const prefixesToClean = [
@@ -5526,7 +5432,7 @@ window.addToMemoFromFormation = function() {
                                     
                                     if (updated) {
                                         localStorage.setItem(key, JSON.stringify(marks));
-                                        // console.log(`[Cleanup] Updated ${key}, removed old race marks`);
+                                        console.log(`[Cleanup] Updated ${key}, removed old race marks`);
                                     }
                                 } catch (e) {
                                     console.error(`[Cleanup] Error parsing ${key}:`, e);
@@ -5536,7 +5442,7 @@ window.addToMemoFromFormation = function() {
                                 if (!currentRaceIds.includes(raceId)) {
                                     localStorage.removeItem(key);
                                     deletedCount++;
-                                    // console.log(`[Cleanup] Deleted: ${key}`);
+                                    console.log(`[Cleanup] Deleted: ${key}`);
                                 }
                             }
                         }
@@ -5544,9 +5450,9 @@ window.addToMemoFromFormation = function() {
                 }
                 
                 if (deletedCount > 0) {
-                    // console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
+                    console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
                 } else {
-                    // console.log('[Cleanup] ✅ No old race data to delete');
+                    console.log('[Cleanup] ✅ No old race data to delete');
                 }
                 
             } catch (error) {
