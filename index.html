@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測ツール-UmaAi-</title>
+    <title>競馬AI予測システム</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
+    <meta name="apple-mobile-web-app-title" content="競馬AI">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -1941,15 +1941,18 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
     <!-- 馬券フォーメーション計算機モーダル -->
     <div id="formationModal" class="modal" style="display: none;">
-        <div class="modal-content" style="max-width: 900px;">
+        <div class="modal-content" style="max-width: 1000px;">
             <span class="modal-close" onclick="closeFormationModal()">&times;</span>
             <div id="formationContent">
                 <h2 style="color: #667eea; margin-bottom: 20px;">🎫 馬券フォーメーション計算機</h2>
                 
-                <!-- 馬券種選択 -->
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬券種:</label>
-                    <select id="formationBetType" onchange="updateFormationUI()" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                <!-- ステップ1: 馬券種選択 -->
+                <div id="step1" style="margin-bottom: 20px;">
+                    <h3 style="color: #333; margin-bottom: 15px;">ステップ1: 馬券種を選択</h3>
+                    <select id="formationBetType" onchange="updateFormationUI()" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0; font-size: 16px;">
+                        <option value="tansho">単勝</option>
+                        <option value="fukusho">複勝</option>
+                        <option value="wakuren">枠連</option>
                         <option value="umaren">馬連</option>
                         <option value="wide">ワイド</option>
                         <option value="umatan">馬単</option>
@@ -1958,26 +1961,44 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     </select>
                 </div>
 
-                <!-- 軸馬選択 -->
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">軸馬:</label>
-                    <div id="axisHorses" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                <!-- ステップ2: 馬選択 -->
+                <div id="step2" style="margin-bottom: 20px;">
+                    <h3 style="color: #333; margin-bottom: 15px;">ステップ2: 馬を選択</h3>
+                    <div id="horseSelection"></div>
+                    <button onclick="generateCombinations()" style="margin-top: 15px; padding: 12px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                        組み合わせを生成
+                    </button>
                 </div>
 
-                <!-- 相手馬選択 -->
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">相手馬:</label>
-                    <div id="partnerHorses" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                <!-- ステップ3: 組み合わせ選択 -->
+                <div id="step3" style="display: none; margin-bottom: 20px;">
+                    <h3 style="color: #333; margin-bottom: 15px;">ステップ3: 買いたい組み合わせを選択</h3>
+                    <div style="margin-bottom: 15px;">
+                        <button onclick="selectAllCombinations()" style="padding: 8px 16px; background: #3498db; color: white; border: none; border-radius: 8px; margin-right: 10px; cursor: pointer;">すべて選択</button>
+                        <button onclick="clearAllCombinations()" style="padding: 8px 16px; background: #95a5a6; color: white; border: none; border-radius: 8px; cursor: pointer;">すべてクリア</button>
+                        <span id="selectedCount" style="margin-left: 20px; font-weight: bold; color: #667eea;">選択済み: 0件</span>
+                    </div>
+                    <div id="combinationList" style="max-height: 400px; overflow-y: auto; border: 2px solid #e0e0e0; border-radius: 12px; padding: 15px; background: white;"></div>
                 </div>
 
-                <!-- 購入金額 -->
-                <div style="margin-bottom: 20px;">
-                    <label style="display: block; font-weight: bold; margin-bottom: 10px;">購入金額 (円):</label>
-                    <input type="number" id="formationAmount" value="100" min="100" step="100" onchange="calculateFormation()" style="width: 100%; padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                <!-- ステップ4: 金額入力 -->
+                <div id="step4" style="display: none; margin-bottom: 20px;">
+                    <h3 style="color: #333; margin-bottom: 15px;">ステップ4: 購入金額を入力</h3>
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <label style="font-weight: bold;">1点あたりの金額:</label>
+                        <input type="number" id="betAmount" value="100" min="100" step="100" oninput="updatePayouts()" style="padding: 10px; border-radius: 8px; border: 2px solid #e0e0e0; font-size: 16px; width: 150px;">
+                        <span style="font-weight: bold;">円</span>
+                    </div>
+                    <div id="payoutSummary" style="padding: 20px; background: #f8f9fa; border-radius: 12px; margin-bottom: 15px;"></div>
+                    <div style="display: flex; gap: 15px;">
+                        <button onclick="addToMemoFromFormation()" style="flex: 1; padding: 15px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                            📝 買い目メモに追加
+                        </button>
+                        <button onclick="closeFormationModal()" style="flex: 1; padding: 15px; background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                            閉じる
+                        </button>
+                    </div>
                 </div>
-
-                <!-- 計算結果 -->
-                <div id="formationResult" style="padding: 20px; background: #f8f9fa; border-radius: 12px;"></div>
             </div>
         </div>
     </div>
@@ -4123,135 +4144,508 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         let formationAxisHorses = [];
         let formationPartnerHorses = [];
 
-        function openFormationModal() {
-            if (!selectedRace) {
-                alert('レースを選択してください');
-                return;
-            }
+// フォーメーション計算機の新しい実装
 
-            formationAxisHorses = [];
-            formationPartnerHorses = [];
+let formationSelectedHorses = {
+    pos1: [], // 1着（または1頭目）
+    pos2: [], // 2着（または2頭目）
+    pos3: []  // 3着（または3頭目）
+};
+let formationCombinations = [];
+let formationSelectedCombinations = [];
 
-            // 馬のチェックボックスを生成
-            updateFormationUI();
+function openFormationModal() {
+    if (!selectedRace) {
+        alert('レースを選択してください');
+        return;
+    }
 
-            document.getElementById('formationModal').style.display = 'flex';
-        }
+    // 初期化
+    formationSelectedHorses = { pos1: [], pos2: [], pos3: [] };
+    formationCombinations = [];
+    formationSelectedCombinations = [];
 
-        function closeFormationModal() {
-            document.getElementById('formationModal').style.display = 'none';
-        }
+    // ステップ3と4を非表示
+    document.getElementById('step3').style.display = 'none';
+    document.getElementById('step4').style.display = 'none';
 
-        function updateFormationUI() {
-            const axisDiv = document.getElementById('axisHorses');
-            const partnerDiv = document.getElementById('partnerHorses');
+    // 馬選択UIを更新
+    updateFormationUI();
 
-            axisDiv.innerHTML = '';
-            partnerDiv.innerHTML = '';
+    document.getElementById('formationModal').style.display = 'flex';
+}
 
-            selectedRace.horses.forEach((horse, index) => {
-                // 軸馬チェックボックス
-                const axisCheckbox = document.createElement('label');
-                axisCheckbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px;';
-                axisCheckbox.innerHTML = `
-                    <input type="checkbox" value="${index}" onchange="toggleAxisHorse(${index})" ${formationAxisHorses.includes(index) ? 'checked' : ''}>
-                    ${horse.horse_number}番 ${horse.horse_name}
-                `;
-                axisDiv.appendChild(axisCheckbox);
+function closeFormationModal() {
+    document.getElementById('formationModal').style.display = 'none';
+}
 
-                // 相手馬チェックボックス
-                const partnerCheckbox = document.createElement('label');
-                partnerCheckbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px;';
-                partnerCheckbox.innerHTML = `
-                    <input type="checkbox" value="${index}" onchange="togglePartnerHorse(${index})" ${formationPartnerHorses.includes(index) ? 'checked' : ''}>
-                    ${horse.horse_number}番 ${horse.horse_name}
-                `;
-                partnerDiv.appendChild(partnerCheckbox);
-            });
+function updateFormationUI() {
+    const betType = document.getElementById('formationBetType').value;
+    const selectionDiv = document.getElementById('horseSelection');
 
-            calculateFormation();
-        }
+    selectionDiv.innerHTML = '';
 
-        function toggleAxisHorse(index) {
-            const idx = formationAxisHorses.indexOf(index);
-            if (idx > -1) {
-                formationAxisHorses.splice(idx, 1);
-            } else {
-                formationAxisHorses.push(index);
-            }
-            calculateFormation();
-        }
+    // 馬券種に応じて選択UIを生成
+    if (betType === 'tansho' || betType === 'fukusho') {
+        // 単勝・複勝: 1頭のみ選択
+        selectionDiv.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択:</label>
+                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+        `;
+    } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
+        // 枠連・馬連・ワイド: 2頭選択（順序なし）
+        selectionDiv.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択 (2頭以上):</label>
+                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+        `;
+    } else if (betType === 'umatan') {
+        // 馬単: 1着・2着で2頭選択
+        selectionDiv.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">1着候補:</label>
+                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">2着候補:</label>
+                <div id="pos2Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+        `;
+    } else if (betType === 'sanrenpuku') {
+        // 3連複: 3頭選択（順序なし）
+        selectionDiv.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">馬を選択 (3頭以上):</label>
+                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+        `;
+    } else if (betType === 'sanrentan') {
+        // 3連単: 1着・2着・3着で3頭選択
+        selectionDiv.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">1着候補:</label>
+                <div id="pos1Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">2着候補:</label>
+                <div id="pos2Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-weight: bold; margin-bottom: 10px;">3着候補:</label>
+                <div id="pos3Horses" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px;"></div>
+            </div>
+        `;
+    }
 
-        function togglePartnerHorse(index) {
-            const idx = formationPartnerHorses.indexOf(index);
-            if (idx > -1) {
-                formationPartnerHorses.splice(idx, 1);
-            } else {
-                formationPartnerHorses.push(index);
-            }
-            calculateFormation();
-        }
+    // 馬のチェックボックスを生成
+    generateHorseCheckboxes();
+}
 
-        function calculateFormation() {
-            const betType = document.getElementById('formationBetType').value;
-            const amount = parseInt(document.getElementById('formationAmount').value) || 100;
-            const resultDiv = document.getElementById('formationResult');
+function generateHorseCheckboxes() {
+    const betType = document.getElementById('formationBetType').value;
 
-            if (formationAxisHorses.length === 0 || formationPartnerHorses.length === 0) {
-                resultDiv.innerHTML = '<p style="color: #999;">軸馬と相手馬を選択してください</p>';
-                return;
-            }
+    ['pos1', 'pos2', 'pos3'].forEach(pos => {
+        const div = document.getElementById(`${pos}Horses`);
+        if (!div) return;
 
-            let combinations = 0;
+        div.innerHTML = '';
 
-            // 馬券種別の組み合わせ数計算
-            if (betType === 'umaren' || betType === 'wide') {
-                // 馬連・ワイド: 軸馬 × 相手馬
-                combinations = formationAxisHorses.length * formationPartnerHorses.length;
-            } else if (betType === 'umatan') {
-                // 馬単: 軸馬 × 相手馬
-                combinations = formationAxisHorses.length * formationPartnerHorses.length;
-            } else if (betType === 'sanrenpuku') {
-                // 3連複: 軸馬 × 相手馬から2頭選ぶ
-                const partnerCount = formationPartnerHorses.length;
-                if (partnerCount < 2) {
-                    resultDiv.innerHTML = '<p style="color: #e74c3c;">相手馬を2頭以上選択してください</p>';
-                    return;
-                }
-                combinations = formationAxisHorses.length * (partnerCount * (partnerCount - 1)) / 2;
-            } else if (betType === 'sanrentan') {
-                // 3連単: 軸馬 × 相手馬から2頭選ぶ × 2
-                const partnerCount = formationPartnerHorses.length;
-                if (partnerCount < 2) {
-                    resultDiv.innerHTML = '<p style="color: #e74c3c;">相手馬を2頭以上選択してください</p>';
-                    return;
-                }
-                combinations = formationAxisHorses.length * partnerCount * (partnerCount - 1);
-            }
-
-            const totalCost = combinations * amount;
-
-            resultDiv.innerHTML = `
-                <h3 style="color: #667eea; margin-bottom: 15px;">計算結果</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                    <div style="padding: 15px; background: white; border-radius: 8px;">
-                        <div style="font-size: 12px; color: #999; margin-bottom: 5px;">組み合わせ数</div>
-                        <div style="font-size: 24px; font-weight: bold; color: #667eea;">${combinations}点</div>
-                    </div>
-                    <div style="padding: 15px; background: white; border-radius: 8px;">
-                        <div style="font-size: 12px; color: #999; margin-bottom: 5px;">合計金額</div>
-                        <div style="font-size: 24px; font-weight: bold; color: #e74c3c;">￥${totalCost.toLocaleString()}</div>
-                    </div>
-                </div>
-                <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
-                    <div style="font-size: 12px; color: #999; margin-bottom: 5px;">選択した馬</div>
-                    <div style="font-size: 14px;">
-                        <strong>軸馬:</strong> ${formationAxisHorses.map(i => selectedRace.horses[i].horse_number + '番').join(', ')}<br>
-                        <strong>相手馬:</strong> ${formationPartnerHorses.map(i => selectedRace.horses[i].horse_number + '番').join(', ')}
-                    </div>
-                </div>
+        selectedRace.horses.forEach((horse, index) => {
+            const checkbox = document.createElement('label');
+            checkbox.style.cssText = 'padding: 8px 12px; background: #f8f9fa; border: 2px solid #e0e0e0; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 5px; transition: all 0.3s;';
+            checkbox.innerHTML = `
+                <input type="checkbox" value="${index}" onchange="toggleHorse('${pos}', ${index})" ${formationSelectedHorses[pos].includes(index) ? 'checked' : ''} style="cursor: pointer;">
+                <span style="font-weight: bold;">${horse.horse_number}</span>
+                <span style="font-size: 13px;">${horse.horse_name}</span>
             `;
+            div.appendChild(checkbox);
+        });
+    });
+}
+
+function toggleHorse(pos, index) {
+    const idx = formationSelectedHorses[pos].indexOf(index);
+    if (idx > -1) {
+        formationSelectedHorses[pos].splice(idx, 1);
+    } else {
+        formationSelectedHorses[pos].push(index);
+    }
+}
+
+async function generateCombinations() {
+    const betType = document.getElementById('formationBetType').value;
+
+    // 選択された馬を確認
+    if (betType === 'tansho' || betType === 'fukusho') {
+        if (formationSelectedHorses.pos1.length === 0) {
+            alert('馬を選択してください');
+            return;
         }
+    } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
+        if (formationSelectedHorses.pos1.length < 2) {
+            alert('2頭以上選択してください');
+            return;
+        }
+    } else if (betType === 'umatan') {
+        if (formationSelectedHorses.pos1.length === 0 || formationSelectedHorses.pos2.length === 0) {
+            alert('1着候補と2着候補を選択してください');
+            return;
+        }
+    } else if (betType === 'sanrenpuku') {
+        if (formationSelectedHorses.pos1.length < 3) {
+            alert('3頭以上選択してください');
+            return;
+        }
+    } else if (betType === 'sanrentan') {
+        if (formationSelectedHorses.pos1.length === 0 || formationSelectedHorses.pos2.length === 0 || formationSelectedHorses.pos3.length === 0) {
+            alert('1着候補、2着候補、3着候補を選択してください');
+            return;
+        }
+    }
+
+    // オッズデータを取得
+    const oddsData = await loadOddsData(selectedRace.race_id);
+    if (!oddsData) {
+        alert('オッズデータを取得できませんでした');
+        return;
+    }
+
+    // 組み合わせを生成
+    formationCombinations = [];
+
+    if (betType === 'tansho' || betType === 'fukusho') {
+        // 単勝・複勝
+        formationSelectedHorses.pos1.forEach(idx => {
+            const horse = selectedRace.horses[idx];
+            const odds = getOdds(oddsData, betType, [horse.horse_number]);
+            formationCombinations.push({
+                horses: [horse.horse_number],
+                horseNames: [horse.horse_name],
+                odds: odds
+            });
+        });
+    } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
+        // 枠連・馬連・ワイド
+        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                formationCombinations.push({
+                    horses: [horse1.horse_number, horse2.horse_number],
+                    horseNames: [horse1.horse_name, horse2.horse_name],
+                    odds: odds
+                });
+            }
+        }
+    } else if (betType === 'umatan') {
+        // 馬単
+        formationSelectedHorses.pos1.forEach(idx1 => {
+            formationSelectedHorses.pos2.forEach(idx2 => {
+                if (idx1 === idx2) return;
+                const horse1 = selectedRace.horses[idx1];
+                const horse2 = selectedRace.horses[idx2];
+                const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                formationCombinations.push({
+                    horses: [horse1.horse_number, horse2.horse_number],
+                    horseNames: [horse1.horse_name, horse2.horse_name],
+                    odds: odds
+                });
+            });
+        });
+    } else if (betType === 'sanrenpuku') {
+        // 3連複
+        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
+                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                    const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                        odds: odds
+                    });
+                }
+            }
+        }
+    } else if (betType === 'sanrentan') {
+        // 3連単
+        formationSelectedHorses.pos1.forEach(idx1 => {
+            formationSelectedHorses.pos2.forEach(idx2 => {
+                if (idx1 === idx2) return;
+                formationSelectedHorses.pos3.forEach(idx3 => {
+                    if (idx1 === idx3 || idx2 === idx3) return;
+                    const horse1 = selectedRace.horses[idx1];
+                    const horse2 = selectedRace.horses[idx2];
+                    const horse3 = selectedRace.horses[idx3];
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                        odds: odds
+                    });
+                });
+            });
+        });
+    }
+
+    // オッズ順にソート（高い順）
+    formationCombinations.sort((a, b) => b.odds - a.odds);
+
+    // ステップ3を表示
+    displayCombinations();
+    document.getElementById('step3').style.display = 'block';
+    document.getElementById('step4').style.display = 'none';
+}
+
+function getOdds(oddsData, betType, horses) {
+    // オッズデータから該当する組み合わせのオッズを取得
+    const oddsTypeMap = {
+        'tansho': 'tfw',
+        'fukusho': 'tfw',
+        'wakuren': 'wakuren',
+        'umaren': 'umaren',
+        'wide': 'wide',
+        'umatan': 'umatan',
+        'sanrenpuku': 'sanrenpuku',
+        'sanrentan': 'sanrentan'
+    };
+
+    const oddsType = oddsTypeMap[betType];
+    const oddsItem = oddsData.find(item => item.odds_type === oddsType);
+
+    if (!oddsItem || !oddsItem.data) return 0;
+
+    // 単勝・複勝
+    if (betType === 'tansho') {
+        const item = oddsItem.data.tansho?.find(o => o.horse_num == horses[0]);
+        return item ? parseFloat(item.odds) : 0;
+    }
+    if (betType === 'fukusho') {
+        const item = oddsItem.data.fukusho?.find(o => o.horse_num == horses[0]);
+        return item ? parseFloat(item.odds_min) : 0;
+    }
+
+    // 枠連
+    if (betType === 'wakuren') {
+        const item = oddsItem.data.find(o => 
+            (o.waku1 == horses[0] && o.waku2 == horses[1]) ||
+            (o.waku1 == horses[1] && o.waku2 == horses[0])
+        );
+        return item ? parseFloat(item.odds) : 0;
+    }
+
+    // 馬連
+    if (betType === 'umaren') {
+        const item = oddsItem.data.find(o => 
+            (o.horse1 == horses[0] && o.horse2 == horses[1]) ||
+            (o.horse1 == horses[1] && o.horse2 == horses[0])
+        );
+        return item ? parseFloat(item.odds) : 0;
+    }
+
+    // ワイド
+    if (betType === 'wide') {
+        const item = oddsItem.data.find(o => 
+            (o.horse1 == horses[0] && o.horse2 == horses[1]) ||
+            (o.horse1 == horses[1] && o.horse2 == horses[0])
+        );
+        return item ? parseFloat(item.odds_min) : 0;
+    }
+
+    // 馬単
+    if (betType === 'umatan') {
+        const item = oddsItem.data.find(o => o.horse1 == horses[0] && o.horse2 == horses[1]);
+        return item ? parseFloat(item.odds) : 0;
+    }
+
+    // 3連複
+    if (betType === 'sanrenpuku') {
+        const item = oddsItem.data.find(o => {
+            const combo = [o.horse1, o.horse2, o.horse3].sort().join('-');
+            const target = horses.sort().join('-');
+            return combo === target;
+        });
+        return item ? parseFloat(item.odds) : 0;
+    }
+
+    // 3連単
+    if (betType === 'sanrentan') {
+        const item = oddsItem.data.find(o => 
+            o.horse1 == horses[0] && o.horse2 == horses[1] && o.horse3 == horses[2]
+        );
+        return item ? parseFloat(item.odds) : 0;
+    }
+
+    return 0;
+}
+
+function displayCombinations() {
+    const listDiv = document.getElementById('combinationList');
+    listDiv.innerHTML = '';
+
+    if (formationCombinations.length === 0) {
+        listDiv.innerHTML = '<p style="color: #999;">組み合わせがありません</p>';
+        return;
+    }
+
+    formationCombinations.forEach((combo, index) => {
+        const div = document.createElement('div');
+        div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px;';
+        div.innerHTML = `
+            <input type="checkbox" id="combo_${index}" onchange="toggleCombination(${index})" style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
+            <div style="flex: 1;">
+                <div style="font-weight: bold; margin-bottom: 5px;">
+                    ${combo.horses.join(' - ')} (${combo.horseNames.join(' - ')})
+                </div>
+                <div style="font-size: 14px; color: #666;">
+                    オッズ: <span style="font-weight: bold; color: #e74c3c;">${combo.odds.toFixed(1)}倍</span>
+                </div>
+            </div>
+        `;
+        listDiv.appendChild(div);
+    });
+
+    updateSelectedCount();
+}
+
+function toggleCombination(index) {
+    const checkbox = document.getElementById(`combo_${index}`);
+    if (checkbox.checked) {
+        if (!formationSelectedCombinations.includes(index)) {
+            formationSelectedCombinations.push(index);
+        }
+    } else {
+        const idx = formationSelectedCombinations.indexOf(index);
+        if (idx > -1) {
+            formationSelectedCombinations.splice(idx, 1);
+        }
+    }
+
+    updateSelectedCount();
+
+    // ステップ4の表示を更新
+    if (formationSelectedCombinations.length > 0) {
+        document.getElementById('step4').style.display = 'block';
+        updatePayouts();
+    } else {
+        document.getElementById('step4').style.display = 'none';
+    }
+}
+
+function selectAllCombinations() {
+    formationSelectedCombinations = formationCombinations.map((_, index) => index);
+    formationCombinations.forEach((_, index) => {
+        const checkbox = document.getElementById(`combo_${index}`);
+        if (checkbox) checkbox.checked = true;
+    });
+    updateSelectedCount();
+    document.getElementById('step4').style.display = 'block';
+    updatePayouts();
+}
+
+function clearAllCombinations() {
+    formationSelectedCombinations = [];
+    formationCombinations.forEach((_, index) => {
+        const checkbox = document.getElementById(`combo_${index}`);
+        if (checkbox) checkbox.checked = false;
+    });
+    updateSelectedCount();
+    document.getElementById('step4').style.display = 'none';
+}
+
+function updateSelectedCount() {
+    document.getElementById('selectedCount').textContent = `選択済み: ${formationSelectedCombinations.length}件`;
+}
+
+function updatePayouts() {
+    const betAmount = parseInt(document.getElementById('betAmount').value) || 100;
+    const summaryDiv = document.getElementById('payoutSummary');
+
+    if (formationSelectedCombinations.length === 0) {
+        summaryDiv.innerHTML = '<p style="color: #999;">組み合わせを選択してください</p>';
+        return;
+    }
+
+    const totalAmount = betAmount * formationSelectedCombinations.length;
+    let maxPayout = 0;
+    let minPayout = Infinity;
+    let avgOdds = 0;
+
+    formationSelectedCombinations.forEach(index => {
+        const combo = formationCombinations[index];
+        const payout = betAmount * combo.odds;
+        if (payout > maxPayout) maxPayout = payout;
+        if (payout < minPayout) minPayout = payout;
+        avgOdds += combo.odds;
+    });
+
+    avgOdds /= formationSelectedCombinations.length;
+
+    summaryDiv.innerHTML = `
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+            <div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 5px;">購入点数</div>
+                <div style="font-size: 24px; font-weight: bold; color: #667eea;">${formationSelectedCombinations.length}点</div>
+            </div>
+            <div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 5px;">合計購入金額</div>
+                <div style="font-size: 24px; font-weight: bold; color: #e74c3c;">${totalAmount.toLocaleString()}円</div>
+            </div>
+            <div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 5px;">最大払戻金</div>
+                <div style="font-size: 24px; font-weight: bold; color: #27ae60;">${Math.floor(maxPayout).toLocaleString()}円</div>
+            </div>
+            <div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 5px;">平均オッズ</div>
+                <div style="font-size: 24px; font-weight: bold; color: #f39c12;">${avgOdds.toFixed(1)}倍</div>
+            </div>
+        </div>
+    `;
+}
+
+function addToMemoFromFormation() {
+    if (formationSelectedCombinations.length === 0) {
+        alert('組み合わせを選択してください');
+        return;
+    }
+
+    const betType = document.getElementById('formationBetType').value;
+    const betAmount = parseInt(document.getElementById('betAmount').value) || 100;
+
+    const betTypeNames = {
+        'tansho': '単勝',
+        'fukusho': '複勝',
+        'wakuren': '枠連',
+        'umaren': '馬連',
+        'wide': 'ワイド',
+        'umatan': '馬単',
+        'sanrenpuku': '3連複',
+        'sanrentan': '3連単'
+    };
+
+    formationSelectedCombinations.forEach(index => {
+        const combo = formationCombinations[index];
+        const payout = Math.floor(betAmount * combo.odds);
+
+        addMemoItem(
+            selectedRace.race_id,
+            betTypeNames[betType],
+            combo.horses.join('-'),
+            combo.odds.toFixed(1),
+            betAmount,
+            payout
+        );
+    });
+
+    alert(`${formationSelectedCombinations.length}件の買い目をメモに追加しました`);
+    closeFormationModal();
+}
 
         // お気に入りレース機能
         function getFavoriteRaces() {
