@@ -50,8 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // OpenAI APIキーの読み込み
     const openaiApiKeyInput = document.getElementById('openaiApiKey');
-    if (openaiApiKeyInput && openaiApiKey) {
-        openaiApiKeyInput.value = openaiApiKey;
+    const savedKey = getOpenAIApiKey();
+    if (openaiApiKeyInput && savedKey) {
+        openaiApiKeyInput.value = savedKey;
     }
 });
 
@@ -252,9 +253,9 @@ async function runAIAnalysis() {
         
         while (retryCount <= maxRetries) {
             try {
-                // AbortControllerでタイムアウト制御（30秒）
+                // AbortControllerでタイムアウト制御（120秒）
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 30000);
+                const timeoutId = setTimeout(() => controller.abort(), 120000);
                 
                 try {
                     response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
@@ -304,7 +305,7 @@ async function runAIAnalysis() {
                     
                     // 503エラーが3回続いた場合、OpenAI APIキーがあればGPT-4o-miniにフォールバック
                     if (response.status === 503 && retryCount >= maxRetries) {
-                        if (openaiApiKey) {
+                        if (getOpenAIApiKey()) {
                             console.log('[AI Analysis] Gemini failed after 3 retries. Switching to GPT-4o-mini...');
                             aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>Geminiが混雑しています。GPT-4o-miniに切り替え中...</div>';
                             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -361,7 +362,7 @@ async function runAIAnalysis() {
         saveAIAnalysisResult(selectedRace.race_number, {
             timestamp: Date.now(),
             result: analysisText,
-            model: model,
+            model: selectedModel,
             params: { budget, minReturn, targetReturn, betTypes, paddockHorses }
         });
         
@@ -952,7 +953,7 @@ function saveOpenAIKey() {
     }
     
     localStorage.setItem('openai_api_key', apiKey);
-    openaiApiKey = apiKey;
+    window.OPENAI_API_KEY = apiKey;
     alert('OpenAI APIキーを保存しました');
 }
 
@@ -993,14 +994,24 @@ async function callOpenAI(model, prompt) {
         requestBody.temperature = 0.7;
     }
     
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-        },
-        body: JSON.stringify(requestBody)
-    });
+    // AbortControllerでタイムアウト制御（120秒）
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 120000);
+    
+    let response;
+    try {
+        response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(requestBody),
+            signal: controller.signal
+        });
+    } finally {
+        clearTimeout(timeoutId);
+    }
     
     if (!response.ok) {
         const errorData = await response.json();
@@ -1035,7 +1046,7 @@ async function runAIAnalysisWithOpenAI(model) {
     aiResultDiv.innerHTML = '<div class="loading-spinner"></div><div>AIが分析中です...</div>';
     
     // OpenAI APIキーの確認
-    if (!openaiApiKey) {
+    if (!getOpenAIApiKey()) {
         aiResultDiv.innerHTML = '<div class="error">OpenAI APIキーを設定してください。<br>AIモデル選択でGPT-5-nanoまたはGPT-4o-miniを選ぶと、APIキー入力欄が表示されます。</div>';
         return;
     }

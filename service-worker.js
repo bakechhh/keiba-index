@@ -54,6 +54,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   
+  // OpenAI APIはキャッシュをスキップ
+  if (url.hostname.includes('api.openai.com')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+  
   // その他の外部APIリクエストは常にネットワーク経由
   if (url.origin !== location.origin) {
     event.respondWith(fetch(event.request));
