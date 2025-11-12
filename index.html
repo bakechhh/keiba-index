@@ -4718,8 +4718,21 @@ async function generateCombinations() {
             return;
         }
     } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
-        if (formationSelectedHorses.pos1.length < 2) {
+        // ボックス形式：pos1に2頭以上必要
+        // フォーメーション形式：pos1とpos2の合計で2頭以上必要
+        const totalSelected = formationSelectedHorses.pos1.length + formationSelectedHorses.pos2.length;
+        if (totalSelected < 2) {
             alert('2頭以上選択してください');
+            return;
+        }
+        // ボックス形式の場合はpos1に2頭以上必要
+        if (formationSelectedHorses.pos2.length === 0 && formationSelectedHorses.pos1.length < 2) {
+            alert('2頭以上選択してください');
+            return;
+        }
+        // フォーメーション形式の場合はpos1とpos2にそれぞれ1頭以上必要
+        if (formationSelectedHorses.pos2.length > 0 && (formationSelectedHorses.pos1.length === 0 || formationSelectedHorses.pos2.length === 0)) {
+            alert('1頭目と2頭目にそれぞれ1頭以上選択してください');
             return;
         }
     } else if (betType === 'umatan') {
