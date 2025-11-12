@@ -1774,28 +1774,28 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     <h3 style="color: #667eea; font-size: 16px; margin-bottom: 10px;">👁️ 散布図の見方</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
                         <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #4caf50;">
-                            <div style="font-weight: bold; color: #4caf50; margin-bottom: 5px;">✅ 左下エリア（狙い目）</div>
-                            <div style="font-size: 13px; color: #666;">
-                                AI順位が高いのに人気が低い馬。<br>
-                                オッズが高く、的中時の配当が期待できる。
-                            </div>
-                        </div>
-                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ff9800;">
-                            <div style="font-weight: bold; color: #ff9800; margin-bottom: 5px;">⚠️ 右上エリア（注意）</div>
-                            <div style="font-size: 13px; color: #666;">
-                                人気が高いのにAI順位が低い馬。<br>
-                                過大評価の可能性があり、軸にするのはリスク。
-                            </div>
-                        </div>
-                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
-                            <div style="font-weight: bold; color: #2196f3; margin-bottom: 5px;">👍 左上エリア（本命）</div>
+                            <div style="font-weight: bold; color: #4caf50; margin-bottom: 5px;">✅ 左下エリア（本命）</div>
                             <div style="font-size: 13px; color: #666;">
                                 AI順位も人気も高い馬。<br>
                                 本命馬として軸にするのが無難。
                             </div>
                         </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #ff9800;">
+                            <div style="font-weight: bold; color: #ff9800; margin-bottom: 5px;">⚠️ 右下エリア（過大評価）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                AI順位が低いのに人気が高い馬。<br>
+                                過大評価の可能性があり、軸にするのはリスク。
+                            </div>
+                        </div>
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #2196f3;">
+                            <div style="font-weight: bold; color: #2196f3; margin-bottom: 5px;">👍 左上エリア（穴馬）</div>
+                            <div style="font-size: 13px; color: #666;">
+                                AI順位が高いのに人気が低い馬。<br>
+                                オッズが高く、的中時の配当が期待できる。
+                            </div>
+                        </div>
                         <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid #9e9e9e;">
-                            <div style="font-weight: bold; color: #9e9e9e; margin-bottom: 5px;">❌ 右下エリア（消し）</div>
+                            <div style="font-weight: bold; color: #9e9e9e; margin-bottom: 5px;">❌ 右上エリア（消し）</div>
                             <div style="font-size: 13px; color: #666;">
                                 AI順位も人気も低い馬。<br>
                                 馬券に絡める可能性は低い。
@@ -2020,10 +2020,29 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 <!-- ステップ3: 組み合わせ選択 -->
                 <div id="step3" style="display: none; margin-bottom: 20px;">
                     <h3 style="color: #333; margin-bottom: 15px;">ステップ3: 買いたい組み合わせを選択</h3>
+                    
+                    <!-- ソート・フィルターコントロール -->
+                    <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+                        <label style="font-weight: bold; font-size: 14px;">ソート:</label>
+                        <select id="sortOrder" onchange="sortCombinations()" style="padding: 6px 10px; border-radius: 6px; border: 2px solid #e0e0e0; font-size: 14px;">
+                            <option value="odds_desc">オッズ順 (高→低)</option>
+                            <option value="odds_asc">オッズ順 (低→高)</option>
+                            <option value="number_asc">馬番順</option>
+                        </select>
+                        
+                        <label style="font-weight: bold; font-size: 14px; margin-left: 15px;">オッズフィルター:</label>
+                        <input type="number" id="minOdds" placeholder="最小" min="0" step="0.1" style="width: 80px; padding: 6px; border-radius: 6px; border: 2px solid #e0e0e0; font-size: 14px;">
+                        <span>～</span>
+                        <input type="number" id="maxOdds" placeholder="最大" min="0" step="0.1" style="width: 80px; padding: 6px; border-radius: 6px; border: 2px solid #e0e0e0; font-size: 14px;">
+                        <button onclick="applyOddsFilter()" style="padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">適用</button>
+                        <button onclick="clearOddsFilter()" style="padding: 6px 12px; background: #95a5a6; color: white; border: none; border-radius: 6px; font-size: 14px; cursor: pointer;">クリア</button>
+                    </div>
+                    
                     <div style="margin-bottom: 15px;">
                         <button onclick="selectAllCombinations()" style="padding: 8px 16px; background: #3498db; color: white; border: none; border-radius: 8px; margin-right: 10px; cursor: pointer;">すべて選択</button>
                         <button onclick="clearAllCombinations()" style="padding: 8px 16px; background: #95a5a6; color: white; border: none; border-radius: 8px; cursor: pointer;">すべてクリア</button>
                         <span id="selectedCount" style="margin-left: 20px; font-weight: bold; color: #667eea;">選択済み: 0件</span>
+                        <span id="displayCount" style="margin-left: 15px; font-size: 14px; color: #666;"></span>
                     </div>
                     <div id="combinationList" style="max-height: 400px; overflow-y: auto; border: 2px solid #e0e0e0; border-radius: 12px; padding: 15px; background: white;"></div>
                 </div>
@@ -3514,6 +3533,45 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 };
             });
 
+            // 中央値を計算（エリア分けの基準）
+            const medianAI = (horses.length + 1) / 2;
+            const medianPopularity = (horses.length + 1) / 2;
+
+            // 各点の色をエリアごとに設定
+            const colors = data.map(point => {
+                const isLeftSide = point.x <= medianAI; // AI順位が高い（左側）
+                const isBottomSide = point.y <= medianPopularity; // 人気順位が高い（下側）
+
+                if (isLeftSide && isBottomSide) {
+                    // 左下：本命（緑）
+                    return 'rgba(76, 175, 80, 0.7)';
+                } else if (!isLeftSide && isBottomSide) {
+                    // 右下：過大評価（オレンジ）
+                    return 'rgba(255, 152, 0, 0.7)';
+                } else if (isLeftSide && !isBottomSide) {
+                    // 左上：穴馬（青）
+                    return 'rgba(33, 150, 243, 0.7)';
+                } else {
+                    // 右上：消し（グレー）
+                    return 'rgba(158, 158, 158, 0.7)';
+                }
+            });
+
+            const borderColors = data.map(point => {
+                const isLeftSide = point.x <= medianAI;
+                const isBottomSide = point.y <= medianPopularity;
+
+                if (isLeftSide && isBottomSide) {
+                    return '#4caf50';
+                } else if (!isLeftSide && isBottomSide) {
+                    return '#ff9800';
+                } else if (isLeftSide && !isBottomSide) {
+                    return '#2196f3';
+                } else {
+                    return '#9e9e9e';
+                }
+            });
+
             if (scatterChart) {
                 scatterChart.destroy();
             }
@@ -3524,8 +3582,8 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     datasets: [{
                         label: '馬',
                         data: data,
-                        backgroundColor: 'rgba(102, 126, 234, 0.6)',
-                        borderColor: '#667eea',
+                        backgroundColor: colors,
+                        borderColor: borderColors,
                         borderWidth: 2,
                         pointRadius: 8,
                         pointHoverRadius: 12
@@ -4230,6 +4288,89 @@ function closeFormationModal() {
     document.getElementById('formationModal').style.display = 'none';
 }
 
+// ソート機能
+function sortCombinations() {
+    const sortOrder = document.getElementById('sortOrder').value;
+    
+    if (sortOrder === 'odds_desc') {
+        formationCombinations.sort((a, b) => b.odds - a.odds);
+    } else if (sortOrder === 'odds_asc') {
+        formationCombinations.sort((a, b) => a.odds - b.odds);
+    } else if (sortOrder === 'number_asc') {
+        formationCombinations.sort((a, b) => {
+            const aNum = parseInt(a.horses[0]);
+            const bNum = parseInt(b.horses[0]);
+            return aNum - bNum;
+        });
+    }
+    
+    displayCombinations();
+}
+
+// オッズフィルター適用
+function applyOddsFilter() {
+    const minOdds = parseFloat(document.getElementById('minOdds').value) || 0;
+    const maxOdds = parseFloat(document.getElementById('maxOdds').value) || Infinity;
+    
+    const listDiv = document.getElementById('combinationList');
+    listDiv.innerHTML = '';
+    
+    filteredCombinations = formationCombinations.filter(combo => {
+        return combo.odds >= minOdds && combo.odds <= maxOdds;
+    });
+    
+    if (filteredCombinations.length === 0) {
+        listDiv.innerHTML = '<p style="color: #999;">条件に一致する組み合わせがありません</p>';
+        updateDisplayCount();
+        return;
+    }
+    
+    const betAmount = parseInt(document.getElementById('betAmount')?.value) || 100;
+    
+    filteredCombinations.forEach((combo) => {
+        const originalIndex = formationCombinations.indexOf(combo);
+        const payout = Math.floor(betAmount * combo.odds);
+        const isSelected = formationSelectedCombinations.includes(originalIndex);
+        
+        const div = document.createElement('div');
+        div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; transition: all 0.2s;';
+        div.onmouseenter = function() { this.style.background = '#e8f4f8'; };
+        div.onmouseleave = function() { this.style.background = '#f8f9fa'; };
+        
+        div.innerHTML = `
+            <input type="checkbox" id="combo_${originalIndex}" onchange="toggleCombination(${originalIndex})" ${isSelected ? 'checked' : ''} style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
+            <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <div style="font-weight: bold; font-size: 15px;">
+                        ${combo.horses.join(' - ')}
+                    </div>
+                    <div style="font-weight: bold; color: #e74c3c; font-size: 16px;">
+                        ${combo.odds.toFixed(1)}倍
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666;">
+                    <div>
+                        ${combo.horseNames.join(' - ')}
+                    </div>
+                    <div style="font-weight: bold; color: #27ae60;">
+                        期待払戻: ${payout.toLocaleString()}円
+                    </div>
+                </div>
+            </div>
+        `;
+        listDiv.appendChild(div);
+    });
+    
+    updateDisplayCount();
+}
+
+// オッズフィルタークリア
+function clearOddsFilter() {
+    document.getElementById('minOdds').value = '';
+    document.getElementById('maxOdds').value = '';
+    displayCombinations();
+}
+
 function updateFormationUI() {
     const betType = document.getElementById('formationBetType').value;
     const selectionDiv = document.getElementById('horseSelection');
@@ -4479,62 +4620,69 @@ function getOdds(oddsData, betType, horses) {
     }
     if (betType === 'fukusho') {
         const item = oddsItem.data.fukusho?.find(o => o.horse_num == horses[0]);
-        return item ? parseFloat(item.odds_min) : 0;
+        if (!item) return 0;
+        // 複勝は範囲があるので最小値を返す
+        if (item.odds && item.odds.min) {
+            return parseFloat(item.odds.min);
+        }
+        return 0;
     }
+
+    // 枠連・馬連・ワイド・馬単・三連複・三連単は combinations 配列から取得
+    const combinations = oddsItem.data.combinations;
+    if (!combinations || !Array.isArray(combinations)) return 0;
 
     // 枠連
     if (betType === 'wakuren') {
-        const item = oddsItem.data.find(o => 
-            (o.waku1 == horses[0] && o.waku2 == horses[1]) ||
-            (o.waku1 == horses[1] && o.waku2 == horses[0])
-        );
+        const targetCombo = horses.sort((a, b) => parseInt(a) - parseInt(b)).join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
         return item ? parseFloat(item.odds) : 0;
     }
 
     // 馬連
     if (betType === 'umaren') {
-        const item = oddsItem.data.find(o => 
-            (o.horse1 == horses[0] && o.horse2 == horses[1]) ||
-            (o.horse1 == horses[1] && o.horse2 == horses[0])
-        );
+        const targetCombo = horses.sort((a, b) => parseInt(a) - parseInt(b)).join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
         return item ? parseFloat(item.odds) : 0;
     }
 
     // ワイド
     if (betType === 'wide') {
-        const item = oddsItem.data.find(o => 
-            (o.horse1 == horses[0] && o.horse2 == horses[1]) ||
-            (o.horse1 == horses[1] && o.horse2 == horses[0])
-        );
-        return item ? parseFloat(item.odds_min) : 0;
+        const targetCombo = horses.sort((a, b) => parseInt(a) - parseInt(b)).join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
+        if (!item) return 0;
+        // ワイドは範囲があるので最小値を返す
+        if (item.odds && item.odds.min) {
+            return parseFloat(item.odds.min);
+        }
+        return item.odds ? parseFloat(item.odds) : 0;
     }
 
     // 馬単
     if (betType === 'umatan') {
-        const item = oddsItem.data.find(o => o.horse1 == horses[0] && o.horse2 == horses[1]);
+        const targetCombo = horses.join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
         return item ? parseFloat(item.odds) : 0;
     }
 
     // 3連複
     if (betType === 'sanrenpuku') {
-        const item = oddsItem.data.find(o => {
-            const combo = [o.horse1, o.horse2, o.horse3].sort().join('-');
-            const target = horses.sort().join('-');
-            return combo === target;
-        });
+        const targetCombo = horses.sort((a, b) => parseInt(a) - parseInt(b)).join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
         return item ? parseFloat(item.odds) : 0;
     }
 
     // 3連単
     if (betType === 'sanrentan') {
-        const item = oddsItem.data.find(o => 
-            o.horse1 == horses[0] && o.horse2 == horses[1] && o.horse3 == horses[2]
-        );
+        const targetCombo = horses.join('-');
+        const item = combinations.find(o => o.combination === targetCombo);
         return item ? parseFloat(item.odds) : 0;
     }
 
     return 0;
 }
+
+let filteredCombinations = []; // フィルター済み組み合わせ
 
 function displayCombinations() {
     const listDiv = document.getElementById('combinationList');
@@ -4545,24 +4693,54 @@ function displayCombinations() {
         return;
     }
 
-    formationCombinations.forEach((combo, index) => {
+    // フィルター済み組み合わせを初期化
+    filteredCombinations = [...formationCombinations];
+    
+    const betAmount = parseInt(document.getElementById('betAmount')?.value) || 100;
+
+    filteredCombinations.forEach((combo, index) => {
+        const originalIndex = formationCombinations.indexOf(combo);
+        const payout = Math.floor(betAmount * combo.odds);
+        const isSelected = formationSelectedCombinations.includes(originalIndex);
+        
         const div = document.createElement('div');
-        div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px;';
+        div.style.cssText = 'display: flex; align-items: center; padding: 12px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px; transition: all 0.2s;';
+        div.onmouseenter = function() { this.style.background = '#e8f4f8'; };
+        div.onmouseleave = function() { this.style.background = '#f8f9fa'; };
+        
         div.innerHTML = `
-            <input type="checkbox" id="combo_${index}" onchange="toggleCombination(${index})" style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
+            <input type="checkbox" id="combo_${originalIndex}" onchange="toggleCombination(${originalIndex})" ${isSelected ? 'checked' : ''} style="margin-right: 15px; width: 20px; height: 20px; cursor: pointer;">
             <div style="flex: 1;">
-                <div style="font-weight: bold; margin-bottom: 5px;">
-                    ${combo.horses.join(' - ')} (${combo.horseNames.join(' - ')})
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <div style="font-weight: bold; font-size: 15px;">
+                        ${combo.horses.join(' - ')}
+                    </div>
+                    <div style="font-weight: bold; color: #e74c3c; font-size: 16px;">
+                        ${combo.odds.toFixed(1)}倍
+                    </div>
                 </div>
-                <div style="font-size: 14px; color: #666;">
-                    オッズ: <span style="font-weight: bold; color: #e74c3c;">${combo.odds.toFixed(1)}倍</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #666;">
+                    <div>
+                        ${combo.horseNames.join(' - ')}
+                    </div>
+                    <div style="font-weight: bold; color: #27ae60;">
+                        期待払戻: ${payout.toLocaleString()}円
+                    </div>
                 </div>
             </div>
         `;
         listDiv.appendChild(div);
     });
 
+    updateDisplayCount();
     updateSelectedCount();
+}
+
+function updateDisplayCount() {
+    const displayCountSpan = document.getElementById('displayCount');
+    if (displayCountSpan) {
+        displayCountSpan.textContent = `表示中: ${filteredCombinations.length} / ${formationCombinations.length}件`;
+    }
 }
 
 function toggleCombination(index) {
@@ -4590,9 +4768,13 @@ function toggleCombination(index) {
 }
 
 function selectAllCombinations() {
-    formationSelectedCombinations = formationCombinations.map((_, index) => index);
-    formationCombinations.forEach((_, index) => {
-        const checkbox = document.getElementById(`combo_${index}`);
+    // 現在表示されている組み合わせをすべて選択
+    filteredCombinations.forEach(combo => {
+        const originalIndex = formationCombinations.indexOf(combo);
+        if (!formationSelectedCombinations.includes(originalIndex)) {
+            formationSelectedCombinations.push(originalIndex);
+        }
+        const checkbox = document.getElementById(`combo_${originalIndex}`);
         if (checkbox) checkbox.checked = true;
     });
     updateSelectedCount();
@@ -4601,13 +4783,20 @@ function selectAllCombinations() {
 }
 
 function clearAllCombinations() {
-    formationSelectedCombinations = [];
-    formationCombinations.forEach((_, index) => {
-        const checkbox = document.getElementById(`combo_${index}`);
+    // 現在表示されている組み合わせをすべてクリア
+    filteredCombinations.forEach(combo => {
+        const originalIndex = formationCombinations.indexOf(combo);
+        const idx = formationSelectedCombinations.indexOf(originalIndex);
+        if (idx > -1) {
+            formationSelectedCombinations.splice(idx, 1);
+        }
+        const checkbox = document.getElementById(`combo_${originalIndex}`);
         if (checkbox) checkbox.checked = false;
     });
     updateSelectedCount();
-    document.getElementById('step4').style.display = 'none';
+    if (formationSelectedCombinations.length === 0) {
+        document.getElementById('step4').style.display = 'none';
+    }
 }
 
 function updateSelectedCount() {
@@ -4621,6 +4810,19 @@ function updatePayouts() {
     if (formationSelectedCombinations.length === 0) {
         summaryDiv.innerHTML = '<p style="color: #999;">組み合わせを選択してください</p>';
         return;
+    }
+
+    // 組み合わせリストの期待払戻金も更新
+    const listDiv = document.getElementById('combinationList');
+    if (listDiv && filteredCombinations.length > 0) {
+        // フィルターが適用されている場合は再描画
+        const minOdds = parseFloat(document.getElementById('minOdds').value);
+        const maxOdds = parseFloat(document.getElementById('maxOdds').value);
+        if (minOdds || maxOdds) {
+            applyOddsFilter();
+        } else {
+            displayCombinations();
+        }
     }
 
     const totalAmount = betAmount * formationSelectedCombinations.length;
