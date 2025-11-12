@@ -4400,7 +4400,7 @@ function sortCombinations() {
 }
 
 // オッズフィルター適用
-function applyOddsFilter() {
+window.applyOddsFilter = function() {
     const minOdds = parseFloat(document.getElementById('minOdds').value) || 0;
     const maxOdds = parseFloat(document.getElementById('maxOdds').value) || Infinity;
     
@@ -4457,7 +4457,7 @@ function applyOddsFilter() {
 }
 
 // オッズフィルタークリア
-function clearOddsFilter() {
+window.clearOddsFilter = function() {
     document.getElementById('minOdds').value = '';
     document.getElementById('maxOdds').value = '';
     displayCombinations();
@@ -4804,7 +4804,7 @@ function getFrameColor(frameNumber) {
 }
 
 // 馬のフレーム選択をトグル
-function toggleHorseFrame(horseIndex, frameIndex) {
+window.toggleHorseFrame = function(horseIndex, frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const idx = formationSelectedHorses[pos].indexOf(horseIndex);
     
@@ -4819,7 +4819,7 @@ function toggleHorseFrame(horseIndex, frameIndex) {
 }
 
 // 印の馬を選択
-function selectMarkedHorses(frameIndex) {
+window.selectMarkedHorses = function(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     const raceId = getRaceId(selectedRace);
     
@@ -4837,7 +4837,7 @@ function selectMarkedHorses(frameIndex) {
 }
 
 // すべての馬を選択
-function selectAllHorses(frameIndex) {
+window.selectAllHorses = function(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     formationSelectedHorses[pos] = selectedRace.horses.map((h, i) => i);
     updateFormationUI();
@@ -4845,7 +4845,7 @@ function selectAllHorses(frameIndex) {
 }
 
 // 選択をクリア
-function clearSelection(frameIndex) {
+window.clearSelection = function(frameIndex) {
     const pos = `pos${frameIndex + 1}`;
     formationSelectedHorses[pos] = [];
     updateFormationUI();
@@ -4912,7 +4912,7 @@ function updateCombinationCount() {
 
 // 削除: 古いgenerateHorseCheckboxesとtoggleHorse関数は上記のupdateFormationUIに統合
 
-async function generateCombinations() {
+window.generateCombinations = async function() {
     const betType = document.getElementById('formationBetType').value;
 
     // 選択された馬を確認
@@ -5295,7 +5295,7 @@ function updateComboAmount(index, amount) {
     }
 }
 
-function selectAllCombinations() {
+window.selectAllCombinations = function() {
     // 現在表示されている組み合わせをすべて選択
     filteredCombinations.forEach(combo => {
         const originalIndex = formationCombinations.indexOf(combo);
@@ -5310,7 +5310,7 @@ function selectAllCombinations() {
     updatePayouts();
 }
 
-function clearAllCombinations() {
+window.clearAllCombinations = function() {
     // 現在表示されている組み合わせをすべてクリア
     filteredCombinations.forEach(combo => {
         const originalIndex = formationCombinations.indexOf(combo);
@@ -5422,7 +5422,7 @@ function addMemoItem(raceId, betType, combination, odds, amount, payout) {
     console.log('✅ メモに追加しました:', memo);
 }
 
-function addToMemoFromFormation() {
+window.addToMemoFromFormation = function() {
     if (formationSelectedCombinations.length === 0) {
         alert('組み合わせを選択してください');
         return;
