@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測システム-UmaAi-</title>
+    <title>競馬AI予測システム</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI予測システム-UmaAi-">
+    <meta name="apple-mobile-web-app-title" content="競馬AI">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -233,6 +233,28 @@
             border-radius: 8px;
             font-size: 14px;
             cursor: pointer;
+        }
+
+        /* レースナビゲーションボタン */
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         /* 一覧表示モード */
@@ -686,6 +708,181 @@
                 padding: 6px 12px !important;
             }
         }
+
+        /* ダークモード */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .header,
+        body.dark-mode .filters,
+        body.dark-mode .race-card,
+        body.dark-mode .horse-card,
+        body.dark-mode .ai-panel {
+            background: #2a2a3e;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .header h1 {
+            color: #8b9bea;
+        }
+
+        body.dark-mode .update-info {
+            color: #b0b0b0;
+        }
+
+        body.dark-mode select,
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background: #1a1a2e;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+
+        body.dark-mode .race-card h3,
+        body.dark-mode .horse-card h4 {
+            color: #8b9bea;
+        }
+
+        body.dark-mode .badge {
+            background: #444;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .loading,
+        body.dark-mode .error {
+            background: #2a2a3e;
+            color: #e0e0e0;
+        }
+
+        /* ダークモード切り替えボタン */
+        .theme-toggle {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        body.dark-mode .theme-toggle {
+            background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+        }
+
+        /* モーダル */
+        .modal {
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        body.dark-mode .modal-content {
+            background: #2a2a3e;
+            color: #e0e0e0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        body.dark-mode .modal-close:hover {
+            color: #e0e0e0;
+        }
+
+        .horse-detail-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .horse-detail-header h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .horse-detail-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .horse-detail-info-item {
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        body.dark-mode .horse-detail-info-item {
+            background: #1a1a2e;
+        }
+
+        .horse-detail-info-item strong {
+            color: #667eea;
+        }
+
+        .past-races-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .past-races-table th,
+        .past-races-table td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        body.dark-mode .past-races-table th,
+        body.dark-mode .past-races-table td {
+            border-color: #444;
+        }
+
+        .past-races-table th {
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+
+        .past-races-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        body.dark-mode .past-races-table tr:nth-child(even) {
+            background: #1a1a2e;
+        }
     </style>
 </head>
 <body>
@@ -694,9 +891,14 @@
         <div class="header">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h1>🏇 競馬指数予測システム</h1>
-                <button onclick="sendTestNotification()" style="padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">
-                    🔔 通知テスト
-                </button>
+                <div>
+                    <button class="theme-toggle" onclick="toggleDarkMode()">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+                    <button onclick="sendTestNotification()" style="padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">
+                        🔔 通知テスト
+                    </button>
+                </div>
             </div>
             <div class="update-info" id="updateInfo">読み込み中...</div>
         </div>
@@ -733,6 +935,13 @@
         <div class="horses-container" id="horsesContainer">
             <div class="horses-header">
                 <div class="horses-title" id="horsesTitle"></div>
+                <div class="race-navigation" id="raceNavigation" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                    <button class="nav-btn" onclick="navigateToPreviousRace()">← 前のレース</button>
+                    <button class="nav-btn" onclick="navigateToNextRace()">次のレース →</button>
+                    <select id="placeSwitch" onchange="switchPlace(this.value)" style="padding: 8px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                        <option value="">開催場所切り替え</option>
+                    </select>
+                </div>
                 <div class="header-controls">
                     <div class="view-mode-buttons">
                         <button class="view-mode-btn active" onclick="changeViewMode('list')">一覧</button>
@@ -1497,6 +1706,14 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         </div>
     </div>
 
+    <!-- 馬詳細モーダル -->
+    <div id="horseDetailModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeHorseDetailModal()">&times;</span>
+            <div id="horseDetailContent"></div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="data-loader.js"></script>
     <script src="app.js"></script>
@@ -1533,6 +1750,25 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 horse.popularity = popularityMap[horseNum] || null;
             });
         }
+    </script>
+    <script>
+        // ダークモードの初期化と切り替え
+        function initDarkMode() {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('themeIcon').textContent = '☀️';
+            }
+        }
+
+        function toggleDarkMode() {
+            const isDarkMode = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            document.getElementById('themeIcon').textContent = isDarkMode ? '☀️' : '🌙';
+        }
+
+        // ページ読み込み時にダークモードを初期化
+        initDarkMode();
     </script>
     <script>
         var allRaces = [];
@@ -1694,6 +1930,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 card.className = 'race-card';
                 card.onclick = () => showHorses(race, card);
 
+                const raceId = `${race.place}${race.round}R`;
+                const isFavorite = isFavoriteRace(raceId);
+
                 card.innerHTML = `
                     <div class="race-header">
                         <div class="race-number">${race.place}${race.round}R</div>
@@ -1701,6 +1940,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             ${race.date}<br>
                             ${race.surface} ${race.distance}m
                         </div>
+                        <button class="favorite-btn" onclick="event.stopPropagation(); toggleFavoriteRace('${raceId}', this);" style="background: none; border: none; font-size: 20px; cursor: pointer;">
+                            ${isFavorite ? '⭐' : '☆'}
+                        </button>
                     </div>
                     <div class="race-name">${race.race_name}</div>
                     <div class="race-details">
@@ -1753,6 +1995,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         async function showHorses(race, cardElement) {
             selectedRace = race;
             window.selectedRace = race;  // グローバルに公開
+
+            // 開催場所切り替えと前/次レースボタンを初期化
+            initRaceNavigation(race);
 
             // すべてのレースカードの選択状態をリセット
             document.querySelectorAll('.race-card').forEach(card => {
@@ -1923,7 +2168,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             </div>
                         </td>
                         <td><strong>${horse.horse_number}番</strong></td>
-                        <td><strong>${horse.horse_name}</strong> ${horse.mark}</td>
+                        <td><strong style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
                         <td><strong style="color: #333; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
                         <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
@@ -2057,7 +2302,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             <div class="horse-basic">
                                 <div class="horse-name-row">
                                     <div class="horse-number">${horse.horse_number}番</div>
-                                    <div class="horse-name">${horse.horse_name}</div>
+                                    <div class="horse-name" style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</div>
                                     ${horse.mark ? `<span class="horse-mark">${horse.mark}</span>` : ''}
                                 </div>
                                 <div class="horse-jockey">🏇 ${horse.jockey.name} (${horse.jockey.weight}kg)</div>
@@ -2202,7 +2447,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             <div class="horse-basic">
                                 <div class="horse-name-row">
                                     <div class="horse-number">${horse.horse_number}番</div>
-                                    <div class="horse-name">${horse.horse_name}</div>
+                                    <div class="horse-name" style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</div>
                                     ${horse.mark ? `<span class="horse-mark">${horse.mark}</span>` : ''}
                                 </div>
                                 <div class="horse-jockey">🏇 ${horse.jockey.name} (${horse.jockey.weight}kg ${horse.jockey.weight_reduction || ''})</div>
@@ -2547,7 +2792,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                             </div>
                         </td>
                         <td><strong>${horse.horse_number}番</strong></td>
-                        <td><strong>${horse.horse_name}</strong> ${horse.mark}</td>
+                        <td><strong style="cursor: pointer; color: #667eea;" onclick="showHorseDetail(selectedRace.horses[${index}])">${horse.horse_name}</strong> ${horse.mark}</td>
                         <td>${horse.jockey.name}</td>
                         <td><strong style="color: #333; font-size: 16px;">${horse.popularity || '-'}人気</strong></td>
                         <td><strong style="color: #e74c3c; font-size: 16px;">${horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-'}</strong></td>
@@ -2720,6 +2965,198 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                     }, 300);
                 }
             });
+        }
+
+        // レースナビゲーションの初期化
+        function initRaceNavigation(race) {
+            const currentRound = race.round;
+            const currentPlace = race.place;
+
+            // 開催場所切り替えセレクトボックスを初期化
+            const placeSwitch = document.getElementById('placeSwitch');
+            placeSwitch.innerHTML = '<option value="">開催場所切り替え</option>';
+
+            // 同じレース番号の他の開催場所を探す
+            const otherPlaces = filteredRaces.filter(r => r.round === currentRound && r.place !== currentPlace);
+            otherPlaces.forEach(r => {
+                const option = document.createElement('option');
+                option.value = r.place;
+                option.textContent = `${r.place}${r.round}R`;
+                placeSwitch.appendChild(option);
+            });
+        }
+
+        // 開催場所を切り替え
+        function switchPlace(newPlace) {
+            if (!newPlace || !selectedRace) return;
+
+            const currentRound = selectedRace.round;
+            const targetRace = filteredRaces.find(r => r.place === newPlace && r.round === currentRound);
+
+            if (targetRace) {
+                // レースカードを探してクリック
+                const raceCards = document.querySelectorAll('.race-card');
+                raceCards.forEach(card => {
+                    const cardPlace = card.querySelector('h3').textContent.split('R')[0].trim();
+                    const cardRound = parseInt(card.querySelector('h3').textContent.match(/(\d+)R/)[1]);
+                    if (cardPlace === newPlace && cardRound === currentRound) {
+                        card.click();
+                    }
+                });
+            }
+
+            // セレクトボックスをリセット
+            document.getElementById('placeSwitch').value = '';
+        }
+
+        // 前のレースに移動
+        function navigateToPreviousRace() {
+            if (!selectedRace) return;
+
+            const currentIndex = filteredRaces.findIndex(r => r.place === selectedRace.place && r.round === selectedRace.round);
+            if (currentIndex > 0) {
+                const previousRace = filteredRaces[currentIndex - 1];
+                const raceCards = document.querySelectorAll('.race-card');
+                raceCards[currentIndex - 1].click();
+            }
+        }
+
+        // 次のレースに移動
+        function navigateToNextRace() {
+            if (!selectedRace) return;
+
+            const currentIndex = filteredRaces.findIndex(r => r.place === selectedRace.place && r.round === selectedRace.round);
+            if (currentIndex < filteredRaces.length - 1) {
+                const nextRace = filteredRaces[currentIndex + 1];
+                const raceCards = document.querySelectorAll('.race-card');
+                raceCards[currentIndex + 1].click();
+            }
+        }
+
+        // 馬詳細モーダルを表示
+        function showHorseDetail(horse) {
+            const modal = document.getElementById('horseDetailModal');
+            const content = document.getElementById('horseDetailContent');
+
+            let html = `
+                <div class="horse-detail-header">
+                    <h2>🐎 ${horse.horse_number}番 ${horse.horse_name}</h2>
+                </div>
+
+                <div class="horse-detail-info">
+                    <div class="horse-detail-info-item">
+                        <strong>最終スコア:</strong> ${horse.indices.final_score.toFixed(2)}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>騎手:</strong> ${horse.jockey.name} (${horse.jockey.weight}kg)
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>調教師:</strong> ${horse.trainer.name} (${horse.trainer.affiliation})
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>出走間隔:</strong> ${horse.interval}週
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI単勝スコア:</strong> ${horse.predictions ? horse.predictions.win_rate.toFixed(4) : '-'}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI単勝順位:</strong> ${horse.predictions ? horse.predictions.win_rate_rank : '-'}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI連対スコア:</strong> ${horse.predictions ? horse.predictions.place_rate.toFixed(4) : '-'}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI連対順位:</strong> ${horse.predictions ? horse.predictions.place_rate_rank : '-'}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI複勝スコア:</strong> ${horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-'}
+                    </div>
+                    <div class="horse-detail-info-item">
+                        <strong>AI複勝順位:</strong> ${horse.predictions ? horse.predictions.show_rate_rank : '-'}
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin-top: 20px;">過去5走</h3>
+                <table class="past-races-table">
+                    <thead>
+                        <tr>
+                            <th>日付</th>
+                            <th>開催場所</th>
+                            <th>コース</th>
+                            <th>馬場状態</th>
+                            <th>着順</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            if (horse.past_races && horse.past_races.length > 0) {
+                horse.past_races.slice(0, 5).forEach(race => {
+                    html += `
+                        <tr>
+                            <td>${race.date}</td>
+                            <td>${race.place}</td>
+                            <td>${race.surface}${race.distance}m</td>
+                            <td>${race.track_condition}</td>
+                            <td><strong>${race.rank}着</strong></td>
+                        </tr>
+                    `;
+                });
+            } else {
+                html += '<tr><td colspan="5" style="text-align: center;">過去レースデータがありません</td></tr>';
+            }
+
+            html += `
+                    </tbody>
+                </table>
+            `;
+
+            content.innerHTML = html;
+            modal.style.display = 'flex';
+        }
+
+        // 馬詳細モーダルを閉じる
+        function closeHorseDetailModal() {
+            document.getElementById('horseDetailModal').style.display = 'none';
+        }
+
+        // モーダル外をクリックしたら閉じる
+        document.getElementById('horseDetailModal').addEventListener('click', function(e) {
+            if (e.target.id === 'horseDetailModal') {
+                closeHorseDetailModal();
+            }
+        });
+
+        // お気に入りレース機能
+        function getFavoriteRaces() {
+            const favorites = localStorage.getItem('favorite_races');
+            return favorites ? JSON.parse(favorites) : [];
+        }
+
+        function saveFavoriteRaces(favorites) {
+            localStorage.setItem('favorite_races', JSON.stringify(favorites));
+        }
+
+        function isFavoriteRace(raceId) {
+            const favorites = getFavoriteRaces();
+            return favorites.includes(raceId);
+        }
+
+        function toggleFavoriteRace(raceId, buttonElement) {
+            let favorites = getFavoriteRaces();
+            const index = favorites.indexOf(raceId);
+
+            if (index > -1) {
+                // お気に入りから削除
+                favorites.splice(index, 1);
+                buttonElement.textContent = '☆';
+            } else {
+                // お気に入りに追加
+                favorites.push(raceId);
+                buttonElement.textContent = '⭐';
+            }
+
+            saveFavoriteRaces(favorites);
         }
     </script>
 </body>
