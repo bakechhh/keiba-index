@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測ツール-UmaAi-</title>
+    <title>競馬AI予測システム-UmaAi-</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
+    <meta name="apple-mobile-web-app-title" content="競馬AI予測システム-UmaAi-">
     
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -1126,6 +1126,9 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                                 <span class="bet-type-label">🎲 3連単</span>
                             </label>
                         </div>
+                        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; margin-top: 10px; border-radius: 5px; font-size: 0.9em;">
+                            <strong>⚠️ 注意</strong>: 馬券種を増やすとAI分析エラーの可能性が高まります。<strong>3種類まで推奨</strong>します。
+                        </div>
                     </div>
 
                     <!-- 回収率設定 -->
@@ -1605,6 +1608,11 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
         // データを読み込み
         async function loadData() {
             try {
+                // 古いAI分析結果を削除（PWA対応）
+                if (typeof window.cleanupOldAnalysisResults === 'function') {
+                    await window.cleanupOldAnalysisResults();
+                }
+                
                 // racedataフォルダから個別JSONファイルを読み込む
                 allRaces = await loadAllRaceData();
 
@@ -1758,6 +1766,12 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             document.getElementById('aiResult').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">「AI分析」ボタンをクリックして分析を開始してください。</div>';
             document.getElementById('oddsContent').innerHTML = '<div style="padding: 20px; text-align: center; color: #999;">オッズデータを読み込み中...</div>';
             currentOddsData = null;
+            
+            // localStorageからAI分析結果を自動読み込み
+            const raceId = `${race.place}${race.round}R`;
+            if (typeof window.autoLoadAIAnalysisResult === 'function') {
+                window.autoLoadAIAnalysisResult(raceId);
+            }
 
             // タイトル設定
             document.getElementById('horsesTitle').textContent =
