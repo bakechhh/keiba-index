@@ -43,8 +43,18 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   
-  // 外部APIリクエスト（Gemini、将来的にGroqなど）は常にネットワーク経由
-  // Service Workerを経由せず、キャッシュもしない
+  // Gemini APIはキャッシュをスキップ（明示的にcache: 'no-store'を追加）
+  if (url.hostname.includes('generativelanguage.googleapis.com')) {
+    event.respondWith(
+      fetch(event.request, {
+        cache: 'no-store',
+        mode: 'cors'
+      })
+    );
+    return;
+  }
+  
+  // その他の外部APIリクエストは常にネットワーク経由
   if (url.origin !== location.origin) {
     event.respondWith(fetch(event.request));
     return;

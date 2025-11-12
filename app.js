@@ -235,6 +235,11 @@ async function runAIAnalysis() {
         console.log(prompt);
         console.log('='.repeat(80));
 
+        // オンライン状態を確認
+        if (!navigator.onLine) {
+            throw new Error('オフライン状態です。インターネット接続を確認してください。');
+        }
+
         // 503エラーの自動リトライ（指数バックオフ）
         let response;
         let retryCount = 0;
@@ -242,25 +247,45 @@ async function runAIAnalysis() {
         
         while (retryCount <= maxRetries) {
             try {
-                response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: prompt
-                    }]
-                }]
-            })
-        });
+                // AbortControllerでタイムアウト制御（30秒）
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 30000);
+                
+                try {
+                    response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${selectedModel}:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: prompt
+                                }]
+                            }]
+                        }),
+                        signal: controller.signal,
+                        cache: 'no-store'
+                    });
+                } finally {
+                    clearTimeout(timeoutId);
+                }
         
                 console.log('[AI Analysis] Response status:', response.status);
 
                 if (!response.ok) {
                     const errorData = await response.json();
                     console.error('[AI Analysis] Error response:', errorData);
+                    
+                    // 429エラー（レート制限）の場合はリトライ
+                    if (response.status === 429 && retryCount < maxRetries) {
+                        retryCount++;
+                        const waitTime = Math.pow(2, retryCount) * 1000; // 指数バックオフ: 2s, 4s, 8s
+                        console.log(`[AI Analysis] 429 Rate Limit. Retrying in ${waitTime/1000}s... (${retryCount}/${maxRetries})`);
+                        aiResultDiv.innerHTML = `<div class="loading-spinner"></div><div>API利用制限に達しました。待機中... (リトライ ${retryCount}/${maxRetries})</div>`;
+                        await new Promise(resolve => setTimeout(resolve, waitTime));
+                        continue; // ループを続ける
+                    }
                     
                     // 503エラーの場合はリトライ
                     if (response.status === 503 && retryCount < maxRetries) {
@@ -292,6 +317,19 @@ async function runAIAnalysis() {
                 break;
                 
             } catch (fetchError) {
+                // タイムアウトエラーの場合
+                if (fetchError.name === 'AbortError') {
+                    if (retryCount < maxRetries) {
+                        retryCount++;
+                        const waitTime = Math.pow(2, retryCount) * 1000;
+                        console.log(`[AI Analysis] Timeout. Retrying in ${waitTime/1000}s... (${retryCount}/${maxRetries})`);
+                        aiResultDiv.innerHTML = `<div class="loading-spinner"></div><div>リクエストがタイムアウトしました。再試行中... (リトライ ${retryCount}/${maxRetries})</div>`;
+                        await new Promise(resolve => setTimeout(resolve, waitTime));
+                        continue;
+                    }
+                    throw new Error('リクエストがタイムアウトしました。再試行してください。');
+                }
+                
                 // ネットワークエラーなどの場合もリトライ
                 if (retryCount < maxRetries) {
                     retryCount++;
@@ -333,7 +371,8 @@ async function runAIAnalysis() {
 
     } catch (error) {
         console.error('[AI Analysis] Error:', error);
-        aiResultDiv.innerHTML = `<div class="error">AI分析エラー: ${error.message}</div>`;
+        const errorMessage = getErrorMessage(error);
+        aiResultDiv.innerHTML = `<div class="error">⚠️ ${errorMessage}</div>`;
     }
 }
 
@@ -503,6 +542,10 @@ ${paddockHorses && paddockHorses.length > 0 ? `
    - 本命が飛んだ場合の保険馬券
    - 展開が変わった場合の対応
    - 資金ショートを避ける配分
+
+5. **注意**
+   - 複勝とワイド以外の券種は1点しか当たらないこと
+   - 馬単が当たれば馬連が当たるみたいな複合性があること
 
 ### 4. 分析の重要ポイント
 
@@ -1195,5 +1238,57 @@ async function cleanupOldAnalysisResults() {
     }
 }
 
+// ====================
+// エラーメッセージ改善関数
+// ====================
+function getErrorMessage(error) {
+    if (!navigator.onLine) {
+        return 'インターネット接続がありません。接続を確認してください。';
+    }
+    
+    if (error.message.includes('AbortError') || error.message.includes('タイムアウト')) {
+        return 'リクエストがタイムアウトしました。もう一度お試しください。';
+    }
+    
+    if (error.message.includes('429')) {
+        return 'APIの利用制限に達しました。しばらく待ってからお試しください。';
+    }
+    
+    if (error.message.includes('403')) {
+        return 'APIキーが無効です。設定を確認してください。';
+    }
+    
+    if (error.message.includes('Failed to fetch')) {
+        return 'ネットワークエラーが発生しました。接続を確認してください。';
+    }
+    
+    return `エラーが発生しました: ${error.message}`;
+}
+
+// ====================
+// ネットワーク状態監視（PWA対応）
+// ====================
+window.addEventListener('online', () => {
+    console.log('✅ オンラインに復帰しました');
+    // UIに通知を表示（オプション）
+    const notification = document.createElement('div');
+    notification.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px 20px; border-radius: 5px; z-index: 10000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);';
+    notification.textContent = '✅ インターネットに接続しました';
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 3000);
+});
+
+window.addEventListener('offline', () => {
+    console.log('⚠️ オフラインになりました');
+    // UIに警告を表示
+    const warning = document.createElement('div');
+    warning.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #FF9800; color: white; padding: 15px 20px; border-radius: 5px; z-index: 10000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);';
+    warning.textContent = '⚠️ インターネット接続が切断されました';
+    document.body.appendChild(warning);
+    setTimeout(() => warning.remove(), 5000);
+});
+
 // グローバルに公開
 window.cleanupOldAnalysisResults = cleanupOldAnalysisResults;
+window.runAIAnalysis = runAIAnalysis;
+window.getErrorMessage = getErrorMessage;

@@ -923,6 +923,18 @@
                     <option value="">すべての競馬場</option>
                 </select>
             </div>
+            <div class="filter-group" style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="favoriteFilter" style="width: auto; cursor: pointer;">
+                <label for="favoriteFilter" style="cursor: pointer; margin: 0;">⭐ お気に入りのみ表示</label>
+            </div>
+            <div class="filter-group" style="display: flex; gap: 8px;">
+                <button onclick="selectAllRacesForAI()" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">
+                    ☑️ すべて選択
+                </button>
+                <button onclick="runBulkAIAnalysis()" style="padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold;">
+                    🤖 選択したレースをAI分析
+                </button>
+            </div>
         </div>
 
         <!-- ローディング -->
@@ -2284,16 +2296,30 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
             dateFilter.addEventListener('change', applyFilters);
             placeFilter.addEventListener('change', applyFilters);
+            
+            // お気に入りフィルターのイベントリスナー
+            const favoriteFilter = document.getElementById('favoriteFilter');
+            favoriteFilter.addEventListener('change', applyFilters);
         }
 
         // フィルター適用
         function applyFilters() {
             const dateFilter = document.getElementById('dateFilter').value;
             const placeFilter = document.getElementById('placeFilter').value;
+            const favoriteFilter = document.getElementById('favoriteFilter').checked;
 
             filteredRaces = allRaces.filter(race => {
                 const matchDate = !dateFilter || race.date === dateFilter;
                 const matchPlace = !placeFilter || race.place === placeFilter;
+                
+                // お気に入りフィルター
+                if (favoriteFilter) {
+                    const raceId = `${race.date}_${race.place}_${race.round}`;
+                    if (!isFavoriteRace(raceId)) {
+                        return false;
+                    }
+                }
+                
                 return matchDate && matchPlace;
             });
 
@@ -2321,6 +2347,7 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
 
                 card.innerHTML = `
                     <div class="race-header">
+                        <input type="checkbox" class="race-select-checkbox" data-race-index="${index}" onclick="event.stopPropagation();" style="width: 20px; height: 20px; cursor: pointer; margin-right: 10px;">
                         <div class="race-number">${race.place}${race.round}R</div>
                         <div class="race-info">
                             ${race.date}<br>
@@ -5009,13 +5036,6 @@ function updateComboAmount(index, amount) {
     if (payoutSpan) {
         payoutSpan.textContent = payout.toLocaleString();
     }
-    // ステップ4の表示を更新
-    if (formationSelectedCombinations.length > 0) {
-        document.getElementById('step4').style.display = 'block';
-        updatePayouts();
-    } else {
-        document.getElementById('step4').style.display = 'none';
-    }
 }
 
 function selectAllCombinations() {
@@ -5198,6 +5218,99 @@ function addToMemoFromFormation() {
             }
 
             saveFavoriteRaces(favorites);
+        }
+
+        // すべてのレースを選択
+        function selectAllRacesForAI() {
+            const checkboxes = document.querySelectorAll('.race-select-checkbox');
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+            
+            checkboxes.forEach(cb => {
+                cb.checked = !allChecked;
+            });
+        }
+
+        // AI一括分析を実行
+        async function runBulkAIAnalysis() {
+            const checkboxes = document.querySelectorAll('.race-select-checkbox:checked');
+            
+            if (checkboxes.length === 0) {
+                alert('分析するレースを選択してください。');
+                return;
+            }
+
+            const selectedRaces = Array.from(checkboxes).map(cb => {
+                const index = parseInt(cb.dataset.raceIndex);
+                return filteredRaces[index];
+            });
+
+            const confirmed = confirm(`${selectedRaces.length}件のレースをAI分析します。\n\n※ 各レースの分析に数秒かかります。\n※ API利用制限に注意してください。\n\n続けますか？`);
+            
+            if (!confirmed) return;
+
+            // プログレス表示用のダイアログを作成
+            const progressDiv = document.createElement('div');
+            progressDiv.id = 'bulkAnalysisProgress';
+            progressDiv.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 10000; min-width: 400px;';
+            progressDiv.innerHTML = `
+                <h3 style="margin: 0 0 20px 0; text-align: center;">🤖 AI一括分析中...</h3>
+                <div id="bulkAnalysisStatus" style="margin-bottom: 15px; text-align: center;"></div>
+                <div style="background: #f0f0f0; border-radius: 8px; height: 20px; overflow: hidden;">
+                    <div id="bulkAnalysisBar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 0%; transition: width 0.3s;"></div>
+                </div>
+                <div id="bulkAnalysisLog" style="margin-top: 15px; max-height: 200px; overflow-y: auto; font-size: 12px; color: #666;"></div>
+            `;
+            document.body.appendChild(progressDiv);
+
+            const statusDiv = document.getElementById('bulkAnalysisStatus');
+            const progressBar = document.getElementById('bulkAnalysisBar');
+            const logDiv = document.getElementById('bulkAnalysisLog');
+
+            let successCount = 0;
+            let failCount = 0;
+
+            for (let i = 0; i < selectedRaces.length; i++) {
+                const race = selectedRaces[i];
+                const raceName = `${race.place}${race.round}R ${race.race_name || ''}`;
+                
+                statusDiv.textContent = `${i + 1} / ${selectedRaces.length}: ${raceName}`;
+                progressBar.style.width = `${((i + 1) / selectedRaces.length) * 100}%`;
+
+                try {
+                    // レースを選択してAI分析を実行
+                    selectedRace = race;
+                    
+                    // オッズデータを読み込む
+                    const raceId = race.race_number;
+                    currentOddsData = await window.loadOddsData(raceId);
+                    
+                    // AI分析を実行（app.jsのrunAIAnalysisを呼び出す）
+                    await window.runAIAnalysis();
+                    
+                    successCount++;
+                    logDiv.innerHTML += `<div style="color: green;">✅ ${raceName} - 完了</div>`;
+                    
+                    // APIレート制限対策：各レースの間に2秒待つ
+                    if (i < selectedRaces.length - 1) {
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                    }
+                    
+                } catch (error) {
+                    failCount++;
+                    logDiv.innerHTML += `<div style="color: red;">❌ ${raceName} - エラー: ${error.message}</div>`;
+                    console.error(`[Bulk AI Analysis] Error for ${raceName}:`, error);
+                }
+                
+                logDiv.scrollTop = logDiv.scrollHeight;
+            }
+
+            // 完了メッセージ
+            statusDiv.innerHTML = `<strong>完了！</strong><br>成功: ${successCount}件 | 失敗: ${failCount}件`;
+            
+            // 5秒後にダイアログを閉じる
+            setTimeout(() => {
+                document.body.removeChild(progressDiv);
+            }, 5000);
         }
     </script>
 </body>
