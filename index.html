@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>競馬AI予測システム</title>
+    <title>競馬AI予測ツール-UmaAi-</title>
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="競馬AI">
+    <meta name="apple-mobile-web-app-title" content="競馬AI予測ツール-UmaAi-">
 
     <!-- PWA Icons -->
     <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
@@ -896,7 +896,7 @@
         <!-- ヘッダー -->
         <div class="header">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h1>🏇 競馬指数予測システム</h1>
+                <h1>🏇 競馬AI予測ツール-UmaAi-</h1>
                 <div>
                     <button class="theme-toggle" onclick="toggleDarkMode()">
                         <span id="themeIcon">🌙</span>
@@ -4520,7 +4520,11 @@ function updateFormationUI() {
         // 元のindexを取得（formationSelectedHorsesで使用）
         const originalIndex = selectedRace.horses.findIndex(h => h.horse_number === horse.horse_number);
 
-        const frameColor = getFrameColor(horse.frame_number);
+        const frameNumber = horse.frame || 1;
+        const frameColor = getFrameColor(frameNumber);
+        // 1枚（白）と5枚（黄）は黒文字、その他は白文字
+        const textColor = (frameNumber === 1 || frameNumber === 5) ? '#000000' : '#FFFFFF';
+        const textShadow = (frameNumber === 1 || frameNumber === 5) ? 'none' : '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
         const raceId = getRaceId(selectedRace);
 
         // 印を取得（最初のスロットのみ表示）
@@ -4533,7 +4537,7 @@ function updateFormationUI() {
 
         html += `
             <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: ${textColor}; text-shadow: ${textShadow};">
                     ${horse.horse_number}
                 </td>
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
@@ -4584,7 +4588,7 @@ function updateFormationUI() {
     tableDiv.innerHTML = html;
 }
 
-// 枠色を取得
+// 枚色を取得
 function getFrameColor(frameNumber) {
     const colors = {
         1: '#FFFFFF', // 白
