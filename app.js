@@ -728,8 +728,8 @@ ${paddockHorses && paddockHorses.length > 0 ? `
  */
 function formatHorsesData(horses) {
     // 表形式で見やすく整理（AIスコアとランクを追加）
-    let formatted = '\n| 順位 | 馬番 | 馬名 | 最終スコア | AI単勝スコア | AI単順位 | AI連対スコア | AI連順位 | AI複勝スコア | AI複順位 | 単勝オッズ | 人気 | マイニング指数 | 戦績マイニング | ZI指数 | 補正タイム偏差値 | 類似係数 | 安定係数 | 騎手名 | 騎手勝率 | 調教師名 | 調教師勝率 | 出走間隔 | 前走着順 |\n';
-    formatted += '|------|------|------|------------|------------|----------|------------|----------|------------|----------|----------|------|----------------|----------------|--------|----------------|----------|----------|--------|----------|----------|------------|----------|----------|\n';
+    let formatted = '\n| 順位 | 馬番 | 馬名 | 最終スコア | AI単勝スコア | AI単順位 | AI連対スコア | AI連順位 | AI複勝スコア | AI複順位 | マイニング指数 | 戦績マイニング | ZI指数 | 補正タイム偏差値 | 類似係数 | 安定係数 | 騎手名 | 騎手勝率 | 調教師名 | 調教師勝率 | 出走間隔 | 前走着順 |\n';
+    formatted += '|------|------|------|------------|------------|----------|------------|----------|------------|----------|----------------|----------------|--------|----------------|----------|----------|--------|----------|----------|------------|----------|----------|\n';
 
     horses.forEach((horse, index) => {
         const pastRace = horse.past_races && horse.past_races.length > 0 ? horse.past_races[0] : null;
@@ -742,16 +742,11 @@ function formatHorsesData(horses) {
         const showScore = horse.predictions ? horse.predictions.show_rate.toFixed(4) : '-';
         const showRank = horse.predictions ? horse.predictions.show_rate_rank : '-';
         
-        // 手動オッズと人気を取得（手動優先）
-        const displayOdds = horse.manual_odds || horse.odds || '-';
-        const displayPopularity = horse.manual_popularity || horse.popularity || '-';
-        
         formatted += `| ${index + 1} | ${horse.horse_number} | ${horse.horse_name} | `;
         formatted += `${horse.indices.final_score.toFixed(2)} | `;
         formatted += `**${winScore}** | ${winRank} | `;  // AI単勝スコアとランク
         formatted += `**${placeScore}** | ${placeRank} | `;  // AI連対スコアとランク
         formatted += `**${showScore}** | ${showRank} | `;  // AI複勝スコアとランク
-        formatted += `**${displayOdds}倍** | **${displayPopularity}人気** | `;  // 手動オッズと人気を強調
         formatted += `${horse.indices.mining_index.toFixed(1)} | `;
         formatted += `**${horse.battle_mining.toFixed(1)}** | `;  // 戦績マイニングを強調
         formatted += `${horse.zi_index.toFixed(1)} | `;
