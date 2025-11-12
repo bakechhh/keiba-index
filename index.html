@@ -2231,18 +2231,54 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             });
         }
 
-        // レースIDを生成
+        // レースIDマップ（レース名→数字ID）
+        let raceIdMap = {};
+
+        // raceid.csvを読み込んでレースIDマップを作成
+        async function loadRaceIdMap() {
+            try {
+                const response = await fetch('./raceid.csv');
+                const text = await response.text();
+                const lines = text.split('\n');
+                
+                // 1行目はヘッダーなのでスキップ
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    const parts = line.split(',');
+                    if (parts.length >= 2) {
+                        const raceName = parts[0].trim(); // 例：福坠1R
+                        const raceId = parts[1].trim();   // 例：2503030201
+                        raceIdMap[raceName] = raceId;
+                    }
+                }
+                
+                console.log('[RaceID] Loaded race ID map:', Object.keys(raceIdMap).length, 'races');
+            } catch (error) {
+                console.error('[RaceID] Failed to load raceid.csv:', error);
+            }
+        }
+
+        // レースIDを生成（数字IDを返す）
         function getRaceId(race) {
-            return `${race.date}_${race.place}_${race.round}`;
+            const raceName = `${race.place}${race.round}R`;
+            return raceIdMap[raceName] || raceName; // マップになければフォールバック
         }
 
         // データを読み込み
         async function loadData() {
             try {
+                // raceid.csvを最初に読み込む
+                await loadRaceIdMap();
+                
                 // 古いAI分析結果を削除（PWA対応）
                 if (typeof window.cleanupOldAnalysisResults === 'function') {
                     await window.cleanupOldAnalysisResults();
                 }
+                
+                // 古いレースのデータを削除
+                cleanupOldRaceData();
                 
                 // racedataフォルダから個別JSONファイルを読み込む
                 allRaces = await loadAllRaceData();
@@ -4431,6 +4467,20 @@ function updateFormationUI() {
     const betType = document.getElementById('formationBetType').value;
     const tableDiv = document.getElementById('horseSelectionTable');
 
+    // 券種切り替え時に選択をリセット
+    formationSelectedHorses = {
+        pos1: [],
+        pos2: [],
+        pos3: []
+    };
+    
+    // 組み合わせもクリア
+    formationCombinations = [];
+    
+    // ステップ3を非表示
+    document.getElementById('step3').style.display = 'none';
+    document.getElementById('step4').style.display = 'none';
+
     // 馬券種に応じたフレーム数を決定
     let framesCount = 1;
     let frameLabels = ['1頭目'];
@@ -4520,8 +4570,15 @@ function updateFormationUI() {
         // 元のindexを取得（formationSelectedHorsesで使用）
         const originalIndex = selectedRace.horses.findIndex(h => h.horse_number === horse.horse_number);
         
-        const frameColor = getFrameColor(horse.frame_number);
+        // 馬番と頭数から枚番を計算
+        const totalHorses = selectedRace.horses.length;
+        const frameNumber = getFrameNumber(horse.horse_number, totalHorses);
+        const frameColor = getFrameColor(frameNumber);
         const raceId = getRaceId(selectedRace);
+        
+        // 枚色に応じて文字色を変更（白・黄色は黒文字）
+        const textColor = (frameNumber === 1 || frameNumber === 5) ? '#000000' : '#FFFFFF';
+        const textShadow = (frameNumber === 1 || frameNumber === 5) ? 'none' : '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
         
         // 印を取得（最初のスロットのみ表示）
         const markIndex = horseMarks[raceId]?.[originalIndex]?.[0] || 0;
@@ -4533,7 +4590,7 @@ function updateFormationUI() {
         
         html += `
             <tr style="border-bottom: 1px solid #ddd;">
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: center; background: ${frameColor}; font-weight: bold; color: ${textColor}; text-shadow: ${textShadow};">
                     ${horse.horse_number}
                 </td>
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
@@ -4584,7 +4641,44 @@ function updateFormationUI() {
     tableDiv.innerHTML = html;
 }
 
-// 枠色を取得
+// 馬番と頭数から枚番を計算
+function getFrameNumber(horseNumber, totalHorses) {
+    // 8頭以下は馬番 = 枚番
+    if (totalHorses <= 8) {
+        return horseNumber;
+    }
+    
+    // 9頭以上は頭数別のルールを適用
+    const rules = {
+        9: [[1], [2], [3], [4], [5], [6], [7,8], [9]],
+        10: [[1], [2], [3], [4], [5], [6], [7,8], [9,10]],
+        11: [[1], [2], [3], [4], [5], [6,7], [8,9], [10,11]],
+        12: [[1], [2], [3], [4], [5,6], [7,8], [9,10], [11,12]],
+        13: [[1], [2], [3], [4], [5,6], [7,8], [9,10], [11,12,13]],
+        14: [[1], [2], [3], [4], [5,6], [7,8], [9,10,11], [12,13,14]],
+        15: [[1], [2], [3], [4,5], [6,7], [8,9], [10,11,12], [13,14,15]],
+        16: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14], [15,16]],
+        17: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14], [15,16,17]],
+        18: [[1,2], [3,4], [5,6], [7,8], [9,10], [11,12], [13,14,15], [16,17,18]]
+    };
+    
+    const frameMap = rules[totalHorses];
+    if (!frameMap) {
+        // ルールがない場合はデフォルト
+        return Math.min(Math.ceil(horseNumber / 2), 8);
+    }
+    
+    // 馬番がどの枚に属するか検索
+    for (let i = 0; i < frameMap.length; i++) {
+        if (frameMap[i].includes(horseNumber)) {
+            return i + 1; // 枚番は1から始まる
+        }
+    }
+    
+    return 1; // フォールバック
+}
+
+// 枚色を取得
 function getFrameColor(frameNumber) {
     const colors = {
         1: '#FFFFFF', // 白
@@ -4777,18 +4871,43 @@ async function generateCombinations() {
             });
         });
     } else if (betType === 'wakuren' || betType === 'umaren' || betType === 'wide') {
-        // 枠連・馬連・ワイド
-        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
-                formationCombinations.push({
-                    horses: [horse1.horse_number, horse2.horse_number],
-                    horseNames: [horse1.horse_name, horse2.horse_name],
-                    odds: odds
-                });
+        // 枚連・馬連・ワイド（フォーメーション形式）
+        // pos2が空の場合はボックス形式
+        if (formationSelectedHorses.pos2.length === 0) {
+            // ボックス形式：pos1の中から組み合わせ
+            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number]);
+                    formationCombinations.push({
+                        horses: [horse1.horse_number, horse2.horse_number],
+                        horseNames: [horse1.horse_name, horse2.horse_name],
+                        odds: odds
+                    });
+                }
             }
+        } else {
+            // フォーメーション形式：pos1 × pos2
+            formationSelectedHorses.pos1.forEach(idx1 => {
+                formationSelectedHorses.pos2.forEach(idx2 => {
+                    if (idx1 === idx2) return; // 同じ馬は除外
+                    const horse1 = selectedRace.horses[idx1];
+                    const horse2 = selectedRace.horses[idx2];
+                    // 馬連・ワイドは順不同なので、重複を防ぐ
+                    const sortedHorses = [horse1.horse_number, horse2.horse_number].sort((a, b) => a - b);
+                    const key = sortedHorses.join('-');
+                    // 既に追加済みかチェック
+                    if (!formationCombinations.find(c => c.horses.sort((a, b) => a - b).join('-') === key)) {
+                        const odds = getOdds(oddsData, betType, sortedHorses);
+                        formationCombinations.push({
+                            horses: sortedHorses,
+                            horseNames: [horse1.horse_name, horse2.horse_name],
+                            odds: odds
+                        });
+                    }
+                });
+            });
         }
     } else if (betType === 'umatan') {
         // 馬単
@@ -4806,21 +4925,49 @@ async function generateCombinations() {
             });
         });
     } else if (betType === 'sanrenpuku') {
-        // 3連複
-        for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
-            for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
-                for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
-                    const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
-                    const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
-                    const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
-                    const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
-                    formationCombinations.push({
-                        horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
-                        horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
-                        odds: odds
-                    });
+        // 3連複（フォーメーション形式）
+        // pos2とpos3が空の場合はボックス形式
+        if (formationSelectedHorses.pos2.length === 0 && formationSelectedHorses.pos3.length === 0) {
+            // ボックス形式：pos1の中から3頭を選ぶ
+            for (let i = 0; i < formationSelectedHorses.pos1.length; i++) {
+                for (let j = i + 1; j < formationSelectedHorses.pos1.length; j++) {
+                    for (let k = j + 1; k < formationSelectedHorses.pos1.length; k++) {
+                        const horse1 = selectedRace.horses[formationSelectedHorses.pos1[i]];
+                        const horse2 = selectedRace.horses[formationSelectedHorses.pos1[j]];
+                        const horse3 = selectedRace.horses[formationSelectedHorses.pos1[k]];
+                        const odds = getOdds(oddsData, betType, [horse1.horse_number, horse2.horse_number, horse3.horse_number]);
+                        formationCombinations.push({
+                            horses: [horse1.horse_number, horse2.horse_number, horse3.horse_number],
+                            horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                            odds: odds
+                        });
+                    }
                 }
             }
+        } else {
+            // フォーメーション形式：pos1 × pos2 × pos3
+            formationSelectedHorses.pos1.forEach(idx1 => {
+                formationSelectedHorses.pos2.forEach(idx2 => {
+                    if (idx1 === idx2) return;
+                    formationSelectedHorses.pos3.forEach(idx3 => {
+                        if (idx1 === idx3 || idx2 === idx3) return;
+                        const horse1 = selectedRace.horses[idx1];
+                        const horse2 = selectedRace.horses[idx2];
+                        const horse3 = selectedRace.horses[idx3];
+                        // 3連複は順不同なので、重複を防ぐ
+                        const sortedHorses = [horse1.horse_number, horse2.horse_number, horse3.horse_number].sort((a, b) => a - b);
+                        const key = sortedHorses.join('-');
+                        if (!formationCombinations.find(c => c.horses.sort((a, b) => a - b).join('-') === key)) {
+                            const odds = getOdds(oddsData, betType, sortedHorses);
+                            formationCombinations.push({
+                                horses: sortedHorses,
+                                horseNames: [horse1.horse_name, horse2.horse_name, horse3.horse_name],
+                                odds: odds
+                            });
+                        }
+                    });
+                });
+            });
         }
     } else if (betType === 'sanrentan') {
         // 3連単
@@ -5143,7 +5290,26 @@ function addMemoItem(raceId, betType, combination, odds, amount, payout) {
         amount,
         payout
     });
-    // TODO: 実際のメモ機能を実装する場合は、localStorageやUIに追加
+    
+    // レース名を生成
+    const raceName = `${selectedRace.place}${selectedRace.round}R ${selectedRace.race_name}`;
+    
+    const memo = {
+        raceId: raceId,
+        raceName: raceName,
+        betType: betType,
+        numbers: combination,
+        amount: amount,
+        note: `オッズ: ${odds}倍 期待配当: ￥${payout.toLocaleString()}`,
+        timestamp: new Date().toISOString()
+    };
+    
+    // localStorageに保存
+    let memos = getMemos();
+    memos.push(memo);
+    localStorage.setItem('bet_memos', JSON.stringify(memos));
+    
+    console.log('✅ メモに追加しました:', memo);
 }
 
 function addToMemoFromFormation() {
@@ -5218,6 +5384,80 @@ function addToMemoFromFormation() {
             }
 
             saveFavoriteRaces(favorites);
+        }
+
+        // 古いレースのデータを削除
+        function cleanupOldRaceData() {
+            try {
+                console.log('[Cleanup] Starting cleanup of old race data...');
+                
+                // 現在のレースIDリストを取得
+                const currentRaceIds = Object.values(raceIdMap);
+                console.log('[Cleanup] Current race IDs:', currentRaceIds.length);
+                
+                // localStorageから削除するキーのプレフィックス
+                const prefixesToClean = [
+                    'ai_analysis_',     // AI分析結果
+                    'horseMarks'        // 馬印
+                ];
+                
+                let deletedCount = 0;
+                
+                // localStorageをスキャン
+                for (let i = localStorage.length - 1; i >= 0; i--) {
+                    const key = localStorage.key(i);
+                    if (!key) continue;
+                    
+                    // 削除対象のプレフィックスかチェック
+                    for (const prefix of prefixesToClean) {
+                        if (key.startsWith(prefix)) {
+                            // ai_analysis_2503030201 のようなキーからレースIDを抽出
+                            const raceId = key.replace(prefix, '');
+                            
+                            // horseMarksの場合はJSONをパースして中身をチェック
+                            if (prefix === 'horseMarks') {
+                                try {
+                                    const marks = JSON.parse(localStorage.getItem(key));
+                                    const marksRaceIds = Object.keys(marks);
+                                    let updated = false;
+                                    
+                                    // 古いレースIDを削除
+                                    for (const markRaceId of marksRaceIds) {
+                                        if (!currentRaceIds.includes(markRaceId)) {
+                                            delete marks[markRaceId];
+                                            updated = true;
+                                            deletedCount++;
+                                        }
+                                    }
+                                    
+                                    if (updated) {
+                                        localStorage.setItem(key, JSON.stringify(marks));
+                                        console.log(`[Cleanup] Updated ${key}, removed old race marks`);
+                                    }
+                                } catch (e) {
+                                    console.error(`[Cleanup] Error parsing ${key}:`, e);
+                                }
+                            } else {
+                                // 現在のレースIDリストにない場合は削除
+                                if (!currentRaceIds.includes(raceId)) {
+                                    localStorage.removeItem(key);
+                                    deletedCount++;
+                                    console.log(`[Cleanup] Deleted: ${key}`);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                if (deletedCount > 0) {
+                    console.log(`[Cleanup] ✅ Deleted ${deletedCount} old race data items`);
+                } else {
+                    console.log('[Cleanup] ✅ No old race data to delete');
+                }
+                
+            } catch (error) {
+                console.error('[Cleanup] Error during race data cleanup:', error);
+            }
         }
 
         // すべてのレースを選択
