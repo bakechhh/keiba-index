@@ -362,7 +362,7 @@ function createPrompt(raceData, oddsData, userParams) {
 ${formatHorsesData(raceData.horses)}
 
 ## オッズデータ
-${formatOddsData(oddsData)}
+${formatSelectedOddsData(oddsData, betTypes)}
 
 ## ユーザー条件
 - **予算**: ${budget}円
