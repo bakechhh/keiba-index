@@ -1,12 +1,12 @@
 /**
- * 競馬AI予測ツール - LINE共有機能
- * AI分析結果から「総評」「狙い目分析」「馬印」「全馬総評」「データ分析詳細」のみを抽出して共有
+ * 競馬AI予測ツール - クリップボード共有機能
+ * AI分析結果から「総評」「狙い目分析」「馬印」「全馬総評」「データ分析詳細」を抽出してクリップボードにコピー
  */
 
 /**
- * AI分析結果をLINEで共有
+ * AI分析結果をクリップボードにコピー
  */
-function shareToLine() {
+function copyToClipboard() {
     const aiResultDiv = document.getElementById('aiResult');
     
     if (!aiResultDiv || !aiResultDiv.textContent.trim()) {
@@ -25,15 +25,17 @@ function shareToLine() {
     // 共有用テキストを生成（必要なセクションのみ抽出）
     const shareText = generateShareText(selectedRace, resultText);
     
-    // LINEで共有（URLエンコード）
-    const lineUrl = `https://line.me/R/share?text=${encodeURIComponent(shareText)}`;
-    
-    // 新しいウィンドウで開く
-    window.open(lineUrl, '_blank');
+    // クリップボードにコピー
+    navigator.clipboard.writeText(shareText).then(() => {
+        alert('クリップボードにコピーしました！\nLINEなどで貼り付けて共有できます。');
+    }).catch(err => {
+        console.error('クリップボードへのコピーに失敗しました:', err);
+        alert('クリップボードへのコピーに失敗しました。ブラウザの設定を確認してください。');
+    });
 }
 
 /**
- * 共有用テキストを生成（総評、狙い目分析、馬印、全馬総評、データ分析詳細のみ）
+ * 共有用テキストを生成（総評、狙い目分析、馬印、全馬総評、データ分析詳細）
  * @param {object} race - レースデータ
  * @param {string} aiResult - AI分析結果のテキスト
  * @returns {string} 共有用テキスト
@@ -133,26 +135,26 @@ function extractSections(text) {
 }
 
 /**
- * AI分析結果表示エリアにLINE共有ボタンを追加
+ * AI分析結果表示エリアにクリップボードコピーボタンを追加
  */
-function addLineShareButton() {
+function addCopyButton() {
     const aiResultDiv = document.getElementById('aiResult');
     if (!aiResultDiv) return;
 
     // ボタンが既に存在する場合は追加しない
-    if (document.getElementById('lineShareBtn')) return;
+    if (document.getElementById('copyBtn')) return;
 
     // ボタンを作成
     const button = document.createElement('button');
-    button.id = 'lineShareBtn';
-    button.innerHTML = '📤 LINEで共有';
+    button.id = 'copyBtn';
+    button.innerHTML = '📋 クリップボードにコピー';
     button.style.cssText = `
         width: 100%;
         padding: 15px;
         margin-top: 20px;
         border: none;
         border-radius: 8px;
-        background: linear-gradient(135deg, #00B900 0%, #00C300 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         font-weight: bold;
         font-size: 16px;
@@ -171,17 +173,16 @@ function addLineShareButton() {
         this.style.transform = 'translateY(0)';
     };
     
-    button.onclick = shareToLine;
+    button.onclick = copyToClipboard;
     
     // AI分析結果の最後に追加
     aiResultDiv.appendChild(button);
 }
 
 /**
- * AI分析実行後にLINE共有ボタンを自動追加
- * （既存のrunAIAnalysis関数とrunAIAnalysisWithOpenAI関数の最後で呼び出す）
+ * AI分析実行後にクリップボードコピーボタンを自動追加
  */
-function initLineShareButton() {
+function initCopyButton() {
     // MutationObserverでAI分析結果の変更を監視
     const aiResultDiv = document.getElementById('aiResult');
     if (!aiResultDiv) return;
@@ -191,7 +192,7 @@ function initLineShareButton() {
             if (mutation.type === 'childList' && aiResultDiv.textContent.trim()) {
                 // AI分析結果が更新されたらボタンを追加
                 setTimeout(() => {
-                    addLineShareButton();
+                    addCopyButton();
                 }, 500);
             }
         });
@@ -203,9 +204,9 @@ function initLineShareButton() {
     });
 }
 
-// ページ読み込み時にLINE共有ボタンの監視を開始
+// ページ読み込み時にクリップボードコピーボタンの監視を開始
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLineShareButton);
+    document.addEventListener('DOMContentLoaded', initCopyButton);
 } else {
-    initLineShareButton();
+    initCopyButton();
 }

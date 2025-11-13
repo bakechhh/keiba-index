@@ -1,6 +1,6 @@
 /**
  * 競馬AI予測ツール - 共有画像生成機能
- * 一覧表をOGP画像として生成（全頭表示、騎手の後に最終スコア）
+ * 一覧表をOGP画像として生成（AI単勝順、最終スコアは一番右）
  */
 
 /**
@@ -13,7 +13,14 @@ function generateShareImage(race) {
         return;
     }
 
-    const horseCount = race.horses.length;
+    // AI単勝順にソート
+    const sortedHorses = [...race.horses].sort((a, b) => {
+        const aWinRate = a.predictions ? a.predictions.win_rate : 0;
+        const bWinRate = b.predictions ? b.predictions.win_rate : 0;
+        return bWinRate - aWinRate;
+    });
+
+    const horseCount = sortedHorses.length;
     
     // Canvasを作成（高さは馬の頭数に応じて動的に調整）
     const canvas = document.createElement('canvas');
@@ -69,7 +76,7 @@ function generateShareImage(race) {
     // テーブル開始位置
     const tableY = innerY + headerHeight;
     
-    // 列幅の定義（順位、馬番、馬名、騎手、最終スコア、AI単勝、AI複勝）
+    // 列幅の定義（順位、馬番、馬名、騎手、AI単勝、AI複勝、最終スコア）
     const colWidths = [70, 60, 280, 180, 140, 140, 140];
     const colX = [];
     let currentX = innerX + 20;
@@ -86,14 +93,14 @@ function generateShareImage(race) {
     ctx.font = 'bold 16px "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif';
     ctx.textAlign = 'center';
     
-    const headers = ['順位', '馬番', '馬名', '騎手', '最終スコア', 'AI単勝', 'AI複勝'];
+    const headers = ['順位', '馬番', '馬名', '騎手', 'AI単勝', 'AI複勝', '最終スコア'];
     headers.forEach((header, i) => {
         const centerX = colX[i] + colWidths[i] / 2;
         ctx.fillText(header, centerX, tableY + 26);
     });
 
-    // テーブル行（全頭表示）
-    race.horses.forEach((horse, index) => {
+    // テーブル行（AI単勝順）
+    sortedHorses.forEach((horse, index) => {
         const y = tableY + tableHeaderHeight + index * rowHeight;
         
         // 背景色（1-3位）
@@ -135,22 +142,22 @@ function generateShareImage(race) {
         const jockeyName = horse.jockey.name.length > 10 ? horse.jockey.name.substring(0, 10) + '...' : horse.jockey.name;
         ctx.fillText(jockeyName, colX[3] + 10, y + 33);
 
-        // 最終スコア（中央寄せ）
+        // AI単勝スコア（中央寄せ）
         ctx.textAlign = 'center';
         ctx.font = 'bold 20px "Hiragino Kaku Gothic Pro", "Meiryo", sans-serif';
-        ctx.fillStyle = '#667eea';
-        const finalScore = horse.indices && horse.indices.final_score ? horse.indices.final_score.toFixed(1) : '-';
-        ctx.fillText(finalScore, colX[4] + colWidths[4] / 2, y + 33);
-
-        // AI単勝スコア（中央寄せ）
         ctx.fillStyle = '#e74c3c';
         const winRate = horse.predictions ? (horse.predictions.win_rate * 100).toFixed(1) : '-';
-        ctx.fillText(winRate, colX[5] + colWidths[5] / 2, y + 33);
+        ctx.fillText(winRate, colX[4] + colWidths[4] / 2, y + 33);
 
         // AI複勝スコア（中央寄せ）
         ctx.fillStyle = '#27ae60';
         const showRate = horse.predictions ? (horse.predictions.show_rate * 100).toFixed(1) : '-';
-        ctx.fillText(showRate, colX[6] + colWidths[6] / 2, y + 33);
+        ctx.fillText(showRate, colX[5] + colWidths[5] / 2, y + 33);
+
+        // 最終スコア（中央寄せ、一番右）
+        ctx.fillStyle = '#667eea';
+        const finalScore = horse.indices && horse.indices.final_score ? horse.indices.final_score.toFixed(1) : '-';
+        ctx.fillText(finalScore, colX[6] + colWidths[6] / 2, y + 33);
     });
 
     // フッター
