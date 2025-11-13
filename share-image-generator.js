@@ -7,7 +7,7 @@
  * 一覧表をOGP画像として生成してダウンロード
  * @param {object} race - レースデータ
  */
-async function generateShareImage(race) {
+function generateShareImage(race) {
     if (!race || !race.horses) {
         alert('レースデータが見つかりません');
         return;
@@ -176,34 +176,3 @@ async function generateShareImage(race) {
         alert('共有画像を生成しました！');
     }, 'image/png');
 }
-
-/**
- * 一覧表示モードに画像生成ボタンを追加
- */
-function addShareImageButton() {
-    // 既存のソートボタンの下に画像生成ボタンを追加
-    const listView = document.getElementById('listView');
-    if (!listView) return;
-
-    // ボタンが既に存在する場合は追加しない
-    if (document.getElementById('shareImageBtn')) return;
-
-    // ボタンを作成
-    const buttonHtml = `
-        <div style="background: white; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <button id="shareImageBtn" onclick="generateShareImage(selectedRace)" 
-                    style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; font-weight: bold; font-size: 16px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s;">
-                📸 共有用画像を生成
-            </button>
-        </div>
-    `;
-
-    // ソートボタンの次に挿入（一覧表の前）
-    const table = listView.querySelector('.list-table');
-    if (table && table.previousElementSibling) {
-        table.previousElementSibling.insertAdjacentHTML('afterend', buttonHtml);
-    }
-}
-
-// 一覧表示が生成された後にボタンを追加
-// generateListView関数の最後で呼び出す必要がある

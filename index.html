@@ -2519,7 +2519,17 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
                 </div>
             `;
 
-            let html = modelInfoHtml + sortButtonsHtml + `
+            // 共有用画像生成ボタン
+            let shareButtonHtml = `
+                <div style="background: white; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <button onclick="generateShareImage(selectedRace)" 
+                            style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); color: white; font-weight: bold; font-size: 16px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s;">
+                        📸 共有用画像を生成
+                    </button>
+                </div>
+            `;
+
+            let html = modelInfoHtml + sortButtonsHtml + shareButtonHtml + `
                 <table class="list-table">
                     <thead>
                         <tr>
@@ -2607,11 +2617,6 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             `;
 
             listView.innerHTML = html;
-            
-            // 共有用画像生成ボタンを追加
-            setTimeout(() => {
-                addShareImageButton();
-            }, 100);
         }
 
         // 簡易表示を生成
