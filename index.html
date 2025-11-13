@@ -2607,6 +2607,11 @@ OpenAIのアカウントを作成</a>してAPIキーを取得してください�
             `;
 
             listView.innerHTML = html;
+            
+            // 共有用画像生成ボタンを追加
+            setTimeout(() => {
+                addShareImageButton();
+            }, 100);
         }
 
         // 簡易表示を生成
@@ -5431,5 +5436,9 @@ window.addToMemoFromFormation = function() {
             }, 5000);
         }
     </script>
+    
+    <!-- 共有機能 -->
+    <script src="./share-image-generator.js"></script>
+    <script src="./line-share.js"></script>
 </body>
 </html>
