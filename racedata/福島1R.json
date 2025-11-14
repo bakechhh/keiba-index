@@ -1364,6 +1364,90 @@
       }
     },
     {
+      "frame": 5,
+      "horse_number": 9,
+      "horse_name": "ヒリュウ",
+      "mark": "*",
+      "jockey": {
+        "name": "中井裕二",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 6,
+          "win_rate": 2.8,
+          "place_rate": 7.6,
+          "show_rate": 13.7
+        },
+        "last_year": {
+          "wins": 7,
+          "win_rate": 4.2,
+          "place_rate": 14.5,
+          "show_rate": 18.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "橋口慎介",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 6.6,
+          "place_rate": 15.5,
+          "show_rate": 24.9
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 10.2,
+          "place_rate": 18.0,
+          "show_rate": 25.8
+        }
+      },
+      "interval": 14,
+      "zi_index": 90.0,
+      "time_mining": 110.01,
+      "battle_mining": 24.7,
+      "past_races": [
+        {
+          "date": "2025.8.10",
+          "race_name": "新馬",
+          "place": "中京",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "7",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "12",
+          "margin": 4.4,
+          "corrected_time": 58.0,
+          "running_style": "後",
+          "last_3f": 36.7,
+          "ave_3f": 38.74,
+          "pci": 55.6,
+          "position_3f": 1.7
+        }
+      ],
+      "indices": {
+        "mining_index": 36.21,
+        "corrected_time_deviation": 30.16,
+        "zi_deviation": 41.9,
+        "base_score": 35.25,
+        "jockey_coefficient": 0.99098,
+        "similarity_coefficient": 0.99807,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.003,
+        "final_score": 32.59
+      },
+      "predictions": {
+        "win_rate": 0.04519777132812202,
+        "win_rate_rank": 13,
+        "place_rate": 0.06291166211348437,
+        "place_rate_rank": 14,
+        "show_rate": 0.13155064205555936,
+        "show_rate_rank": 13
+      }
+    },
+    {
       "frame": 6,
       "horse_number": 10,
       "horse_name": "テンオンスゴールド",
@@ -1453,102 +1537,18 @@
         "zi_deviation": 44.21,
         "base_score": 38.99,
         "jockey_coefficient": 0.98684,
-        "similarity_coefficient": 1.00397,
-        "stability_coefficient": 0.9855,
-        "total_coefficient_score": -0.005,
-        "final_score": 34.06
-      },
-      "predictions": {
-        "win_rate": 0.04415954601885856,
-        "win_rate_rank": 14,
-        "place_rate": 0.09420039057245513,
-        "place_rate_rank": 13,
-        "show_rate": 0.08621479860423789,
-        "show_rate_rank": 15
-      }
-    },
-    {
-      "frame": 5,
-      "horse_number": 9,
-      "horse_name": "ヒリュウ",
-      "mark": "*",
-      "jockey": {
-        "name": "中井裕二",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 6,
-          "win_rate": 2.8,
-          "place_rate": 7.6,
-          "show_rate": 13.7
-        },
-        "last_year": {
-          "wins": 7,
-          "win_rate": 4.2,
-          "place_rate": 14.5,
-          "show_rate": 18.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "橋口慎介",
-        "this_year": {
-          "wins": 14,
-          "win_rate": 6.6,
-          "place_rate": 15.5,
-          "show_rate": 24.9
-        },
-        "last_year": {
-          "wins": 25,
-          "win_rate": 10.2,
-          "place_rate": 18.0,
-          "show_rate": 25.8
-        }
-      },
-      "interval": 14,
-      "zi_index": 90.0,
-      "time_mining": 110.01,
-      "battle_mining": 24.7,
-      "past_races": [
-        {
-          "date": "2025.8.10",
-          "race_name": "新馬",
-          "place": "中京",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "7",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "12",
-          "margin": 4.4,
-          "corrected_time": 58.0,
-          "running_style": "後",
-          "last_3f": 36.7,
-          "ave_3f": 38.74,
-          "pci": 55.6,
-          "position_3f": 1.7
-        }
-      ],
-      "indices": {
-        "mining_index": 36.21,
-        "corrected_time_deviation": 30.16,
-        "zi_deviation": 41.9,
-        "base_score": 35.25,
-        "jockey_coefficient": 0.99098,
         "similarity_coefficient": 0.99807,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.003,
-        "final_score": 32.59
+        "stability_coefficient": 0.9855,
+        "total_coefficient_score": -0.008,
+        "final_score": 31.18
       },
       "predictions": {
-        "win_rate": 0.04519777132812202,
-        "win_rate_rank": 13,
-        "place_rate": 0.06291166211348437,
-        "place_rate_rank": 14,
-        "show_rate": 0.13155064205555936,
-        "show_rate_rank": 13
+        "win_rate": 0.039828019786030365,
+        "win_rate_rank": 14,
+        "place_rate": 0.07462703631190987,
+        "place_rate_rank": 13,
+        "show_rate": 0.06765914976760544,
+        "show_rate_rank": 15
       }
     },
     {
