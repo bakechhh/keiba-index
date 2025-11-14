@@ -509,17 +509,17 @@
         "zi_deviation": 70.49,
         "base_score": 62.86,
         "jockey_coefficient": 0.99224,
-        "similarity_coefficient": 1.00741,
+        "similarity_coefficient": 1.00748,
         "stability_coefficient": 0.99675,
         "total_coefficient_score": 0.001,
-        "final_score": 65.07
+        "final_score": 65.13
       },
       "predictions": {
         "win_rate": 0.7994654118555782,
         "win_rate_rank": 2,
         "place_rate": 0.8110330609159643,
         "place_rate_rank": 2,
-        "show_rate": 0.8160435898696039,
+        "show_rate": 0.8150607922673742,
         "show_rate_rank": 2
       }
     },
@@ -1052,6 +1052,150 @@
       }
     },
     {
+      "frame": 5,
+      "horse_number": 10,
+      "horse_name": "ロフティストーリー",
+      "mark": "*",
+      "jockey": {
+        "name": "横山武史",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 99,
+          "win_rate": 14.8,
+          "place_rate": 26.6,
+          "show_rate": 37.2
+        },
+        "last_year": {
+          "wins": 102,
+          "win_rate": 13.5,
+          "place_rate": 24.9,
+          "show_rate": 36.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "久保田貴",
+        "this_year": {
+          "wins": 16,
+          "win_rate": 7.8,
+          "place_rate": 14.7,
+          "show_rate": 25.0
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 6.7,
+          "place_rate": 14.8,
+          "show_rate": 23.3
+        }
+      },
+      "interval": 12,
+      "zi_index": 112.0,
+      "time_mining": 97.01,
+      "battle_mining": 58.5,
+      "past_races": [
+        {
+          "date": "2025.8.24",
+          "race_name": "１勝ｸﾗｽ・牝",
+          "place": "新潟",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "6",
+          "weight": 53.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.4,
+          "corrected_time": 92.0,
+          "running_style": "後",
+          "last_3f": 37.0,
+          "ave_3f": 37.75,
+          "pci": 52.0,
+          "position_3f": 1.2
+        },
+        {
+          "date": "2025.6.14",
+          "race_name": "未勝利・牝",
+          "place": "東京",
+          "surface": "ダ",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "3",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.2,
+          "corrected_time": 79.0,
+          "running_style": "中",
+          "last_3f": 36.8,
+          "ave_3f": 36.72,
+          "pci": 49.8,
+          "position_3f": 0.5
+        },
+        {
+          "date": "2025.2.1",
+          "race_name": "未勝利・牝",
+          "place": "東京",
+          "surface": "ダ",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "15",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "6",
+          "margin": 0.6,
+          "corrected_time": 72.0,
+          "running_style": "中",
+          "last_3f": 38.7,
+          "ave_3f": 36.96,
+          "pci": 45.5,
+          "position_3f": 0.5
+        },
+        {
+          "date": "2025.1.11",
+          "race_name": "新馬・牝",
+          "place": "中京",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "10",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 1.5,
+          "corrected_time": 68.0,
+          "running_style": "後",
+          "last_3f": 38.2,
+          "ave_3f": 38.85,
+          "pci": 51.7,
+          "position_3f": 1.8
+        }
+      ],
+      "indices": {
+        "mining_index": 56.97,
+        "corrected_time_deviation": 29.22,
+        "zi_deviation": 58.85,
+        "base_score": 48.93,
+        "jockey_coefficient": 1.00596,
+        "similarity_coefficient": 1.00818,
+        "stability_coefficient": 0.99501,
+        "total_coefficient_score": 0.003,
+        "final_score": 52.89
+      },
+      "predictions": {
+        "win_rate": 0.6580874011193504,
+        "win_rate_rank": 3,
+        "place_rate": 0.6028674580667752,
+        "place_rate_rank": 4,
+        "show_rate": 0.6610146917011501,
+        "show_rate_rank": 3
+      }
+    },
+    {
       "frame": 1,
       "horse_number": 2,
       "horse_name": "タイヨウフレア",
@@ -1313,150 +1457,6 @@
         "place_rate_rank": 6,
         "show_rate": 0.44567179372051335,
         "show_rate_rank": 7
-      }
-    },
-    {
-      "frame": 5,
-      "horse_number": 10,
-      "horse_name": "ロフティストーリー",
-      "mark": "*",
-      "jockey": {
-        "name": "横山武史",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 99,
-          "win_rate": 14.8,
-          "place_rate": 26.6,
-          "show_rate": 37.2
-        },
-        "last_year": {
-          "wins": 102,
-          "win_rate": 13.5,
-          "place_rate": 24.9,
-          "show_rate": 36.0
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "久保田貴",
-        "this_year": {
-          "wins": 16,
-          "win_rate": 7.8,
-          "place_rate": 14.7,
-          "show_rate": 25.0
-        },
-        "last_year": {
-          "wins": 15,
-          "win_rate": 6.7,
-          "place_rate": 14.8,
-          "show_rate": 23.3
-        }
-      },
-      "interval": 12,
-      "zi_index": 112.0,
-      "time_mining": 97.01,
-      "battle_mining": 58.5,
-      "past_races": [
-        {
-          "date": "2025.8.24",
-          "race_name": "１勝ｸﾗｽ・牝",
-          "place": "新潟",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "6",
-          "weight": 53.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.4,
-          "corrected_time": 92.0,
-          "running_style": "後",
-          "last_3f": 37.0,
-          "ave_3f": 37.75,
-          "pci": 52.0,
-          "position_3f": 1.2
-        },
-        {
-          "date": "2025.6.14",
-          "race_name": "未勝利・牝",
-          "place": "東京",
-          "surface": "ダ",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "3",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.2,
-          "corrected_time": 79.0,
-          "running_style": "中",
-          "last_3f": 36.8,
-          "ave_3f": 36.72,
-          "pci": 49.8,
-          "position_3f": 0.5
-        },
-        {
-          "date": "2025.2.1",
-          "race_name": "未勝利・牝",
-          "place": "東京",
-          "surface": "ダ",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "15",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "6",
-          "margin": 0.6,
-          "corrected_time": 72.0,
-          "running_style": "中",
-          "last_3f": 38.7,
-          "ave_3f": 36.96,
-          "pci": 45.5,
-          "position_3f": 0.5
-        },
-        {
-          "date": "2025.1.11",
-          "race_name": "新馬・牝",
-          "place": "中京",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "10",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 1.5,
-          "corrected_time": 68.0,
-          "running_style": "後",
-          "last_3f": 38.2,
-          "ave_3f": 38.85,
-          "pci": 51.7,
-          "position_3f": 1.8
-        }
-      ],
-      "indices": {
-        "mining_index": 56.97,
-        "corrected_time_deviation": 29.22,
-        "zi_deviation": 58.85,
-        "base_score": 48.93,
-        "jockey_coefficient": 1.00596,
-        "similarity_coefficient": 1.00538,
-        "stability_coefficient": 0.99501,
-        "total_coefficient_score": 0.002,
-        "final_score": 51.17
-      },
-      "predictions": {
-        "win_rate": 0.6580874011193504,
-        "win_rate_rank": 3,
-        "place_rate": 0.5960811788297617,
-        "place_rate_rank": 4,
-        "show_rate": 0.6499286085849237,
-        "show_rate_rank": 3
       }
     },
     {
