@@ -432,90 +432,6 @@
       }
     },
     {
-      "frame": 1,
-      "horse_number": 1,
-      "horse_name": "マテンロウゼロ",
-      "mark": "",
-      "jockey": {
-        "name": "横山典弘",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 35,
-          "win_rate": 13.6,
-          "place_rate": 24.0,
-          "show_rate": 28.7
-        },
-        "last_year": {
-          "wins": 19,
-          "win_rate": 6.9,
-          "place_rate": 13.4,
-          "show_rate": 25.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "松永幹夫",
-        "this_year": {
-          "wins": 25,
-          "win_rate": 9.2,
-          "place_rate": 17.3,
-          "show_rate": 25.5
-        },
-        "last_year": {
-          "wins": 42,
-          "win_rate": 13.2,
-          "place_rate": 22.7,
-          "show_rate": 32.5
-        }
-      },
-      "interval": 3,
-      "zi_index": 98.0,
-      "time_mining": 120.95,
-      "battle_mining": 56.2,
-      "past_races": [
-        {
-          "date": "2025.10.25",
-          "race_name": "新馬",
-          "place": "東京",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "6",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "6",
-          "margin": 0.8,
-          "corrected_time": 91.0,
-          "running_style": "先",
-          "last_3f": 34.8,
-          "ave_3f": 38.19,
-          "pci": 59.7,
-          "position_3f": 0.2
-        }
-      ],
-      "indices": {
-        "mining_index": 53.81,
-        "corrected_time_deviation": 53.2,
-        "zi_deviation": 43.21,
-        "base_score": 52.04,
-        "jockey_coefficient": 1.00207,
-        "similarity_coefficient": 1.00418,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": 0.001,
-        "final_score": 53.34
-      },
-      "predictions": {
-        "win_rate": 0.32252896064728104,
-        "win_rate_rank": 5,
-        "place_rate": 0.39477922956098394,
-        "place_rate_rank": 7,
-        "show_rate": 0.4360771581558299,
-        "show_rate_rank": 7
-      }
-    },
-    {
       "frame": 4,
       "horse_number": 5,
       "horse_name": "ヨカオウ",
@@ -605,62 +521,62 @@
         "zi_deviation": 47.37,
         "base_score": 52.91,
         "jockey_coefficient": 1.00047,
-        "similarity_coefficient": 1.00246,
+        "similarity_coefficient": 1.00468,
         "stability_coefficient": 0.9955,
-        "total_coefficient_score": -0.0,
-        "final_score": 52.54
+        "total_coefficient_score": 0.001,
+        "final_score": 54.01
       },
       "predictions": {
-        "win_rate": 0.3140148742086831,
-        "win_rate_rank": 6,
-        "place_rate": 0.4159744949169006,
+        "win_rate": 0.3014809124262097,
+        "win_rate_rank": 7,
+        "place_rate": 0.4005444762082003,
         "place_rate_rank": 6,
-        "show_rate": 0.47125228753227427,
+        "show_rate": 0.45863834607017745,
         "show_rate_rank": 6
       }
     },
     {
-      "frame": 7,
-      "horse_number": 10,
-      "horse_name": "ダイユウアレグロ",
+      "frame": 1,
+      "horse_number": 1,
+      "horse_name": "マテンロウゼロ",
       "mark": "",
       "jockey": {
-        "name": "内田博幸",
+        "name": "横山典弘",
         "weight": 56.0,
         "weight_reduction": "",
         "this_year": {
-          "wins": 18,
-          "win_rate": 3.5,
-          "place_rate": 8.8,
-          "show_rate": 15.4
+          "wins": 35,
+          "win_rate": 13.6,
+          "place_rate": 24.0,
+          "show_rate": 28.7
         },
         "last_year": {
-          "wins": 16,
-          "win_rate": 3.3,
-          "place_rate": 8.4,
-          "show_rate": 12.1
+          "wins": 19,
+          "win_rate": 6.9,
+          "place_rate": 13.4,
+          "show_rate": 25.6
         }
       },
       "trainer": {
-        "affiliation": "(美)",
-        "name": "松永康利",
+        "affiliation": "(栗)",
+        "name": "松永幹夫",
         "this_year": {
-          "wins": 4,
-          "win_rate": 2.2,
-          "place_rate": 6.0,
-          "show_rate": 12.5
+          "wins": 25,
+          "win_rate": 9.2,
+          "place_rate": 17.3,
+          "show_rate": 25.5
         },
         "last_year": {
-          "wins": 6,
-          "win_rate": 2.8,
-          "place_rate": 7.5,
-          "show_rate": 13.7
+          "wins": 42,
+          "win_rate": 13.2,
+          "place_rate": 22.7,
+          "show_rate": 32.5
         }
       },
       "interval": 3,
-      "zi_index": 99.0,
-      "time_mining": 121.39,
-      "battle_mining": 44.1,
+      "zi_index": 98.0,
+      "time_mining": 120.95,
+      "battle_mining": 56.2,
       "past_races": [
         {
           "date": "2025.10.25",
@@ -669,38 +585,38 @@
           "surface": "芝",
           "distance": "2000",
           "track_condition": "良",
-          "frame": "7",
-          "horse_number": "7",
+          "frame": "6",
+          "horse_number": "6",
           "weight": 56.0,
           "weight_reduction": "",
-          "rank": "5",
-          "margin": 0.5,
-          "corrected_time": 94.0,
-          "running_style": "中",
-          "last_3f": 34.2,
-          "ave_3f": 38.31,
-          "pci": 62.0,
-          "position_3f": 0.5
+          "rank": "6",
+          "margin": 0.8,
+          "corrected_time": 91.0,
+          "running_style": "先",
+          "last_3f": 34.8,
+          "ave_3f": 38.19,
+          "pci": 59.7,
+          "position_3f": 0.2
         }
       ],
       "indices": {
-        "mining_index": 46.24,
-        "corrected_time_deviation": 56.93,
-        "zi_deviation": 44.25,
-        "base_score": 49.15,
-        "jockey_coefficient": 0.99273,
-        "similarity_coefficient": 1.00169,
-        "stability_coefficient": 0.9975,
-        "total_coefficient_score": -0.001,
-        "final_score": 47.77
+        "mining_index": 53.81,
+        "corrected_time_deviation": 53.2,
+        "zi_deviation": 43.21,
+        "base_score": 52.04,
+        "jockey_coefficient": 1.00207,
+        "similarity_coefficient": 1.00418,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": 0.001,
+        "final_score": 53.34
       },
       "predictions": {
-        "win_rate": 0.161939417992611,
-        "win_rate_rank": 10,
-        "place_rate": 0.2471554396312973,
-        "place_rate_rank": 9,
-        "show_rate": 0.32107162784837356,
-        "show_rate_rank": 9
+        "win_rate": 0.32252896064728104,
+        "win_rate_rank": 5,
+        "place_rate": 0.39477922956098394,
+        "place_rate_rank": 7,
+        "show_rate": 0.4360771581558299,
+        "show_rate_rank": 7
       }
     },
     {
@@ -793,18 +709,102 @@
         "zi_deviation": 45.29,
         "base_score": 49.0,
         "jockey_coefficient": 0.99499,
-        "similarity_coefficient": 1.00241,
+        "similarity_coefficient": 1.00463,
         "stability_coefficient": 0.99401,
-        "total_coefficient_score": -0.002,
-        "final_score": 46.98
+        "total_coefficient_score": -0.001,
+        "final_score": 48.34
       },
       "predictions": {
-        "win_rate": 0.2336783327363166,
-        "win_rate_rank": 8,
-        "place_rate": 0.2932832108196571,
+        "win_rate": 0.21168333960369046,
+        "win_rate_rank": 9,
+        "place_rate": 0.26908256523341445,
         "place_rate_rank": 8,
-        "show_rate": 0.3427692246545914,
+        "show_rate": 0.328945397889656,
         "show_rate_rank": 8
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 10,
+      "horse_name": "ダイユウアレグロ",
+      "mark": "",
+      "jockey": {
+        "name": "内田博幸",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 3.5,
+          "place_rate": 8.8,
+          "show_rate": 15.4
+        },
+        "last_year": {
+          "wins": 16,
+          "win_rate": 3.3,
+          "place_rate": 8.4,
+          "show_rate": 12.1
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "松永康利",
+        "this_year": {
+          "wins": 4,
+          "win_rate": 2.2,
+          "place_rate": 6.0,
+          "show_rate": 12.5
+        },
+        "last_year": {
+          "wins": 6,
+          "win_rate": 2.8,
+          "place_rate": 7.5,
+          "show_rate": 13.7
+        }
+      },
+      "interval": 3,
+      "zi_index": 99.0,
+      "time_mining": 121.39,
+      "battle_mining": 44.1,
+      "past_races": [
+        {
+          "date": "2025.10.25",
+          "race_name": "新馬",
+          "place": "東京",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "7",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 0.5,
+          "corrected_time": 94.0,
+          "running_style": "中",
+          "last_3f": 34.2,
+          "ave_3f": 38.31,
+          "pci": 62.0,
+          "position_3f": 0.5
+        }
+      ],
+      "indices": {
+        "mining_index": 46.24,
+        "corrected_time_deviation": 56.93,
+        "zi_deviation": 44.25,
+        "base_score": 49.15,
+        "jockey_coefficient": 0.99273,
+        "similarity_coefficient": 1.00169,
+        "stability_coefficient": 0.9975,
+        "total_coefficient_score": -0.001,
+        "final_score": 47.77
+      },
+      "predictions": {
+        "win_rate": 0.161939417992611,
+        "win_rate_rank": 10,
+        "place_rate": 0.2471554396312973,
+        "place_rate_rank": 9,
+        "show_rate": 0.32107162784837356,
+        "show_rate_rank": 9
       }
     },
     {
@@ -1132,7 +1132,7 @@
       },
       "predictions": {
         "win_rate": 0.21573295275676,
-        "win_rate_rank": 9,
+        "win_rate_rank": 8,
         "place_rate": 0.1943980308543981,
         "place_rate_rank": 11,
         "show_rate": 0.27970664421314023,
@@ -1216,7 +1216,7 @@
       },
       "predictions": {
         "win_rate": 0.3046791688800646,
-        "win_rate_rank": 7,
+        "win_rate_rank": 6,
         "place_rate": 0.4297813823124227,
         "place_rate_rank": 5,
         "show_rate": 0.48982456309280314,
