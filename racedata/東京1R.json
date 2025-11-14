@@ -585,106 +585,10 @@
         "zi_deviation": 49.26,
         "base_score": 53.12,
         "jockey_coefficient": 1.00207,
-        "similarity_coefficient": 1.003,
+        "similarity_coefficient": 1.00102,
         "stability_coefficient": 0.9875,
-        "total_coefficient_score": -0.003,
-        "final_score": 49.71
-      }
-    },
-    {
-      "frame": 4,
-      "horse_number": 4,
-      "horse_name": "ラヴィングリー",
-      "mark": "*",
-      "jockey": {
-        "name": "佐々木大",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 76,
-          "win_rate": 10.2,
-          "place_rate": 18.4,
-          "show_rate": 26.3
-        },
-        "last_year": {
-          "wins": 77,
-          "win_rate": 10.2,
-          "place_rate": 18.8,
-          "show_rate": 28.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "池上昌和",
-        "this_year": {
-          "wins": 14,
-          "win_rate": 7.3,
-          "place_rate": 11.4,
-          "show_rate": 18.1
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 7.8,
-          "place_rate": 16.0,
-          "show_rate": 23.7
-        }
-      },
-      "interval": 4,
-      "zi_index": 96.0,
-      "time_mining": 86.92,
-      "battle_mining": 57.2,
-      "past_races": [
-        {
-          "date": "2025.10.18",
-          "race_name": "未勝利・牝*",
-          "place": "東京",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "4",
-          "horse_number": "4",
-          "weight": 53.0,
-          "weight_reduction": "△",
-          "rank": "5",
-          "margin": 1.6,
-          "corrected_time": 93.0,
-          "running_style": "中",
-          "last_3f": 37.4,
-          "ave_3f": 37.28,
-          "pci": 49.7,
-          "position_3f": 0.6
-        },
-        {
-          "date": "2025.8.16",
-          "race_name": "新馬・牝",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "5",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "16",
-          "margin": 2.8,
-          "corrected_time": 74.0,
-          "running_style": "後",
-          "last_3f": 35.9,
-          "ave_3f": 36.45,
-          "pci": 51.5,
-          "position_3f": 2.1
-        }
-      ],
-      "indices": {
-        "mining_index": 53.13,
-        "corrected_time_deviation": 48.47,
-        "zi_deviation": 47.12,
-        "base_score": 50.83,
-        "jockey_coefficient": 1.00076,
-        "similarity_coefficient": 1.00432,
-        "stability_coefficient": 0.989,
-        "total_coefficient_score": -0.002,
-        "final_score": 48.83
+        "total_coefficient_score": -0.004,
+        "final_score": 48.4
       }
     },
     {
@@ -801,6 +705,102 @@
         "stability_coefficient": 0.99251,
         "total_coefficient_score": 0.001,
         "final_score": 47.63
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 4,
+      "horse_name": "ラヴィングリー",
+      "mark": "*",
+      "jockey": {
+        "name": "佐々木大",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 76,
+          "win_rate": 10.2,
+          "place_rate": 18.4,
+          "show_rate": 26.3
+        },
+        "last_year": {
+          "wins": 77,
+          "win_rate": 10.2,
+          "place_rate": 18.8,
+          "show_rate": 28.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "池上昌和",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 7.3,
+          "place_rate": 11.4,
+          "show_rate": 18.1
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 7.8,
+          "place_rate": 16.0,
+          "show_rate": 23.7
+        }
+      },
+      "interval": 4,
+      "zi_index": 96.0,
+      "time_mining": 86.92,
+      "battle_mining": 57.2,
+      "past_races": [
+        {
+          "date": "2025.10.18",
+          "race_name": "未勝利・牝*",
+          "place": "東京",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "4",
+          "horse_number": "4",
+          "weight": 53.0,
+          "weight_reduction": "△",
+          "rank": "5",
+          "margin": 1.6,
+          "corrected_time": 93.0,
+          "running_style": "中",
+          "last_3f": 37.4,
+          "ave_3f": 37.28,
+          "pci": 49.7,
+          "position_3f": 0.6
+        },
+        {
+          "date": "2025.8.16",
+          "race_name": "新馬・牝",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "5",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "16",
+          "margin": 2.8,
+          "corrected_time": 74.0,
+          "running_style": "後",
+          "last_3f": 35.9,
+          "ave_3f": 36.45,
+          "pci": 51.5,
+          "position_3f": 2.1
+        }
+      ],
+      "indices": {
+        "mining_index": 53.13,
+        "corrected_time_deviation": 48.47,
+        "zi_deviation": 47.12,
+        "base_score": 50.83,
+        "jockey_coefficient": 1.00076,
+        "similarity_coefficient": 1.00235,
+        "stability_coefficient": 0.989,
+        "total_coefficient_score": -0.003,
+        "final_score": 47.58
       }
     },
     {
@@ -953,10 +953,10 @@
         "zi_deviation": 49.26,
         "base_score": 49.45,
         "jockey_coefficient": 0.97884,
-        "similarity_coefficient": 1.00059,
+        "similarity_coefficient": 0.99861,
         "stability_coefficient": 0.9917,
-        "total_coefficient_score": -0.006,
-        "final_score": 42.3
+        "total_coefficient_score": -0.007,
+        "final_score": 41.07
       }
     },
     {
