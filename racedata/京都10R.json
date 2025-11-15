@@ -265,17 +265,17 @@
         "zi_deviation": 56.7,
         "base_score": 61.25,
         "jockey_coefficient": 1.00701,
-        "similarity_coefficient": 1.002,
+        "similarity_coefficient": 1.00457,
         "stability_coefficient": 0.99563,
-        "total_coefficient_score": 0.001,
-        "final_score": 62.05
+        "total_coefficient_score": 0.002,
+        "final_score": 64.01
       },
       "predictions": {
-        "win_rate": 0.6945994281645949,
-        "win_rate_rank": 1,
-        "place_rate": 0.7544619187074169,
+        "win_rate": 0.6775186432923597,
+        "win_rate_rank": 2,
+        "place_rate": 0.7401418938573978,
         "place_rate_rank": 1,
-        "show_rate": 0.7763089705949427,
+        "show_rate": 0.7771767903147508,
         "show_rate_rank": 1
       }
     },
@@ -536,7 +536,7 @@
       },
       "predictions": {
         "win_rate": 0.6917195955463804,
-        "win_rate_rank": 2,
+        "win_rate_rank": 1,
         "place_rate": 0.6637890714263899,
         "place_rate_rank": 3,
         "show_rate": 0.703941068887052,
@@ -3169,18 +3169,18 @@
         "zi_deviation": 38.05,
         "base_score": 45.27,
         "jockey_coefficient": 1.00165,
-        "similarity_coefficient": 1.00652,
+        "similarity_coefficient": 1.00636,
         "stability_coefficient": 0.99662,
         "total_coefficient_score": 0.002,
-        "final_score": 47.9
+        "final_score": 47.81
       },
       "predictions": {
         "win_rate": 0.18870323907720618,
         "win_rate_rank": 14,
-        "place_rate": 0.2912385101906642,
+        "place_rate": 0.2832674491592773,
         "place_rate_rank": 13,
-        "show_rate": 0.26704407025825205,
-        "show_rate_rank": 14
+        "show_rate": 0.251592222797096,
+        "show_rate_rank": 15
       }
     },
     {
@@ -3424,7 +3424,7 @@
         "place_rate": 0.20832438745882706,
         "place_rate_rank": 15,
         "show_rate": 0.25178919711347936,
-        "show_rate_rank": 15
+        "show_rate_rank": 14
       }
     },
     {
