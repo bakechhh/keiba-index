@@ -496,6 +496,110 @@
       }
     },
     {
+      "frame": 4,
+      "horse_number": 8,
+      "horse_name": "ウインラファーガ",
+      "mark": "*",
+      "jockey": {
+        "name": "舟山瑠泉",
+        "weight": 53.0,
+        "weight_reduction": "▲",
+        "this_year": {
+          "wins": 15,
+          "win_rate": 5.4,
+          "place_rate": 12.2,
+          "show_rate": 20.1
+        },
+        "last_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 0.0,
+          "show_rate": 0.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "村田一誠",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 5.7,
+          "place_rate": 11.5,
+          "show_rate": 20.8
+        },
+        "last_year": {
+          "wins": 8,
+          "win_rate": 3.4,
+          "place_rate": 9.5,
+          "show_rate": 17.2
+        }
+      },
+      "interval": 5,
+      "zi_index": 97.0,
+      "time_mining": 123.46,
+      "battle_mining": 48.4,
+      "past_races": [
+        {
+          "date": "2025.10.12",
+          "race_name": "未勝利*",
+          "place": "東京",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "2",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 1.1,
+          "corrected_time": 91.0,
+          "running_style": "後",
+          "last_3f": 34.5,
+          "ave_3f": 36.36,
+          "pci": 55.4,
+          "position_3f": 0.8
+        },
+        {
+          "date": "2025.8.24",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "14",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 0.6,
+          "corrected_time": 92.0,
+          "running_style": "先",
+          "last_3f": 37.1,
+          "ave_3f": 37.46,
+          "pci": 51.0,
+          "position_3f": 0.1
+        }
+      ],
+      "indices": {
+        "mining_index": 48.81,
+        "corrected_time_deviation": 54.48,
+        "zi_deviation": 44.03,
+        "base_score": 49.79,
+        "jockey_coefficient": 0.99673,
+        "similarity_coefficient": 1.00946,
+        "stability_coefficient": 0.99575,
+        "total_coefficient_score": 0.003,
+        "final_score": 53.22
+      },
+      "predictions": {
+        "win_rate": 0.30041656365982633,
+        "win_rate_rank": 10,
+        "place_rate": 0.33932153383897234,
+        "place_rate_rank": 10,
+        "show_rate": 0.3611778690236723,
+        "show_rate_rank": 10
+      }
+    },
+    {
       "frame": 6,
       "horse_number": 12,
       "horse_name": "アストリル",
@@ -684,110 +788,6 @@
       }
     },
     {
-      "frame": 4,
-      "horse_number": 8,
-      "horse_name": "ウインラファーガ",
-      "mark": "*",
-      "jockey": {
-        "name": "舟山瑠泉",
-        "weight": 53.0,
-        "weight_reduction": "▲",
-        "this_year": {
-          "wins": 15,
-          "win_rate": 5.4,
-          "place_rate": 12.2,
-          "show_rate": 20.1
-        },
-        "last_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 0.0,
-          "show_rate": 0.0
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "村田一誠",
-        "this_year": {
-          "wins": 11,
-          "win_rate": 5.7,
-          "place_rate": 11.5,
-          "show_rate": 20.8
-        },
-        "last_year": {
-          "wins": 8,
-          "win_rate": 3.4,
-          "place_rate": 9.5,
-          "show_rate": 17.2
-        }
-      },
-      "interval": 5,
-      "zi_index": 97.0,
-      "time_mining": 123.46,
-      "battle_mining": 48.4,
-      "past_races": [
-        {
-          "date": "2025.10.12",
-          "race_name": "未勝利*",
-          "place": "東京",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "2",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 1.1,
-          "corrected_time": 91.0,
-          "running_style": "後",
-          "last_3f": 34.5,
-          "ave_3f": 36.36,
-          "pci": 55.4,
-          "position_3f": 0.8
-        },
-        {
-          "date": "2025.8.24",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "14",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 0.6,
-          "corrected_time": 92.0,
-          "running_style": "先",
-          "last_3f": 37.1,
-          "ave_3f": 37.46,
-          "pci": 51.0,
-          "position_3f": 0.1
-        }
-      ],
-      "indices": {
-        "mining_index": 48.81,
-        "corrected_time_deviation": 54.48,
-        "zi_deviation": 44.03,
-        "base_score": 49.79,
-        "jockey_coefficient": 0.99673,
-        "similarity_coefficient": 1.00351,
-        "stability_coefficient": 0.99575,
-        "total_coefficient_score": -0.0,
-        "final_score": 49.51
-      },
-      "predictions": {
-        "win_rate": 0.2805448213522831,
-        "win_rate_rank": 11,
-        "place_rate": 0.33022717141055763,
-        "place_rate_rank": 11,
-        "show_rate": 0.3880421270854421,
-        "show_rate_rank": 10
-      }
-    },
-    {
       "frame": 7,
       "horse_number": 14,
       "horse_name": "ウインブリザード",
@@ -864,9 +864,9 @@
       },
       "predictions": {
         "win_rate": 0.29032367708145435,
-        "win_rate_rank": 10,
+        "win_rate_rank": 11,
         "place_rate": 0.336064552969758,
-        "place_rate_rank": 10,
+        "place_rate_rank": 11,
         "show_rate": 0.4402857232251463,
         "show_rate_rank": 8
       }
@@ -961,17 +961,17 @@
         "zi_deviation": 50.23,
         "base_score": 50.98,
         "jockey_coefficient": 0.98822,
-        "similarity_coefficient": 1.00197,
+        "similarity_coefficient": 1.0045,
         "stability_coefficient": 0.99151,
-        "total_coefficient_score": -0.004,
-        "final_score": 46.2
+        "total_coefficient_score": -0.002,
+        "final_score": 47.81
       },
       "predictions": {
-        "win_rate": 0.3591501641525997,
+        "win_rate": 0.3642056589606231,
         "win_rate_rank": 8,
-        "place_rate": 0.37416453353497137,
+        "place_rate": 0.34732426042300946,
         "place_rate_rank": 9,
-        "show_rate": 0.35442645911957443,
+        "show_rate": 0.32948295463387134,
         "show_rate_rank": 11
       }
     },
@@ -1260,7 +1260,7 @@
       },
       "predictions": {
         "win_rate": 0.06036403051100753,
-        "win_rate_rank": 15,
+        "win_rate_rank": 14,
         "place_rate": 0.07408051528776856,
         "place_rate_rank": 16,
         "show_rate": 0.11944003797818764,
@@ -1441,17 +1441,17 @@
         "zi_deviation": 44.03,
         "base_score": 33.07,
         "jockey_coefficient": 0.99349,
-        "similarity_coefficient": 1.00054,
+        "similarity_coefficient": 0.99838,
         "stability_coefficient": 0.99401,
-        "total_coefficient_score": -0.003,
-        "final_score": 30.75
+        "total_coefficient_score": -0.004,
+        "final_score": 29.86
       },
       "predictions": {
-        "win_rate": 0.07986221853297262,
-        "win_rate_rank": 13,
-        "place_rate": 0.13535646573740262,
+        "win_rate": 0.057698740754633694,
+        "win_rate_rank": 15,
+        "place_rate": 0.1421935275024747,
         "place_rate_rank": 12,
-        "show_rate": 0.3003064149286581,
+        "show_rate": 0.2856676796214572,
         "show_rate_rank": 12
       }
     },
@@ -1552,7 +1552,7 @@
       },
       "predictions": {
         "win_rate": 0.06922420651803801,
-        "win_rate_rank": 14,
+        "win_rate_rank": 13,
         "place_rate": 0.11356134658303775,
         "place_rate_rank": 13,
         "show_rate": 0.10643811565628641,

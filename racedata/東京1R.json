@@ -125,17 +125,17 @@
         "zi_deviation": 68.51,
         "base_score": 65.12,
         "jockey_coefficient": 0.99994,
-        "similarity_coefficient": 1.00552,
+        "similarity_coefficient": 1.0082,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": 0.001,
-        "final_score": 66.33
+        "total_coefficient_score": 0.002,
+        "final_score": 68.51
       },
       "predictions": {
         "win_rate": 0.8463644938317451,
         "win_rate_rank": 1,
-        "place_rate": 0.8451801736087463,
+        "place_rate": 0.8453508565831618,
         "place_rate_rank": 1,
-        "show_rate": 0.8667466271682489,
+        "show_rate": 0.865504446179956,
         "show_rate_rank": 1
       }
     },
@@ -868,6 +868,170 @@
       }
     },
     {
+      "frame": 7,
+      "horse_number": 10,
+      "horse_name": "トーセンクリステル",
+      "mark": "*",
+      "jockey": {
+        "name": "岩部純二",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 2.2,
+          "show_rate": 5.6
+        },
+        "last_year": {
+          "wins": 1,
+          "win_rate": 0.7,
+          "place_rate": 3.6,
+          "show_rate": 5.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "杉浦宏昭",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 2.2,
+          "place_rate": 4.8,
+          "show_rate": 11.4
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.5,
+          "place_rate": 8.6,
+          "show_rate": 14.8
+        }
+      },
+      "interval": 9,
+      "zi_index": 96.0,
+      "time_mining": 87.23,
+      "battle_mining": 33.4,
+      "past_races": [
+        {
+          "date": "2025.9.14",
+          "race_name": "未勝利・牝*",
+          "place": "中山",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "稍",
+          "frame": "6",
+          "horse_number": "10",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "10",
+          "margin": 2.3,
+          "corrected_time": 80.0,
+          "running_style": "中",
+          "last_3f": 39.8,
+          "ave_3f": 35.1,
+          "pci": 38.2,
+          "position_3f": 0.6
+        },
+        {
+          "date": "2025.8.17",
+          "race_name": "未勝利*",
+          "place": "札幌",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 0.7,
+          "corrected_time": 92.0,
+          "running_style": "先",
+          "last_3f": 35.4,
+          "ave_3f": 35.4,
+          "pci": 50.0,
+          "position_3f": 0.3
+        },
+        {
+          "date": "2025.7.26",
+          "race_name": "未勝利*",
+          "place": "札幌",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "8",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "8",
+          "margin": 1.5,
+          "corrected_time": 91.0,
+          "running_style": "中",
+          "last_3f": 35.3,
+          "ave_3f": 35.1,
+          "pci": 49.4,
+          "position_3f": 0.9
+        },
+        {
+          "date": "2025.7.13",
+          "race_name": "未勝利*",
+          "place": "函館",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "12",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 1.8,
+          "corrected_time": 85.0,
+          "running_style": "後",
+          "last_3f": 37.5,
+          "ave_3f": 36.75,
+          "pci": 48.0,
+          "position_3f": 1.1
+        },
+        {
+          "date": "2025.6.21",
+          "race_name": "新馬",
+          "place": "函館",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "5",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 1.5,
+          "corrected_time": 90.0,
+          "running_style": "先",
+          "last_3f": 37.5,
+          "ave_3f": 35.4,
+          "pci": 44.4,
+          "position_3f": 0.1
+        }
+      ],
+      "indices": {
+        "mining_index": 41.99,
+        "corrected_time_deviation": 53.61,
+        "zi_deviation": 47.12,
+        "base_score": 46.25,
+        "jockey_coefficient": 0.97756,
+        "similarity_coefficient": 1.00262,
+        "stability_coefficient": 0.9922,
+        "total_coefficient_score": -0.005,
+        "final_score": 40.71
+      },
+      "predictions": {
+        "win_rate": 0.0938330742516036,
+        "win_rate_rank": 10,
+        "place_rate": 0.13307053817627987,
+        "place_rate_rank": 9,
+        "show_rate": 0.1276271727288573,
+        "show_rate_rank": 9
+      }
+    },
+    {
       "frame": 8,
       "horse_number": 13,
       "horse_name": "ラブデウザ",
@@ -1029,170 +1193,6 @@
         "place_rate_rank": 8,
         "show_rate": 0.2186019723857764,
         "show_rate_rank": 8
-      }
-    },
-    {
-      "frame": 7,
-      "horse_number": 10,
-      "horse_name": "トーセンクリステル",
-      "mark": "*",
-      "jockey": {
-        "name": "岩部純二",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 2.2,
-          "show_rate": 5.6
-        },
-        "last_year": {
-          "wins": 1,
-          "win_rate": 0.7,
-          "place_rate": 3.6,
-          "show_rate": 5.8
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "杉浦宏昭",
-        "this_year": {
-          "wins": 5,
-          "win_rate": 2.2,
-          "place_rate": 4.8,
-          "show_rate": 11.4
-        },
-        "last_year": {
-          "wins": 11,
-          "win_rate": 4.5,
-          "place_rate": 8.6,
-          "show_rate": 14.8
-        }
-      },
-      "interval": 9,
-      "zi_index": 96.0,
-      "time_mining": 87.23,
-      "battle_mining": 33.4,
-      "past_races": [
-        {
-          "date": "2025.9.14",
-          "race_name": "未勝利・牝*",
-          "place": "中山",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "稍",
-          "frame": "6",
-          "horse_number": "10",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "10",
-          "margin": 2.3,
-          "corrected_time": 80.0,
-          "running_style": "中",
-          "last_3f": 39.8,
-          "ave_3f": 35.1,
-          "pci": 38.2,
-          "position_3f": 0.6
-        },
-        {
-          "date": "2025.8.17",
-          "race_name": "未勝利*",
-          "place": "札幌",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 0.7,
-          "corrected_time": 92.0,
-          "running_style": "先",
-          "last_3f": 35.4,
-          "ave_3f": 35.4,
-          "pci": 50.0,
-          "position_3f": 0.3
-        },
-        {
-          "date": "2025.7.26",
-          "race_name": "未勝利*",
-          "place": "札幌",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "8",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "8",
-          "margin": 1.5,
-          "corrected_time": 91.0,
-          "running_style": "中",
-          "last_3f": 35.3,
-          "ave_3f": 35.1,
-          "pci": 49.4,
-          "position_3f": 0.9
-        },
-        {
-          "date": "2025.7.13",
-          "race_name": "未勝利*",
-          "place": "函館",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "12",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 1.8,
-          "corrected_time": 85.0,
-          "running_style": "後",
-          "last_3f": 37.5,
-          "ave_3f": 36.75,
-          "pci": 48.0,
-          "position_3f": 1.1
-        },
-        {
-          "date": "2025.6.21",
-          "race_name": "新馬",
-          "place": "函館",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "5",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 1.5,
-          "corrected_time": 90.0,
-          "running_style": "先",
-          "last_3f": 37.5,
-          "ave_3f": 35.4,
-          "pci": 44.4,
-          "position_3f": 0.1
-        }
-      ],
-      "indices": {
-        "mining_index": 41.99,
-        "corrected_time_deviation": 53.61,
-        "zi_deviation": 47.12,
-        "base_score": 46.25,
-        "jockey_coefficient": 0.97756,
-        "similarity_coefficient": 0.99994,
-        "stability_coefficient": 0.9922,
-        "total_coefficient_score": -0.006,
-        "final_score": 39.16
-      },
-      "predictions": {
-        "win_rate": 0.10638613338942227,
-        "win_rate_rank": 10,
-        "place_rate": 0.14248564232492408,
-        "place_rate_rank": 9,
-        "show_rate": 0.12381994104053497,
-        "show_rate_rank": 9
       }
     },
     {
