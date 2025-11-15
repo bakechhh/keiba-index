@@ -1494,7 +1494,7 @@
         "win_rate": 0.39470387137164237,
         "win_rate_rank": 10,
         "place_rate": 0.4910306566410748,
-        "place_rate_rank": 8,
+        "place_rate_rank": 9,
         "show_rate": 0.5142761614302125,
         "show_rate_rank": 10
       }
@@ -2009,6 +2009,110 @@
     },
     {
       "frame": 1,
+      "horse_number": 2,
+      "horse_name": "ロケベンドラ",
+      "mark": "",
+      "jockey": {
+        "name": "北村友一",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 63,
+          "win_rate": 12.3,
+          "place_rate": 23.6,
+          "show_rate": 31.6
+        },
+        "last_year": {
+          "wins": 59,
+          "win_rate": 11.4,
+          "place_rate": 19.3,
+          "show_rate": 27.8
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "西園翔太",
+        "this_year": {
+          "wins": 28,
+          "win_rate": 11.9,
+          "place_rate": 20.9,
+          "show_rate": 27.7
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 6.0,
+          "place_rate": 16.1,
+          "show_rate": 23.4
+        }
+      },
+      "interval": 8,
+      "zi_index": 106.0,
+      "time_mining": 94.37,
+      "battle_mining": 47.8,
+      "past_races": [
+        {
+          "date": "2025.9.21",
+          "race_name": "１勝ｸﾗｽ",
+          "place": "阪神",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "2",
+          "horse_number": "2",
+          "weight": 53.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 0.7,
+          "corrected_time": 93.0,
+          "running_style": "先",
+          "last_3f": 36.2,
+          "ave_3f": 36.0,
+          "pci": 49.4,
+          "position_3f": 0.5
+        },
+        {
+          "date": "2024.9.28",
+          "race_name": "新馬",
+          "place": "中京",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "17",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.6,
+          "corrected_time": 89.0,
+          "running_style": "中",
+          "last_3f": 33.8,
+          "ave_3f": 38.49,
+          "pci": 63.9,
+          "position_3f": 0.8
+        }
+      ],
+      "indices": {
+        "mining_index": 48.79,
+        "corrected_time_deviation": 51.69,
+        "zi_deviation": 53.03,
+        "base_score": 50.3,
+        "jockey_coefficient": 1.00351,
+        "similarity_coefficient": 1.00268,
+        "stability_coefficient": 0.9965,
+        "total_coefficient_score": 0.001,
+        "final_score": 51.11
+      },
+      "predictions": {
+        "win_rate": 0.4738203683228219,
+        "win_rate_rank": 7,
+        "place_rate": 0.4954898482369627,
+        "place_rate_rank": 8,
+        "show_rate": 0.5146003902585173,
+        "show_rate_rank": 9
+      }
+    },
+    {
+      "frame": 1,
       "horse_number": 1,
       "horse_name": "ロールザダイス",
       "mark": "*",
@@ -2166,113 +2270,9 @@
         "win_rate": 0.4479518986390422,
         "win_rate_rank": 8,
         "place_rate": 0.4909626670629137,
-        "place_rate_rank": 9,
+        "place_rate_rank": 10,
         "show_rate": 0.5188613046373148,
         "show_rate_rank": 8
-      }
-    },
-    {
-      "frame": 1,
-      "horse_number": 2,
-      "horse_name": "ロケベンドラ",
-      "mark": "",
-      "jockey": {
-        "name": "北村友一",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 63,
-          "win_rate": 12.3,
-          "place_rate": 23.6,
-          "show_rate": 31.6
-        },
-        "last_year": {
-          "wins": 59,
-          "win_rate": 11.4,
-          "place_rate": 19.3,
-          "show_rate": 27.8
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "西園翔太",
-        "this_year": {
-          "wins": 28,
-          "win_rate": 11.9,
-          "place_rate": 20.9,
-          "show_rate": 27.7
-        },
-        "last_year": {
-          "wins": 15,
-          "win_rate": 6.0,
-          "place_rate": 16.1,
-          "show_rate": 23.4
-        }
-      },
-      "interval": 8,
-      "zi_index": 106.0,
-      "time_mining": 94.37,
-      "battle_mining": 47.8,
-      "past_races": [
-        {
-          "date": "2025.9.21",
-          "race_name": "１勝ｸﾗｽ",
-          "place": "阪神",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "2",
-          "horse_number": "2",
-          "weight": 53.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 0.7,
-          "corrected_time": 93.0,
-          "running_style": "先",
-          "last_3f": 36.2,
-          "ave_3f": 36.0,
-          "pci": 49.4,
-          "position_3f": 0.5
-        },
-        {
-          "date": "2024.9.28",
-          "race_name": "新馬",
-          "place": "中京",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "17",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.6,
-          "corrected_time": 89.0,
-          "running_style": "中",
-          "last_3f": 33.8,
-          "ave_3f": 38.49,
-          "pci": 63.9,
-          "position_3f": 0.8
-        }
-      ],
-      "indices": {
-        "mining_index": 48.79,
-        "corrected_time_deviation": 51.69,
-        "zi_deviation": 53.03,
-        "base_score": 50.3,
-        "jockey_coefficient": 1.00351,
-        "similarity_coefficient": 1.00037,
-        "stability_coefficient": 0.9965,
-        "total_coefficient_score": -0.001,
-        "final_score": 49.65
-      },
-      "predictions": {
-        "win_rate": 0.46649904724881325,
-        "win_rate_rank": 7,
-        "place_rate": 0.4905601950369029,
-        "place_rate_rank": 10,
-        "show_rate": 0.5162080941134286,
-        "show_rate_rank": 9
       }
     },
     {
