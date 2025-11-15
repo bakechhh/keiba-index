@@ -105,17 +105,17 @@
         "zi_deviation": 65.46,
         "base_score": 60.14,
         "jockey_coefficient": 1.00435,
-        "similarity_coefficient": 1.00654,
+        "similarity_coefficient": 1.00997,
         "stability_coefficient": 0.99501,
-        "total_coefficient_score": 0.002,
-        "final_score": 63.41
+        "total_coefficient_score": 0.004,
+        "final_score": 65.98
       },
       "predictions": {
-        "win_rate": 0.7567187986845997,
+        "win_rate": 0.7764815812295243,
         "win_rate_rank": 2,
-        "place_rate": 0.7603662271189306,
+        "place_rate": 0.7774566719980089,
         "place_rate_rank": 2,
-        "show_rate": 0.7630714281566852,
+        "show_rate": 0.7724092930903221,
         "show_rate_rank": 2
       }
     },
@@ -209,17 +209,17 @@
         "zi_deviation": 64.38,
         "base_score": 61.46,
         "jockey_coefficient": 1.01116,
-        "similarity_coefficient": 0.99993,
+        "similarity_coefficient": 1.003,
         "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.001,
-        "final_score": 62.64
+        "total_coefficient_score": 0.002,
+        "final_score": 64.99
       },
       "predictions": {
-        "win_rate": 0.8218012302924433,
+        "win_rate": 0.8366709682413997,
         "win_rate_rank": 1,
-        "place_rate": 0.8104814400501161,
+        "place_rate": 0.8282743688848909,
         "place_rate_rank": 1,
-        "show_rate": 0.8090313606975995,
+        "show_rate": 0.8234757338854941,
         "show_rate_rank": 1
       }
     },
@@ -397,17 +397,17 @@
         "zi_deviation": 56.8,
         "base_score": 59.35,
         "jockey_coefficient": 0.99556,
-        "similarity_coefficient": 1.00084,
+        "similarity_coefficient": 1.00119,
         "stability_coefficient": 0.997,
         "total_coefficient_score": -0.001,
-        "final_score": 57.42
+        "final_score": 57.69
       },
       "predictions": {
         "win_rate": 0.6183212849682191,
         "win_rate_rank": 5,
         "place_rate": 0.6614073393809694,
         "place_rate_rank": 5,
-        "show_rate": 0.660469152723318,
+        "show_rate": 0.6598799569815694,
         "show_rate_rank": 5
       }
     },
