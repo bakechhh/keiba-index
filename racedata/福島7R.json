@@ -3561,17 +3561,17 @@
         "zi_deviation": 39.4,
         "base_score": 35.23,
         "jockey_coefficient": 0.99507,
-        "similarity_coefficient": 1.00403,
+        "similarity_coefficient": 1.00118,
         "stability_coefficient": 0.99575,
-        "total_coefficient_score": -0.0,
-        "final_score": 35.04
+        "total_coefficient_score": -0.002,
+        "final_score": 33.79
       },
       "predictions": {
-        "win_rate": 0.07769587800750857,
+        "win_rate": 0.056613243278688614,
         "win_rate_rank": 15,
-        "place_rate": 0.1267351298700766,
+        "place_rate": 0.08605230517247564,
         "place_rate_rank": 15,
-        "show_rate": 0.11447879013316938,
+        "show_rate": 0.11006881360633712,
         "show_rate_rank": 15
       }
     },
