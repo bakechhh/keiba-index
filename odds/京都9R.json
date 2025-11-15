@@ -1,0 +1,3684 @@
+[
+  {
+    "race_id": "2508040409",
+    "odds_type": "tfw",
+    "odds_type_name": "単勝・複勝",
+    "data": {
+      "tansho": [
+        {
+          "waku": "1",
+          "horse_num": "1",
+          "horse_name": "キッコベッロ",
+          "odds": 2.4
+        },
+        {
+          "waku": "2",
+          "horse_num": "2",
+          "horse_name": "ノチェセラーダ",
+          "odds": 10.6
+        },
+        {
+          "waku": "3",
+          "horse_num": "3",
+          "horse_name": "サンダーストラック",
+          "odds": 4.9
+        },
+        {
+          "waku": "4",
+          "horse_num": "4",
+          "horse_name": "アーレムアレス",
+          "odds": 4.1
+        },
+        {
+          "waku": "5",
+          "horse_num": "5",
+          "horse_name": "ジャストビート",
+          "odds": 76.5
+        },
+        {
+          "waku": "6",
+          "horse_num": "6",
+          "horse_name": "ダークマルス",
+          "odds": 6.4
+        },
+        {
+          "waku": "7",
+          "horse_num": "7",
+          "horse_name": "サーディンラン",
+          "odds": 31.4
+        },
+        {
+          "waku": "8",
+          "horse_num": "8",
+          "horse_name": "サントルドパリ",
+          "odds": 9.5
+        }
+      ],
+      "fukusho": [
+        {
+          "waku": "1",
+          "horse_num": "1",
+          "horse_name": "キッコベッロ",
+          "odds": {
+            "min": 1.1,
+            "max": 1.2
+          }
+        },
+        {
+          "waku": "2",
+          "horse_num": "2",
+          "horse_name": "ノチェセラーダ",
+          "odds": {
+            "min": 1.1,
+            "max": 1.6
+          }
+        },
+        {
+          "waku": "3",
+          "horse_num": "3",
+          "horse_name": "サンダーストラック",
+          "odds": {
+            "min": 1.6,
+            "max": 3.1
+          }
+        },
+        {
+          "waku": "4",
+          "horse_num": "4",
+          "horse_name": "アーレムアレス",
+          "odds": {
+            "min": 1.5,
+            "max": 2.7
+          }
+        },
+        {
+          "waku": "5",
+          "horse_num": "5",
+          "horse_name": "ジャストビート",
+          "odds": {
+            "min": 7.3,
+            "max": 14.7
+          }
+        },
+        {
+          "waku": "6",
+          "horse_num": "6",
+          "horse_name": "ダークマルス",
+          "odds": {
+            "min": 1.9,
+            "max": 3.7
+          }
+        },
+        {
+          "waku": "7",
+          "horse_num": "7",
+          "horse_name": "サーディンラン",
+          "odds": {
+            "min": 4.4,
+            "max": 8.8
+          }
+        },
+        {
+          "waku": "8",
+          "horse_num": "8",
+          "horse_name": "サントルドパリ",
+          "odds": {
+            "min": 1.8,
+            "max": 3.5
+          }
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:29:45.763202"
+  },
+  {
+    "race_id": "2508040409",
+    "odds_type": "umaren",
+    "odds_type_name": "馬連",
+    "data": {
+      "combinations": [
+        {
+          "axis": "1",
+          "aite": "2",
+          "combination": "1-2",
+          "odds": 12.7
+        },
+        {
+          "axis": "1",
+          "aite": "3",
+          "combination": "1-3",
+          "odds": 5.7
+        },
+        {
+          "axis": "1",
+          "aite": "4",
+          "combination": "1-4",
+          "odds": 4.9
+        },
+        {
+          "axis": "1",
+          "aite": "5",
+          "combination": "1-5",
+          "odds": 120.6
+        },
+        {
+          "axis": "1",
+          "aite": "6",
+          "combination": "1-6",
+          "odds": 7.5
+        },
+        {
+          "axis": "1",
+          "aite": "7",
+          "combination": "1-7",
+          "odds": 17.4
+        },
+        {
+          "axis": "1",
+          "aite": "8",
+          "combination": "1-8",
+          "odds": 9.7
+        },
+        {
+          "axis": "2",
+          "aite": "3",
+          "combination": "2-3",
+          "odds": 26.2
+        },
+        {
+          "axis": "2",
+          "aite": "4",
+          "combination": "2-4",
+          "odds": 32.4
+        },
+        {
+          "axis": "2",
+          "aite": "5",
+          "combination": "2-5",
+          "odds": 184.3
+        },
+        {
+          "axis": "2",
+          "aite": "6",
+          "combination": "2-6",
+          "odds": 40.2
+        },
+        {
+          "axis": "2",
+          "aite": "7",
+          "combination": "2-7",
+          "odds": 73.4
+        },
+        {
+          "axis": "2",
+          "aite": "8",
+          "combination": "2-8",
+          "odds": 82.4
+        },
+        {
+          "axis": "3",
+          "aite": "4",
+          "combination": "3-4",
+          "odds": 17.5
+        },
+        {
+          "axis": "3",
+          "aite": "5",
+          "combination": "3-5",
+          "odds": 138.8
+        },
+        {
+          "axis": "3",
+          "aite": "6",
+          "combination": "3-6",
+          "odds": 17.2
+        },
+        {
+          "axis": "3",
+          "aite": "7",
+          "combination": "3-7",
+          "odds": 51.2
+        },
+        {
+          "axis": "3",
+          "aite": "8",
+          "combination": "3-8",
+          "odds": 30.9
+        },
+        {
+          "axis": "4",
+          "aite": "5",
+          "combination": "4-5",
+          "odds": 187.7
+        },
+        {
+          "axis": "4",
+          "aite": "6",
+          "combination": "4-6",
+          "odds": 16.2
+        },
+        {
+          "axis": "4",
+          "aite": "7",
+          "combination": "4-7",
+          "odds": 54.5
+        },
+        {
+          "axis": "4",
+          "aite": "8",
+          "combination": "4-8",
+          "odds": 32.7
+        },
+        {
+          "axis": "5",
+          "aite": "6",
+          "combination": "5-6",
+          "odds": 155.9
+        },
+        {
+          "axis": "5",
+          "aite": "7",
+          "combination": "5-7",
+          "odds": 362.0
+        },
+        {
+          "axis": "5",
+          "aite": "8",
+          "combination": "5-8",
+          "odds": 220.3
+        },
+        {
+          "axis": "6",
+          "aite": "7",
+          "combination": "6-7",
+          "odds": 25.3
+        },
+        {
+          "axis": "6",
+          "aite": "8",
+          "combination": "6-8",
+          "odds": 21.2
+        },
+        {
+          "axis": "7",
+          "aite": "8",
+          "combination": "7-8",
+          "odds": 47.3
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:29:48.273504"
+  },
+  {
+    "race_id": "2508040409",
+    "odds_type": "umatan",
+    "odds_type_name": "馬単",
+    "data": {
+      "combinations": [
+        {
+          "first": "1",
+          "second": "2",
+          "combination": "1-2",
+          "odds": 14.8
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "combination": "1-3",
+          "odds": 6.4
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "combination": "1-4",
+          "odds": 8.7
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "combination": "1-5",
+          "odds": 111.5
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "combination": "1-6",
+          "odds": 13.9
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "combination": "1-7",
+          "odds": 21.0
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "combination": "1-8",
+          "odds": 15.5
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "combination": "2-1",
+          "odds": 40.9
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "combination": "2-3",
+          "odds": 72.9
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "combination": "2-4",
+          "odds": 118.5
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "combination": "2-5",
+          "odds": 334.6
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "combination": "2-6",
+          "odds": 84.9
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "combination": "2-7",
+          "odds": 183.5
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "combination": "2-8",
+          "odds": 138.7
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "combination": "3-1",
+          "odds": 18.7
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "combination": "3-2",
+          "odds": 47.0
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "combination": "3-4",
+          "odds": 44.7
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "combination": "3-5",
+          "odds": 258.6
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "combination": "3-6",
+          "odds": 35.5
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "combination": "3-7",
+          "odds": 94.8
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "combination": "3-8",
+          "odds": 57.4
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "combination": "4-1",
+          "odds": 15.5
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "combination": "4-2",
+          "odds": 58.6
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "combination": "4-3",
+          "odds": 30.2
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "combination": "4-5",
+          "odds": 316.0
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "combination": "4-6",
+          "odds": 36.4
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "combination": "4-7",
+          "odds": 101.5
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "combination": "4-8",
+          "odds": 44.7
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "combination": "5-1",
+          "odds": 227.5
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "combination": "5-2",
+          "odds": 437.6
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "combination": "5-3",
+          "odds": 379.3
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "combination": "5-4",
+          "odds": 474.1
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "combination": "5-6",
+          "odds": 632.1
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "combination": "5-7",
+          "odds": 711.1
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "combination": "5-8",
+          "odds": 568.9
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "combination": "6-1",
+          "odds": 17.9
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "combination": "6-2",
+          "odds": 55.2
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "combination": "6-3",
+          "odds": 29.6
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "combination": "6-4",
+          "odds": 41.8
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "combination": "6-5",
+          "odds": 284.4
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "combination": "6-7",
+          "odds": 45.5
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "combination": "6-8",
+          "odds": 45.5
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "combination": "7-1",
+          "odds": 36.4
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "combination": "7-2",
+          "odds": 57.4
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "combination": "7-3",
+          "odds": 51.2
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "combination": "7-4",
+          "odds": 53.6
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "combination": "7-5",
+          "odds": 379.3
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "combination": "7-6",
+          "odds": 145.8
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "combination": "7-8",
+          "odds": 53.6
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "combination": "8-1",
+          "odds": 34.6
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "combination": "8-2",
+          "odds": 98.0
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "combination": "8-3",
+          "odds": 77.9
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "combination": "8-4",
+          "odds": 75.8
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "combination": "8-5",
+          "odds": 299.4
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "combination": "8-6",
+          "odds": 96.4
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "combination": "8-7",
+          "odds": 98.0
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:29:48.240353"
+  },
+  {
+    "race_id": "2508040409",
+    "odds_type": "wide",
+    "odds_type_name": "ワイド",
+    "data": {
+      "combinations": [
+        {
+          "axis": "1",
+          "aite": "2",
+          "combination": "1-2",
+          "odds": {
+            "min": 3.0,
+            "max": 3.4
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "3",
+          "combination": "1-3",
+          "odds": {
+            "min": 2.0,
+            "max": 2.3
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "4",
+          "combination": "1-4",
+          "odds": {
+            "min": 1.9,
+            "max": 2.1
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "5",
+          "combination": "1-5",
+          "odds": {
+            "min": 18.9,
+            "max": 21.1
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "6",
+          "combination": "1-6",
+          "odds": {
+            "min": 3.0,
+            "max": 3.6
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "7",
+          "combination": "1-7",
+          "odds": {
+            "min": 4.8,
+            "max": 5.5
+          }
+        },
+        {
+          "axis": "1",
+          "aite": "8",
+          "combination": "1-8",
+          "odds": {
+            "min": 3.5,
+            "max": 4.1
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "3",
+          "combination": "2-3",
+          "odds": {
+            "min": 7.4,
+            "max": 9.3
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "4",
+          "combination": "2-4",
+          "odds": {
+            "min": 12.4,
+            "max": 16.0
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "5",
+          "combination": "2-5",
+          "odds": {
+            "min": 50.6,
+            "max": 55.2
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "6",
+          "combination": "2-6",
+          "odds": {
+            "min": 13.4,
+            "max": 15.9
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "7",
+          "combination": "2-7",
+          "odds": {
+            "min": 20.2,
+            "max": 23.1
+          }
+        },
+        {
+          "axis": "2",
+          "aite": "8",
+          "combination": "2-8",
+          "odds": {
+            "min": 14.6,
+            "max": 17.0
+          }
+        },
+        {
+          "axis": "3",
+          "aite": "4",
+          "combination": "3-4",
+          "odds": {
+            "min": 5.2,
+            "max": 7.0
+          }
+        },
+        {
+          "axis": "3",
+          "aite": "5",
+          "combination": "3-5",
+          "odds": {
+            "min": 37.8,
+            "max": 43.3
+          }
+        },
+        {
+          "axis": "3",
+          "aite": "6",
+          "combination": "3-6",
+          "odds": {
+            "min": 4.0,
+            "max": 5.0
+          }
+        },
+        {
+          "axis": "3",
+          "aite": "7",
+          "combination": "3-7",
+          "odds": {
+            "min": 9.6,
+            "max": 11.7
+          }
+        },
+        {
+          "axis": "3",
+          "aite": "8",
+          "combination": "3-8",
+          "odds": {
+            "min": 8.9,
+            "max": 11.0
+          }
+        },
+        {
+          "axis": "4",
+          "aite": "5",
+          "combination": "4-5",
+          "odds": {
+            "min": 50.5,
+            "max": 59.4
+          }
+        },
+        {
+          "axis": "4",
+          "aite": "6",
+          "combination": "4-6",
+          "odds": {
+            "min": 5.9,
+            "max": 7.5
+          }
+        },
+        {
+          "axis": "4",
+          "aite": "7",
+          "combination": "4-7",
+          "odds": {
+            "min": 19.5,
+            "max": 24.1
+          }
+        },
+        {
+          "axis": "4",
+          "aite": "8",
+          "combination": "4-8",
+          "odds": {
+            "min": 8.6,
+            "max": 10.8
+          }
+        },
+        {
+          "axis": "5",
+          "aite": "6",
+          "combination": "5-6",
+          "odds": {
+            "min": 41.1,
+            "max": 44.4
+          }
+        },
+        {
+          "axis": "5",
+          "aite": "7",
+          "combination": "5-7",
+          "odds": {
+            "min": 52.6,
+            "max": 55.2
+          }
+        },
+        {
+          "axis": "5",
+          "aite": "8",
+          "combination": "5-8",
+          "odds": {
+            "min": 40.9,
+            "max": 43.6
+          }
+        },
+        {
+          "axis": "6",
+          "aite": "7",
+          "combination": "6-7",
+          "odds": {
+            "min": 9.9,
+            "max": 11.3
+          }
+        },
+        {
+          "axis": "6",
+          "aite": "8",
+          "combination": "6-8",
+          "odds": {
+            "min": 7.3,
+            "max": 8.4
+          }
+        },
+        {
+          "axis": "7",
+          "aite": "8",
+          "combination": "7-8",
+          "odds": {
+            "min": 11.9,
+            "max": 13.4
+          }
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:29:48.294503"
+  },
+  {
+    "race_id": "2508040409",
+    "odds_type": "sanrenpuku",
+    "odds_type_name": "3連複",
+    "data": {
+      "combinations": [
+        {
+          "first": "1",
+          "second": "2",
+          "third": "3",
+          "combination": "1-2-3",
+          "odds": 10.4
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "4",
+          "combination": "1-2-4",
+          "odds": 16.1
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "5",
+          "combination": "1-2-5",
+          "odds": 190.6
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "6",
+          "combination": "1-2-6",
+          "odds": 17.8
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "7",
+          "combination": "1-2-7",
+          "odds": 43.0
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "8",
+          "combination": "1-2-8",
+          "odds": 29.8
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "4",
+          "combination": "1-3-4",
+          "odds": 10.1
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "5",
+          "combination": "1-3-5",
+          "odds": 92.7
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "6",
+          "combination": "1-3-6",
+          "odds": 8.1
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "7",
+          "combination": "1-3-7",
+          "odds": 24.9
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "8",
+          "combination": "1-3-8",
+          "odds": 15.8
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "5",
+          "combination": "1-4-5",
+          "odds": 92.2
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "6",
+          "combination": "1-4-6",
+          "odds": 10.6
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "7",
+          "combination": "1-4-7",
+          "odds": 24.5
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "8",
+          "combination": "1-4-8",
+          "odds": 14.3
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "6",
+          "combination": "1-5-6",
+          "odds": 120.3
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "7",
+          "combination": "1-5-7",
+          "odds": 184.4
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "8",
+          "combination": "1-5-8",
+          "odds": 154.2
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "7",
+          "combination": "1-6-7",
+          "odds": 26.3
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "8",
+          "combination": "1-6-8",
+          "odds": 18.8
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "8",
+          "combination": "1-7-8",
+          "odds": 32.1
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "4",
+          "combination": "2-3-4",
+          "odds": 55.6
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "5",
+          "combination": "2-3-5",
+          "odds": 214.7
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "6",
+          "combination": "2-3-6",
+          "odds": 33.2
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "7",
+          "combination": "2-3-7",
+          "odds": 85.2
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "8",
+          "combination": "2-3-8",
+          "odds": 76.7
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "5",
+          "combination": "2-4-5",
+          "odds": 273.6
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "6",
+          "combination": "2-4-6",
+          "odds": 58.3
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "7",
+          "combination": "2-4-7",
+          "odds": 157.1
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "8",
+          "combination": "2-4-8",
+          "odds": 85.2
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "6",
+          "combination": "2-5-6",
+          "odds": 282.8
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "7",
+          "combination": "2-5-7",
+          "odds": 320.1
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "8",
+          "combination": "2-5-8",
+          "odds": 303.0
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "7",
+          "combination": "2-6-7",
+          "odds": 125.6
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "8",
+          "combination": "2-6-8",
+          "odds": 84.0
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "8",
+          "combination": "2-7-8",
+          "odds": 142.5
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "5",
+          "combination": "3-4-5",
+          "odds": 223.2
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "6",
+          "combination": "3-4-6",
+          "odds": 28.4
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "7",
+          "combination": "3-4-7",
+          "odds": 80.8
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "8",
+          "combination": "3-4-8",
+          "odds": 54.3
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "6",
+          "combination": "3-5-6",
+          "odds": 186.4
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "7",
+          "combination": "3-5-7",
+          "odds": 265.1
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "8",
+          "combination": "3-5-8",
+          "odds": 174.9
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "7",
+          "combination": "3-6-7",
+          "odds": 55.8
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "8",
+          "combination": "3-6-8",
+          "odds": 41.3
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "8",
+          "combination": "3-7-8",
+          "odds": 79.2
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "6",
+          "combination": "4-5-6",
+          "odds": 292.5
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "7",
+          "combination": "4-5-7",
+          "odds": 404.0
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "8",
+          "combination": "4-5-8",
+          "odds": 297.6
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "7",
+          "combination": "4-6-7",
+          "odds": 98.0
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "8",
+          "combination": "4-6-8",
+          "odds": 48.3
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "8",
+          "combination": "4-7-8",
+          "odds": 114.6
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "7",
+          "combination": "5-6-7",
+          "odds": 332.7
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "8",
+          "combination": "5-6-8",
+          "odds": 346.2
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "8",
+          "combination": "5-7-8",
+          "odds": 297.6
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "8",
+          "combination": "6-7-8",
+          "odds": 77.8
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:29:48.336821"
+  },
+  {
+    "race_id": "2508040409",
+    "odds_type": "sanrentan",
+    "odds_type_name": "3連単",
+    "data": {
+      "combinations": [
+        {
+          "first": "1",
+          "second": "2",
+          "third": "3",
+          "combination": "1-2-3",
+          "odds": 35.5
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "4",
+          "combination": "1-2-4",
+          "odds": 68.4
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "5",
+          "combination": "1-2-5",
+          "odds": 578.7
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "6",
+          "combination": "1-2-6",
+          "odds": 77.6
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "7",
+          "combination": "1-2-7",
+          "odds": 124.6
+        },
+        {
+          "first": "1",
+          "second": "2",
+          "third": "8",
+          "combination": "1-2-8",
+          "odds": 92.9
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "2",
+          "combination": "1-3-2",
+          "odds": 27.8
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "4",
+          "combination": "1-3-4",
+          "odds": 30.0
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "5",
+          "combination": "1-3-5",
+          "odds": 271.4
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "6",
+          "combination": "1-3-6",
+          "odds": 25.9
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "7",
+          "combination": "1-3-7",
+          "odds": 63.1
+        },
+        {
+          "first": "1",
+          "second": "3",
+          "third": "8",
+          "combination": "1-3-8",
+          "odds": 45.3
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "2",
+          "combination": "1-4-2",
+          "odds": 42.4
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "3",
+          "combination": "1-4-3",
+          "odds": 26.1
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "5",
+          "combination": "1-4-5",
+          "odds": 278.8
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "6",
+          "combination": "1-4-6",
+          "odds": 30.5
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "7",
+          "combination": "1-4-7",
+          "odds": 64.5
+        },
+        {
+          "first": "1",
+          "second": "4",
+          "third": "8",
+          "combination": "1-4-8",
+          "odds": 32.3
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "2",
+          "combination": "1-5-2",
+          "odds": 1394.2
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "3",
+          "combination": "1-5-3",
+          "odds": 1095.4
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "4",
+          "combination": "1-5-4",
+          "odds": 1022.4
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "6",
+          "combination": "1-5-6",
+          "odds": 1179.7
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "7",
+          "combination": "1-5-7",
+          "odds": 1704.0
+        },
+        {
+          "first": "1",
+          "second": "5",
+          "third": "8",
+          "combination": "1-5-8",
+          "odds": 829.0
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "2",
+          "combination": "1-6-2",
+          "odds": 64.5
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "3",
+          "combination": "1-6-3",
+          "odds": 35.0
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "4",
+          "combination": "1-6-4",
+          "odds": 40.3
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "5",
+          "combination": "1-6-5",
+          "odds": 486.8
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "7",
+          "combination": "1-6-7",
+          "odds": 70.0
+        },
+        {
+          "first": "1",
+          "second": "6",
+          "third": "8",
+          "combination": "1-6-8",
+          "odds": 51.9
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "2",
+          "combination": "1-7-2",
+          "odds": 178.3
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "3",
+          "combination": "1-7-3",
+          "odds": 111.5
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "4",
+          "combination": "1-7-4",
+          "odds": 158.9
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "5",
+          "combination": "1-7-5",
+          "odds": 1057.7
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "6",
+          "combination": "1-7-6",
+          "odds": 121.2
+        },
+        {
+          "first": "1",
+          "second": "7",
+          "third": "8",
+          "combination": "1-7-8",
+          "odds": 106.5
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "2",
+          "combination": "1-8-2",
+          "odds": 98.9
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "3",
+          "combination": "1-8-3",
+          "odds": 63.2
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "4",
+          "combination": "1-8-4",
+          "odds": 45.8
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "5",
+          "combination": "1-8-5",
+          "odds": 557.6
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "6",
+          "combination": "1-8-6",
+          "odds": 65.4
+        },
+        {
+          "first": "1",
+          "second": "8",
+          "third": "7",
+          "combination": "1-8-7",
+          "odds": 83.3
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "3",
+          "combination": "2-1-3",
+          "odds": 97.9
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "4",
+          "combination": "2-1-4",
+          "odds": 227.2
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "5",
+          "combination": "2-1-5",
+          "odds": 1533.6
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "6",
+          "combination": "2-1-6",
+          "odds": 225.5
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "7",
+          "combination": "2-1-7",
+          "odds": 403.5
+        },
+        {
+          "first": "2",
+          "second": "1",
+          "third": "8",
+          "combination": "2-1-8",
+          "odds": 316.2
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "2",
+          "combination": "3-1-2",
+          "odds": 50.1
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "4",
+          "combination": "3-1-4",
+          "odds": 56.1
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "5",
+          "combination": "3-1-5",
+          "odds": 408.9
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "6",
+          "combination": "3-1-6",
+          "odds": 48.0
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "7",
+          "combination": "3-1-7",
+          "odds": 121.7
+        },
+        {
+          "first": "3",
+          "second": "1",
+          "third": "8",
+          "combination": "3-1-8",
+          "odds": 80.5
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "2",
+          "combination": "4-1-2",
+          "odds": 75.5
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "3",
+          "combination": "4-1-3",
+          "odds": 51.0
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "5",
+          "combination": "4-1-5",
+          "odds": 337.0
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "6",
+          "combination": "4-1-6",
+          "odds": 61.8
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "7",
+          "combination": "4-1-7",
+          "odds": 111.5
+        },
+        {
+          "first": "4",
+          "second": "1",
+          "third": "8",
+          "combination": "4-1-8",
+          "odds": 67.5
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "2",
+          "combination": "5-1-2",
+          "odds": 3834.1
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "3",
+          "combination": "5-1-3",
+          "odds": 2556.1
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "4",
+          "combination": "5-1-4",
+          "odds": 1917.0
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "6",
+          "combination": "5-1-6",
+          "odds": 2556.1
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "7",
+          "combination": "5-1-7",
+          "odds": 5112.2
+        },
+        {
+          "first": "5",
+          "second": "1",
+          "third": "8",
+          "combination": "5-1-8",
+          "odds": 2359.4
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "2",
+          "combination": "6-1-2",
+          "odds": 93.5
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "3",
+          "combination": "6-1-3",
+          "odds": 53.5
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "4",
+          "combination": "6-1-4",
+          "odds": 81.7
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "5",
+          "combination": "6-1-5",
+          "odds": 748.1
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "7",
+          "combination": "6-1-7",
+          "odds": 111.9
+        },
+        {
+          "first": "6",
+          "second": "1",
+          "third": "8",
+          "combination": "6-1-8",
+          "odds": 93.2
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "2",
+          "combination": "7-1-2",
+          "odds": 547.7
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "3",
+          "combination": "7-1-3",
+          "odds": 294.9
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "4",
+          "combination": "7-1-4",
+          "odds": 352.5
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "5",
+          "combination": "7-1-5",
+          "odds": 2788.4
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "6",
+          "combination": "7-1-6",
+          "odds": 281.4
+        },
+        {
+          "first": "7",
+          "second": "1",
+          "third": "8",
+          "combination": "7-1-8",
+          "odds": 273.8
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "2",
+          "combination": "8-1-2",
+          "odds": 286.6
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "3",
+          "combination": "8-1-3",
+          "odds": 141.3
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "4",
+          "combination": "8-1-4",
+          "odds": 133.9
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "5",
+          "combination": "8-1-5",
+          "odds": 1226.9
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "6",
+          "combination": "8-1-6",
+          "odds": 181.4
+        },
+        {
+          "first": "8",
+          "second": "1",
+          "third": "7",
+          "combination": "8-1-7",
+          "odds": 182.5
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "1",
+          "combination": "2-3-1",
+          "odds": 104.3
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "1",
+          "combination": "2-4-1",
+          "odds": 281.4
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "1",
+          "combination": "2-5-1",
+          "odds": 3067.3
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "1",
+          "combination": "2-6-1",
+          "odds": 294.9
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "1",
+          "combination": "2-7-1",
+          "odds": 786.4
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "1",
+          "combination": "2-8-1",
+          "odds": 502.8
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "1",
+          "combination": "3-2-1",
+          "odds": 74.6
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "1",
+          "combination": "3-4-1",
+          "odds": 94.6
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "1",
+          "combination": "3-5-1",
+          "odds": 989.4
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "1",
+          "combination": "3-6-1",
+          "odds": 62.9
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "1",
+          "combination": "3-7-1",
+          "odds": 213.0
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "1",
+          "combination": "3-8-1",
+          "odds": 137.5
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "1",
+          "combination": "4-2-1",
+          "odds": 140.7
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "1",
+          "combination": "4-3-1",
+          "odds": 87.8
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "1",
+          "combination": "4-5-1",
+          "odds": 1278.0
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "1",
+          "combination": "4-6-1",
+          "odds": 111.5
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "1",
+          "combination": "4-7-1",
+          "odds": 340.8
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "1",
+          "combination": "4-8-1",
+          "odds": 150.3
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "1",
+          "combination": "5-2-1",
+          "odds": 2359.4
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "1",
+          "combination": "5-3-1",
+          "odds": 2044.8
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "1",
+          "combination": "5-4-1",
+          "odds": 2190.9
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "1",
+          "combination": "5-6-1",
+          "odds": 3408.1
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "1",
+          "combination": "5-7-1",
+          "odds": 10224.4
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "1",
+          "combination": "5-8-1",
+          "odds": 3067.3
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "1",
+          "combination": "6-2-1",
+          "odds": 178.3
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "1",
+          "combination": "6-3-1",
+          "odds": 66.5
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "1",
+          "combination": "6-4-1",
+          "odds": 126.2
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "1",
+          "combination": "6-5-1",
+          "odds": 2190.9
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "1",
+          "combination": "6-7-1",
+          "odds": 178.3
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "1",
+          "combination": "6-8-1",
+          "odds": 164.0
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "1",
+          "combination": "7-2-1",
+          "odds": 748.1
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "1",
+          "combination": "7-3-1",
+          "odds": 352.5
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "1",
+          "combination": "7-4-1",
+          "odds": 578.7
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "1",
+          "combination": "7-5-1",
+          "odds": 15336.6
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "1",
+          "combination": "7-6-1",
+          "odds": 312.9
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "1",
+          "combination": "7-8-1",
+          "odds": 369.5
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "1",
+          "combination": "8-2-1",
+          "odds": 519.8
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "1",
+          "combination": "8-3-1",
+          "odds": 217.5
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "1",
+          "combination": "8-4-1",
+          "odds": 176.2
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "1",
+          "combination": "8-5-1",
+          "odds": 3067.3
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "1",
+          "combination": "8-6-1",
+          "odds": 241.5
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "1",
+          "combination": "8-7-1",
+          "odds": 316.2
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "4",
+          "combination": "2-3-4",
+          "odds": 547.7
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "5",
+          "combination": "2-3-5",
+          "odds": 1917.0
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "6",
+          "combination": "2-3-6",
+          "odds": 340.8
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "7",
+          "combination": "2-3-7",
+          "odds": 568.0
+        },
+        {
+          "first": "2",
+          "second": "3",
+          "third": "8",
+          "combination": "2-3-8",
+          "odds": 697.1
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "3",
+          "combination": "2-4-3",
+          "odds": 625.9
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "5",
+          "combination": "2-4-5",
+          "odds": 3067.3
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "6",
+          "combination": "2-4-6",
+          "odds": 457.8
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "7",
+          "combination": "2-4-7",
+          "odds": 589.8
+        },
+        {
+          "first": "2",
+          "second": "4",
+          "third": "8",
+          "combination": "2-4-8",
+          "odds": 748.1
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "3",
+          "combination": "2-5-3",
+          "odds": 5112.2
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "4",
+          "combination": "2-5-4",
+          "odds": 4381.9
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "6",
+          "combination": "2-5-6",
+          "odds": 6134.6
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "7",
+          "combination": "2-5-7",
+          "odds": 5112.2
+        },
+        {
+          "first": "2",
+          "second": "5",
+          "third": "8",
+          "combination": "2-5-8",
+          "odds": 4381.9
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "3",
+          "combination": "2-6-3",
+          "odds": 322.8
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "4",
+          "combination": "2-6-4",
+          "odds": 432.0
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "5",
+          "combination": "2-6-5",
+          "odds": 4381.9
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "7",
+          "combination": "2-6-7",
+          "odds": 1179.7
+        },
+        {
+          "first": "2",
+          "second": "6",
+          "third": "8",
+          "combination": "2-6-8",
+          "odds": 902.1
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "3",
+          "combination": "2-7-3",
+          "odds": 1460.6
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "4",
+          "combination": "2-7-4",
+          "odds": 639.0
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "5",
+          "combination": "2-7-5",
+          "odds": 4381.9
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "6",
+          "combination": "2-7-6",
+          "odds": 1460.6
+        },
+        {
+          "first": "2",
+          "second": "7",
+          "third": "8",
+          "combination": "2-7-8",
+          "odds": 1226.9
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "3",
+          "combination": "2-8-3",
+          "odds": 1057.7
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "4",
+          "combination": "2-8-4",
+          "odds": 902.1
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "5",
+          "combination": "2-8-5",
+          "odds": 3067.3
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "6",
+          "combination": "2-8-6",
+          "odds": 1179.7
+        },
+        {
+          "first": "2",
+          "second": "8",
+          "third": "7",
+          "combination": "2-8-7",
+          "odds": 902.1
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "4",
+          "combination": "3-2-4",
+          "odds": 284.0
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "5",
+          "combination": "3-2-5",
+          "odds": 1095.4
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "6",
+          "combination": "3-2-6",
+          "odds": 196.6
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "7",
+          "combination": "3-2-7",
+          "odds": 360.8
+        },
+        {
+          "first": "3",
+          "second": "2",
+          "third": "8",
+          "combination": "3-2-8",
+          "odds": 352.5
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "3",
+          "combination": "4-2-3",
+          "odds": 294.9
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "5",
+          "combination": "4-2-5",
+          "odds": 1460.6
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "6",
+          "combination": "4-2-6",
+          "odds": 264.4
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "7",
+          "combination": "4-2-7",
+          "odds": 374.0
+        },
+        {
+          "first": "4",
+          "second": "2",
+          "third": "8",
+          "combination": "4-2-8",
+          "odds": 326.3
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "3",
+          "combination": "5-2-3",
+          "odds": 4381.9
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "4",
+          "combination": "5-2-4",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "6",
+          "combination": "5-2-6",
+          "odds": 6134.6
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "7",
+          "combination": "5-2-7",
+          "odds": 4381.9
+        },
+        {
+          "first": "5",
+          "second": "2",
+          "third": "8",
+          "combination": "5-2-8",
+          "odds": 3408.1
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "3",
+          "combination": "6-2-3",
+          "odds": 230.6
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "4",
+          "combination": "6-2-4",
+          "odds": 329.8
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "5",
+          "combination": "6-2-5",
+          "odds": 2788.4
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "7",
+          "combination": "6-2-7",
+          "odds": 876.3
+        },
+        {
+          "first": "6",
+          "second": "2",
+          "third": "8",
+          "combination": "6-2-8",
+          "odds": 713.3
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "3",
+          "combination": "7-2-3",
+          "odds": 1095.4
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "4",
+          "combination": "7-2-4",
+          "odds": 613.4
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "5",
+          "combination": "7-2-5",
+          "odds": 2556.1
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "6",
+          "combination": "7-2-6",
+          "odds": 1095.4
+        },
+        {
+          "first": "7",
+          "second": "2",
+          "third": "8",
+          "combination": "7-2-8",
+          "odds": 1022.4
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "3",
+          "combination": "8-2-3",
+          "odds": 1057.7
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "4",
+          "combination": "8-2-4",
+          "odds": 829.0
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "5",
+          "combination": "8-2-5",
+          "odds": 3067.3
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "6",
+          "combination": "8-2-6",
+          "odds": 989.4
+        },
+        {
+          "first": "8",
+          "second": "2",
+          "third": "7",
+          "combination": "8-2-7",
+          "odds": 989.4
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "2",
+          "combination": "3-4-2",
+          "odds": 266.7
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "2",
+          "combination": "3-5-2",
+          "odds": 1460.6
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "2",
+          "combination": "3-6-2",
+          "odds": 146.0
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "2",
+          "combination": "3-7-2",
+          "odds": 625.9
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "2",
+          "combination": "3-8-2",
+          "odds": 374.0
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "2",
+          "combination": "4-3-2",
+          "odds": 253.4
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "2",
+          "combination": "4-5-2",
+          "odds": 3408.1
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "2",
+          "combination": "4-6-2",
+          "odds": 253.4
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "2",
+          "combination": "4-7-2",
+          "odds": 471.8
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "2",
+          "combination": "4-8-2",
+          "odds": 337.0
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "2",
+          "combination": "5-3-2",
+          "odds": 5112.2
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "2",
+          "combination": "5-4-2",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "2",
+          "combination": "5-6-2",
+          "odds": 10224.4
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "2",
+          "combination": "5-7-2",
+          "odds": 10224.4
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "2",
+          "combination": "5-8-2",
+          "odds": 7668.3
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "2",
+          "combination": "6-3-2",
+          "odds": 151.1
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "2",
+          "combination": "6-4-2",
+          "odds": 235.9
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "2",
+          "combination": "6-5-2",
+          "odds": 5112.2
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "2",
+          "combination": "6-7-2",
+          "odds": 589.8
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "2",
+          "combination": "6-8-2",
+          "odds": 697.1
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "2",
+          "combination": "7-3-2",
+          "odds": 1278.0
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "2",
+          "combination": "7-4-2",
+          "odds": 625.9
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "2",
+          "combination": "7-5-2",
+          "odds": 7668.3
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "2",
+          "combination": "7-6-2",
+          "odds": 1533.6
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "2",
+          "combination": "7-8-2",
+          "odds": 929.4
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "2",
+          "combination": "8-3-2",
+          "odds": 876.3
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "2",
+          "combination": "8-4-2",
+          "odds": 766.8
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "2",
+          "combination": "8-5-2",
+          "odds": 7668.3
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "2",
+          "combination": "8-6-2",
+          "odds": 929.4
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "2",
+          "combination": "8-7-2",
+          "odds": 958.5
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "5",
+          "combination": "3-4-5",
+          "odds": 1278.0
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "6",
+          "combination": "3-4-6",
+          "odds": 210.0
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "7",
+          "combination": "3-4-7",
+          "odds": 494.7
+        },
+        {
+          "first": "3",
+          "second": "4",
+          "third": "8",
+          "combination": "3-4-8",
+          "odds": 204.4
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "4",
+          "combination": "3-5-4",
+          "odds": 1704.0
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "6",
+          "combination": "3-5-6",
+          "odds": 4381.9
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "7",
+          "combination": "3-5-7",
+          "odds": 3408.1
+        },
+        {
+          "first": "3",
+          "second": "5",
+          "third": "8",
+          "combination": "3-5-8",
+          "odds": 1136.0
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "4",
+          "combination": "3-6-4",
+          "odds": 200.4
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "5",
+          "combination": "3-6-5",
+          "odds": 1704.0
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "7",
+          "combination": "3-6-7",
+          "odds": 245.3
+        },
+        {
+          "first": "3",
+          "second": "6",
+          "third": "8",
+          "combination": "3-6-8",
+          "odds": 196.6
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "4",
+          "combination": "3-7-4",
+          "odds": 1057.7
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "5",
+          "combination": "3-7-5",
+          "odds": 2788.4
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "6",
+          "combination": "3-7-6",
+          "odds": 432.0
+        },
+        {
+          "first": "3",
+          "second": "7",
+          "third": "8",
+          "combination": "3-7-8",
+          "odds": 547.7
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "4",
+          "combination": "3-8-4",
+          "odds": 225.5
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "5",
+          "combination": "3-8-5",
+          "odds": 1278.0
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "6",
+          "combination": "3-8-6",
+          "odds": 271.4
+        },
+        {
+          "first": "3",
+          "second": "8",
+          "third": "7",
+          "combination": "3-8-7",
+          "odds": 528.8
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "5",
+          "combination": "4-3-5",
+          "odds": 1333.6
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "6",
+          "combination": "4-3-6",
+          "odds": 192.9
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "7",
+          "combination": "4-3-7",
+          "odds": 451.0
+        },
+        {
+          "first": "4",
+          "second": "3",
+          "third": "8",
+          "combination": "4-3-8",
+          "odds": 237.7
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "4",
+          "combination": "5-3-4",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "6",
+          "combination": "5-3-6",
+          "odds": 10224.4
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "7",
+          "combination": "5-3-7",
+          "odds": 3834.1
+        },
+        {
+          "first": "5",
+          "second": "3",
+          "third": "8",
+          "combination": "5-3-8",
+          "odds": 4381.9
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "4",
+          "combination": "6-3-4",
+          "odds": 164.0
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "5",
+          "combination": "6-3-5",
+          "odds": 1057.7
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "7",
+          "combination": "6-3-7",
+          "odds": 271.4
+        },
+        {
+          "first": "6",
+          "second": "3",
+          "third": "8",
+          "combination": "6-3-8",
+          "odds": 232.3
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "4",
+          "combination": "7-3-4",
+          "odds": 1278.0
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "5",
+          "combination": "7-3-5",
+          "odds": 3408.1
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "6",
+          "combination": "7-3-6",
+          "odds": 681.6
+        },
+        {
+          "first": "7",
+          "second": "3",
+          "third": "8",
+          "combination": "7-3-8",
+          "odds": 1333.6
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "4",
+          "combination": "8-3-4",
+          "odds": 374.0
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "5",
+          "combination": "8-3-5",
+          "odds": 1614.3
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "6",
+          "combination": "8-3-6",
+          "odds": 451.0
+        },
+        {
+          "first": "8",
+          "second": "3",
+          "third": "7",
+          "combination": "8-3-7",
+          "odds": 902.1
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "3",
+          "combination": "4-5-3",
+          "odds": 5112.2
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "3",
+          "combination": "4-6-3",
+          "odds": 192.9
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "3",
+          "combination": "4-7-3",
+          "odds": 902.1
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "3",
+          "combination": "4-8-3",
+          "odds": 271.4
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "3",
+          "combination": "5-4-3",
+          "odds": 5112.2
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "3",
+          "combination": "5-6-3",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "3",
+          "combination": "5-7-3",
+          "odds": 5112.2
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "3",
+          "combination": "5-8-3",
+          "odds": 2556.1
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "3",
+          "combination": "6-4-3",
+          "odds": 211.5
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "3",
+          "combination": "6-5-3",
+          "odds": 3834.1
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "3",
+          "combination": "6-7-3",
+          "odds": 438.1
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "3",
+          "combination": "6-8-3",
+          "odds": 356.6
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "3",
+          "combination": "7-4-3",
+          "odds": 1533.6
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "3",
+          "combination": "7-5-3",
+          "odds": 3408.1
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "3",
+          "combination": "7-6-3",
+          "odds": 697.1
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "3",
+          "combination": "7-8-3",
+          "odds": 1179.7
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "3",
+          "combination": "8-4-3",
+          "odds": 312.9
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "3",
+          "combination": "8-5-3",
+          "odds": 2359.4
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "3",
+          "combination": "8-6-3",
+          "odds": 457.8
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "3",
+          "combination": "8-7-3",
+          "odds": 1022.4
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "6",
+          "combination": "4-5-6",
+          "odds": 5112.2
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "7",
+          "combination": "4-5-7",
+          "odds": 7668.3
+        },
+        {
+          "first": "4",
+          "second": "5",
+          "third": "8",
+          "combination": "4-5-8",
+          "odds": 2788.4
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "5",
+          "combination": "4-6-5",
+          "odds": 1533.6
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "7",
+          "combination": "4-6-7",
+          "odds": 444.5
+        },
+        {
+          "first": "4",
+          "second": "6",
+          "third": "8",
+          "combination": "4-6-8",
+          "odds": 281.4
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "5",
+          "combination": "4-7-5",
+          "odds": 5112.2
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "6",
+          "combination": "4-7-6",
+          "odds": 1095.4
+        },
+        {
+          "first": "4",
+          "second": "7",
+          "third": "8",
+          "combination": "4-7-8",
+          "odds": 730.3
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "5",
+          "combination": "4-8-5",
+          "odds": 1022.4
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "6",
+          "combination": "4-8-6",
+          "odds": 333.4
+        },
+        {
+          "first": "4",
+          "second": "8",
+          "third": "7",
+          "combination": "4-8-7",
+          "odds": 471.8
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "6",
+          "combination": "5-4-6",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "7",
+          "combination": "5-4-7",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "4",
+          "third": "8",
+          "combination": "5-4-8",
+          "odds": 7668.3
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "5",
+          "combination": "6-4-5",
+          "odds": 2359.4
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "7",
+          "combination": "6-4-7",
+          "odds": 557.6
+        },
+        {
+          "first": "6",
+          "second": "4",
+          "third": "8",
+          "combination": "6-4-8",
+          "odds": 360.8
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "5",
+          "combination": "7-4-5",
+          "odds": 6134.6
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "6",
+          "combination": "7-4-6",
+          "odds": 1460.6
+        },
+        {
+          "first": "7",
+          "second": "4",
+          "third": "8",
+          "combination": "7-4-8",
+          "odds": 1136.0
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "5",
+          "combination": "8-4-5",
+          "odds": 1533.6
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "6",
+          "combination": "8-4-6",
+          "odds": 502.8
+        },
+        {
+          "first": "8",
+          "second": "4",
+          "third": "7",
+          "combination": "8-4-7",
+          "odds": 601.4
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "4",
+          "combination": "5-6-4",
+          "odds": 6134.6
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "4",
+          "combination": "5-7-4",
+          "odds": 10224.4
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "4",
+          "combination": "5-8-4",
+          "odds": 3408.1
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "4",
+          "combination": "6-5-4",
+          "odds": 3834.1
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "4",
+          "combination": "6-7-4",
+          "odds": 666.8
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "4",
+          "combination": "6-8-4",
+          "odds": 378.6
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "4",
+          "combination": "7-5-4",
+          "odds": 15336.6
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "4",
+          "combination": "7-6-4",
+          "odds": 1278.0
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "4",
+          "combination": "7-8-4",
+          "odds": 958.5
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "4",
+          "combination": "8-5-4",
+          "odds": 3067.3
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "4",
+          "combination": "8-6-4",
+          "odds": 451.0
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "4",
+          "combination": "8-7-4",
+          "odds": 852.0
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "7",
+          "combination": "5-6-7",
+          "odds": 6134.6
+        },
+        {
+          "first": "5",
+          "second": "6",
+          "third": "8",
+          "combination": "5-6-8",
+          "odds": 7668.3
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "6",
+          "combination": "5-7-6",
+          "odds": 6134.6
+        },
+        {
+          "first": "5",
+          "second": "7",
+          "third": "8",
+          "combination": "5-7-8",
+          "odds": 4381.9
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "6",
+          "combination": "5-8-6",
+          "odds": 3067.3
+        },
+        {
+          "first": "5",
+          "second": "8",
+          "third": "7",
+          "combination": "5-8-7",
+          "odds": 2044.8
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "7",
+          "combination": "6-5-7",
+          "odds": 2788.4
+        },
+        {
+          "first": "6",
+          "second": "5",
+          "third": "8",
+          "combination": "6-5-8",
+          "odds": 3834.1
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "6",
+          "combination": "7-5-6",
+          "odds": 2788.4
+        },
+        {
+          "first": "7",
+          "second": "5",
+          "third": "8",
+          "combination": "7-5-8",
+          "odds": 3408.1
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "6",
+          "combination": "8-5-6",
+          "odds": 3408.1
+        },
+        {
+          "first": "8",
+          "second": "5",
+          "third": "7",
+          "combination": "8-5-7",
+          "odds": 2190.9
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "5",
+          "combination": "6-7-5",
+          "odds": 2556.1
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "5",
+          "combination": "6-8-5",
+          "odds": 2359.4
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "5",
+          "combination": "7-6-5",
+          "odds": 3834.1
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "5",
+          "combination": "7-8-5",
+          "odds": 2044.8
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "5",
+          "combination": "8-6-5",
+          "odds": 2190.9
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "5",
+          "combination": "8-7-5",
+          "odds": 1917.0
+        },
+        {
+          "first": "6",
+          "second": "7",
+          "third": "8",
+          "combination": "6-7-8",
+          "odds": 360.8
+        },
+        {
+          "first": "6",
+          "second": "8",
+          "third": "7",
+          "combination": "6-8-7",
+          "odds": 403.5
+        },
+        {
+          "first": "7",
+          "second": "6",
+          "third": "8",
+          "combination": "7-6-8",
+          "odds": 625.9
+        },
+        {
+          "first": "8",
+          "second": "6",
+          "third": "7",
+          "combination": "8-6-7",
+          "odds": 519.8
+        },
+        {
+          "first": "7",
+          "second": "8",
+          "third": "6",
+          "combination": "7-8-6",
+          "odds": 568.0
+        },
+        {
+          "first": "8",
+          "second": "7",
+          "third": "6",
+          "combination": "8-7-6",
+          "odds": 519.8
+        }
+      ]
+    },
+    "timestamp": "2025-11-16T01:30:16.590621"
+  }
+]
