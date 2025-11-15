@@ -1485,17 +1485,17 @@
         "zi_deviation": 55.02,
         "base_score": 54.07,
         "jockey_coefficient": 0.99302,
-        "similarity_coefficient": 1.00561,
+        "similarity_coefficient": 1.00675,
         "stability_coefficient": 0.9967,
         "total_coefficient_score": 0.001,
-        "final_score": 54.89
+        "final_score": 55.66
       },
       "predictions": {
         "win_rate": 0.4512812850335129,
         "win_rate_rank": 6,
-        "place_rate": 0.4803787860946299,
+        "place_rate": 0.48027923728337396,
         "place_rate_rank": 6,
-        "show_rate": 0.5218060170234291,
+        "show_rate": 0.5208021207168673,
         "show_rate_rank": 6
       }
     },
@@ -3521,20 +3521,20 @@
       "horse_name": "クレプスクルム",
       "mark": "*",
       "jockey": {
-        "name": "小沢大仁",
+        "name": "吉田豊",
         "weight": 56.0,
         "weight_reduction": "",
         "this_year": {
-          "wins": 30,
-          "win_rate": 5.3,
-          "place_rate": 10.6,
-          "show_rate": 17.8
+          "wins": 15,
+          "win_rate": 3.9,
+          "place_rate": 8.9,
+          "show_rate": 17.1
         },
         "last_year": {
-          "wins": 24,
-          "win_rate": 4.2,
-          "place_rate": 8.2,
-          "show_rate": 14.2
+          "wins": 25,
+          "win_rate": 5.4,
+          "place_rate": 10.0,
+          "show_rate": 18.9
         }
       },
       "trainer": {
@@ -3724,18 +3724,18 @@
         "corrected_time_deviation": 32.65,
         "zi_deviation": 34.08,
         "base_score": 32.71,
-        "jockey_coefficient": 0.9949,
+        "jockey_coefficient": 0.9943,
         "similarity_coefficient": 0.99917,
         "stability_coefficient": 0.9919,
         "total_coefficient_score": -0.004,
-        "final_score": 29.43
+        "final_score": 29.35
       },
       "predictions": {
         "win_rate": 0.023718408649962552,
         "win_rate_rank": 16,
-        "place_rate": 0.0441426955476086,
+        "place_rate": 0.04381587410407454,
         "place_rate_rank": 15,
-        "show_rate": 0.054602898770323774,
+        "show_rate": 0.05574409752333898,
         "show_rate_rank": 16
       }
     }

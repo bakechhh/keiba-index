@@ -1210,9 +1210,9 @@
         "win_rate": 0.3614441508169875,
         "win_rate_rank": 8,
         "place_rate": 0.41188852205303333,
-        "place_rate_rank": 6,
+        "place_rate_rank": 7,
         "show_rate": 0.4007397488119182,
-        "show_rate_rank": 6
+        "show_rate_rank": 7
       }
     },
     {
@@ -2275,10 +2275,10 @@
       "frame": 2,
       "horse_number": 4,
       "horse_name": "アメリカンマーチ",
-      "mark": "*",
+      "mark": "",
       "jockey": {
-        "name": "小沢大仁",
-        "weight": 58.0,
+        "name": "",
+        "weight": 0.0,
         "weight_reduction": "",
         "this_year": {
           "wins": 30,
@@ -2527,12 +2527,12 @@
         "final_score": 45.84
       },
       "predictions": {
-        "win_rate": 0.3673670824335414,
+        "win_rate": 0.4344561653353592,
         "win_rate_rank": 7,
-        "place_rate": 0.366131265348722,
-        "place_rate_rank": 7,
-        "show_rate": 0.33557288664118384,
-        "show_rate_rank": 7
+        "place_rate": 0.4333084174811523,
+        "place_rate_rank": 6,
+        "show_rate": 0.4274392215270268,
+        "show_rate_rank": 6
       }
     },
     {
