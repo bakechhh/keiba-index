@@ -125,10 +125,10 @@
         "zi_deviation": 77.9,
         "base_score": 70.79,
         "jockey_coefficient": 1.0064,
-        "similarity_coefficient": 1.00331,
+        "similarity_coefficient": 1.00367,
         "stability_coefficient": 0.99917,
-        "total_coefficient_score": 0.002,
-        "final_score": 74.9
+        "total_coefficient_score": 0.003,
+        "final_score": 75.22
       },
       "predictions": {
         "win_rate": 0.8969143801056844,
