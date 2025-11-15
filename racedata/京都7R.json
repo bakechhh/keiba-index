@@ -1041,18 +1041,122 @@
         "zi_deviation": 46.36,
         "base_score": 55.19,
         "jockey_coefficient": 1.00121,
-        "similarity_coefficient": 1.00164,
+        "similarity_coefficient": 1.00368,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": -0.001,
-        "final_score": 53.8
+        "total_coefficient_score": 0.0,
+        "final_score": 55.21
       },
       "predictions": {
-        "win_rate": 0.36700302198839496,
+        "win_rate": 0.36566529580636714,
         "win_rate_rank": 7,
-        "place_rate": 0.4503512524591964,
-        "place_rate_rank": 6,
-        "show_rate": 0.5080652913868741,
+        "place_rate": 0.43986200396597125,
+        "place_rate_rank": 7,
+        "show_rate": 0.4989931251979332,
         "show_rate_rank": 6
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 5,
+      "horse_name": "エテルノレガーメ",
+      "mark": "",
+      "jockey": {
+        "name": "幸英明",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 40,
+          "win_rate": 7.1,
+          "place_rate": 13.7,
+          "show_rate": 19.9
+        },
+        "last_year": {
+          "wins": 44,
+          "win_rate": 5.2,
+          "place_rate": 11.8,
+          "show_rate": 19.6
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "野中賢二",
+        "this_year": {
+          "wins": 14,
+          "win_rate": 6.9,
+          "place_rate": 12.7,
+          "show_rate": 23.5
+        },
+        "last_year": {
+          "wins": 27,
+          "win_rate": 11.5,
+          "place_rate": 17.1,
+          "show_rate": 24.4
+        }
+      },
+      "interval": 21,
+      "zi_index": 107.0,
+      "time_mining": 114.56,
+      "battle_mining": 51.7,
+      "past_races": [
+        {
+          "date": "2025.6.21",
+          "race_name": "未勝利",
+          "place": "阪神",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "6",
+          "weight": 57.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.4,
+          "corrected_time": 93.0,
+          "running_style": "先",
+          "last_3f": 39.3,
+          "ave_3f": 37.55,
+          "pci": 45.5,
+          "position_3f": 0.1
+        },
+        {
+          "date": "2024.10.12",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "2000",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "3",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "5",
+          "margin": 0.7,
+          "corrected_time": 82.0,
+          "running_style": "中",
+          "last_3f": 34.3,
+          "ave_3f": 37.33,
+          "pci": 58.8,
+          "position_3f": 0.6
+        }
+      ],
+      "indices": {
+        "mining_index": 51.25,
+        "corrected_time_deviation": 47.45,
+        "zi_deviation": 50.71,
+        "base_score": 50.03,
+        "jockey_coefficient": 0.99658,
+        "similarity_coefficient": 1.00729,
+        "stability_coefficient": 0.9965,
+        "total_coefficient_score": 0.002,
+        "final_score": 52.41
+      },
+      "predictions": {
+        "win_rate": 0.40350259923008464,
+        "win_rate_rank": 6,
+        "place_rate": 0.4413917326506608,
+        "place_rate_rank": 6,
+        "show_rate": 0.46630554997228707,
+        "show_rate_rank": 7
       }
     },
     {
@@ -1444,110 +1548,6 @@
       }
     },
     {
-      "frame": 3,
-      "horse_number": 5,
-      "horse_name": "エテルノレガーメ",
-      "mark": "",
-      "jockey": {
-        "name": "幸英明",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 40,
-          "win_rate": 7.1,
-          "place_rate": 13.7,
-          "show_rate": 19.9
-        },
-        "last_year": {
-          "wins": 44,
-          "win_rate": 5.2,
-          "place_rate": 11.8,
-          "show_rate": 19.6
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "野中賢二",
-        "this_year": {
-          "wins": 14,
-          "win_rate": 6.9,
-          "place_rate": 12.7,
-          "show_rate": 23.5
-        },
-        "last_year": {
-          "wins": 27,
-          "win_rate": 11.5,
-          "place_rate": 17.1,
-          "show_rate": 24.4
-        }
-      },
-      "interval": 21,
-      "zi_index": 107.0,
-      "time_mining": 114.56,
-      "battle_mining": 51.7,
-      "past_races": [
-        {
-          "date": "2025.6.21",
-          "race_name": "未勝利",
-          "place": "阪神",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "6",
-          "weight": 57.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.4,
-          "corrected_time": 93.0,
-          "running_style": "先",
-          "last_3f": 39.3,
-          "ave_3f": 37.55,
-          "pci": 45.5,
-          "position_3f": 0.1
-        },
-        {
-          "date": "2024.10.12",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "2000",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "3",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "5",
-          "margin": 0.7,
-          "corrected_time": 82.0,
-          "running_style": "中",
-          "last_3f": 34.3,
-          "ave_3f": 37.33,
-          "pci": 58.8,
-          "position_3f": 0.6
-        }
-      ],
-      "indices": {
-        "mining_index": 51.25,
-        "corrected_time_deviation": 47.45,
-        "zi_deviation": 50.71,
-        "base_score": 50.03,
-        "jockey_coefficient": 0.99658,
-        "similarity_coefficient": 1.00407,
-        "stability_coefficient": 0.9965,
-        "total_coefficient_score": 0.0,
-        "final_score": 50.4
-      },
-      "predictions": {
-        "win_rate": 0.3837403715937575,
-        "win_rate_rank": 6,
-        "place_rate": 0.4290275919665931,
-        "place_rate_rank": 7,
-        "show_rate": 0.4665285866138418,
-        "show_rate_rank": 7
-      }
-    },
-    {
       "frame": 6,
       "horse_number": 11,
       "horse_name": "テーオーシュタイン",
@@ -1797,17 +1797,17 @@
         "zi_deviation": 45.49,
         "base_score": 48.76,
         "jockey_coefficient": 0.99627,
-        "similarity_coefficient": 1.00277,
+        "similarity_coefficient": 1.00599,
         "stability_coefficient": 0.99301,
-        "total_coefficient_score": -0.002,
-        "final_score": 46.78
+        "total_coefficient_score": -0.0,
+        "final_score": 48.75
       },
       "predictions": {
-        "win_rate": 0.20769821930085455,
-        "win_rate_rank": 10,
-        "place_rate": 0.26908090040380256,
-        "place_rate_rank": 10,
-        "show_rate": 0.3100653891557169,
+        "win_rate": 0.18061692719667277,
+        "win_rate_rank": 11,
+        "place_rate": 0.2487417541037664,
+        "place_rate_rank": 11,
+        "show_rate": 0.30282172717713296,
         "show_rate_rank": 11
       }
     },
@@ -2028,9 +2028,9 @@
       },
       "predictions": {
         "win_rate": 0.18577023624298492,
-        "win_rate_rank": 11,
+        "win_rate_rank": 10,
         "place_rate": 0.25151010508967825,
-        "place_rate_rank": 11,
+        "place_rate_rank": 10,
         "show_rate": 0.3384901132909688,
         "show_rate_rank": 10
       }
