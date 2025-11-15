@@ -19,22 +19,22 @@
       "frame": 2,
       "horse_number": 3,
       "horse_name": "タマモジャスミン",
-      "mark": "",
+      "mark": "*",
       "jockey": {
-        "name": "",
-        "weight": 0.0,
+        "name": "国分恭介",
+        "weight": 54.0,
         "weight_reduction": "",
         "this_year": {
-          "wins": 30,
-          "win_rate": 5.3,
-          "place_rate": 10.6,
-          "show_rate": 17.8
+          "wins": 14,
+          "win_rate": 6.0,
+          "place_rate": 15.3,
+          "show_rate": 20.9
         },
         "last_year": {
-          "wins": 24,
-          "win_rate": 4.2,
-          "place_rate": 8.2,
-          "show_rate": 14.2
+          "wins": 10,
+          "win_rate": 4.0,
+          "place_rate": 9.7,
+          "show_rate": 17.3
         }
       },
       "trainer": {
@@ -264,18 +264,18 @@
         "corrected_time_deviation": 62.81,
         "zi_deviation": 68.98,
         "base_score": 65.64,
-        "jockey_coefficient": 0.9949,
-        "similarity_coefficient": 1.00051,
+        "jockey_coefficient": 0.99731,
+        "similarity_coefficient": 1.00448,
         "stability_coefficient": 0.99625,
-        "total_coefficient_score": -0.002,
-        "final_score": 62.65
+        "total_coefficient_score": 0.001,
+        "final_score": 66.5
       },
       "predictions": {
-        "win_rate": 0.8489383370846617,
+        "win_rate": 0.8521491087686803,
         "win_rate_rank": 1,
-        "place_rate": 0.8374770082667398,
+        "place_rate": 0.8382979990205864,
         "place_rate_rank": 1,
-        "show_rate": 0.889321930943715,
+        "show_rate": 0.8613466733333742,
         "show_rate_rank": 1
       }
     },
@@ -2525,17 +2525,17 @@
         "zi_deviation": 36.82,
         "base_score": 40.91,
         "jockey_coefficient": 1.00165,
-        "similarity_coefficient": 1.00177,
+        "similarity_coefficient": 1.00469,
         "stability_coefficient": 0.9895,
-        "total_coefficient_score": -0.003,
-        "final_score": 38.31
+        "total_coefficient_score": -0.001,
+        "final_score": 39.8
       },
       "predictions": {
-        "win_rate": 0.09271825446770594,
+        "win_rate": 0.09448795967861581,
         "win_rate_rank": 13,
-        "place_rate": 0.14449902397866293,
-        "place_rate_rank": 12,
-        "show_rate": 0.22296078350768153,
+        "place_rate": 0.14789722595121813,
+        "place_rate_rank": 11,
+        "show_rate": 0.19018276258396824,
         "show_rate_rank": 11
       }
     },
@@ -3450,7 +3450,7 @@
         "win_rate": 0.18439381873956606,
         "win_rate_rank": 11,
         "place_rate": 0.14600342043044573,
-        "place_rate_rank": 11,
+        "place_rate_rank": 12,
         "show_rate": 0.18127954617459793,
         "show_rate_rank": 12
       }
