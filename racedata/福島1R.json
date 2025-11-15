@@ -780,90 +780,6 @@
       }
     },
     {
-      "frame": 5,
-      "horse_number": 8,
-      "horse_name": "ロードヴェルテクス",
-      "mark": "*",
-      "jockey": {
-        "name": "松本大輝",
-        "weight": 55.0,
-        "weight_reduction": "☆",
-        "this_year": {
-          "wins": 19,
-          "win_rate": 6.9,
-          "place_rate": 12.3,
-          "show_rate": 15.5
-        },
-        "last_year": {
-          "wins": 8,
-          "win_rate": 4.0,
-          "place_rate": 9.1,
-          "show_rate": 14.1
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "奥村豊",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 9.2,
-          "place_rate": 16.0,
-          "show_rate": 27.6
-        },
-        "last_year": {
-          "wins": 25,
-          "win_rate": 9.0,
-          "place_rate": 20.6,
-          "show_rate": 30.0
-        }
-      },
-      "interval": 4,
-      "zi_index": 93.0,
-      "time_mining": 108.2,
-      "battle_mining": 55.2,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "4",
-          "horse_number": "8",
-          "weight": 55.0,
-          "weight_reduction": "☆",
-          "rank": "11",
-          "margin": 1.5,
-          "corrected_time": 86.0,
-          "running_style": "中",
-          "last_3f": 35.5,
-          "ave_3f": 36.15,
-          "pci": 51.8,
-          "position_3f": 1.0
-        }
-      ],
-      "indices": {
-        "mining_index": 52.87,
-        "corrected_time_deviation": 53.58,
-        "zi_deviation": 45.37,
-        "base_score": 51.96,
-        "jockey_coefficient": 0.99283,
-        "similarity_coefficient": 1.00116,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.001,
-        "final_score": 50.4
-      },
-      "predictions": {
-        "win_rate": 0.26760731689486733,
-        "win_rate_rank": 9,
-        "place_rate": 0.3281410694720754,
-        "place_rate_rank": 9,
-        "show_rate": 0.4465369176396311,
-        "show_rate_rank": 6
-      }
-    },
-    {
       "frame": 7,
       "horse_number": 12,
       "horse_name": "ココラッシー",
@@ -953,18 +869,102 @@
         "zi_deviation": 50.0,
         "base_score": 52.55,
         "jockey_coefficient": 0.99193,
-        "similarity_coefficient": 1.0013,
+        "similarity_coefficient": 1.00512,
         "stability_coefficient": 0.99151,
-        "total_coefficient_score": -0.004,
-        "final_score": 47.91
+        "total_coefficient_score": -0.002,
+        "final_score": 50.42
       },
       "predictions": {
-        "win_rate": 0.3450202281984416,
+        "win_rate": 0.3898336235957627,
         "win_rate_rank": 6,
-        "place_rate": 0.3338877826634623,
+        "place_rate": 0.36149552872154095,
         "place_rate_rank": 7,
-        "show_rate": 0.4016258716614922,
+        "show_rate": 0.3884689226490781,
         "show_rate_rank": 8
+      }
+    },
+    {
+      "frame": 5,
+      "horse_number": 8,
+      "horse_name": "ロードヴェルテクス",
+      "mark": "*",
+      "jockey": {
+        "name": "松本大輝",
+        "weight": 55.0,
+        "weight_reduction": "☆",
+        "this_year": {
+          "wins": 19,
+          "win_rate": 6.9,
+          "place_rate": 12.3,
+          "show_rate": 15.5
+        },
+        "last_year": {
+          "wins": 8,
+          "win_rate": 4.0,
+          "place_rate": 9.1,
+          "show_rate": 14.1
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "奥村豊",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 9.2,
+          "place_rate": 16.0,
+          "show_rate": 27.6
+        },
+        "last_year": {
+          "wins": 25,
+          "win_rate": 9.0,
+          "place_rate": 20.6,
+          "show_rate": 30.0
+        }
+      },
+      "interval": 4,
+      "zi_index": 93.0,
+      "time_mining": 108.2,
+      "battle_mining": 55.2,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "4",
+          "horse_number": "8",
+          "weight": 55.0,
+          "weight_reduction": "☆",
+          "rank": "11",
+          "margin": 1.5,
+          "corrected_time": 86.0,
+          "running_style": "中",
+          "last_3f": 35.5,
+          "ave_3f": 36.15,
+          "pci": 51.8,
+          "position_3f": 1.0
+        }
+      ],
+      "indices": {
+        "mining_index": 52.87,
+        "corrected_time_deviation": 53.58,
+        "zi_deviation": 45.37,
+        "base_score": 51.96,
+        "jockey_coefficient": 0.99283,
+        "similarity_coefficient": 1.00116,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.001,
+        "final_score": 50.4
+      },
+      "predictions": {
+        "win_rate": 0.26760731689486733,
+        "win_rate_rank": 9,
+        "place_rate": 0.3281410694720754,
+        "place_rate_rank": 9,
+        "show_rate": 0.4465369176396311,
+        "show_rate_rank": 6
       }
     },
     {
