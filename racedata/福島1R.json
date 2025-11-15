@@ -964,7 +964,7 @@
         "place_rate": 0.3526362628507704,
         "place_rate_rank": 7,
         "show_rate": 0.3740494883045161,
-        "show_rate_rank": 9
+        "show_rate_rank": 8
       }
     },
     {
@@ -1141,18 +1141,18 @@
         "zi_deviation": 44.47,
         "base_score": 51.61,
         "jockey_coefficient": 1.00047,
-        "similarity_coefficient": 1.00049,
+        "similarity_coefficient": 0.99882,
         "stability_coefficient": 0.99201,
-        "total_coefficient_score": -0.002,
-        "final_score": 48.41
+        "total_coefficient_score": -0.003,
+        "final_score": 47.33
       },
       "predictions": {
-        "win_rate": 0.22863396601975644,
+        "win_rate": 0.21304798133934338,
         "win_rate_rank": 11,
-        "place_rate": 0.32295820055890806,
+        "place_rate": 0.3139304269914834,
         "place_rate_rank": 9,
-        "show_rate": 0.3796691952312895,
-        "show_rate_rank": 8
+        "show_rate": 0.3482466108550828,
+        "show_rate_rank": 9
       }
     },
     {
@@ -1650,7 +1650,7 @@
         "win_rate": 0.0316920599278508,
         "win_rate_rank": 15,
         "place_rate": 0.038371847291621526,
-        "place_rate_rank": 16,
+        "place_rate_rank": 15,
         "show_rate": 0.06811311875707525,
         "show_rate_rank": 16
       }
@@ -1745,17 +1745,17 @@
         "zi_deviation": 34.63,
         "base_score": 31.61,
         "jockey_coefficient": 0.99627,
-        "similarity_coefficient": 0.9995,
+        "similarity_coefficient": 0.99783,
         "stability_coefficient": 0.97275,
-        "total_coefficient_score": -0.01,
-        "final_score": 23.43
+        "total_coefficient_score": -0.011,
+        "final_score": 22.77
       },
       "predictions": {
-        "win_rate": 0.017699395653267197,
+        "win_rate": 0.015424310642297531,
         "win_rate_rank": 16,
-        "place_rate": 0.04905853028868209,
-        "place_rate_rank": 15,
-        "show_rate": 0.07644509651425897,
+        "place_rate": 0.035182021526385415,
+        "place_rate_rank": 16,
+        "show_rate": 0.06846920248752902,
         "show_rate_rank": 15
       }
     }
