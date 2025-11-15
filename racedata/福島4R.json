@@ -55,8 +55,8 @@
       },
       "interval": 3,
       "zi_index": 121.0,
-      "time_mining": 69.16,
-      "battle_mining": 74.6,
+      "time_mining": 69.2,
+      "battle_mining": 74.4,
       "past_races": [
         {
           "date": "2025.10.25",
@@ -180,22 +180,22 @@
         }
       ],
       "indices": {
-        "mining_index": 65.65,
+        "mining_index": 65.38,
         "corrected_time_deviation": 60.61,
         "zi_deviation": 67.65,
-        "base_score": 64.44,
+        "base_score": 64.29,
         "jockey_coefficient": 0.99293,
         "similarity_coefficient": 1.01124,
         "stability_coefficient": 0.9975,
         "total_coefficient_score": 0.004,
-        "final_score": 70.38
+        "final_score": 70.22
       },
       "predictions": {
         "win_rate": 0.8190722502266302,
         "win_rate_rank": 1,
-        "place_rate": 0.8189702646429843,
+        "place_rate": 0.8184554298252487,
         "place_rate_rank": 1,
-        "show_rate": 0.8303112579105462,
+        "show_rate": 0.8285578060210254,
         "show_rate_rank": 1
       }
     },
@@ -239,8 +239,8 @@
       },
       "interval": 9,
       "zi_index": 114.0,
-      "time_mining": 69.35,
-      "battle_mining": 67.0,
+      "time_mining": 69.37,
+      "battle_mining": 66.9,
       "past_races": [
         {
           "date": "2025.9.14",
@@ -304,15 +304,15 @@
         }
       ],
       "indices": {
-        "mining_index": 60.72,
+        "mining_index": 60.46,
         "corrected_time_deviation": 63.67,
         "zi_deviation": 60.36,
-        "base_score": 61.55,
+        "base_score": 61.41,
         "jockey_coefficient": 0.99665,
         "similarity_coefficient": 1.00804,
         "stability_coefficient": 0.99883,
         "total_coefficient_score": 0.003,
-        "final_score": 66.34
+        "final_score": 66.18
       },
       "predictions": {
         "win_rate": 0.6922543022870368,
@@ -363,8 +363,8 @@
       },
       "interval": 4,
       "zi_index": 119.0,
-      "time_mining": 69.5,
-      "battle_mining": 70.7,
+      "time_mining": 69.48,
+      "battle_mining": 71.3,
       "past_races": [
         {
           "date": "2025.10.18",
@@ -428,22 +428,22 @@
         }
       ],
       "indices": {
-        "mining_index": 60.29,
+        "mining_index": 60.97,
         "corrected_time_deviation": 63.67,
         "zi_deviation": 65.57,
-        "base_score": 62.1,
+        "base_score": 62.47,
         "jockey_coefficient": 0.98911,
         "similarity_coefficient": 1.00939,
         "stability_coefficient": 0.99767,
         "total_coefficient_score": 0.002,
-        "final_score": 65.58
+        "final_score": 65.98
       },
       "predictions": {
-        "win_rate": 0.7516806234093283,
+        "win_rate": 0.7667923228049547,
         "win_rate_rank": 2,
-        "place_rate": 0.7656548106986841,
+        "place_rate": 0.7668361711277842,
         "place_rate_rank": 2,
-        "show_rate": 0.729442428245552,
+        "show_rate": 0.7378038101483314,
         "show_rate_rank": 3
       }
     },
@@ -487,8 +487,8 @@
       },
       "interval": 4,
       "zi_index": 107.0,
-      "time_mining": 69.56,
-      "battle_mining": 65.5,
+      "time_mining": 69.52,
+      "battle_mining": 66.5,
       "past_races": [
         {
           "date": "2025.10.18",
@@ -532,22 +532,22 @@
         }
       ],
       "indices": {
-        "mining_index": 57.39,
+        "mining_index": 58.55,
         "corrected_time_deviation": 61.38,
         "zi_deviation": 53.06,
-        "base_score": 57.93,
+        "base_score": 58.57,
         "jockey_coefficient": 0.99349,
-        "similarity_coefficient": 0.9998,
+        "similarity_coefficient": 1.003,
         "stability_coefficient": 0.99775,
-        "total_coefficient_score": -0.002,
-        "final_score": 55.24
+        "total_coefficient_score": -0.0,
+        "final_score": 58.19
       },
       "predictions": {
-        "win_rate": 0.5477021289178426,
+        "win_rate": 0.591354881695578,
         "win_rate_rank": 4,
-        "place_rate": 0.5571247126946153,
+        "place_rate": 0.6262697752366951,
         "place_rate_rank": 4,
-        "show_rate": 0.6015396764225701,
+        "show_rate": 0.6426102506324006,
         "show_rate_rank": 4
       }
     },
@@ -591,8 +591,8 @@
       },
       "interval": 11,
       "zi_index": 111.0,
-      "time_mining": 69.69,
-      "battle_mining": 58.2,
+      "time_mining": 69.81,
+      "battle_mining": 56.2,
       "past_races": [
         {
           "date": "2025.8.31",
@@ -636,22 +636,22 @@
         }
       ],
       "indices": {
-        "mining_index": 52.71,
+        "mining_index": 50.96,
         "corrected_time_deviation": 56.79,
         "zi_deviation": 57.23,
-        "base_score": 54.61,
+        "base_score": 53.65,
         "jockey_coefficient": 1.00047,
         "similarity_coefficient": 1.00224,
         "stability_coefficient": 0.99675,
         "total_coefficient_score": 0.0,
-        "final_score": 54.68
+        "final_score": 53.72
       },
       "predictions": {
-        "win_rate": 0.5357727704466709,
+        "win_rate": 0.529899085908639,
         "win_rate_rank": 5,
-        "place_rate": 0.5519325639680301,
+        "place_rate": 0.5369107272277288,
         "place_rate_rank": 5,
-        "show_rate": 0.5956942042768567,
+        "show_rate": 0.5452619843035177,
         "show_rate_rank": 5
       }
     },
@@ -695,8 +695,8 @@
       },
       "interval": 11,
       "zi_index": 105.0,
-      "time_mining": 69.55,
-      "battle_mining": 58.8,
+      "time_mining": 69.64,
+      "battle_mining": 56.3,
       "past_races": [
         {
           "date": "2025.8.31",
@@ -740,22 +740,22 @@
         }
       ],
       "indices": {
-        "mining_index": 54.77,
+        "mining_index": 52.98,
         "corrected_time_deviation": 52.21,
         "zi_deviation": 50.98,
-        "base_score": 53.43,
+        "base_score": 52.45,
         "jockey_coefficient": 1.00332,
-        "similarity_coefficient": 0.9998,
+        "similarity_coefficient": 1.003,
         "stability_coefficient": 0.99575,
-        "total_coefficient_score": -0.001,
-        "final_score": 51.98
+        "total_coefficient_score": 0.001,
+        "final_score": 53.12
       },
       "predictions": {
-        "win_rate": 0.49430087766295683,
+        "win_rate": 0.488090237133721,
         "win_rate_rank": 6,
-        "place_rate": 0.5271302743802312,
+        "place_rate": 0.5080518643882883,
         "place_rate_rank": 6,
-        "show_rate": 0.5471500901380899,
+        "show_rate": 0.5335821910697071,
         "show_rate_rank": 6
       }
     },
@@ -799,8 +799,8 @@
       },
       "interval": 9,
       "zi_index": 109.0,
-      "time_mining": 69.32,
-      "battle_mining": 54.9,
+      "time_mining": 69.31,
+      "battle_mining": 55.7,
       "past_races": [
         {
           "date": "2025.9.14",
@@ -844,22 +844,22 @@
         }
       ],
       "indices": {
-        "mining_index": 53.56,
+        "mining_index": 54.03,
         "corrected_time_deviation": 46.09,
         "zi_deviation": 55.15,
-        "base_score": 51.56,
+        "base_score": 51.82,
         "jockey_coefficient": 0.99254,
-        "similarity_coefficient": 1.00168,
+        "similarity_coefficient": 1.00424,
         "stability_coefficient": 0.99351,
-        "total_coefficient_score": -0.003,
-        "final_score": 48.26
+        "total_coefficient_score": -0.001,
+        "final_score": 50.17
       },
       "predictions": {
-        "win_rate": 0.4176118240283149,
+        "win_rate": 0.4330494164522878,
         "win_rate_rank": 8,
-        "place_rate": 0.4864023227735663,
+        "place_rate": 0.48233421313719144,
         "place_rate_rank": 7,
-        "show_rate": 0.5354701299093438,
+        "show_rate": 0.5060797504230455,
         "show_rate_rank": 7
       }
     },
@@ -903,8 +903,8 @@
       },
       "interval": 3,
       "zi_index": 105.0,
-      "time_mining": 69.68,
-      "battle_mining": 50.6,
+      "time_mining": 69.58,
+      "battle_mining": 53.9,
       "past_races": [
         {
           "date": "2025.10.26",
@@ -928,22 +928,22 @@
         }
       ],
       "indices": {
-        "mining_index": 49.73,
+        "mining_index": 52.51,
         "corrected_time_deviation": 54.5,
         "zi_deviation": 50.98,
-        "base_score": 51.35,
+        "base_score": 52.88,
         "jockey_coefficient": 0.99173,
         "similarity_coefficient": 1.00044,
         "stability_coefficient": 0.9955,
         "total_coefficient_score": -0.003,
-        "final_score": 48.01
+        "final_score": 49.44
       },
       "predictions": {
-        "win_rate": 0.2635678346063633,
+        "win_rate": 0.3720644231904871,
         "win_rate_rank": 9,
-        "place_rate": 0.36846332002735804,
+        "place_rate": 0.4233776456065802,
         "place_rate_rank": 9,
-        "show_rate": 0.44339987669818753,
+        "show_rate": 0.49146065385081117,
         "show_rate_rank": 8
       }
     },
@@ -987,8 +987,8 @@
       },
       "interval": 3,
       "zi_index": 98.0,
-      "time_mining": 69.7,
-      "battle_mining": 53.1,
+      "time_mining": 69.66,
+      "battle_mining": 54.3,
       "past_races": [
         {
           "date": "2025.10.26",
@@ -1052,22 +1052,22 @@
         }
       ],
       "indices": {
-        "mining_index": 50.49,
+        "mining_index": 51.93,
         "corrected_time_deviation": 51.95,
         "zi_deviation": 43.68,
-        "base_score": 49.91,
+        "base_score": 50.7,
         "jockey_coefficient": 0.99377,
         "similarity_coefficient": 1.00091,
         "stability_coefficient": 0.99401,
         "total_coefficient_score": -0.003,
-        "final_score": 46.69
+        "final_score": 47.43
       },
       "predictions": {
-        "win_rate": 0.21254161689700904,
+        "win_rate": 0.2151843661750432,
         "win_rate_rank": 10,
-        "place_rate": 0.26802488303154254,
+        "place_rate": 0.2783952749019075,
         "place_rate_rank": 10,
-        "show_rate": 0.3217976975475789,
+        "show_rate": 0.32672040616955905,
         "show_rate_rank": 10
       }
     },
@@ -1111,8 +1111,8 @@
       },
       "interval": 11,
       "zi_index": 107.0,
-      "time_mining": 69.64,
-      "battle_mining": 45.0,
+      "time_mining": 69.72,
+      "battle_mining": 44.2,
       "past_races": [
         {
           "date": "2025.8.31",
@@ -1156,22 +1156,22 @@
         }
       ],
       "indices": {
-        "mining_index": 47.04,
+        "mining_index": 46.48,
         "corrected_time_deviation": 46.09,
         "zi_deviation": 53.06,
-        "base_score": 47.66,
+        "base_score": 47.35,
         "jockey_coefficient": 0.99673,
         "similarity_coefficient": 1.00345,
         "stability_coefficient": 0.99101,
         "total_coefficient_score": -0.002,
-        "final_score": 45.38
+        "final_score": 45.09
       },
       "predictions": {
-        "win_rate": 0.4852767035053263,
+        "win_rate": 0.4542812731224913,
         "win_rate_rank": 7,
-        "place_rate": 0.427433080672936,
+        "place_rate": 0.4326754537635628,
         "place_rate_rank": 8,
-        "show_rate": 0.4395689279730194,
+        "show_rate": 0.43828562755671985,
         "show_rate_rank": 9
       }
     },
@@ -1215,8 +1215,8 @@
       },
       "interval": 8,
       "zi_index": 100.0,
-      "time_mining": 70.16,
-      "battle_mining": 50.5,
+      "time_mining": 70.25,
+      "battle_mining": 49.8,
       "past_races": [
         {
           "date": "2025.9.21",
@@ -1280,22 +1280,22 @@
         }
       ],
       "indices": {
-        "mining_index": 43.46,
+        "mining_index": 43.23,
         "corrected_time_deviation": 48.89,
         "zi_deviation": 45.77,
-        "base_score": 45.44,
+        "base_score": 45.31,
         "jockey_coefficient": 0.9934,
         "similarity_coefficient": 1.0064,
         "stability_coefficient": 0.99251,
         "total_coefficient_score": -0.0,
-        "final_score": 44.97
+        "final_score": 44.84
       },
       "predictions": {
         "win_rate": 0.2095164054566138,
         "win_rate_rank": 11,
         "place_rate": 0.2107449592716114,
         "place_rate_rank": 11,
-        "show_rate": 0.2746768860327153,
+        "show_rate": 0.2728387113648625,
         "show_rate_rank": 11
       }
     },
@@ -1339,7 +1339,7 @@
       },
       "interval": 8,
       "zi_index": 98.0,
-      "time_mining": 69.67,
+      "time_mining": 69.77,
       "battle_mining": 42.2,
       "past_races": [
         {
@@ -1364,22 +1364,22 @@
         }
       ],
       "indices": {
-        "mining_index": 45.3,
+        "mining_index": 45.2,
         "corrected_time_deviation": 46.85,
         "zi_deviation": 43.68,
-        "base_score": 45.53,
+        "base_score": 45.47,
         "jockey_coefficient": 0.98434,
         "similarity_coefficient": 1.00044,
         "stability_coefficient": 0.998,
         "total_coefficient_score": -0.003,
-        "final_score": 42.31
+        "final_score": 42.25
       },
       "predictions": {
-        "win_rate": 0.12422556996085156,
+        "win_rate": 0.12044565140734244,
         "win_rate_rank": 14,
         "place_rate": 0.1858110731996415,
-        "place_rate_rank": 12,
-        "show_rate": 0.2152946378800523,
+        "place_rate_rank": 13,
+        "show_rate": 0.20824278476748892,
         "show_rate_rank": 14
       }
     },
@@ -1423,8 +1423,8 @@
       },
       "interval": 8,
       "zi_index": 100.0,
-      "time_mining": 69.65,
-      "battle_mining": 28.4,
+      "time_mining": 69.61,
+      "battle_mining": 29.2,
       "past_races": [
         {
           "date": "2025.9.21",
@@ -1508,22 +1508,22 @@
         }
       ],
       "indices": {
-        "mining_index": 37.08,
+        "mining_index": 37.71,
         "corrected_time_deviation": 46.47,
         "zi_deviation": 45.77,
-        "base_score": 41.2,
+        "base_score": 41.54,
         "jockey_coefficient": 0.98684,
         "similarity_coefficient": 1.00392,
         "stability_coefficient": 0.99275,
         "total_coefficient_score": -0.003,
-        "final_score": 38.57
+        "final_score": 38.89
       },
       "predictions": {
-        "win_rate": 0.14406037814590783,
-        "win_rate_rank": 12,
-        "place_rate": 0.17710967050174892,
-        "place_rate_rank": 14,
-        "show_rate": 0.23789809722095331,
+        "win_rate": 0.12275673313807638,
+        "win_rate_rank": 13,
+        "place_rate": 0.18589929855057832,
+        "place_rate_rank": 12,
+        "show_rate": 0.24663525859978794,
         "show_rate_rank": 12
       }
     },
@@ -1567,7 +1567,7 @@
       },
       "interval": 11,
       "zi_index": 98.0,
-      "time_mining": 69.46,
+      "time_mining": 69.49,
       "battle_mining": 28.8,
       "past_races": [
         {
@@ -1604,9 +1604,9 @@
       },
       "predictions": {
         "win_rate": 0.13427892406422076,
-        "win_rate_rank": 13,
+        "win_rate_rank": 12,
         "place_rate": 0.17754811268450585,
-        "place_rate_rank": 13,
+        "place_rate_rank": 14,
         "show_rate": 0.2200419106654863,
         "show_rate_rank": 13
       }
@@ -1651,8 +1651,8 @@
       },
       "interval": 11,
       "zi_index": 89.0,
-      "time_mining": 69.9,
-      "battle_mining": 31.5,
+      "time_mining": 70.14,
+      "battle_mining": 30.1,
       "past_races": [
         {
           "date": "2025.8.30",
@@ -1676,22 +1676,22 @@
         }
       ],
       "indices": {
-        "mining_index": 38.47,
+        "mining_index": 36.46,
         "corrected_time_deviation": 39.21,
         "zi_deviation": 34.3,
-        "base_score": 38.07,
+        "base_score": 36.96,
         "jockey_coefficient": 0.97782,
         "similarity_coefficient": 0.99783,
         "stability_coefficient": 0.998,
         "total_coefficient_score": -0.005,
-        "final_score": 33.2
+        "final_score": 32.23
       },
       "predictions": {
-        "win_rate": 0.04083310765688181,
+        "win_rate": 0.03596307366203333,
         "win_rate_rank": 15,
-        "place_rate": 0.042959340759360864,
+        "place_rate": 0.04340564310436784,
         "place_rate_rank": 15,
-        "show_rate": 0.08345985179542754,
+        "show_rate": 0.09270125293240063,
         "show_rate_rank": 15
       }
     },
@@ -1735,8 +1735,8 @@
       },
       "interval": 17,
       "zi_index": 84.0,
-      "time_mining": 70.22,
-      "battle_mining": 19.3,
+      "time_mining": 70.23,
+      "battle_mining": 19.6,
       "past_races": [
         {
           "date": "2025.7.19",
@@ -1760,22 +1760,22 @@
         }
       ],
       "indices": {
-        "mining_index": 29.9,
+        "mining_index": 30.94,
         "corrected_time_deviation": 31.57,
         "zi_deviation": 29.09,
-        "base_score": 30.28,
+        "base_score": 30.85,
         "jockey_coefficient": 0.98822,
         "similarity_coefficient": 0.99909,
         "stability_coefficient": 0.998,
         "total_coefficient_score": -0.003,
-        "final_score": 28.07
+        "final_score": 28.6
       },
       "predictions": {
-        "win_rate": 0.01749554056381383,
+        "win_rate": 0.018984838517799134,
         "win_rate_rank": 16,
-        "place_rate": 0.037960767362290634,
+        "place_rate": 0.04028171047489878,
         "place_rate_rank": 16,
-        "show_rate": 0.041792357817368425,
+        "show_rate": 0.04477896825486821,
         "show_rate_rank": 16
       }
     }
