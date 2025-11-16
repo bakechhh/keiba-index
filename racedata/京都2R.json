@@ -972,110 +972,6 @@
       }
     },
     {
-      "frame": 3,
-      "horse_number": 4,
-      "horse_name": "ゴーゴーエイミー",
-      "mark": "*",
-      "jockey": {
-        "name": "斎藤新",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 30,
-          "win_rate": 5.6,
-          "place_rate": 12.8,
-          "show_rate": 17.6
-        },
-        "last_year": {
-          "wins": 28,
-          "win_rate": 6.4,
-          "place_rate": 15.2,
-          "show_rate": 21.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "東田明士",
-        "this_year": {
-          "wins": 13,
-          "win_rate": 7.2,
-          "place_rate": 11.1,
-          "show_rate": 18.3
-        },
-        "last_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 0.0,
-          "show_rate": 0.0
-        }
-      },
-      "interval": 3,
-      "zi_index": 101.0,
-      "time_mining": 74.06,
-      "battle_mining": 49.6,
-      "past_races": [
-        {
-          "date": "2025.10.25",
-          "race_name": "未勝利*",
-          "place": "新潟",
-          "surface": "ダ",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "10",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "8",
-          "margin": 2.5,
-          "corrected_time": 85.0,
-          "running_style": "後",
-          "last_3f": 39.4,
-          "ave_3f": 35.2,
-          "pci": 39.3,
-          "position_3f": 0.7
-        },
-        {
-          "date": "2025.6.29",
-          "race_name": "新馬",
-          "place": "小倉",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "8",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 1.4,
-          "corrected_time": 86.0,
-          "running_style": "中",
-          "last_3f": 35.6,
-          "ave_3f": 35.5,
-          "pci": 49.7,
-          "position_3f": 0.6
-        }
-      ],
-      "indices": {
-        "mining_index": 49.81,
-        "corrected_time_deviation": 49.14,
-        "zi_deviation": 52.76,
-        "base_score": 50.05,
-        "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 1.00226,
-        "stability_coefficient": 0.99101,
-        "total_coefficient_score": -0.003,
-        "final_score": 46.54
-      },
-      "predictions": {
-        "win_rate": 0.22924327068797776,
-        "win_rate_rank": 12,
-        "place_rate": 0.33039006187668934,
-        "place_rate_rank": 12,
-        "show_rate": 0.3635754647991959,
-        "show_rate_rank": 10
-      }
-    },
-    {
       "frame": 8,
       "horse_number": 15,
       "horse_name": "セイウンダイフク",
@@ -1197,6 +1093,110 @@
         "place_rate_rank": 13,
         "show_rate": 0.27241927264642213,
         "show_rate_rank": 13
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 4,
+      "horse_name": "ゴーゴーエイミー",
+      "mark": "*",
+      "jockey": {
+        "name": "斎藤新",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 30,
+          "win_rate": 5.6,
+          "place_rate": 12.8,
+          "show_rate": 17.6
+        },
+        "last_year": {
+          "wins": 28,
+          "win_rate": 6.4,
+          "place_rate": 15.2,
+          "show_rate": 21.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "東田明士",
+        "this_year": {
+          "wins": 13,
+          "win_rate": 7.2,
+          "place_rate": 11.1,
+          "show_rate": 18.3
+        },
+        "last_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 0.0,
+          "show_rate": 0.0
+        }
+      },
+      "interval": 3,
+      "zi_index": 101.0,
+      "time_mining": 74.06,
+      "battle_mining": 49.6,
+      "past_races": [
+        {
+          "date": "2025.10.25",
+          "race_name": "未勝利*",
+          "place": "新潟",
+          "surface": "ダ",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "10",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "8",
+          "margin": 2.5,
+          "corrected_time": 85.0,
+          "running_style": "後",
+          "last_3f": 39.4,
+          "ave_3f": 35.2,
+          "pci": 39.3,
+          "position_3f": 0.7
+        },
+        {
+          "date": "2025.6.29",
+          "race_name": "新馬",
+          "place": "小倉",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "8",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 1.4,
+          "corrected_time": 86.0,
+          "running_style": "中",
+          "last_3f": 35.6,
+          "ave_3f": 35.5,
+          "pci": 49.7,
+          "position_3f": 0.6
+        }
+      ],
+      "indices": {
+        "mining_index": 49.81,
+        "corrected_time_deviation": 49.14,
+        "zi_deviation": 52.76,
+        "base_score": 50.05,
+        "jockey_coefficient": 0.99474,
+        "similarity_coefficient": 1.00059,
+        "stability_coefficient": 0.99101,
+        "total_coefficient_score": -0.004,
+        "final_score": 45.5
+      },
+      "predictions": {
+        "win_rate": 0.20150874966176105,
+        "win_rate_rank": 12,
+        "place_rate": 0.333050140827154,
+        "place_rate_rank": 12,
+        "show_rate": 0.36588205868132156,
+        "show_rate_rank": 10
       }
     },
     {
