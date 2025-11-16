@@ -105,17 +105,17 @@
         "zi_deviation": 70.28,
         "base_score": 66.2,
         "jockey_coefficient": 1.01147,
-        "similarity_coefficient": 1.00667,
+        "similarity_coefficient": 1.00259,
         "stability_coefficient": 0.9995,
-        "total_coefficient_score": 0.005,
-        "final_score": 74.27
+        "total_coefficient_score": 0.003,
+        "final_score": 70.9
       },
       "predictions": {
-        "win_rate": 0.8987070669948765,
+        "win_rate": 0.9040161509233932,
         "win_rate_rank": 1,
-        "place_rate": 0.9087196160728506,
+        "place_rate": 0.9048593769238482,
         "place_rate_rank": 1,
-        "show_rate": 0.9272007192519929,
+        "show_rate": 0.9254452296991512,
         "show_rate_rank": 1
       }
     },
@@ -201,6 +201,90 @@
         "place_rate_rank": 3,
         "show_rate": 0.6958639937721175,
         "show_rate_rank": 2
+      }
+    },
+    {
+      "frame": 3,
+      "horse_number": 3,
+      "horse_name": "サンダーストラック",
+      "mark": "",
+      "jockey": {
+        "name": "ルメール",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 117,
+          "win_rate": 27.3,
+          "place_rate": 48.0,
+          "show_rate": 61.5
+        },
+        "last_year": {
+          "wins": 176,
+          "win_rate": 29.8,
+          "place_rate": 47.6,
+          "show_rate": 59.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "木村哲也",
+        "this_year": {
+          "wins": 35,
+          "win_rate": 22.2,
+          "place_rate": 39.9,
+          "show_rate": 46.8
+        },
+        "last_year": {
+          "wins": 36,
+          "win_rate": 18.0,
+          "place_rate": 27.0,
+          "show_rate": 40.0
+        }
+      },
+      "interval": 9,
+      "zi_index": 109.0,
+      "time_mining": 121.97,
+      "battle_mining": 54.1,
+      "past_races": [
+        {
+          "date": "2025.9.15",
+          "race_name": "新馬",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "7",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.0,
+          "corrected_time": 84.0,
+          "running_style": "先",
+          "last_3f": 34.2,
+          "ave_3f": 37.62,
+          "pci": 60.0,
+          "position_3f": 0.6
+        }
+      ],
+      "indices": {
+        "mining_index": 51.2,
+        "corrected_time_deviation": 44.13,
+        "zi_deviation": 47.21,
+        "base_score": 48.48,
+        "jockey_coefficient": 1.0135,
+        "similarity_coefficient": 1.00608,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": 0.005,
+        "final_score": 54.62
+      },
+      "predictions": {
+        "win_rate": 0.722925997084444,
+        "win_rate_rank": 2,
+        "place_rate": 0.7094416686811642,
+        "place_rate_rank": 2,
+        "show_rate": 0.674003369379924,
+        "show_rate_rank": 3
       }
     },
     {
@@ -293,102 +377,18 @@
         "zi_deviation": 61.63,
         "base_score": 53.3,
         "jockey_coefficient": 0.9934,
-        "similarity_coefficient": 1.00948,
+        "similarity_coefficient": 1.00364,
         "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.003,
-        "final_score": 57.13
+        "total_coefficient_score": -0.0,
+        "final_score": 53.24
       },
       "predictions": {
-        "win_rate": 0.4738939739082693,
+        "win_rate": 0.513098965994662,
         "win_rate_rank": 4,
-        "place_rate": 0.5345703058138747,
+        "place_rate": 0.557607857771771,
         "place_rate_rank": 4,
-        "show_rate": 0.5391912595962797,
+        "show_rate": 0.5595317884742934,
         "show_rate_rank": 4
-      }
-    },
-    {
-      "frame": 3,
-      "horse_number": 3,
-      "horse_name": "サンダーストラック",
-      "mark": "",
-      "jockey": {
-        "name": "ルメール",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 117,
-          "win_rate": 27.3,
-          "place_rate": 48.0,
-          "show_rate": 61.5
-        },
-        "last_year": {
-          "wins": 176,
-          "win_rate": 29.8,
-          "place_rate": 47.6,
-          "show_rate": 59.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "木村哲也",
-        "this_year": {
-          "wins": 35,
-          "win_rate": 22.2,
-          "place_rate": 39.9,
-          "show_rate": 46.8
-        },
-        "last_year": {
-          "wins": 36,
-          "win_rate": 18.0,
-          "place_rate": 27.0,
-          "show_rate": 40.0
-        }
-      },
-      "interval": 9,
-      "zi_index": 109.0,
-      "time_mining": 121.97,
-      "battle_mining": 54.1,
-      "past_races": [
-        {
-          "date": "2025.9.15",
-          "race_name": "新馬",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "7",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.0,
-          "corrected_time": 84.0,
-          "running_style": "先",
-          "last_3f": 34.2,
-          "ave_3f": 37.62,
-          "pci": 60.0,
-          "position_3f": 0.6
-        }
-      ],
-      "indices": {
-        "mining_index": 51.2,
-        "corrected_time_deviation": 44.13,
-        "zi_deviation": 47.21,
-        "base_score": 48.48,
-        "jockey_coefficient": 1.0135,
-        "similarity_coefficient": 1.00608,
-        "stability_coefficient": 1.0,
-        "total_coefficient_score": 0.005,
-        "final_score": 54.62
-      },
-      "predictions": {
-        "win_rate": 0.722925997084444,
-        "win_rate_rank": 2,
-        "place_rate": 0.7094416686811642,
-        "place_rate_rank": 2,
-        "show_rate": 0.674003369379924,
-        "show_rate_rank": 3
       }
     },
     {
@@ -501,17 +501,17 @@
         "zi_deviation": 46.49,
         "base_score": 49.6,
         "jockey_coefficient": 1.00555,
-        "similarity_coefficient": 1.00427,
+        "similarity_coefficient": 1.00027,
         "stability_coefficient": 0.998,
-        "total_coefficient_score": 0.002,
-        "final_score": 52.41
+        "total_coefficient_score": 0.0,
+        "final_score": 49.93
       },
       "predictions": {
-        "win_rate": 0.4158601050836069,
+        "win_rate": 0.4087573644533038,
         "win_rate_rank": 6,
-        "place_rate": 0.4326774694250464,
-        "place_rate_rank": 6,
-        "show_rate": 0.46419397547937225,
+        "place_rate": 0.4889716896942212,
+        "place_rate_rank": 5,
+        "show_rate": 0.5253072360013906,
         "show_rate_rank": 5
       }
     },
@@ -614,7 +614,7 @@
         "win_rate": 0.4364369615843365,
         "win_rate_rank": 5,
         "place_rate": 0.46778966158844676,
-        "place_rate_rank": 5,
+        "place_rate_rank": 6,
         "show_rate": 0.4532588767667135,
         "show_rate_rank": 6
       }
