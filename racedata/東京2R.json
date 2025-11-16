@@ -864,7 +864,7 @@
         "place_rate": 0.2720976786647177,
         "place_rate_rank": 8,
         "show_rate": 0.26440196322673454,
-        "show_rate_rank": 10
+        "show_rate_rank": 11
       }
     },
     {
@@ -944,9 +944,9 @@
       },
       "predictions": {
         "win_rate": 0.2117481726579418,
-        "win_rate_rank": 9,
+        "win_rate_rank": 10,
         "place_rate": 0.2456832488459801,
-        "place_rate_rank": 10,
+        "place_rate_rank": 11,
         "show_rate": 0.27677229071284604,
         "show_rate_rank": 9
       }
@@ -1028,7 +1028,7 @@
       },
       "predictions": {
         "win_rate": 0.16717163712880825,
-        "win_rate_rank": 10,
+        "win_rate_rank": 11,
         "place_rate": 0.27171528131178757,
         "place_rate_rank": 9,
         "show_rate": 0.358955280179726,
@@ -1204,6 +1204,110 @@
       }
     },
     {
+      "frame": 2,
+      "horse_number": 3,
+      "horse_name": "ホノボノ",
+      "mark": "*",
+      "jockey": {
+        "name": "遠藤汰月",
+        "weight": 53.0,
+        "weight_reduction": "▲",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 1.9,
+          "place_rate": 3.1,
+          "show_rate": 6.1
+        },
+        "last_year": {
+          "wins": 0,
+          "win_rate": 0.0,
+          "place_rate": 0.0,
+          "show_rate": 0.0
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "尾形和幸",
+        "this_year": {
+          "wins": 12,
+          "win_rate": 5.3,
+          "place_rate": 10.1,
+          "show_rate": 18.0
+        },
+        "last_year": {
+          "wins": 20,
+          "win_rate": 8.2,
+          "place_rate": 12.3,
+          "show_rate": 18.1
+        }
+      },
+      "interval": 3,
+      "zi_index": 101.0,
+      "time_mining": 108.28,
+      "battle_mining": 45.9,
+      "past_races": [
+        {
+          "date": "2025.10.25",
+          "race_name": "未勝利*",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "10",
+          "weight": 54.0,
+          "weight_reduction": "◇",
+          "rank": "7",
+          "margin": 0.7,
+          "corrected_time": 91.0,
+          "running_style": "逃",
+          "last_3f": 35.1,
+          "ave_3f": 37.15,
+          "pci": 55.8,
+          "position_3f": 0.0
+        },
+        {
+          "date": "2025.7.27",
+          "race_name": "新馬",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "1",
+          "horse_number": "1",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 1.8,
+          "corrected_time": 79.0,
+          "running_style": "中",
+          "last_3f": 34.5,
+          "ave_3f": 38.64,
+          "pci": 62.0,
+          "position_3f": 0.3
+        }
+      ],
+      "indices": {
+        "mining_index": 47.56,
+        "corrected_time_deviation": 46.95,
+        "zi_deviation": 51.66,
+        "base_score": 47.99,
+        "jockey_coefficient": 0.97884,
+        "similarity_coefficient": 1.00077,
+        "stability_coefficient": 0.99451,
+        "total_coefficient_score": -0.005,
+        "final_score": 42.34
+      },
+      "predictions": {
+        "win_rate": 0.21643209966689547,
+        "win_rate_rank": 9,
+        "place_rate": 0.260489642851979,
+        "place_rate_rank": 10,
+        "show_rate": 0.26763394649923616,
+        "show_rate_rank": 10
+      }
+    },
+    {
       "frame": 6,
       "horse_number": 11,
       "horse_name": "スターオブブライト",
@@ -1320,7 +1424,7 @@
       },
       "predictions": {
         "win_rate": 0.14180124318208837,
-        "win_rate_rank": 11,
+        "win_rate_rank": 12,
         "place_rate": 0.16634995220630167,
         "place_rate_rank": 12,
         "show_rate": 0.20987687445998587,
@@ -1469,110 +1573,6 @@
         "place_rate_rank": 14,
         "show_rate": 0.16033050010952837,
         "show_rate_rank": 14
-      }
-    },
-    {
-      "frame": 2,
-      "horse_number": 3,
-      "horse_name": "ホノボノ",
-      "mark": "*",
-      "jockey": {
-        "name": "遠藤汰月",
-        "weight": 53.0,
-        "weight_reduction": "▲",
-        "this_year": {
-          "wins": 5,
-          "win_rate": 1.9,
-          "place_rate": 3.1,
-          "show_rate": 6.1
-        },
-        "last_year": {
-          "wins": 0,
-          "win_rate": 0.0,
-          "place_rate": 0.0,
-          "show_rate": 0.0
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "尾形和幸",
-        "this_year": {
-          "wins": 12,
-          "win_rate": 5.3,
-          "place_rate": 10.1,
-          "show_rate": 18.0
-        },
-        "last_year": {
-          "wins": 20,
-          "win_rate": 8.2,
-          "place_rate": 12.3,
-          "show_rate": 18.1
-        }
-      },
-      "interval": 3,
-      "zi_index": 101.0,
-      "time_mining": 108.28,
-      "battle_mining": 45.9,
-      "past_races": [
-        {
-          "date": "2025.10.25",
-          "race_name": "未勝利*",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "10",
-          "weight": 54.0,
-          "weight_reduction": "◇",
-          "rank": "7",
-          "margin": 0.7,
-          "corrected_time": 91.0,
-          "running_style": "逃",
-          "last_3f": 35.1,
-          "ave_3f": 37.15,
-          "pci": 55.8,
-          "position_3f": 0.0
-        },
-        {
-          "date": "2025.7.27",
-          "race_name": "新馬",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "1",
-          "horse_number": "1",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 1.8,
-          "corrected_time": 79.0,
-          "running_style": "中",
-          "last_3f": 34.5,
-          "ave_3f": 38.64,
-          "pci": 62.0,
-          "position_3f": 0.3
-        }
-      ],
-      "indices": {
-        "mining_index": 47.56,
-        "corrected_time_deviation": 46.95,
-        "zi_deviation": 51.66,
-        "base_score": 47.99,
-        "jockey_coefficient": 0.97884,
-        "similarity_coefficient": 0.9978,
-        "stability_coefficient": 0.99451,
-        "total_coefficient_score": -0.006,
-        "final_score": 40.56
-      },
-      "predictions": {
-        "win_rate": 0.13144465431105254,
-        "win_rate_rank": 12,
-        "place_rate": 0.2206259850994039,
-        "place_rate_rank": 11,
-        "show_rate": 0.22355028957662115,
-        "show_rate_rank": 11
       }
     },
     {
