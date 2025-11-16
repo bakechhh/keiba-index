@@ -105,17 +105,17 @@
         "zi_deviation": 65.46,
         "base_score": 60.49,
         "jockey_coefficient": 1.00435,
-        "similarity_coefficient": 1.00654,
+        "similarity_coefficient": 1.00997,
         "stability_coefficient": 0.99501,
-        "total_coefficient_score": 0.002,
-        "final_score": 63.78
+        "total_coefficient_score": 0.004,
+        "final_score": 66.36
       },
       "predictions": {
-        "win_rate": 0.7685410841826746,
+        "win_rate": 0.7876130383063753,
         "win_rate_rank": 2,
-        "place_rate": 0.7871710654406151,
+        "place_rate": 0.8042450886849482,
         "place_rate_rank": 2,
-        "show_rate": 0.7903688316076155,
+        "show_rate": 0.800466172442277,
         "show_rate_rank": 2
       }
     },
@@ -209,17 +209,17 @@
         "zi_deviation": 64.38,
         "base_score": 60.46,
         "jockey_coefficient": 1.01116,
-        "similarity_coefficient": 0.99993,
+        "similarity_coefficient": 1.003,
         "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.001,
-        "final_score": 61.62
+        "total_coefficient_score": 0.002,
+        "final_score": 63.94
       },
       "predictions": {
-        "win_rate": 0.8042298063983795,
+        "win_rate": 0.8025257446618214,
         "win_rate_rank": 1,
-        "place_rate": 0.8037561212545719,
+        "place_rate": 0.8056223267662016,
         "place_rate_rank": 1,
-        "show_rate": 0.7943376446634707,
+        "show_rate": 0.8018961045581778,
         "show_rate_rank": 1
       }
     },
@@ -1016,110 +1016,6 @@
       }
     },
     {
-      "frame": 6,
-      "horse_number": 10,
-      "horse_name": "レステダンルヴァン",
-      "mark": "*",
-      "jockey": {
-        "name": "斎藤新",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 30,
-          "win_rate": 5.6,
-          "place_rate": 12.8,
-          "show_rate": 17.6
-        },
-        "last_year": {
-          "wins": 28,
-          "win_rate": 6.4,
-          "place_rate": 15.2,
-          "show_rate": 21.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "藤岡健一",
-        "this_year": {
-          "wins": 16,
-          "win_rate": 6.5,
-          "place_rate": 13.5,
-          "show_rate": 25.7
-        },
-        "last_year": {
-          "wins": 27,
-          "win_rate": 10.1,
-          "place_rate": 20.2,
-          "show_rate": 27.7
-        }
-      },
-      "interval": 3,
-      "zi_index": 95.0,
-      "time_mining": 86.94,
-      "battle_mining": 42.7,
-      "past_races": [
-        {
-          "date": "2025.10.26",
-          "race_name": "未勝利・牝*",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1800",
-          "track_condition": "重",
-          "frame": "8",
-          "horse_number": "9",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 1.8,
-          "corrected_time": 84.0,
-          "running_style": "後",
-          "last_3f": 39.1,
-          "ave_3f": 37.85,
-          "pci": 46.8,
-          "position_3f": 1.1
-        },
-        {
-          "date": "2025.7.12",
-          "race_name": "新馬・牝",
-          "place": "小倉",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "8",
-          "weight": 54.0,
-          "weight_reduction": "☆",
-          "rank": "8",
-          "margin": 2.2,
-          "corrected_time": 77.0,
-          "running_style": "中",
-          "last_3f": 38.4,
-          "ave_3f": 37.3,
-          "pci": 47.1,
-          "position_3f": 0.5
-        }
-      ],
-      "indices": {
-        "mining_index": 46.12,
-        "corrected_time_deviation": 39.03,
-        "zi_deviation": 42.73,
-        "base_score": 43.48,
-        "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 1.00018,
-        "stability_coefficient": 0.99,
-        "total_coefficient_score": -0.004,
-        "final_score": 38.92
-      },
-      "predictions": {
-        "win_rate": 0.13082300927550589,
-        "win_rate_rank": 11,
-        "place_rate": 0.13498061975932477,
-        "place_rate_rank": 11,
-        "show_rate": 0.1742967040948587,
-        "show_rate_rank": 11
-      }
-    },
-    {
       "frame": 5,
       "horse_number": 8,
       "horse_name": "ダンシングドール",
@@ -1229,18 +1125,122 @@
         "zi_deviation": 41.65,
         "base_score": 42.26,
         "jockey_coefficient": 0.99183,
-        "similarity_coefficient": 1.00005,
+        "similarity_coefficient": 1.0053,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": -0.003,
-        "final_score": 38.87
+        "total_coefficient_score": -0.001,
+        "final_score": 41.64
       },
       "predictions": {
-        "win_rate": 0.059866483711620185,
+        "win_rate": 0.08789471756868009,
         "win_rate_rank": 12,
-        "place_rate": 0.09291738705668405,
-        "place_rate_rank": 12,
-        "show_rate": 0.11382383585914146,
+        "place_rate": 0.1336363218718085,
+        "place_rate_rank": 11,
+        "show_rate": 0.12572621624947122,
         "show_rate_rank": 12
+      }
+    },
+    {
+      "frame": 6,
+      "horse_number": 10,
+      "horse_name": "レステダンルヴァン",
+      "mark": "*",
+      "jockey": {
+        "name": "斎藤新",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 30,
+          "win_rate": 5.6,
+          "place_rate": 12.8,
+          "show_rate": 17.6
+        },
+        "last_year": {
+          "wins": 28,
+          "win_rate": 6.4,
+          "place_rate": 15.2,
+          "show_rate": 21.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "藤岡健一",
+        "this_year": {
+          "wins": 16,
+          "win_rate": 6.5,
+          "place_rate": 13.5,
+          "show_rate": 25.7
+        },
+        "last_year": {
+          "wins": 27,
+          "win_rate": 10.1,
+          "place_rate": 20.2,
+          "show_rate": 27.7
+        }
+      },
+      "interval": 3,
+      "zi_index": 95.0,
+      "time_mining": 86.94,
+      "battle_mining": 42.7,
+      "past_races": [
+        {
+          "date": "2025.10.26",
+          "race_name": "未勝利・牝*",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1800",
+          "track_condition": "重",
+          "frame": "8",
+          "horse_number": "9",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 1.8,
+          "corrected_time": 84.0,
+          "running_style": "後",
+          "last_3f": 39.1,
+          "ave_3f": 37.85,
+          "pci": 46.8,
+          "position_3f": 1.1
+        },
+        {
+          "date": "2025.7.12",
+          "race_name": "新馬・牝",
+          "place": "小倉",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "8",
+          "weight": 54.0,
+          "weight_reduction": "☆",
+          "rank": "8",
+          "margin": 2.2,
+          "corrected_time": 77.0,
+          "running_style": "中",
+          "last_3f": 38.4,
+          "ave_3f": 37.3,
+          "pci": 47.1,
+          "position_3f": 0.5
+        }
+      ],
+      "indices": {
+        "mining_index": 46.12,
+        "corrected_time_deviation": 39.03,
+        "zi_deviation": 42.73,
+        "base_score": 43.48,
+        "jockey_coefficient": 0.99474,
+        "similarity_coefficient": 0.99835,
+        "stability_coefficient": 0.99,
+        "total_coefficient_score": -0.005,
+        "final_score": 37.93
+      },
+      "predictions": {
+        "win_rate": 0.0936274792492137,
+        "win_rate_rank": 11,
+        "place_rate": 0.1255760923711882,
+        "place_rate_rank": 12,
+        "show_rate": 0.15680840854511469,
+        "show_rate_rank": 11
       }
     },
     {
