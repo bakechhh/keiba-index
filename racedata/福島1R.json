@@ -880,7 +880,7 @@
         "place_rate": 0.33279125519468705,
         "place_rate_rank": 9,
         "show_rate": 0.377846806413734,
-        "show_rate_rank": 9
+        "show_rate_rank": 10
       }
     },
     {
@@ -964,90 +964,6 @@
         "place_rate": 0.3520123493559759,
         "place_rate_rank": 7,
         "show_rate": 0.3842379110954015,
-        "show_rate_rank": 7
-      }
-    },
-    {
-      "frame": 8,
-      "horse_number": 16,
-      "horse_name": "パープルウインド",
-      "mark": "",
-      "jockey": {
-        "name": "古川奈穂",
-        "weight": 52.0,
-        "weight_reduction": "▲",
-        "this_year": {
-          "wins": 11,
-          "win_rate": 4.2,
-          "place_rate": 10.3,
-          "show_rate": 14.4
-        },
-        "last_year": {
-          "wins": 9,
-          "win_rate": 4.4,
-          "place_rate": 6.9,
-          "show_rate": 11.3
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "羽月友彦",
-        "this_year": {
-          "wins": 9,
-          "win_rate": 4.2,
-          "place_rate": 8.9,
-          "show_rate": 10.3
-        },
-        "last_year": {
-          "wins": 9,
-          "win_rate": 3.5,
-          "place_rate": 8.5,
-          "show_rate": 16.3
-        }
-      },
-      "interval": 6,
-      "zi_index": 96.0,
-      "time_mining": 70.55,
-      "battle_mining": 53.9,
-      "past_races": [
-        {
-          "date": "2025.10.4",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "重",
-          "frame": "8",
-          "horse_number": "16",
-          "weight": 52.0,
-          "weight_reduction": "▲",
-          "rank": "7",
-          "margin": 1.7,
-          "corrected_time": 87.0,
-          "running_style": "中",
-          "last_3f": 38.0,
-          "ave_3f": 36.08,
-          "pci": 44.9,
-          "position_3f": 0.9
-        }
-      ],
-      "indices": {
-        "mining_index": 47.91,
-        "corrected_time_deviation": 54.38,
-        "zi_deviation": 48.16,
-        "base_score": 49.89,
-        "jockey_coefficient": 0.99173,
-        "similarity_coefficient": 1.0005,
-        "stability_coefficient": 0.998,
-        "total_coefficient_score": -0.002,
-        "final_score": 47.78
-      },
-      "predictions": {
-        "win_rate": 0.20043362707316553,
-        "win_rate_rank": 10,
-        "place_rate": 0.2799284229541387,
-        "place_rate_rank": 10,
-        "show_rate": 0.3794509795614425,
         "show_rate_rank": 8
       }
     },
@@ -1141,18 +1057,102 @@
         "zi_deviation": 44.47,
         "base_score": 51.92,
         "jockey_coefficient": 1.00047,
-        "similarity_coefficient": 0.99882,
+        "similarity_coefficient": 1.00049,
         "stability_coefficient": 0.99201,
-        "total_coefficient_score": -0.003,
-        "final_score": 47.62
+        "total_coefficient_score": -0.002,
+        "final_score": 48.7
       },
       "predictions": {
-        "win_rate": 0.1951221409062622,
-        "win_rate_rank": 11,
-        "place_rate": 0.33328315402791947,
+        "win_rate": 0.22300445047148892,
+        "win_rate_rank": 10,
+        "place_rate": 0.3425895542989957,
         "place_rate_rank": 8,
-        "show_rate": 0.36101805430780165,
-        "show_rate_rank": 10
+        "show_rate": 0.3947199026519764,
+        "show_rate_rank": 7
+      }
+    },
+    {
+      "frame": 8,
+      "horse_number": 16,
+      "horse_name": "パープルウインド",
+      "mark": "",
+      "jockey": {
+        "name": "古川奈穂",
+        "weight": 52.0,
+        "weight_reduction": "▲",
+        "this_year": {
+          "wins": 11,
+          "win_rate": 4.2,
+          "place_rate": 10.3,
+          "show_rate": 14.4
+        },
+        "last_year": {
+          "wins": 9,
+          "win_rate": 4.4,
+          "place_rate": 6.9,
+          "show_rate": 11.3
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "羽月友彦",
+        "this_year": {
+          "wins": 9,
+          "win_rate": 4.2,
+          "place_rate": 8.9,
+          "show_rate": 10.3
+        },
+        "last_year": {
+          "wins": 9,
+          "win_rate": 3.5,
+          "place_rate": 8.5,
+          "show_rate": 16.3
+        }
+      },
+      "interval": 6,
+      "zi_index": 96.0,
+      "time_mining": 70.55,
+      "battle_mining": 53.9,
+      "past_races": [
+        {
+          "date": "2025.10.4",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "重",
+          "frame": "8",
+          "horse_number": "16",
+          "weight": 52.0,
+          "weight_reduction": "▲",
+          "rank": "7",
+          "margin": 1.7,
+          "corrected_time": 87.0,
+          "running_style": "中",
+          "last_3f": 38.0,
+          "ave_3f": 36.08,
+          "pci": 44.9,
+          "position_3f": 0.9
+        }
+      ],
+      "indices": {
+        "mining_index": 47.91,
+        "corrected_time_deviation": 54.38,
+        "zi_deviation": 48.16,
+        "base_score": 49.89,
+        "jockey_coefficient": 0.99173,
+        "similarity_coefficient": 1.0005,
+        "stability_coefficient": 0.998,
+        "total_coefficient_score": -0.002,
+        "final_score": 47.78
+      },
+      "predictions": {
+        "win_rate": 0.20043362707316553,
+        "win_rate_rank": 11,
+        "place_rate": 0.2799284229541387,
+        "place_rate_rank": 10,
+        "show_rate": 0.3794509795614425,
+        "show_rate_rank": 9
       }
     },
     {
@@ -1566,7 +1566,7 @@
         "win_rate": 0.03587900954220104,
         "win_rate_rank": 15,
         "place_rate": 0.03944288791115678,
-        "place_rate_rank": 15,
+        "place_rate_rank": 16,
         "show_rate": 0.0579278133392237,
         "show_rate_rank": 16
       }
@@ -1745,17 +1745,17 @@
         "zi_deviation": 34.63,
         "base_score": 31.65,
         "jockey_coefficient": 0.99627,
-        "similarity_coefficient": 0.99783,
+        "similarity_coefficient": 0.9995,
         "stability_coefficient": 0.97275,
-        "total_coefficient_score": -0.011,
-        "final_score": 22.8
+        "total_coefficient_score": -0.01,
+        "final_score": 23.46
       },
       "predictions": {
-        "win_rate": 0.015424310642297531,
+        "win_rate": 0.017699395653267197,
         "win_rate_rank": 16,
-        "place_rate": 0.035182021526385415,
-        "place_rate_rank": 16,
-        "show_rate": 0.06846920248752902,
+        "place_rate": 0.04905853028868209,
+        "place_rate_rank": 15,
+        "show_rate": 0.07644509651425897,
         "show_rate_rank": 15
       }
     }
