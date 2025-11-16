@@ -357,102 +357,18 @@
         "zi_deviation": 66.12,
         "base_score": 60.28,
         "jockey_coefficient": 0.99815,
-        "similarity_coefficient": 1.00236,
+        "similarity_coefficient": 0.99898,
         "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.0,
-        "final_score": 60.32
+        "total_coefficient_score": -0.002,
+        "final_score": 57.78
       },
       "predictions": {
-        "win_rate": 0.7383414288476194,
+        "win_rate": 0.7298074190899688,
         "win_rate_rank": 4,
-        "place_rate": 0.7253577478832148,
+        "place_rate": 0.7249722297229257,
         "place_rate_rank": 4,
-        "show_rate": 0.7220224520629858,
+        "show_rate": 0.7232095717936454,
         "show_rate_rank": 4
-      }
-    },
-    {
-      "frame": 7,
-      "horse_number": 15,
-      "horse_name": "マトリカリア",
-      "mark": "*",
-      "jockey": {
-        "name": "佐々木大",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 76,
-          "win_rate": 10.2,
-          "place_rate": 18.4,
-          "show_rate": 26.3
-        },
-        "last_year": {
-          "wins": 77,
-          "win_rate": 10.2,
-          "place_rate": 18.8,
-          "show_rate": 28.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "岩戸孝樹",
-        "this_year": {
-          "wins": 9,
-          "win_rate": 4.2,
-          "place_rate": 10.3,
-          "show_rate": 16.9
-        },
-        "last_year": {
-          "wins": 9,
-          "win_rate": 3.8,
-          "place_rate": 7.5,
-          "show_rate": 12.5
-        }
-      },
-      "interval": 0,
-      "zi_index": 95.0,
-      "time_mining": 81.71,
-      "battle_mining": 58.9,
-      "past_races": [
-        {
-          "date": "2025.11.8",
-          "race_name": "新馬",
-          "place": "福島",
-          "surface": "芝",
-          "distance": "1200",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "11",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 0.8,
-          "corrected_time": 92.0,
-          "running_style": "中",
-          "last_3f": 35.4,
-          "ave_3f": 34.6,
-          "pci": 47.7,
-          "position_3f": 0.8
-        }
-      ],
-      "indices": {
-        "mining_index": 54.91,
-        "corrected_time_deviation": 54.94,
-        "zi_deviation": 46.59,
-        "base_score": 53.67,
-        "jockey_coefficient": 1.00076,
-        "similarity_coefficient": 1.00077,
-        "stability_coefficient": 0.996,
-        "total_coefficient_score": -0.001,
-        "final_score": 52.46
-      },
-      "predictions": {
-        "win_rate": 0.3662466580801076,
-        "win_rate_rank": 7,
-        "place_rate": 0.3950997246225946,
-        "place_rate_rank": 6,
-        "show_rate": 0.4237007763086866,
-        "show_rate_rank": 6
       }
     },
     {
@@ -545,18 +461,102 @@
         "zi_deviation": 44.73,
         "base_score": 53.26,
         "jockey_coefficient": 0.98984,
-        "similarity_coefficient": 1.00446,
+        "similarity_coefficient": 1.0051,
         "stability_coefficient": 0.99625,
-        "total_coefficient_score": -0.001,
-        "final_score": 52.45
+        "total_coefficient_score": -0.0,
+        "final_score": 52.88
       },
       "predictions": {
-        "win_rate": 0.3943278574947911,
-        "win_rate_rank": 5,
-        "place_rate": 0.3616318929653226,
+        "win_rate": 0.37419022849716743,
+        "win_rate_rank": 6,
+        "place_rate": 0.36409441302024864,
         "place_rate_rank": 7,
-        "show_rate": 0.3989986801785219,
+        "show_rate": 0.39815443179883747,
         "show_rate_rank": 7
+      }
+    },
+    {
+      "frame": 7,
+      "horse_number": 15,
+      "horse_name": "マトリカリア",
+      "mark": "*",
+      "jockey": {
+        "name": "佐々木大",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 76,
+          "win_rate": 10.2,
+          "place_rate": 18.4,
+          "show_rate": 26.3
+        },
+        "last_year": {
+          "wins": 77,
+          "win_rate": 10.2,
+          "place_rate": 18.8,
+          "show_rate": 28.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "岩戸孝樹",
+        "this_year": {
+          "wins": 9,
+          "win_rate": 4.2,
+          "place_rate": 10.3,
+          "show_rate": 16.9
+        },
+        "last_year": {
+          "wins": 9,
+          "win_rate": 3.8,
+          "place_rate": 7.5,
+          "show_rate": 12.5
+        }
+      },
+      "interval": 0,
+      "zi_index": 95.0,
+      "time_mining": 81.71,
+      "battle_mining": 58.9,
+      "past_races": [
+        {
+          "date": "2025.11.8",
+          "race_name": "新馬",
+          "place": "福島",
+          "surface": "芝",
+          "distance": "1200",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "11",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 0.8,
+          "corrected_time": 92.0,
+          "running_style": "中",
+          "last_3f": 35.4,
+          "ave_3f": 34.6,
+          "pci": 47.7,
+          "position_3f": 0.8
+        }
+      ],
+      "indices": {
+        "mining_index": 54.91,
+        "corrected_time_deviation": 54.94,
+        "zi_deviation": 46.59,
+        "base_score": 53.67,
+        "jockey_coefficient": 1.00076,
+        "similarity_coefficient": 1.00077,
+        "stability_coefficient": 0.996,
+        "total_coefficient_score": -0.001,
+        "final_score": 52.46
+      },
+      "predictions": {
+        "win_rate": 0.3662466580801076,
+        "win_rate_rank": 7,
+        "place_rate": 0.3950997246225946,
+        "place_rate_rank": 6,
+        "show_rate": 0.4237007763086866,
+        "show_rate_rank": 6
       }
     },
     {
@@ -636,7 +636,7 @@
       },
       "predictions": {
         "win_rate": 0.37493601274977834,
-        "win_rate_rank": 6,
+        "win_rate_rank": 5,
         "place_rate": 0.4689095836851474,
         "place_rate_rank": 5,
         "show_rate": 0.5233846719915312,
@@ -1373,17 +1373,17 @@
         "zi_deviation": 49.38,
         "base_score": 45.0,
         "jockey_coefficient": 0.97884,
-        "similarity_coefficient": 1.00483,
+        "similarity_coefficient": 1.00145,
         "stability_coefficient": 0.99251,
-        "total_coefficient_score": -0.003,
-        "final_score": 41.19
+        "total_coefficient_score": -0.005,
+        "final_score": 39.29
       },
       "predictions": {
-        "win_rate": 0.2460366578122224,
+        "win_rate": 0.2934609920499282,
         "win_rate_rank": 8,
-        "place_rate": 0.1783746975717802,
-        "place_rate_rank": 15,
-        "show_rate": 0.18298291206494796,
+        "place_rate": 0.19151361104206985,
+        "place_rate_rank": 14,
+        "show_rate": 0.1730072800372355,
         "show_rate_rank": 14
       }
     },
@@ -1576,110 +1576,6 @@
       }
     },
     {
-      "frame": 6,
-      "horse_number": 12,
-      "horse_name": "ツルノマイハシ",
-      "mark": "*",
-      "jockey": {
-        "name": "西塚洸二",
-        "weight": 54.0,
-        "weight_reduction": "☆",
-        "this_year": {
-          "wins": 20,
-          "win_rate": 6.0,
-          "place_rate": 13.6,
-          "show_rate": 18.1
-        },
-        "last_year": {
-          "wins": 45,
-          "win_rate": 7.8,
-          "place_rate": 14.7,
-          "show_rate": 20.9
-        }
-      },
-      "trainer": {
-        "affiliation": "(美)",
-        "name": "杉浦宏昭",
-        "this_year": {
-          "wins": 5,
-          "win_rate": 2.2,
-          "place_rate": 4.8,
-          "show_rate": 11.4
-        },
-        "last_year": {
-          "wins": 11,
-          "win_rate": 4.5,
-          "place_rate": 8.6,
-          "show_rate": 14.8
-        }
-      },
-      "interval": 7,
-      "zi_index": 81.0,
-      "time_mining": 81.99,
-      "battle_mining": 23.3,
-      "past_races": [
-        {
-          "date": "2025.9.28",
-          "race_name": "サフラン･1勝",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "1600",
-          "track_condition": "良",
-          "frame": "6",
-          "horse_number": "6",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "8",
-          "margin": 3.1,
-          "corrected_time": 79.0,
-          "running_style": "後",
-          "last_3f": 36.6,
-          "ave_3f": 36.18,
-          "pci": 48.9,
-          "position_3f": 0.7
-        },
-        {
-          "date": "2025.9.14",
-          "race_name": "新馬",
-          "place": "中山",
-          "surface": "芝",
-          "distance": "1800",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "10",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "6",
-          "margin": 1.5,
-          "corrected_time": 87.0,
-          "running_style": "中",
-          "last_3f": 34.1,
-          "ave_3f": 39.45,
-          "pci": 65.7,
-          "position_3f": 0.6
-        }
-      ],
-      "indices": {
-        "mining_index": 33.92,
-        "corrected_time_deviation": 46.43,
-        "zi_deviation": 33.57,
-        "base_score": 37.62,
-        "jockey_coefficient": 0.99516,
-        "similarity_coefficient": 1.00077,
-        "stability_coefficient": 0.9885,
-        "total_coefficient_score": -0.004,
-        "final_score": 33.51
-      },
-      "predictions": {
-        "win_rate": 0.014568631964563589,
-        "win_rate_rank": 18,
-        "place_rate": 0.032398057771877466,
-        "place_rate_rank": 18,
-        "show_rate": 0.047719986592934194,
-        "show_rate_rank": 18
-      }
-    },
-    {
       "frame": 4,
       "horse_number": 7,
       "horse_name": "タマコロリン",
@@ -1824,6 +1720,110 @@
       }
     },
     {
+      "frame": 6,
+      "horse_number": 12,
+      "horse_name": "ツルノマイハシ",
+      "mark": "*",
+      "jockey": {
+        "name": "西塚洸二",
+        "weight": 54.0,
+        "weight_reduction": "☆",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 6.0,
+          "place_rate": 13.6,
+          "show_rate": 18.1
+        },
+        "last_year": {
+          "wins": 45,
+          "win_rate": 7.8,
+          "place_rate": 14.7,
+          "show_rate": 20.9
+        }
+      },
+      "trainer": {
+        "affiliation": "(美)",
+        "name": "杉浦宏昭",
+        "this_year": {
+          "wins": 5,
+          "win_rate": 2.2,
+          "place_rate": 4.8,
+          "show_rate": 11.4
+        },
+        "last_year": {
+          "wins": 11,
+          "win_rate": 4.5,
+          "place_rate": 8.6,
+          "show_rate": 14.8
+        }
+      },
+      "interval": 7,
+      "zi_index": 81.0,
+      "time_mining": 81.99,
+      "battle_mining": 23.3,
+      "past_races": [
+        {
+          "date": "2025.9.28",
+          "race_name": "サフラン･1勝",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "1600",
+          "track_condition": "良",
+          "frame": "6",
+          "horse_number": "6",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "8",
+          "margin": 3.1,
+          "corrected_time": 79.0,
+          "running_style": "後",
+          "last_3f": 36.6,
+          "ave_3f": 36.18,
+          "pci": 48.9,
+          "position_3f": 0.7
+        },
+        {
+          "date": "2025.9.14",
+          "race_name": "新馬",
+          "place": "中山",
+          "surface": "芝",
+          "distance": "1800",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "10",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "6",
+          "margin": 1.5,
+          "corrected_time": 87.0,
+          "running_style": "中",
+          "last_3f": 34.1,
+          "ave_3f": 39.45,
+          "pci": 65.7,
+          "position_3f": 0.6
+        }
+      ],
+      "indices": {
+        "mining_index": 33.92,
+        "corrected_time_deviation": 46.43,
+        "zi_deviation": 33.57,
+        "base_score": 37.62,
+        "jockey_coefficient": 0.99516,
+        "similarity_coefficient": 0.99803,
+        "stability_coefficient": 0.9885,
+        "total_coefficient_score": -0.006,
+        "final_score": 32.23
+      },
+      "predictions": {
+        "win_rate": 0.01173234236213855,
+        "win_rate_rank": 18,
+        "place_rate": 0.02838685040252782,
+        "place_rate_rank": 18,
+        "show_rate": 0.03590125539115186,
+        "show_rate_rank": 18
+      }
+    },
+    {
       "frame": 5,
       "horse_number": 10,
       "horse_name": "テリオスルミ",
@@ -1902,7 +1902,7 @@
         "win_rate": 0.18370830450683173,
         "win_rate_rank": 12,
         "place_rate": 0.1868154081616518,
-        "place_rate_rank": 14,
+        "place_rate_rank": 15,
         "show_rate": 0.17189527579514147,
         "show_rate_rank": 15
       }
