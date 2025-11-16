@@ -16,6 +16,110 @@
   "meeting": "4京4",
   "horses": [
     {
+      "frame": 1,
+      "horse_number": 1,
+      "horse_name": "ミティリーニ",
+      "mark": "*",
+      "jockey": {
+        "name": "Ｃ．デム",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 7,
+          "win_rate": 18.4,
+          "place_rate": 42.1,
+          "show_rate": 52.6
+        },
+        "last_year": {
+          "wins": 31,
+          "win_rate": 22.0,
+          "place_rate": 38.3,
+          "show_rate": 48.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "高野友和",
+        "this_year": {
+          "wins": 23,
+          "win_rate": 9.7,
+          "place_rate": 22.8,
+          "show_rate": 30.8
+        },
+        "last_year": {
+          "wins": 32,
+          "win_rate": 13.2,
+          "place_rate": 24.0,
+          "show_rate": 31.8
+        }
+      },
+      "interval": 7,
+      "zi_index": 115.0,
+      "time_mining": 86.53,
+      "battle_mining": 65.0,
+      "past_races": [
+        {
+          "date": "2025.9.28",
+          "race_name": "未勝利・牝*",
+          "place": "阪神",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "3",
+          "horse_number": "3",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "4",
+          "margin": 0.5,
+          "corrected_time": 95.0,
+          "running_style": "先",
+          "last_3f": 35.5,
+          "ave_3f": 35.03,
+          "pci": 48.7,
+          "position_3f": 0.5
+        },
+        {
+          "date": "2025.8.16",
+          "race_name": "新馬・牝",
+          "place": "新潟",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "8",
+          "horse_number": "16",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.5,
+          "corrected_time": 97.0,
+          "running_style": "逃",
+          "last_3f": 35.7,
+          "ave_3f": 34.88,
+          "pci": 47.7,
+          "position_3f": 0.0
+        }
+      ],
+      "indices": {
+        "mining_index": 58.7,
+        "corrected_time_deviation": 61.74,
+        "zi_deviation": 64.38,
+        "base_score": 60.46,
+        "jockey_coefficient": 1.01116,
+        "similarity_coefficient": 1.003,
+        "stability_coefficient": 0.9975,
+        "total_coefficient_score": 0.002,
+        "final_score": 63.94
+      },
+      "predictions": {
+        "win_rate": 0.8025257446618214,
+        "win_rate_rank": 1,
+        "place_rate": 0.8056223267662016,
+        "place_rate_rank": 1,
+        "show_rate": 0.8018961045581778,
+        "show_rate_rank": 1
+      }
+    },
+    {
       "frame": 4,
       "horse_number": 6,
       "horse_name": "アーガイルショア",
@@ -117,110 +221,6 @@
         "place_rate_rank": 2,
         "show_rate": 0.7903688316076155,
         "show_rate_rank": 2
-      }
-    },
-    {
-      "frame": 1,
-      "horse_number": 1,
-      "horse_name": "ミティリーニ",
-      "mark": "*",
-      "jockey": {
-        "name": "Ｃ．デム",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 7,
-          "win_rate": 18.4,
-          "place_rate": 42.1,
-          "show_rate": 52.6
-        },
-        "last_year": {
-          "wins": 31,
-          "win_rate": 22.0,
-          "place_rate": 38.3,
-          "show_rate": 48.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "高野友和",
-        "this_year": {
-          "wins": 23,
-          "win_rate": 9.7,
-          "place_rate": 22.8,
-          "show_rate": 30.8
-        },
-        "last_year": {
-          "wins": 32,
-          "win_rate": 13.2,
-          "place_rate": 24.0,
-          "show_rate": 31.8
-        }
-      },
-      "interval": 7,
-      "zi_index": 115.0,
-      "time_mining": 86.53,
-      "battle_mining": 65.0,
-      "past_races": [
-        {
-          "date": "2025.9.28",
-          "race_name": "未勝利・牝*",
-          "place": "阪神",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "3",
-          "horse_number": "3",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "4",
-          "margin": 0.5,
-          "corrected_time": 95.0,
-          "running_style": "先",
-          "last_3f": 35.5,
-          "ave_3f": 35.03,
-          "pci": 48.7,
-          "position_3f": 0.5
-        },
-        {
-          "date": "2025.8.16",
-          "race_name": "新馬・牝",
-          "place": "新潟",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "8",
-          "horse_number": "16",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.5,
-          "corrected_time": 97.0,
-          "running_style": "逃",
-          "last_3f": 35.7,
-          "ave_3f": 34.88,
-          "pci": 47.7,
-          "position_3f": 0.0
-        }
-      ],
-      "indices": {
-        "mining_index": 58.7,
-        "corrected_time_deviation": 61.74,
-        "zi_deviation": 64.38,
-        "base_score": 60.46,
-        "jockey_coefficient": 1.01116,
-        "similarity_coefficient": 0.99993,
-        "stability_coefficient": 0.9975,
-        "total_coefficient_score": 0.001,
-        "final_score": 61.62
-      },
-      "predictions": {
-        "win_rate": 0.8042298063983795,
-        "win_rate_rank": 1,
-        "place_rate": 0.8037561212545719,
-        "place_rate_rank": 1,
-        "show_rate": 0.7943376446634707,
-        "show_rate_rank": 1
       }
     },
     {
@@ -1125,17 +1125,17 @@
         "zi_deviation": 41.65,
         "base_score": 42.26,
         "jockey_coefficient": 0.99183,
-        "similarity_coefficient": 1.00005,
+        "similarity_coefficient": 1.00187,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": -0.003,
-        "final_score": 38.87
+        "total_coefficient_score": -0.002,
+        "final_score": 39.83
       },
       "predictions": {
-        "win_rate": 0.059866483711620185,
+        "win_rate": 0.07880282413514987,
         "win_rate_rank": 12,
-        "place_rate": 0.09291738705668405,
+        "place_rate": 0.09616950486317154,
         "place_rate_rank": 12,
-        "show_rate": 0.11382383585914146,
+        "show_rate": 0.11560289847039308,
         "show_rate_rank": 12
       }
     },
