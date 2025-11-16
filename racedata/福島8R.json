@@ -265,17 +265,17 @@
         "zi_deviation": 75.21,
         "base_score": 67.24,
         "jockey_coefficient": 0.98924,
-        "similarity_coefficient": 1.00798,
+        "similarity_coefficient": 1.00941,
         "stability_coefficient": 0.9967,
-        "total_coefficient_score": 0.001,
-        "final_score": 69.29
+        "total_coefficient_score": 0.002,
+        "final_score": 70.49
       },
       "predictions": {
         "win_rate": 0.8493377891654799,
         "win_rate_rank": 1,
-        "place_rate": 0.8460978649797624,
+        "place_rate": 0.8452697960821676,
         "place_rate_rank": 1,
-        "show_rate": 0.8352491471937099,
+        "show_rate": 0.8274437171261267,
         "show_rate_rank": 1
       }
     },
@@ -964,7 +964,7 @@
       },
       "predictions": {
         "win_rate": 0.4161134014188027,
-        "win_rate_rank": 6,
+        "win_rate_rank": 7,
         "place_rate": 0.4599120469685861,
         "place_rate_rank": 4,
         "show_rate": 0.5179867948228992,
@@ -2028,6 +2028,90 @@
       }
     },
     {
+      "frame": 6,
+      "horse_number": 11,
+      "horse_name": "ポアゾンシーザー",
+      "mark": "*",
+      "jockey": {
+        "name": "角田大和",
+        "weight": 57.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 4.8,
+          "place_rate": 11.1,
+          "show_rate": 18.0
+        },
+        "last_year": {
+          "wins": 18,
+          "win_rate": 4.3,
+          "place_rate": 10.3,
+          "show_rate": 17.4
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "本田優",
+        "this_year": {
+          "wins": 18,
+          "win_rate": 7.1,
+          "place_rate": 12.9,
+          "show_rate": 18.4
+        },
+        "last_year": {
+          "wins": 15,
+          "win_rate": 5.0,
+          "place_rate": 11.3,
+          "show_rate": 15.6
+        }
+      },
+      "interval": 64,
+      "zi_index": 0.0,
+      "time_mining": 69.7,
+      "battle_mining": 51.8,
+      "past_races": [
+        {
+          "date": "2024.8.22",
+          "race_name": "フレッ",
+          "place": "門別",
+          "surface": "ダ",
+          "distance": "1000",
+          "track_condition": "稍",
+          "frame": "6",
+          "horse_number": "8",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "1",
+          "margin": -0.8,
+          "corrected_time": 0.0,
+          "running_style": "逃",
+          "last_3f": 0.0,
+          "ave_3f": 0.0,
+          "pci": 0.0,
+          "position_3f": 0.0
+        }
+      ],
+      "indices": {
+        "mining_index": 49.75,
+        "corrected_time_deviation": 50.0,
+        "zi_deviation": 50.0,
+        "base_score": 49.86,
+        "jockey_coefficient": 0.99507,
+        "similarity_coefficient": 1.0,
+        "stability_coefficient": 1.0,
+        "total_coefficient_score": -0.001,
+        "final_score": 48.94
+      },
+      "predictions": {
+        "win_rate": 0.1566629359654132,
+        "win_rate_rank": 12,
+        "place_rate": 0.20319350592562857,
+        "place_rate_rank": 12,
+        "show_rate": 0.22105535217404332,
+        "show_rate_rank": 12
+      }
+    },
+    {
       "frame": 3,
       "horse_number": 6,
       "horse_name": "ナムラモモ",
@@ -2197,102 +2281,18 @@
         "zi_deviation": 50.0,
         "base_score": 49.87,
         "jockey_coefficient": 0.98822,
-        "similarity_coefficient": 1.00644,
+        "similarity_coefficient": 1.00509,
         "stability_coefficient": 0.99451,
-        "total_coefficient_score": -0.0,
-        "final_score": 49.28
-      },
-      "predictions": {
-        "win_rate": 0.41580380397663524,
-        "win_rate_rank": 7,
-        "place_rate": 0.43505938275056366,
-        "place_rate_rank": 8,
-        "show_rate": 0.4549310521777297,
-        "show_rate_rank": 7
-      }
-    },
-    {
-      "frame": 6,
-      "horse_number": 11,
-      "horse_name": "ポアゾンシーザー",
-      "mark": "*",
-      "jockey": {
-        "name": "角田大和",
-        "weight": 57.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 18,
-          "win_rate": 4.8,
-          "place_rate": 11.1,
-          "show_rate": 18.0
-        },
-        "last_year": {
-          "wins": 18,
-          "win_rate": 4.3,
-          "place_rate": 10.3,
-          "show_rate": 17.4
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "本田優",
-        "this_year": {
-          "wins": 18,
-          "win_rate": 7.1,
-          "place_rate": 12.9,
-          "show_rate": 18.4
-        },
-        "last_year": {
-          "wins": 15,
-          "win_rate": 5.0,
-          "place_rate": 11.3,
-          "show_rate": 15.6
-        }
-      },
-      "interval": 64,
-      "zi_index": 0.0,
-      "time_mining": 69.7,
-      "battle_mining": 51.8,
-      "past_races": [
-        {
-          "date": "2024.8.22",
-          "race_name": "フレッ",
-          "place": "門別",
-          "surface": "ダ",
-          "distance": "1000",
-          "track_condition": "稍",
-          "frame": "6",
-          "horse_number": "8",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "1",
-          "margin": -0.8,
-          "corrected_time": 0.0,
-          "running_style": "逃",
-          "last_3f": 0.0,
-          "ave_3f": 0.0,
-          "pci": 0.0,
-          "position_3f": 0.0
-        }
-      ],
-      "indices": {
-        "mining_index": 49.75,
-        "corrected_time_deviation": 50.0,
-        "zi_deviation": 50.0,
-        "base_score": 49.86,
-        "jockey_coefficient": 0.99507,
-        "similarity_coefficient": 1.0,
-        "stability_coefficient": 1.0,
         "total_coefficient_score": -0.001,
-        "final_score": 48.94
+        "final_score": 48.44
       },
       "predictions": {
-        "win_rate": 0.1566629359654132,
-        "win_rate_rank": 12,
-        "place_rate": 0.20319350592562857,
-        "place_rate_rank": 12,
-        "show_rate": 0.22105535217404332,
-        "show_rate_rank": 12
+        "win_rate": 0.4194548805426935,
+        "win_rate_rank": 6,
+        "place_rate": 0.44181108454252355,
+        "place_rate_rank": 8,
+        "show_rate": 0.450126792524827,
+        "show_rate_rank": 7
       }
     },
     {
@@ -3432,7 +3432,7 @@
         "place_rate": 0.035746925919345446,
         "place_rate_rank": 16,
         "show_rate": 0.07383559477593825,
-        "show_rate_rank": 15
+        "show_rate_rank": 16
       }
     },
     {
@@ -3625,18 +3625,18 @@
         "zi_deviation": 36.25,
         "base_score": 28.82,
         "jockey_coefficient": 0.99173,
-        "similarity_coefficient": 1.00125,
+        "similarity_coefficient": 1.00268,
         "stability_coefficient": 0.98438,
-        "total_coefficient_score": -0.006,
-        "final_score": 24.43
+        "total_coefficient_score": -0.005,
+        "final_score": 24.95
       },
       "predictions": {
-        "win_rate": 0.03419470698822466,
+        "win_rate": 0.0406245329962553,
         "win_rate_rank": 15,
-        "place_rate": 0.052633975783784634,
+        "place_rate": 0.059966234632931506,
         "place_rate_rank": 15,
-        "show_rate": 0.06880789615390251,
-        "show_rate_rank": 16
+        "show_rate": 0.07479878305141432,
+        "show_rate_rank": 15
       }
     }
   ],
