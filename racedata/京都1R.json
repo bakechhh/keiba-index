@@ -16,6 +16,110 @@
   "meeting": "4京4",
   "horses": [
     {
+      "frame": 4,
+      "horse_number": 6,
+      "horse_name": "アーガイルショア",
+      "mark": "",
+      "jockey": {
+        "name": "西村淳也",
+        "weight": 55.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 40,
+          "win_rate": 11.3,
+          "place_rate": 21.5,
+          "show_rate": 33.4
+        },
+        "last_year": {
+          "wins": 81,
+          "win_rate": 9.5,
+          "place_rate": 17.4,
+          "show_rate": 28.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "安田翔伍",
+        "this_year": {
+          "wins": 20,
+          "win_rate": 9.8,
+          "place_rate": 16.7,
+          "show_rate": 25.5
+        },
+        "last_year": {
+          "wins": 20,
+          "win_rate": 9.0,
+          "place_rate": 17.2,
+          "show_rate": 29.9
+        }
+      },
+      "interval": 4,
+      "zi_index": 116.0,
+      "time_mining": 86.42,
+      "battle_mining": 73.7,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "未勝利・牝*",
+          "place": "京都",
+          "surface": "ダ",
+          "distance": "1400",
+          "track_condition": "稍",
+          "frame": "6",
+          "horse_number": "8",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "2",
+          "margin": 0.6,
+          "corrected_time": 97.0,
+          "running_style": "先",
+          "last_3f": 38.4,
+          "ave_3f": 35.7,
+          "pci": 43.0,
+          "position_3f": 0.4
+        },
+        {
+          "date": "2025.6.22",
+          "race_name": "新馬",
+          "place": "東京",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "5",
+          "horse_number": "9",
+          "weight": 55.0,
+          "weight_reduction": "",
+          "rank": "9",
+          "margin": 1.8,
+          "corrected_time": 83.0,
+          "running_style": "中",
+          "last_3f": 36.1,
+          "ave_3f": 36.6,
+          "pci": 51.4,
+          "position_3f": 1.4
+        }
+      ],
+      "indices": {
+        "mining_index": 63.24,
+        "corrected_time_deviation": 52.95,
+        "zi_deviation": 65.46,
+        "base_score": 60.49,
+        "jockey_coefficient": 1.00435,
+        "similarity_coefficient": 1.00997,
+        "stability_coefficient": 0.99501,
+        "total_coefficient_score": 0.004,
+        "final_score": 66.36
+      },
+      "predictions": {
+        "win_rate": 0.7876130383063753,
+        "win_rate_rank": 2,
+        "place_rate": 0.8042450886849482,
+        "place_rate_rank": 2,
+        "show_rate": 0.800466172442277,
+        "show_rate_rank": 2
+      }
+    },
+    {
       "frame": 1,
       "horse_number": 1,
       "horse_name": "ミティリーニ",
@@ -117,110 +221,6 @@
         "place_rate_rank": 1,
         "show_rate": 0.8018961045581778,
         "show_rate_rank": 1
-      }
-    },
-    {
-      "frame": 4,
-      "horse_number": 6,
-      "horse_name": "アーガイルショア",
-      "mark": "",
-      "jockey": {
-        "name": "西村淳也",
-        "weight": 55.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 40,
-          "win_rate": 11.3,
-          "place_rate": 21.5,
-          "show_rate": 33.4
-        },
-        "last_year": {
-          "wins": 81,
-          "win_rate": 9.5,
-          "place_rate": 17.4,
-          "show_rate": 28.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "安田翔伍",
-        "this_year": {
-          "wins": 20,
-          "win_rate": 9.8,
-          "place_rate": 16.7,
-          "show_rate": 25.5
-        },
-        "last_year": {
-          "wins": 20,
-          "win_rate": 9.0,
-          "place_rate": 17.2,
-          "show_rate": 29.9
-        }
-      },
-      "interval": 4,
-      "zi_index": 116.0,
-      "time_mining": 86.42,
-      "battle_mining": 73.7,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "未勝利・牝*",
-          "place": "京都",
-          "surface": "ダ",
-          "distance": "1400",
-          "track_condition": "稍",
-          "frame": "6",
-          "horse_number": "8",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "2",
-          "margin": 0.6,
-          "corrected_time": 97.0,
-          "running_style": "先",
-          "last_3f": 38.4,
-          "ave_3f": 35.7,
-          "pci": 43.0,
-          "position_3f": 0.4
-        },
-        {
-          "date": "2025.6.22",
-          "race_name": "新馬",
-          "place": "東京",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "5",
-          "horse_number": "9",
-          "weight": 55.0,
-          "weight_reduction": "",
-          "rank": "9",
-          "margin": 1.8,
-          "corrected_time": 83.0,
-          "running_style": "中",
-          "last_3f": 36.1,
-          "ave_3f": 36.6,
-          "pci": 51.4,
-          "position_3f": 1.4
-        }
-      ],
-      "indices": {
-        "mining_index": 63.24,
-        "corrected_time_deviation": 52.95,
-        "zi_deviation": 65.46,
-        "base_score": 60.49,
-        "jockey_coefficient": 1.00435,
-        "similarity_coefficient": 1.00654,
-        "stability_coefficient": 0.99501,
-        "total_coefficient_score": 0.002,
-        "final_score": 63.78
-      },
-      "predictions": {
-        "win_rate": 0.7685410841826746,
-        "win_rate_rank": 2,
-        "place_rate": 0.7871710654406151,
-        "place_rate_rank": 2,
-        "show_rate": 0.7903688316076155,
-        "show_rate_rank": 2
       }
     },
     {
@@ -501,17 +501,17 @@
         "zi_deviation": 56.8,
         "base_score": 58.4,
         "jockey_coefficient": 0.99556,
-        "similarity_coefficient": 1.00084,
+        "similarity_coefficient": 1.00119,
         "stability_coefficient": 0.997,
         "total_coefficient_score": -0.001,
-        "final_score": 56.51
+        "final_score": 56.77
       },
       "predictions": {
         "win_rate": 0.6073458732400038,
         "win_rate_rank": 5,
-        "place_rate": 0.6401023856195052,
+        "place_rate": 0.6406059210837731,
         "place_rate_rank": 5,
-        "show_rate": 0.6274441049390507,
+        "show_rate": 0.6261780968788733,
         "show_rate_rank": 5
       }
     },
@@ -1125,17 +1125,17 @@
         "zi_deviation": 41.65,
         "base_score": 42.26,
         "jockey_coefficient": 0.99183,
-        "similarity_coefficient": 1.00187,
+        "similarity_coefficient": 1.00005,
         "stability_coefficient": 0.99426,
-        "total_coefficient_score": -0.002,
-        "final_score": 39.83
+        "total_coefficient_score": -0.003,
+        "final_score": 38.87
       },
       "predictions": {
-        "win_rate": 0.07880282413514987,
+        "win_rate": 0.059866483711620185,
         "win_rate_rank": 12,
-        "place_rate": 0.09616950486317154,
+        "place_rate": 0.09291738705668405,
         "place_rate_rank": 12,
-        "show_rate": 0.11560289847039308,
+        "show_rate": 0.11382383585914146,
         "show_rate_rank": 12
       }
     },
@@ -1229,17 +1229,17 @@
         "zi_deviation": 42.73,
         "base_score": 43.48,
         "jockey_coefficient": 0.99474,
-        "similarity_coefficient": 1.00018,
+        "similarity_coefficient": 0.99835,
         "stability_coefficient": 0.99,
-        "total_coefficient_score": -0.004,
-        "final_score": 38.92
+        "total_coefficient_score": -0.005,
+        "final_score": 37.93
       },
       "predictions": {
-        "win_rate": 0.13082300927550589,
+        "win_rate": 0.0936274792492137,
         "win_rate_rank": 11,
-        "place_rate": 0.13498061975932477,
+        "place_rate": 0.1255760923711882,
         "place_rate_rank": 11,
-        "show_rate": 0.1742967040948587,
+        "show_rate": 0.15680840854511469,
         "show_rate_rank": 11
       }
     },
