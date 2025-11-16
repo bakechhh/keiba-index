@@ -1849,17 +1849,17 @@
         "zi_deviation": 42.84,
         "base_score": 52.09,
         "jockey_coefficient": 0.9934,
-        "similarity_coefficient": 1.00539,
+        "similarity_coefficient": 1.0092,
         "stability_coefficient": 0.99217,
-        "total_coefficient_score": -0.001,
-        "final_score": 50.75
+        "total_coefficient_score": 0.001,
+        "final_score": 53.23
       },
       "predictions": {
-        "win_rate": 0.325758342812552,
+        "win_rate": 0.3368832789081137,
         "win_rate_rank": 8,
-        "place_rate": 0.32239378004552965,
-        "place_rate_rank": 11,
-        "show_rate": 0.36321384487219427,
+        "place_rate": 0.3017445187332602,
+        "place_rate_rank": 10,
+        "show_rate": 0.3421591614312714,
         "show_rate_rank": 10
       }
     },
@@ -2648,7 +2648,7 @@
       },
       "predictions": {
         "win_rate": 0.29277998914072223,
-        "win_rate_rank": 10,
+        "win_rate_rank": 9,
         "place_rate": 0.37987732265690827,
         "place_rate_rank": 8,
         "show_rate": 0.43408758226058075,
@@ -3176,7 +3176,7 @@
       },
       "predictions": {
         "win_rate": 0.2678467010468113,
-        "win_rate_rank": 11,
+        "win_rate_rank": 10,
         "place_rate": 0.22868266840966092,
         "place_rate_rank": 13,
         "show_rate": 0.2683921642367075,
@@ -3444,7 +3444,7 @@
         "place_rate": 0.24552773298667524,
         "place_rate_rank": 12,
         "show_rate": 0.29250077086856063,
-        "show_rate_rank": 12
+        "show_rate_rank": 11
       }
     },
     {
@@ -3697,18 +3697,18 @@
         "zi_deviation": 50.44,
         "base_score": 35.81,
         "jockey_coefficient": 0.99731,
-        "similarity_coefficient": 1.00457,
+        "similarity_coefficient": 1.00894,
         "stability_coefficient": 0.9899,
-        "total_coefficient_score": -0.002,
-        "final_score": 34.33
+        "total_coefficient_score": 0.001,
+        "final_score": 36.28
       },
       "predictions": {
-        "win_rate": 0.30375238562870904,
-        "win_rate_rank": 9,
-        "place_rate": 0.3291029566048478,
-        "place_rate_rank": 10,
-        "show_rate": 0.29981702341928573,
-        "show_rate_rank": 11
+        "win_rate": 0.25640307792605843,
+        "win_rate_rank": 11,
+        "place_rate": 0.2978461587505807,
+        "place_rate_rank": 11,
+        "show_rate": 0.2891892225926088,
+        "show_rate_rank": 12
       }
     },
     {
