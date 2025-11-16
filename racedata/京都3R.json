@@ -120,90 +120,6 @@
       }
     },
     {
-      "frame": 4,
-      "horse_number": 6,
-      "horse_name": "ナムラロダン",
-      "mark": "",
-      "jockey": {
-        "name": "西村淳也",
-        "weight": 56.0,
-        "weight_reduction": "",
-        "this_year": {
-          "wins": 40,
-          "win_rate": 11.3,
-          "place_rate": 21.5,
-          "show_rate": 33.4
-        },
-        "last_year": {
-          "wins": 81,
-          "win_rate": 9.5,
-          "place_rate": 17.4,
-          "show_rate": 28.2
-        }
-      },
-      "trainer": {
-        "affiliation": "(栗)",
-        "name": "長谷川浩",
-        "this_year": {
-          "wins": 31,
-          "win_rate": 14.6,
-          "place_rate": 24.4,
-          "show_rate": 32.9
-        },
-        "last_year": {
-          "wins": 17,
-          "win_rate": 6.9,
-          "place_rate": 14.9,
-          "show_rate": 27.8
-        }
-      },
-      "interval": 4,
-      "zi_index": 111.0,
-      "time_mining": 93.7,
-      "battle_mining": 64.8,
-      "past_races": [
-        {
-          "date": "2025.10.19",
-          "race_name": "新馬",
-          "place": "京都",
-          "surface": "芝",
-          "distance": "1400",
-          "track_condition": "良",
-          "frame": "7",
-          "horse_number": "14",
-          "weight": 56.0,
-          "weight_reduction": "",
-          "rank": "7",
-          "margin": 0.7,
-          "corrected_time": 94.0,
-          "running_style": "先",
-          "last_3f": 35.2,
-          "ave_3f": 35.78,
-          "pci": 51.6,
-          "position_3f": 0.5
-        }
-      ],
-      "indices": {
-        "mining_index": 58.47,
-        "corrected_time_deviation": 57.61,
-        "zi_deviation": 59.9,
-        "base_score": 58.42,
-        "jockey_coefficient": 1.00435,
-        "similarity_coefficient": 1.00928,
-        "stability_coefficient": 0.9965,
-        "total_coefficient_score": 0.004,
-        "final_score": 64.37
-      },
-      "predictions": {
-        "win_rate": 0.6377106834571892,
-        "win_rate_rank": 4,
-        "place_rate": 0.6726769580764039,
-        "place_rate_rank": 3,
-        "show_rate": 0.6678785926365737,
-        "show_rate_rank": 3
-      }
-    },
-    {
       "frame": 7,
       "horse_number": 12,
       "horse_name": "エイシンティザー",
@@ -293,18 +209,102 @@
         "zi_deviation": 59.9,
         "base_score": 58.09,
         "jockey_coefficient": 1.0135,
-        "similarity_coefficient": 1.00541,
+        "similarity_coefficient": 1.00699,
         "stability_coefficient": 0.998,
-        "total_coefficient_score": 0.004,
-        "final_score": 63.94
+        "total_coefficient_score": 0.005,
+        "final_score": 65.09
       },
       "predictions": {
-        "win_rate": 0.7490129143884992,
+        "win_rate": 0.7536229631714838,
         "win_rate_rank": 2,
-        "place_rate": 0.7717426048415589,
+        "place_rate": 0.7920601362634099,
         "place_rate_rank": 2,
-        "show_rate": 0.81358794601893,
+        "show_rate": 0.8252472141866811,
         "show_rate_rank": 2
+      }
+    },
+    {
+      "frame": 4,
+      "horse_number": 6,
+      "horse_name": "ナムラロダン",
+      "mark": "",
+      "jockey": {
+        "name": "西村淳也",
+        "weight": 56.0,
+        "weight_reduction": "",
+        "this_year": {
+          "wins": 40,
+          "win_rate": 11.3,
+          "place_rate": 21.5,
+          "show_rate": 33.4
+        },
+        "last_year": {
+          "wins": 81,
+          "win_rate": 9.5,
+          "place_rate": 17.4,
+          "show_rate": 28.2
+        }
+      },
+      "trainer": {
+        "affiliation": "(栗)",
+        "name": "長谷川浩",
+        "this_year": {
+          "wins": 31,
+          "win_rate": 14.6,
+          "place_rate": 24.4,
+          "show_rate": 32.9
+        },
+        "last_year": {
+          "wins": 17,
+          "win_rate": 6.9,
+          "place_rate": 14.9,
+          "show_rate": 27.8
+        }
+      },
+      "interval": 4,
+      "zi_index": 111.0,
+      "time_mining": 93.7,
+      "battle_mining": 64.8,
+      "past_races": [
+        {
+          "date": "2025.10.19",
+          "race_name": "新馬",
+          "place": "京都",
+          "surface": "芝",
+          "distance": "1400",
+          "track_condition": "良",
+          "frame": "7",
+          "horse_number": "14",
+          "weight": 56.0,
+          "weight_reduction": "",
+          "rank": "7",
+          "margin": 0.7,
+          "corrected_time": 94.0,
+          "running_style": "先",
+          "last_3f": 35.2,
+          "ave_3f": 35.78,
+          "pci": 51.6,
+          "position_3f": 0.5
+        }
+      ],
+      "indices": {
+        "mining_index": 58.47,
+        "corrected_time_deviation": 57.61,
+        "zi_deviation": 59.9,
+        "base_score": 58.42,
+        "jockey_coefficient": 1.00435,
+        "similarity_coefficient": 1.00928,
+        "stability_coefficient": 0.9965,
+        "total_coefficient_score": 0.004,
+        "final_score": 64.37
+      },
+      "predictions": {
+        "win_rate": 0.6377106834571892,
+        "win_rate_rank": 4,
+        "place_rate": 0.6726769580764039,
+        "place_rate_rank": 3,
+        "show_rate": 0.6678785926365737,
+        "show_rate_rank": 3
       }
     },
     {
